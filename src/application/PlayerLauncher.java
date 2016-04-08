@@ -32,7 +32,7 @@ public class PlayerLauncher {
 		displayLevelSelectionMenu();
 		scan.nextLine();
 		displayAchievementsMenu();
-		/* TESTING */
+		/* END TESTING */
 	}
 	
 	public static void initModel(){
