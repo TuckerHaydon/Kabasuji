@@ -23,7 +23,7 @@ public class KabasujiBuilderApplication {
 	}
 	
 	public void initModel(){
-		
+		m = new BuilderModel();	
 	}
 	
 	public void initView(){
