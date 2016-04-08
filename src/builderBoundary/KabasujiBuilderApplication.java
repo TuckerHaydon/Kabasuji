@@ -1,5 +1,7 @@
 package builderBoundary;
 
+import builderEntity.BuilderModel;
+
 public class KabasujiBuilderApplication {
 	
 	MainMenu mainMenu;
@@ -8,12 +10,16 @@ public class KabasujiBuilderApplication {
 	GameEditorMenu gameEditorMenu;
 	GameEditor gameEditor;
 	
+	BuilderModel m;
+	
 	public KabasujiBuilderApplication(){
 		
 	}
 	
 	public void init(){
-		
+		initModel();
+		initView();
+		initConrollers();
 	}
 	
 	public void initModel(){
