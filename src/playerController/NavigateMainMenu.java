@@ -5,17 +5,17 @@ import java.awt.event.ActionListener;
 
 import playerBoundary.KabasujiPlayerApplication;
 
-public class NavigateAchievementMenu implements ActionListener {
+public class NavigateMainMenu implements ActionListener {
 	
 	KabasujiPlayerApplication app;
 	
-	public NavigateAchievementMenu(KabasujiPlayerApplication app){
+	public NavigateMainMenu(KabasujiPlayerApplication app) {
 		this.app = app;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		app.displayAchievementsMenu();
+		app.displayMainMenu();
 	}
 
 }
