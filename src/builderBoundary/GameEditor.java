@@ -19,8 +19,8 @@ public class GameEditor extends JFrame {
 		this.app = app;
 		
 		// Create the buttons
-		exportGameButton = new JButton();
-		goToMenuButton = new JButton();
+		exportGameButton = new JButton("Export Game");
+		goToMenuButton = new JButton("Main Menu");
 		// TODO create the level buttons
 	}
 	

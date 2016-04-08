@@ -16,8 +16,8 @@ public class MainMenu extends JFrame {
 		this.app = app;
 		
 		// Create the buttons
-		levelEditorButton = new JButton();
-		gameEditorButton = new JButton();
+		levelEditorButton = new JButton("Edit Level");
+		gameEditorButton = new JButton("Edit Game");
 	}
 	
 	public void initView(){

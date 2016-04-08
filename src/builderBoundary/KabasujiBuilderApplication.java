@@ -27,11 +27,22 @@ public class KabasujiBuilderApplication {
 	}
 	
 	public void initView(){
+		
+		// Create the various frames
+		mainMenu = new MainMenu(this);
+		levelEditorMenu = new LevelEditorMenu(this);
+		levelEditor = new LevelEditor(this);
+		gameEditorMenu = new GameEditorMenu(this);
+		gameEditor = new GameEditor(this);
+		
+		// Have the frames create their various views
 		mainMenu.initView();
 		levelEditorMenu.initView();
 		levelEditor.initView();
 		gameEditorMenu.initView();
 		gameEditor.initView();
+		
+		displayMainMenu();
 	}
 	
 	public void initConrollers(){

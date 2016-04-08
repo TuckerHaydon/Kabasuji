@@ -18,9 +18,9 @@ public class LevelEditorMenu extends JFrame {
 		this.app = app;
 		
 		// Create the buttons
-		createLevelButton = new JButton();
-		editLevelButton = new JButton();
-		goToMenuButton = new JButton();
+		createLevelButton = new JButton("Create Level");
+		editLevelButton = new JButton("Edit Level");
+		goToMenuButton = new JButton("Main Menu");
 	}
 	
 	public void initView(){
