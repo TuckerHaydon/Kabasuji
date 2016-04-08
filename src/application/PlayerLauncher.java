@@ -44,10 +44,18 @@ public class PlayerLauncher {
 		mainMenu = new MainMenu();
 		levelSelectionMenu = new LevelSelectionMenu();
 		achievementsMenu = new AchievementsMenu();
+		
+		gameWindow.initView();
+//		mainMenu.initView();
+//		levelSelectionMenu.initView();
+//		achievementsMenu.initView();
 	}
 	
 	public static void initControllers(){
-		
+		gameWindow.initControllers();
+//		mainMenu.initControllers();
+//		levelSelectionMenu.initControllers();
+//		achievementsMenu.initControllers();
 	}
 	
 	public static void displayMainMenu(){
