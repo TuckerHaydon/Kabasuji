@@ -1,4 +1,4 @@
-package controller;
+package playerEntity;
 
 public class placeholder {
 

@@ -1,4 +1,4 @@
-package entity;
+package playerBoundary;
 
 public class placeholder {
 
