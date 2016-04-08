@@ -5,18 +5,19 @@ import java.awt.event.ActionListener;
 
 import builderBoundary.KabasujiBuilderApplication;
 
-public class CreateLevelHandler implements ActionListener {
+public class CreateGameHandler implements ActionListener {
 	
 	KabasujiBuilderApplication app;
 	
-	public CreateLevelHandler(KabasujiBuilderApplication app) {
+	public CreateGameHandler(KabasujiBuilderApplication app) {
 		this.app = app;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO clear the level builder and stuff
-		app.displayLevelEditor();
+		// TODO Build game and stuff
+		app.displayGameEditor();
+		
 	}
 
 }

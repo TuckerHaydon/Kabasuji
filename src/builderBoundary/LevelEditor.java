@@ -30,12 +30,12 @@ public class LevelEditor extends JFrame implements KeyListener {
 		this.app = app;
 		
 		// Create all of the components
-		nextBankTiles = new JButton();
-		prevBankTiles = new JButton();
-		nextBullpenTiles = new JButton();
-		prevBullpenTiles = new JButton();
-		exportGameButton = new JButton();
-		goToMenuButton = new JButton();
+		nextBankTiles = new JButton("Next");
+		prevBankTiles = new JButton("Prev");
+		nextBullpenTiles = new JButton("Next");
+		prevBullpenTiles = new JButton("Prev");
+		exportGameButton = new JButton("Export");
+		goToMenuButton = new JButton("Main Menu");
 		
 		// TODO implement all the other shit.
 		

@@ -5,6 +5,8 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import builderController.NavigateMainMenu;
+
 public class GameEditor extends JFrame {
 	
 	KabasujiBuilderApplication app;
@@ -41,7 +43,7 @@ public class GameEditor extends JFrame {
 	
 	public void initControllers(){
 		// TODO exportGame controller
-		// TODO goToMenu controller
+		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 		// TODO level button controllers
 	}
 
