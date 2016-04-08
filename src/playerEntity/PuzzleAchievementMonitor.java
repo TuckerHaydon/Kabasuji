@@ -1,13 +1,19 @@
 package playerEntity;
 
+import java.util.Hashtable;
+
 import playerController.IMove;
 
 public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	int toBullpenMove;
 	PuzzleLevel lv;
 	
-	public PuzzleAchievementMonitor(PuzzleLevel lv){
+	public PuzzleAchievementMonitor(PuzzleLevel lv, Hashtable<String, Achievement> achievements){
 		this.lv=lv;
+		this.achievements=achievements;
+		this.isillegalMove=false;
+		this.moveCounter=0;
+		this.toBullpenMove=0;
 	}
 	
 	@Override
@@ -15,5 +21,4 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		boolean somethingnew = false;
 		return somethingnew;
 	}
-	
 }

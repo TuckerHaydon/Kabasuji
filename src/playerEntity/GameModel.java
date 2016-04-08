@@ -11,7 +11,6 @@ public class GameModel {
 	
 	
 	public GameModel(){
-		
 		//Dorothy: those still need pictures
 		this.achievements.put("BabySteps", new Achievement("BabySteps",null,null));
 		this.achievements.put("Rebel", new Achievement("Rebel",null,null));
@@ -23,6 +22,9 @@ public class GameModel {
 		this.achievements.put("RageQuit", new Achievement("RageQuit",null,null));
 		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
+	
+		
+	
 	}
 	
 }
