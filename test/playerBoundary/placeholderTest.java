@@ -1,4 +1,4 @@
-package controller;
+package playerBoundary;
 
 public class placeholderTest {
 
