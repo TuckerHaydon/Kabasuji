@@ -14,7 +14,6 @@ public class GameEditor extends JFrame {
 	JButton exportGameButton;
 	JButton goToMenuButton;
 	
-	
 	public GameEditor(KabasujiBuilderApplication app){
 		super();
 		
@@ -23,7 +22,12 @@ public class GameEditor extends JFrame {
 		// Create the buttons
 		exportGameButton = new JButton("Export Game");
 		goToMenuButton = new JButton("Main Menu");
-		// TODO create the level buttons
+		levelButtons = new JButton[15];
+		
+		// Create the 15 level buttons
+		for(int i = 0; i < 15; i++){
+			levelButtons[i] = new JButton("Level " + (i+1));
+		}
 	}
 	
 	public void initView(){
@@ -38,7 +42,10 @@ public class GameEditor extends JFrame {
 		// Add the buttons
 		this.add(exportGameButton);
 		this.add(goToMenuButton);
-		// TODO add all of the level buttons
+		for(JButton b:levelButtons){
+			this.add(b);
+		}
+			
 	}
 	
 	public void initControllers(){
