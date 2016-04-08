@@ -44,6 +44,7 @@ public class MainMenu extends JFrame {
 	public void initControllers(){
 		viewAchievements.addActionListener(new NavigateAchievementMenu(app));
 		playGame.addActionListener(new NavigateLevelSelectionMenu(app));
+		// TODO add a loadGame controller
 	}
 
 }

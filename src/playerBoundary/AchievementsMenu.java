@@ -13,6 +13,7 @@ public class AchievementsMenu extends JFrame {
 	
 	KabasujiPlayerApplication app;
 	GameModel m;
+	
 	JButton goToMenu;
 	JButton resetAchievements;
 	JLabel achievements[];
