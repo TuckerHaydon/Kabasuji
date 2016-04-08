@@ -12,7 +12,7 @@ public class GameWindow extends JFrame {
 	KabasujiPlayerApplication app;
 	GameModel m;
 	
-	public GameWindow(KabasujiPlayerApplication app)
+	public GameWindow(KabasujiPlayerApplication app, GameModel m)
 	{
 		super();
 		this.app = app;

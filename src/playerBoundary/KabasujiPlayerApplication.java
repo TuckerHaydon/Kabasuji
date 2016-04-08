@@ -2,12 +2,15 @@ package playerBoundary;
 
 import java.util.Scanner;
 
+import playerEntity.GameModel;
+
 public class KabasujiPlayerApplication {
 	
 	GameWindow gameWindow;
 	MainMenu mainMenu;
 	LevelSelectionMenu levelSelectionMenu;
 	AchievementsMenu achievementsMenu;
+	GameModel m;
 	
 	public KabasujiPlayerApplication(){
 		init();
@@ -18,18 +21,6 @@ public class KabasujiPlayerApplication {
 		initModel();
 		initView();
 		initControllers();
-		
-		/* TESTING */
-		Scanner scan = new Scanner(System.in);
-		
-		displayMainMenu();
-		scan.nextLine();
-		displayGameWindow();
-		scan.nextLine();
-		displayLevelSelectionMenu();
-		scan.nextLine();
-		displayAchievementsMenu();
-		/* END TESTING */
 	}
 	
 	public void initModel(){
@@ -37,10 +28,10 @@ public class KabasujiPlayerApplication {
 	}
 	
 	public void initView(){
-		gameWindow = new GameWindow(this);
+		gameWindow = new GameWindow(this, m);
 		mainMenu = new MainMenu(this);
 		levelSelectionMenu = new LevelSelectionMenu(this);
-		achievementsMenu = new AchievementsMenu(this);
+		achievementsMenu = new AchievementsMenu(this, m);
 		
 		gameWindow.initView();
 		mainMenu.initView();

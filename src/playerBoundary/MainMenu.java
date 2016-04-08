@@ -1,5 +1,7 @@
 package playerBoundary;
 
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -16,19 +18,27 @@ public class MainMenu extends JFrame {
 	
 	public MainMenu(KabasujiPlayerApplication app){
 		super();
-		this.setSize(1000,1000);
-		this.setTitle("Main Menu");
+		this.app = app;
 		
 		loadGame = new JButton("Load Game");
 		playGame = new JButton("Play Game");
 		viewAchievements = new JButton("View Achievements");
-		this.app = app;
+		
 	}
 	
 	public void initView(){
-//		this.add(loadGame);
+		
+		// Set properties of the frame
+		this.setSize(1000,1000);
+		this.setTitle("Main Menu");
+		
+		// Set the layout
+		getContentPane().setLayout(new GridLayout(3,1));
+		
+		// Add the buttons to the frame
+		this.add(loadGame);
 		this.add(playGame);
-//		this.add(viewAchievements);
+		this.add(viewAchievements);
 	}
 	
 	public void initControllers(){
