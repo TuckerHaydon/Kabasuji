@@ -11,9 +11,9 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	@Override
-	public void updateAchievement(IMove move) {
-		// TODO Auto-generated method stub
-		
+	public boolean updateAchievement(IMove move) {
+		boolean somethingnew = false;
+		return somethingnew;
 	}
 	
 }
