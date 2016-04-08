@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 
 import application.PlayerLauncher;
 import playerController.NavigateAchievementMenu;
+import playerController.NavigateLevelSelectionMenu;
 
 public class MainMenu extends JFrame {
 	
@@ -25,13 +26,14 @@ public class MainMenu extends JFrame {
 	}
 	
 	public void initView(){
-		this.add(loadGame);
+//		this.add(loadGame);
 		this.add(playGame);
-		this.add(viewAchievements);
+//		this.add(viewAchievements);
 	}
 	
 	public void initControllers(){
 		viewAchievements.addActionListener(new NavigateAchievementMenu(app));
+		playGame.addActionListener(new NavigateLevelSelectionMenu(app));
 	}
 
 }
