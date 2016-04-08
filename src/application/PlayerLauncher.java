@@ -46,16 +46,16 @@ public class PlayerLauncher {
 		achievementsMenu = new AchievementsMenu();
 		
 		gameWindow.initView();
-//		mainMenu.initView();
-//		levelSelectionMenu.initView();
-//		achievementsMenu.initView();
+		mainMenu.initView();
+		levelSelectionMenu.initView();
+		achievementsMenu.initView();
 	}
 	
 	public static void initControllers(){
 		gameWindow.initControllers();
-//		mainMenu.initControllers();
-//		levelSelectionMenu.initControllers();
-//		achievementsMenu.initControllers();
+		mainMenu.initControllers();
+		levelSelectionMenu.initControllers();
+		achievementsMenu.initControllers();
 	}
 	
 	public static void displayMainMenu(){

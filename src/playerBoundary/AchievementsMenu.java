@@ -10,5 +10,13 @@ public class AchievementsMenu extends JFrame {
 		this.setTitle("Achievements Menu");
 		
 	}
+	
+	public void initView(){
+		
+	}
+	
+	public void initControllers(){
+		
+	}
 
 }
