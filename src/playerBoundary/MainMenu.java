@@ -3,13 +3,17 @@ package playerBoundary;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import application.PlayerLauncher;
+import playerController.NavigateAchievementMenu;
+
 public class MainMenu extends JFrame {
 	
 	JButton loadGame;
 	JButton playGame;
 	JButton viewAchievements;
+	KabasujiPlayerApplication app;
 	
-	public MainMenu(){
+	public MainMenu(KabasujiPlayerApplication app){
 		super();
 		this.setSize(1000,1000);
 		this.setTitle("Main Menu");
@@ -17,6 +21,7 @@ public class MainMenu extends JFrame {
 		loadGame = new JButton("Load Game");
 		playGame = new JButton("Play Game");
 		viewAchievements = new JButton("View Achievements");
+		this.app = app;
 	}
 	
 	public void initView(){
@@ -26,7 +31,7 @@ public class MainMenu extends JFrame {
 	}
 	
 	public void initControllers(){
-		
+		viewAchievements.addActionListener(new NavigateAchievementMenu(app));
 	}
 
 }
