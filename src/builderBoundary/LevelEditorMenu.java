@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import builderController.CreateLevelHandler;
 import builderController.NavigateMainMenu;
 
 public class LevelEditorMenu extends JFrame {
@@ -41,7 +42,7 @@ public class LevelEditorMenu extends JFrame {
 	}
 	
 	public void initControllers(){
-		// TODO set the createLevel controller
+		createLevelButton.addActionListener(new CreateLevelHandler(app));
 		// TODO set the editLevel controller
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 	}
