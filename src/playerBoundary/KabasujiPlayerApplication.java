@@ -37,10 +37,10 @@ public class KabasujiPlayerApplication {
 	}
 	
 	public void initView(){
-		gameWindow = new GameWindow();
+		gameWindow = new GameWindow(this);
 		mainMenu = new MainMenu(this);
-		levelSelectionMenu = new LevelSelectionMenu();
-		achievementsMenu = new AchievementsMenu();
+		levelSelectionMenu = new LevelSelectionMenu(this);
+		achievementsMenu = new AchievementsMenu(this);
 		
 		gameWindow.initView();
 		mainMenu.initView();

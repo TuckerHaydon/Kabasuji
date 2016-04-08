@@ -9,11 +9,13 @@ public class GameWindow extends JFrame {
 	
 	LevelView currentLevelView;
 	TileView draggedTile;
+	KabasujiPlayerApplication app;
 	GameModel m;
 	
-	public GameWindow()
+	public GameWindow(KabasujiPlayerApplication app)
 	{
 		super();
+		this.app = app;
 		this.setSize(1000, 1000);
 		this.setTitle("Game Window");
 	}

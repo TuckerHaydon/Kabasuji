@@ -4,8 +4,11 @@ import javax.swing.JFrame;
 
 public class AchievementsMenu extends JFrame {
 	
-	public AchievementsMenu(){
+	KabasujiPlayerApplication app;
+	
+	public AchievementsMenu(KabasujiPlayerApplication app){
 		super();
+		this.app = app;
 		this.setSize(1000, 1000);
 		this.setTitle("Achievements Menu");
 		
