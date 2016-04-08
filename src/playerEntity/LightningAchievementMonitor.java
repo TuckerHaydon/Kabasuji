@@ -1,5 +1,7 @@
 package playerEntity;
 
+import java.util.Hashtable;
+
 import playerController.IMove;
 
 public class LightningAchievementMonitor extends LevelAchievementMonitor{
@@ -7,8 +9,13 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	boolean speedyGonzale;
 	LightningLevel lv;
 	
-	public LightningAchievementMonitor(LightningLevel lv){
+	public LightningAchievementMonitor(LightningLevel lv, Hashtable<String,Achievement> achievements){
 		this.lv=lv;
+		this.isillegalMove=false;
+		this.achievements=achievements;
+		this.moveCounter=0;
+		this.slowpoke=false;
+		this.speedyGonzale=false;
 	}
 	
 	@Override

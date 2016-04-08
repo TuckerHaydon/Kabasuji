@@ -1,11 +1,13 @@
 package playerEntity;
 
+import java.util.Hashtable;
+
 import playerController.IMove;
 
 public abstract class LevelAchievementMonitor {
 	int moveCounter;
 	boolean isillegalMove;
-	Achievement[] achievements = new Achievement[10];
+	Hashtable<String, Achievement> achievements;
 	
 	public abstract boolean updateAchievement(IMove move);
 	
