@@ -9,5 +9,13 @@ public class LevelSelectionMenu extends JFrame {
 		this.setSize(1000,1000);
 		this.setTitle("Level Selection Menu");
 	}
+	
+	public void initView(){
+		
+	}
+	
+	public void initControllers(){
+		
+	}
 
 }
