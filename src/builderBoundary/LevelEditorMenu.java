@@ -7,18 +7,21 @@ import javax.swing.JFrame;
 
 import builderController.CreateLevelHandler;
 import builderController.NavigateMainMenu;
+import builderEntity.BuilderModel;
 
 public class LevelEditorMenu extends JFrame {
 	
 	KabasujiBuilderApplication app;
+	BuilderModel m;
 	JButton createLevelButton;
 	JButton editLevelButton;
 	JButton goToMenuButton;
 	
-	public LevelEditorMenu(KabasujiBuilderApplication app){
+	public LevelEditorMenu(KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		
 		this.app = app;
+		this.m = m;
 		
 		// Create the buttons
 		createLevelButton = new JButton("Create Level");
@@ -42,7 +45,7 @@ public class LevelEditorMenu extends JFrame {
 	}
 	
 	public void initControllers(){
-		createLevelButton.addActionListener(new CreateLevelHandler(app));
+		createLevelButton.addActionListener(new CreateLevelHandler(app, m));
 		// TODO set the editLevel controller
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 	}

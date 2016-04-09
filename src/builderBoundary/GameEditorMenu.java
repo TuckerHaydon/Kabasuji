@@ -7,18 +7,21 @@ import javax.swing.JFrame;
 
 import builderController.CreateGameHandler;
 import builderController.NavigateMainMenu;
+import builderEntity.BuilderModel;
 
 public class GameEditorMenu extends JFrame {
 	
 	KabasujiBuilderApplication app;
+	BuilderModel m;
 	
 	JButton createGameButton;
 	JButton editGameButton;
 	JButton goToMenuButton;
 	
-	public GameEditorMenu(KabasujiBuilderApplication app){
+	public GameEditorMenu(KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		
+		this.m = m;
 		this.app = app;
 		
 		// Create the buttons
@@ -44,7 +47,7 @@ public class GameEditorMenu extends JFrame {
 	}
 	
 	public void initControllers(){
-		createGameButton.addActionListener(new CreateGameHandler(app));
+		createGameButton.addActionListener(new CreateGameHandler(app, m));
 		// TODO editGameController
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 	}

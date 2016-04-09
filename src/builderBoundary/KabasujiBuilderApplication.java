@@ -30,9 +30,9 @@ public class KabasujiBuilderApplication {
 		
 		// Create the various frames
 		mainMenu = new MainMenu(this);
-		levelEditorMenu = new LevelEditorMenu(this);
+		levelEditorMenu = new LevelEditorMenu(this, m);
 		levelEditor = new LevelEditor(this);
-		gameEditorMenu = new GameEditorMenu(this);
+		gameEditorMenu = new GameEditorMenu(this, m);
 		gameEditor = new GameEditor(this);
 		
 		// Have the frames create their various views
