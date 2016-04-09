@@ -9,25 +9,25 @@ import java.util.ArrayList;
  * @author kacper
  *
  */
-public class Board {
+public class Bullpen {
+
+	/**
+	 * 
+	 */
 	ArrayList<Tile> tiles;
-	BoardElt[][] elts;
-	
-	Board() {
-		elts = new BoardElt[12][12];
+	public Bullpen(ArrayList<Tile> t) {
+		tiles = t;
 	}
 	
 	boolean addTile(Tile t) {
-		tiles.add(t);
-		return tiles != null;
+		return tiles.add(t);
 	}
 	
 	boolean removeTile(Tile t) {
 		return tiles.remove(t);
 	}
-
-	boolean removeAll() {
-		return tiles.removeAll(tiles);
-	}
 	
+	void shiftTiles(int num) {
+		
+	}
 }
