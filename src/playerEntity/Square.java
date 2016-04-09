@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -16,6 +17,5 @@ public class Square {
 		this.anchorX = anchorX;
 		this.anchorY = anchorY;
 		this.tile = tile;
-	}
-	
+	}	
 }

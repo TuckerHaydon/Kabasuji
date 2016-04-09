@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package playerEntity;
 
 import java.util.ArrayList;
@@ -9,6 +7,7 @@ import java.util.ArrayList;
  * @author kacper
  *
  */
+
 public class Board {
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;

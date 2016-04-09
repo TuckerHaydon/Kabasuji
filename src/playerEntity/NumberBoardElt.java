@@ -18,5 +18,4 @@ public class NumberBoardElt extends PlayableBoardElt {
 		super(row, col, isHint);
 		this.color = color;
 	}
-
 }

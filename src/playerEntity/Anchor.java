@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -25,5 +26,4 @@ public class Anchor extends Square {
 		int[] ints = {this.row, this.col};
 		return ints;
 	}
-	
 }
