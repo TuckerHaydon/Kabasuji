@@ -9,7 +9,7 @@ public class GameModel {
 	GameAchievementMonitor gAM;
 	LevelAchievementMonitor currentAM;
 	
-	public GameModel(Level[] levels, Hashtable<String, Achievement> achievements){
+	public GameModel(){
 		//Dorothy: those still need pictures
 		this.achievements.put("BabySteps", new Achievement("BabySteps",null,null));
 		this.achievements.put("Rebel", new Achievement("Rebel",null,null));
