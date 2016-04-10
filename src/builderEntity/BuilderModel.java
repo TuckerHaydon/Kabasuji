@@ -25,5 +25,8 @@ public class BuilderModel {
 		this.game = g;
 	}
 	
+	public boolean addTile(Tile t) {
+		return tb.addTile(t);
+	}
 
 }

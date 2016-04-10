@@ -1,16 +1,25 @@
 package builderEntity;
 
-public class TileBank {
-Tile tiles[];
+import java.util.ArrayList;
 
-TileBank(Tile t[]){
-	this.tiles = t;
-}
+public class TileBank {
+	
+	ArrayList<Tile> tiles;
+
+	TileBank(){}
 
 
 //maybe implement as scroll pane instead?
 
-void shiftTiles(int numShift){
+	void shiftTiles(int numShift){
+		
+	}
 	
-}
+	boolean addTile(Tile t) {
+		return tiles.add(t);
+	}
+	
+	boolean removeTile(Tile t) {
+		return tiles.remove(t);
+	}
 }
