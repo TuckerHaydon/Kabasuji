@@ -10,7 +10,7 @@ public class BuilderModel {
 	TileBank tb;
 	
 	public BuilderModel(){
-		this.level = null;
+		this.level = new Level();
 		this.game = null;
 		this.selectedBoardEltType = "playable";
 		this.selectedNumber = 1;
@@ -21,15 +21,11 @@ public class BuilderModel {
 		this.level = lvl;
 	}
 	
-	public Level getLevel(){
-		return this.level;
-	}
-	
 	public void setGame(Game g){
 		this.game = g;
 	}
 	
-	public Game getGame(){
+		public Game getGame(){
 		return this.game;
 	}
 	
@@ -63,6 +59,14 @@ public class BuilderModel {
 	
 	public TileBank getTileBank(){
 		return this.tb;
+	}
+	
+	public boolean addTile(Tile t) {
+		return tb.addTile(t);
+	}
+	
+	public Level getLevel(){
+		return this.level;
 	}
 
 }

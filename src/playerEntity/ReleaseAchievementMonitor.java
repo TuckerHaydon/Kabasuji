@@ -1,8 +1,9 @@
 package playerEntity;
 
 import java.util.Hashtable;
-import java.util.Stack;
+import java.util.LinkedList;
 
+import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
 
 public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
@@ -16,11 +17,11 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		this.moveCounter=0;
 		this.numberCovered=0;
 		this.isillegalMove=false;
-		this.popingUp=new Stack<String>();
+		this.popingUp=new LinkedList<String>();
 	}
 	
 	@Override
-	public boolean updateAchievement(IMove move) {
+	public boolean updateAchievement(IMove move, KabasujiPlayerApplication app) {
 		boolean somethingnew = false;
 		return somethingnew;		
 	}

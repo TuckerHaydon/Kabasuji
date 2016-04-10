@@ -2,6 +2,11 @@ package playerBoundary;
 
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+
 import playerEntity.GameModel;
 
 public class KabasujiPlayerApplication {
@@ -37,6 +42,17 @@ public class KabasujiPlayerApplication {
 		mainMenu.initView();
 		levelSelectionMenu.initView();
 		achievementsMenu.initView();
+		JFrame splash = new JFrame("Splash Screen");
+		splash.setBounds(200, 200, 200, 200);
+		splash.getContentPane().add(new JLabel("Welcome!", SwingConstants.CENTER));
+		splash.setVisible(true);
+		try {
+		    Thread.sleep(5000);
+		} catch (InterruptedException e) {
+		    e.printStackTrace();
+		}
+		splash.setVisible(false);
+		splash.dispose();
 		displayMainMenu();
 	}
 	
