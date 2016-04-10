@@ -1,4 +1,5 @@
 package playerEntity;
+import java.awt.Image;
 
 public class Achievement {
 	boolean isEarned;
@@ -17,4 +18,7 @@ public class Achievement {
 		return isEarned;
 	}
 	
+	public void setEarned(){
+		this.isEarned=true;
+	}
 }

@@ -1,6 +1,7 @@
 package playerEntity;
 
 import java.util.Hashtable;
+import java.util.Stack;
 
 import playerController.IMove;
 
@@ -16,6 +17,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.moveCounter=0;
 		this.slowpoke=false;
 		this.speedyGonzale=false;
+		this.popingUp=new Stack<String>();
 	}
 	
 	@Override
