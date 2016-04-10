@@ -10,7 +10,7 @@ public class BuilderModel {
 	TileBank tb;
 	
 	public BuilderModel(){
-		this.level = null;
+		this.level = new Level();
 		this.game = null;
 		this.selectedBoardEltType = "playable";
 		this.selectedNumber = 1;
