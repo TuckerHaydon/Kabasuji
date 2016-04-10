@@ -22,7 +22,10 @@ public class LevelEditor extends JFrame implements KeyListener {
 	JLabel timeLabel, movesLabel, numLabel;
 	JTextField timeAllowed, numMovesAllowed;
 	JComboBox<String> boardEltNumBox, levelTypeBox, boardEltTypeBox, boardEltColorsBox;
-	String boardEltNums[], levelTypes[], boardEltTypes[], boardEltColors[];
+	String boardEltNums[] = {"1", "2", "3", "4", "5", "6"}, 
+			levelTypes[] = {"puzzle", "release", "lightning"}, 
+			boardEltTypes[] = {"playable", "unplayable", "hint", "numbered"},
+			boardEltColors[] = {"red", "blue", "green"};
 	
 	public LevelEditor(KabasujiBuilderApplication app){
 		super();
@@ -36,6 +39,17 @@ public class LevelEditor extends JFrame implements KeyListener {
 		prevBullpenTiles = new JButton("Prev");
 		exportGameButton = new JButton("Export");
 		goToMenuButton = new JButton("Main Menu");
+		
+		boardEltNumBox = new JComboBox<String>(boardEltNums);
+		levelTypeBox = new JComboBox<String>(levelTypes);
+		boardEltTypeBox = new JComboBox<String>(boardEltTypes);
+		boardEltColorsBox = new JComboBox<String>(boardEltColors);
+		
+		// Set the combo boxes to a default selected value
+		boardEltNumBox.setSelectedIndex(1);
+		levelTypeBox.setSelectedIndex(1);
+		boardEltColorsBox.setSelectedIndex(1);
+		boardEltTypeBox.setSelectedIndex(1);
 		
 		// TODO implement all the other shit.
 		
@@ -57,6 +71,10 @@ public class LevelEditor extends JFrame implements KeyListener {
 		this.add(prevBullpenTiles);
 		this.add(exportGameButton);
 		this.add(goToMenuButton);
+		this.add(boardEltNumBox);
+		this.add(levelTypeBox);
+		this.add(boardEltColorsBox);
+		this.add(boardEltTypeBox);
 	}
 	
 	public void initControllers(){
