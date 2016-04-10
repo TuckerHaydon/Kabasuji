@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import builderEntity.TileBank;
 
-public class TileBankView extends JPanel {
+public class TileBankView extends JPanel{
 	
 	TileBank tb;
 	

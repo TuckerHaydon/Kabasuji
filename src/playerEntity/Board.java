@@ -17,8 +17,7 @@ public class Board {
 	}
 	
 	boolean addTile(Tile t) {
-		tiles.add(t);
-		return tiles != null;
+		return tiles.add(t);
 	}
 	
 	boolean removeTile(Tile t) {

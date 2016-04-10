@@ -1,17 +1,19 @@
 package builderEntity;
 
+import builderEntity.Tile;
+
 public class Square {
 
-	int anchorRelX;
-	int anchorRelY;
-	Tile owner;
+	int anchorX;
+	int anchorY;
+	Tile tile;
 	
-	Square(int relX, int relY, Tile owner){
-		this.anchorRelX = relX;
-		this.anchorRelY = relY;
-		this.owner = owner;
-	}
-	
+	Square(int anchorX, int anchorY, Tile tile) {
+		this.anchorX = anchorX;
+		this.anchorY = anchorY;
+		this.tile = tile;
+	}	
+		
 	void setAnchorRelX(int x){
 		this.anchorRelX = x;
 	}
