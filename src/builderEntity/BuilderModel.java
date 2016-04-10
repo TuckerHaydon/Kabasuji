@@ -17,7 +17,7 @@ public class BuilderModel {
 		this.selectedColor = "red";
 	}
 	
-	public void setlevel(Level lvl){
+	public void setLevel(Level lvl){
 		this.level = lvl;
 	}
 	
@@ -63,6 +63,10 @@ public class BuilderModel {
 	
 	public boolean addTile(Tile t) {
 		return tb.addTile(t);
+	}
+	
+	public Level getLevel(){
+		return this.level;
 	}
 
 }
