@@ -4,13 +4,12 @@ import java.util.Hashtable;
 
 public class GameModel {
 	Hashtable<String, Achievement> achievements;
+	Level[] levels = new Level[15];
+	Level currentLevel;	
+	GameAchievementMonitor gAM;
+	LevelAchievementMonitor currentAM;
 	
-	
-	
-	
-	
-	
-	public GameModel(){
+	public GameModel(Level[] levels, Hashtable<String, Achievement> achievements){
 		//Dorothy: those still need pictures
 		this.achievements.put("BabySteps", new Achievement("BabySteps",null,null));
 		this.achievements.put("Rebel", new Achievement("Rebel",null,null));
@@ -23,8 +22,11 @@ public class GameModel {
 		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
 	
-		
+		this.levels[15] = levels[15];
+	}
 	
+	void setCurrentLevel(int levelNum){
+		this.currentLevel = levels[levelNum];
 	}
 	
 }
