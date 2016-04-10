@@ -37,6 +37,7 @@ public class KabasujiPlayerApplication {
 		mainMenu.initView();
 		levelSelectionMenu.initView();
 		achievementsMenu.initView();
+		displayMainMenu();
 	}
 	
 	public void initControllers(){

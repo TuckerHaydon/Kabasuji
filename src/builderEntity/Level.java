@@ -14,6 +14,10 @@ public class Level {
 		this.levelType = levelType;
 	}
 	
+	public Level(){
+		
+	}
+	
 	Bullpen getBullpen(){
 		return this.bullpen;
 	}
