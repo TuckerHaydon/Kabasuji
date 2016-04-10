@@ -18,16 +18,23 @@ public abstract class Level {
 		return score;
 	}
 	
+	public int getLevelNum(){
+		return this.levelNum;
+	}
 	
-	boolean isLevelDone(){
+	public void setLevelNum(int i){
+		this.levelNum = i;
+	}
+	
+	public boolean isLevelDone(){
 		return isComplete;
 	}
 	
-	void setIsUnlocked(boolean u){
+	public void setIsUnlocked(boolean u){
 		this.isUnlocked = u;
 	}
 	
-	boolean getIsUnlocked(){
+	public boolean getIsUnlocked(){
 		return this.isUnlocked;
 	}
 	
