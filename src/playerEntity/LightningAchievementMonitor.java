@@ -15,8 +15,6 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.isillegalMove=false;
 		this.achievements=achievements;
 		this.moveCounter=0;
-		this.slowpoke=false;
-		this.speedyGonzale=false;
 		this.popingUp=new LinkedList<String>();
 	}
 	
