@@ -10,7 +10,7 @@ public class Game {
 		this.levels = levels;
 	}
 	
-	Game() {
+	public Game() {
 		levels = new Level[15];
 	}
 	

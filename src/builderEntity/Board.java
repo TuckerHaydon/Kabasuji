@@ -13,6 +13,13 @@ public class Board {
 		elts = new BoardElt[12][12];
 	}
 	
+	void setElts(BoardElt[][] elts){
+		this.elts = elts;
+	}
+	
+	BoardElt[][] getElts(){
+		return this.elts;
+	}
 	
 	//do we even need these methods?
 	boolean addTile(Tile t){

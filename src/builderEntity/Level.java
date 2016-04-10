@@ -7,7 +7,7 @@ public class Level {
 	int levelNum;
 	String levelType;
 	
-	Level(Bullpen bp, Board board, int levelNum, String levelType){
+	public Level(Bullpen bp, Board board, int levelNum, String levelType){
 		this.bullpen = bp;
 		this.board = board;
 		this.levelNum = levelNum;
@@ -18,12 +18,24 @@ public class Level {
 		return this.bullpen;
 	}
 	
+	void setBullpen(Bullpen bp){
+		this.bullpen = bp;
+	}
+	
 	Board getBoard(){
 		return this.board;
 	}
 	
+	void setBoard(Board b){
+		this.board = b;
+	}
+	
 	int getLevelNum(){
 		return this.levelNum;
+	}
+	
+	void setLevelNum(int n){
+		this.levelNum = n;
 	}
 	
 	String getLevelType(){
