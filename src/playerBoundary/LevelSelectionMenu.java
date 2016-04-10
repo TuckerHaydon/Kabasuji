@@ -7,12 +7,15 @@ import javax.swing.JFrame;
 
 import builderBoundary.KabasujiBuilderApplication;
 import playerController.NavigateMainMenu;
+import playerController.PlayLevel;
+import playerEntity.GameModel;
 
 public class LevelSelectionMenu extends JFrame {
 	
 	JButton levels[];
 	JButton goToMainMenu;
 	KabasujiPlayerApplication app;
+	GameModel m;
 	
 	public LevelSelectionMenu(KabasujiPlayerApplication app){
 		super();
