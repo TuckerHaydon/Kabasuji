@@ -14,5 +14,14 @@ public class LevelBuilderView extends JPanel{
 	public LevelBuilderView(Level lvl){
 		this.lvl = lvl;
 	}
+	
+	public void initView(){
+		// bullpenView = new BullpenView();
+		// TODO
+	}
+	
+	public void initControllers(){
+		// TODO
+	}
 
 }

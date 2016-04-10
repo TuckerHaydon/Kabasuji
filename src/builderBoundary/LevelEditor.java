@@ -29,9 +29,6 @@ public class LevelEditor extends JFrame implements KeyListener {
 			boardEltColors[] = {"red", "blue", "green"};
 	
 	LevelBuilderView levelBuilderView;
-	BullpenView bullpenView;
-	TileBankView tileBankView;
-	BoardView boardView;
 	
 	public LevelEditor(KabasujiBuilderApplication app){
 		super();
@@ -72,6 +69,10 @@ public class LevelEditor extends JFrame implements KeyListener {
 		// Set the frame layout
 		getContentPane().setLayout(new GridLayout(5,5));
 		
+		// LevelBuilderView stuff
+		levelBuilderView.setSize(200, 200);
+		levelBuilderView.initView();
+		
 		// Add all of the components
 		this.add(nextBankTiles);
 		this.add(prevBankTiles);
@@ -85,11 +86,11 @@ public class LevelEditor extends JFrame implements KeyListener {
 		this.add(boardEltTypeBox);
 		this.add(levelBuilderView);
 		
-		levelBuilderView.setSize(200, 200);
 	}
 	
 	public void initControllers(){
 		// TODO add all the controllers
+		levelBuilderView.initControllers();
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 	}
 
