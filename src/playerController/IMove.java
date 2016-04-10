@@ -1,5 +1,8 @@
 package playerController;
 
-public interface IMove {
+import playerBoundary.KabasujiPlayerApplication;
 
+public interface IMove {
+	boolean doMove(KabasujiPlayerApplication app);
+	boolean isValid(KabasujiPlayerApplication app);
 }
