@@ -1,6 +1,6 @@
 package builderEntity;
 
-public class BoardElt {
+public abstract class BoardElt {
 
 	int row;
 	int col;
@@ -8,6 +8,11 @@ public class BoardElt {
 	BoardElt(int row, int col){
 		this.row = row;
 		this.col = col;
+	}
+	
+	int[] getRowCol() {
+		int[] ints = {row, col};
+		return ints;
 	}
 	
 	

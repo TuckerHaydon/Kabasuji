@@ -14,4 +14,24 @@ public class Level {
 		this.levelType = levelType;
 	}
 	
+	Bullpen getBullpen(){
+		return this.bullpen;
+	}
+	
+	Board getBoard(){
+		return this.board;
+	}
+	
+	int getLevelNum(){
+		return this.levelNum;
+	}
+	
+	String getLevelType(){
+		return this.levelType;
+	}
+	
+	void setLevelType(String type){
+		this.levelType = type;
+	}
+	
 }

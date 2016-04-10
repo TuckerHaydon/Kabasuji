@@ -1,5 +1,6 @@
 package builderEntity;
 
+
 public class Board {
 	
 	BoardElt elts[][];
@@ -8,7 +9,13 @@ public class Board {
 		this.elts = elts;
 	}
 	
-	boolean addTile(){
+	Board() {
+		elts = new BoardElt[12][12];
+	}
+	
+	
+	//do we even need these methods?
+	boolean addTile(Tile t){
 		return true;
 	}
 	
