@@ -3,13 +3,13 @@ package playerBoundary;
 import javax.swing.JLabel;
 
 import playerEntity.Level;
+import playerEntity.PuzzleLevel;
 
 public class PuzzleLevelView extends LevelView{
 	JLabel movesLeft;
 	
-	public PuzzleLevelView(Level l) {
-		super(l);
-		// TODO Auto-generated constructor stub
+	public PuzzleLevelView(PuzzleLevel puzzleLvl) {
+		this.level = puzzleLvl;
 	}
 
 }
