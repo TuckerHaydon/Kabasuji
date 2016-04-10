@@ -18,23 +18,35 @@ public class Level {
 		
 	}
 	
-	Bullpen getBullpen(){
+	public Bullpen getBullpen(){
 		return this.bullpen;
 	}
 	
-	Board getBoard(){
+	public void setBullpen(Bullpen bp){
+		this.bullpen = bp;
+	}
+	
+	public Board getBoard(){
 		return this.board;
 	}
 	
-	int getLevelNum(){
+	public void setBoard(Board b){
+		this.board = b;
+	}
+	
+	public int getLevelNum(){
 		return this.levelNum;
 	}
 	
-	String getLevelType(){
+	public void setLevelNum(int n){
+		this.levelNum = n;
+	}
+	
+	public String getLevelType(){
 		return this.levelType;
 	}
 	
-	void setLevelType(String type){
+	public void setLevelType(String type){
 		this.levelType = type;
 	}
 	

@@ -19,7 +19,7 @@ public class KabasujiBuilderApplication {
 	public void init(){
 		initModel();
 		initView();
-		initConrollers();
+		initControllers();
 	}
 	
 	public void initModel(){
@@ -45,7 +45,7 @@ public class KabasujiBuilderApplication {
 		displayMainMenu();
 	}
 	
-	public void initConrollers(){
+	public void initControllers(){
 		mainMenu.initControllers();
 		levelEditorMenu.initControllers();
 		levelEditor.initControllers();

@@ -28,6 +28,8 @@ public class GameEditorMenu extends JFrame {
 		createGameButton = new JButton("Create Game");
 		editGameButton = new JButton("Edit Game");
 		goToMenuButton = new JButton("Main Menu");
+		
+		
 	}
 	
 	public void initView(){
