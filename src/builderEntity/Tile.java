@@ -47,4 +47,17 @@ public void rotateRight() {
 			square.anchorX = -square.anchorX;
 		}
 	}
+	
+	Tile() {
+		squares = new Square[6];
+	}
+	
+	void setSquares(Square s[]){
+		this.squares = s;
+	}
+	
+	Square[] getSquares(){
+		return this.squares;
+	}
+	
 }

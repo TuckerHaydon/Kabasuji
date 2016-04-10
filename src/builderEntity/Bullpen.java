@@ -10,6 +10,14 @@ public class Bullpen {
 		this.tiles = tiles;
 	}
 	
+	void setTiles(ArrayList<Tile> t){
+		this.tiles = t;
+	}
+	
+	ArrayList<Tile> getTiles(){
+		return this.tiles;
+	}
+	
 	boolean addTile(Tile t){
 		return tiles.add(t);
 	}

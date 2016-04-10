@@ -25,6 +25,42 @@ public class BuilderModel {
 		this.game = g;
 	}
 	
+		public Game getGame(){
+		return this.game;
+	}
+	
+	public void setSelectedBoardEltType(String type){
+		this.selectedBoardEltType = type;
+	}
+	
+	public String getSelectedBoardEltType(){
+		return this.selectedBoardEltType;
+	}
+	
+	public void setSelectedColor(String c){
+		this.selectedColor = c;
+	}
+	
+	public String getSelectedColor(){
+		return this.selectedColor;
+	}
+	
+	public void setSelectedNumber(int num){
+		this.selectedNumber = num;
+	}
+	
+	public int getSelectedNumber(){
+		return this.selectedNumber;
+	}
+	
+	public void setTileBank(TileBank tb){
+		this.tb = tb;
+	}
+	
+	public TileBank getTileBank(){
+		return this.tb;
+	}
+	
 	public boolean addTile(Tile t) {
 		return tb.addTile(t);
 	}

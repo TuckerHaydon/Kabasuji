@@ -12,5 +12,21 @@ public class NumberedBoardElt extends PlayableBoardElt{
 		this.num = num;
 		
 	}
+	
+	void setColor(Color c){
+		this.c = c;
+	}
+	
+	Color getColor(){
+		return this.c;
+	}
+	
+	void setNum(int n){
+		this.num = n;
+	}
+	
+	int getNum(){
+		return this.num;
+	}
 
 }
