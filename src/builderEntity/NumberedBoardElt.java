@@ -1,6 +1,6 @@
 package builderEntity;
 
-import com.sun.prism.paint.Color;
+import java.awt.Color;
 
 public class NumberedBoardElt extends PlayableBoardElt{
 
