@@ -25,5 +25,9 @@ public class BuilderModel {
 		this.game = g;
 	}
 	
+	public Level getLevel(){
+		return level;
+	}
+	
 
 }

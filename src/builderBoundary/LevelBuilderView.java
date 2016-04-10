@@ -11,10 +11,7 @@ public class LevelBuilderView extends JPanel{
 	BoardView boardView;
 	Level lvl;
 	
-	public LevelBuilderView(BullpenView bpv, TileBankView tbv, BoardView bv, Level lvl){
-		this.bullpenView = bpv;
-		this.bankView = tbv;
-		this.boardView = bv;
+	public LevelBuilderView(Level lvl){
 		this.lvl = lvl;
 	}
 

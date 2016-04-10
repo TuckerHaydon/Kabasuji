@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
+import builderEntity.Level;
 
 public class LevelEditor extends JFrame implements KeyListener {
 	
@@ -27,10 +28,17 @@ public class LevelEditor extends JFrame implements KeyListener {
 			boardEltTypes[] = {"playable", "unplayable", "hint", "numbered"},
 			boardEltColors[] = {"red", "blue", "green"};
 	
+	LevelBuilderView levelBuilderView;
+	BullpenView bullpenView;
+	TileBankView tileBankView;
+	BoardView boardView;
+	
 	public LevelEditor(KabasujiBuilderApplication app){
 		super();
 		
 		this.app = app;
+		
+		levelBuilderView = new LevelBuilderView(m.getLevel()); 
 		
 		// Create all of the components
 		nextBankTiles = new JButton("Next");
@@ -75,6 +83,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 		this.add(levelTypeBox);
 		this.add(boardEltColorsBox);
 		this.add(boardEltTypeBox);
+		this.add(levelBuilderView);
+		
+		levelBuilderView.setSize(200, 200);
 	}
 	
 	public void initControllers(){
