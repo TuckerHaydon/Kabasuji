@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-
 import playerEntity.GameModel;
+import playerEntity.Level;
 
 public class KabasujiPlayerApplication {
 	
@@ -30,6 +30,13 @@ public class KabasujiPlayerApplication {
 	
 	public void initModel(){
 		m = new GameModel();
+		
+		Level[] levels = new Level[15];
+		//for (int i = 0; i<15; i++) {
+		//	levels[i].setLevelNum(i + 1);
+		//	levels[i].setIsUnlocked(true);
+		//} 
+		
 	}
 	
 	public void initView(){
