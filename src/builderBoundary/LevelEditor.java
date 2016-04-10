@@ -34,8 +34,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 		super();
 		
 		this.app = app;
+		m = new BuilderModel();
 		
-		levelBuilderView = new LevelBuilderView(m.getLevel()); 
+		levelBuilderView = new LevelBuilderView(m.getLevel(), app); 
 		
 		// Create all of the components
 		nextBankTiles = new JButton("Next");
