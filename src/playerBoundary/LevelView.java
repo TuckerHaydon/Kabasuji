@@ -12,4 +12,6 @@ public abstract class LevelView extends View {
 	JLabel score;
 	Level level;
 	
+	abstract void initView();
+	
 }

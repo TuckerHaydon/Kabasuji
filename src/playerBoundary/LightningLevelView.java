@@ -15,4 +15,10 @@ public class LightningLevelView extends LevelView{
 		goToMenu = new JButton("Main Menu");
 	}
 
+	@Override
+	void initView() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

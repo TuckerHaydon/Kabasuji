@@ -14,4 +14,10 @@ public class PuzzleLevelView extends LevelView{
 		goToMenu = new JButton("Main Menu");
 	}
 
+	@Override
+	public void initView() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
