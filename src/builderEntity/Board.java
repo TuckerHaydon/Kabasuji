@@ -21,13 +21,5 @@ public class Board {
 		return this.elts;
 	}
 	
-	//do we even need these methods?
-	boolean addTile(Tile t){
-		return true;
-	}
-	
-	boolean remTile(){
-		return true;
-	}
 
 }

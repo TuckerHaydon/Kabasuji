@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import builderBoundary.KabasujiBuilderApplication;
 import playerController.NavigateMainMenu;
 
 public class LevelSelectionMenu extends JFrame {
@@ -18,6 +19,12 @@ public class LevelSelectionMenu extends JFrame {
 		this.app = app;
 		
 		goToMainMenu = new JButton("Main Menu");
+		levels = new JButton[15];
+		
+		// Create the 15 level buttons
+		for(int i = 0; i < 15; i++){
+			levels[i] = new JButton("Level " + (i+1));
+		}
 	}
 	
 	public void initView(){
@@ -31,11 +38,17 @@ public class LevelSelectionMenu extends JFrame {
 
 		// Add the buttons
 		this.add(goToMainMenu);
+		
+		for(JButton b:levels){
+			this.add(b);
+		}
 	}
 	
 	public void initControllers(){
 		goToMainMenu.addActionListener(new NavigateMainMenu(app));
 		// TODO level button controllers
-	}
 
+	}
 }
+
+
