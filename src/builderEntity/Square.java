@@ -4,14 +4,14 @@ import builderEntity.Tile;
 
 public class Square {
 
-	int anchorX;
-	int anchorY;
-	Tile tile;
+	int anchorRelX;
+	int anchorRelY;
+	Tile owner;
 	
-	Square(int anchorX, int anchorY, Tile tile) {
-		this.anchorX = anchorX;
-		this.anchorY = anchorY;
-		this.tile = tile;
+	Square(int anchorRelX, int anchorRelY, Tile tile) {
+		this.anchorRelX = anchorRelX;
+		this.anchorRelY = anchorRelY;
+		this.owner = tile;
 	}	
 		
 	void setAnchorRelX(int x){

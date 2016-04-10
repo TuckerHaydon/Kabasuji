@@ -6,10 +6,10 @@ import javax.swing.JLabel;
 import playerEntity.Level;
 import playerEntity.ReleaseLevel;
 
-public class PuzzleLevelView extends LevelView{
+public class ReleaseLevelView extends LevelView{
 	JLabel movesLeft;
 	
-	public PuzzleLevelView(ReleaseLevel relLvl) {
+	public ReleaseLevelView(ReleaseLevel relLvl) {
 		this.level = relLvl;
 		goToMenu = new JButton("Main Menu");
 	}

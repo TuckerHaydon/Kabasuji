@@ -26,7 +26,7 @@ public class PuzzleLevel extends Level {
 		return score;
 	}
 	
-	boolean isLevelDone(){
+	public boolean isLevelDone(){
 		return isCompleted;
 	}
 	

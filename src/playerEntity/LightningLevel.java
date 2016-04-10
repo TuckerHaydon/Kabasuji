@@ -27,7 +27,7 @@ public class LightningLevel extends Level{
 		return score;
 	}
 	
-	boolean isLevelDone(){
+	public boolean isLevelDone(){
 		return isCompleted;
 	}
 	

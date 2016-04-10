@@ -26,8 +26,12 @@ public class GameModel {
 		this.levels = new Level[15];
 	}
 	
-	void setCurrentLevel(int levelNum){
+	public void setCurrentLevel(int levelNum){
 		this.currentLevel = levels[levelNum];
+	}
+	
+	public Level[] getLevel(){
+		return this.levels;
 	}
 	
 }

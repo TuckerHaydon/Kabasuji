@@ -21,7 +21,7 @@ public class ReleaseLevel extends Level {
 		return score;
 	}
 	
-	boolean isLevelDone(){
+	public boolean isLevelDone(){
 		return isCompleted;
 	}
 	
