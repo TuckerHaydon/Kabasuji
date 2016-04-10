@@ -9,5 +9,13 @@ public class PlayableBoardElt extends BoardElt{
 		this.isHint = isHint;
 		// TODO Auto-generated constructor stub
 	}
+	
+	void setIsHint(boolean h){
+		this.isHint = h;
+	}
+	
+	boolean getIsHint(){
+		return this.isHint;
+	}
 
 }
