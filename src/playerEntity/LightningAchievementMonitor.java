@@ -23,4 +23,14 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		boolean somethingnew = false;
 		return somethingnew;
 	}
+	
+	private boolean checkSlowPoke(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
+	}
+	
+	private boolean checkRageQuit(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
+	}
 }

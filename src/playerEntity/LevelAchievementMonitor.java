@@ -12,35 +12,46 @@ public abstract class LevelAchievementMonitor {
 	public abstract boolean updateAchievement(IMove move);
 	
 	
-	protected boolean earnBabyStep(IMove move) {
-		return false;
+	protected boolean earnBabyStep() {
+		return achievements.get("SpeedyGonzales").getisEarned();
 	}
 	
-	protected boolean earnRebel(IMove move) {
-		return false;
+	protected boolean earnRebel() {
+		return achievements.get("Rebel").getisEarned();
+	}
+	 
+	protected boolean earnOverAchiever() {
+		return achievements.get("OverAchiever").getisEarned();
 	}
 	
-	protected boolean earnOverAchiever(IMove move) {
-		return false;
+	protected boolean earnSlowPoke() {
+		return achievements.get("SlowPoke").getisEarned();
 	}
 	
-	protected boolean earnSlowPoke(IMove move) {
-		return false;
+	protected boolean earnSpeedyGonzales() {
+		return achievements.get("SpeedyGonzales").getisEarned();
 	}
 	
-	protected boolean earnSpeedyGonzales(IMove move) {
-		return false;
+	protected boolean earnJustUnderTheWire() {
+		return achievements.get("JustUnderTheWire").getisEarned();
 	}
 	
-	protected boolean earnJustUnderTheWire(IMove move) {
-		return false;
+	protected boolean earnNoRegrets() {
+		return achievements.get("NoRegrets").getisEarned();
 	}
 	
-	protected boolean earnNoRegrets(IMove move) {
-		return false;
+	protected boolean earnRageQuit() {
+		return achievements.get("RageQuit").getisEarned();
 	}
 	
-	protected boolean earnRageQuit(IMove move) {
-		return false;
+	protected boolean checkBabySteps(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
 	}
+	
+	protected boolean checkRebel(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
+	}
+	
 }

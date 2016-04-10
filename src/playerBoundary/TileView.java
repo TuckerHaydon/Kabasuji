@@ -6,8 +6,7 @@ import playerEntity.Tile;
  * Author: Damani 
  */
 
-public class TileView {
-	
+public class TileView extends View {
 	Tile t;
 	int x;
 	int y;

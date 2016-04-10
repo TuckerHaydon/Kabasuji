@@ -44,4 +44,9 @@ public class Achievement {
 	void setUnEarnedPic(Image i){
 		this.unEarnedPic = i;
 	}
+	
+	public boolean getisEarned(){
+		return isEarned;
+	}
+	
 }
