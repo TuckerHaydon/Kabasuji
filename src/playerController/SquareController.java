@@ -14,10 +14,16 @@ public class SquareController extends java.awt.event.MouseAdapter{
 	GameModel m;	
 	
 	public SquareController (KabasujiPlayerApplication app, BoardView boardview, GameModel model){
+		super();
 		
+		this.app = app;
+		this.bv = boardview;
+		this.m = model;
 	}
 	
 	public void mouseDragged(MouseEvent me){
+		
+		//GameWindow gw = .draggedTile
 		
 	}
 	
@@ -25,7 +31,7 @@ public class SquareController extends java.awt.event.MouseAdapter{
 		
 	}
 	
-	public void mouseRelease(MouseEvent me){
+	public void mouseReleased(MouseEvent me){
 		
 	}
 

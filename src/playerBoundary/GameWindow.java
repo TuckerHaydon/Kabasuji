@@ -35,5 +35,9 @@ public class GameWindow extends JFrame {
 	public void updateLevelView(LevelView lv){
 		this.currentLevelView = lv;
 	}
+	
+	public TileView getDraggedTile(){
+		return this.draggedTile;
+	}
 
 }
