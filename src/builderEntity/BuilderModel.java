@@ -17,17 +17,52 @@ public class BuilderModel {
 		this.selectedColor = "red";
 	}
 	
-	public void setlevel(Level lvl){
+	public void setLevel(Level lvl){
 		this.level = lvl;
+	}
+	
+	public Level getLevel(){
+		return this.level;
 	}
 	
 	public void setGame(Game g){
 		this.game = g;
 	}
 	
-	public Level getLevel(){
-		return level;
+	public Game getGame(){
+		return this.game;
 	}
 	
+	public void setSelectedBoardEltType(String type){
+		this.selectedBoardEltType = type;
+	}
+	
+	public String getSelectedBoardEltType(){
+		return this.selectedBoardEltType;
+	}
+	
+	public void setSelectedColor(String c){
+		this.selectedColor = c;
+	}
+	
+	public String getSelectedColor(){
+		return this.selectedColor;
+	}
+	
+	public void setSelectedNumber(int num){
+		this.selectedNumber = num;
+	}
+	
+	public int getSelectedNumber(){
+		return this.selectedNumber;
+	}
+	
+	public void setTileBank(TileBank tb){
+		this.tb = tb;
+	}
+	
+	public TileBank getTileBank(){
+		return this.tb;
+	}
 
 }

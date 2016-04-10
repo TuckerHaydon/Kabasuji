@@ -1,9 +1,19 @@
 package builderEntity;
 
-public class TileBank {
-Tile tiles[];
+import java.util.ArrayList;
 
-TileBank(Tile t[]){
+public class TileBank {
+ArrayList<Tile> tiles;
+
+TileBank(ArrayList<Tile> t){
+	this.tiles = t;
+}
+
+ArrayList<Tile> getTiles(){
+	return this.tiles;
+}
+
+void setTiles(ArrayList<Tile> t){
 	this.tiles = t;
 }
 

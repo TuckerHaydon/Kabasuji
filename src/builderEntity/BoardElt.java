@@ -16,4 +16,9 @@ public abstract class BoardElt {
 	}
 	
 	
+	void setRowCol(int[] rowcol){
+		this.row = rowcol[0];
+		this.col = rowcol[1];
+	}
+	
 }
