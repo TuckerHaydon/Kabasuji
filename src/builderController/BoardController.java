@@ -19,6 +19,7 @@ public class BoardController extends MouseAdapter {
 	public void mouseClicked(MouseEvent me){
 		int x = me.getX();
 		int y = me.getY();
+		System.out.println("Ive been clicked!");
 		
 		// TODO find what object is at the location and create a move for it.
 	}
