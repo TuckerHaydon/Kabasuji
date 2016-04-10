@@ -19,15 +19,15 @@ public abstract class Level {
 	}
 	
 	
-	boolean isLevelDone(){
+	public boolean isLevelDone(){
 		return isComplete;
 	}
 	
-	void setIsUnlocked(boolean u){
+	public void setIsUnlocked(boolean u){
 		this.isUnlocked = u;
 	}
 	
-	boolean getIsUnlocked(){
+	public boolean getIsUnlocked(){
 		return this.isUnlocked;
 	}
 	

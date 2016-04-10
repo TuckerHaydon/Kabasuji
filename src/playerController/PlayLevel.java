@@ -4,26 +4,28 @@ import java.awt.event.ActionListener;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 import playerEntity.Level;
-import playerEntity.LightningLevel;
 
 public class PlayLevel implements ActionListener {
 
 	KabasujiPlayerApplication app;
 	GameModel m;
-	Level l;
+	int levelNum;
 
-	public PlayLevel(KabasujiPlayerApplication app, GameModel m, Level l){
+	public PlayLevel(KabasujiPlayerApplication app, GameModel m, int ln){
 		this.app = app;
 		this.m = m;
-		this.l = l;
+		this.levelNum = ln;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-
-		if(l.isUnlocked){
+		
+		Level[] theseLevels = m.getLevel();
+		if(theseLevels[levelNum].isUnlocked){
 			app.displayGameWindow();
 		}
+		
+		//app.displayGameWindow();
 	}
 
 }
