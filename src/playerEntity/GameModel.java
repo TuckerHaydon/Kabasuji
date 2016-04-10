@@ -6,7 +6,7 @@ public class GameModel {
 	Hashtable<String, Achievement> achievements;
 	Level[] levels;
 	Level currentLevel;	
-	GameAchievementMonitor gAM;
+	GameAchievementMonitor GAM;
 	LevelAchievementMonitor currentAM;
 	
 	public GameModel(){

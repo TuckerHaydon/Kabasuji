@@ -22,4 +22,15 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		boolean somethingnew = false;
 		return somethingnew;		
 	}
+	
+	
+	private boolean checkOverAchiever(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
+	}
+	
+	private boolean checkRageQuit(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
+	}
 }

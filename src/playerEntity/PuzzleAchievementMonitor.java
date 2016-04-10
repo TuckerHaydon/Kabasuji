@@ -8,6 +8,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	int toBullpenMove;
 	PuzzleLevel lv;
 	
+	
 	public PuzzleAchievementMonitor(PuzzleLevel lv, Hashtable<String, Achievement> achievements){
 		this.lv=lv;
 		this.achievements=achievements;
@@ -21,4 +22,21 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		boolean somethingnew = false;
 		return somethingnew;
 	}
+	
+	private boolean checkJustUnderTheWire(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
+	}
+	
+	private boolean checkNoRegrets(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
+	}
+	
+	private boolean checkRageQuit(IMove move){
+		boolean somethingnew = false;
+		return somethingnew;
+	}
+	
+	
 }

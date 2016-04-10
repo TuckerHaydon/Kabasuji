@@ -12,4 +12,9 @@ public class Achievement {
 		this.earnedPic=pic;
 		this.notEarnedPic=notPic;
 	}
+	
+	public boolean getisEarned(){
+		return isEarned;
+	}
+	
 }
