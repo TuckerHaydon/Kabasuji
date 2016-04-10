@@ -32,7 +32,8 @@ public class LightningLevel extends Level{
 	}
 	
 	void reset(){
-		
+		score = 0;
+		usedTime = 0;
 	}
 
 }

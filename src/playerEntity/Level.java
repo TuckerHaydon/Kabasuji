@@ -23,6 +23,7 @@ public abstract class Level {
 	}
 	
 	void reset(){
+		score = 0;
 		
 	}
 }

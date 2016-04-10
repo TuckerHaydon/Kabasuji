@@ -31,6 +31,7 @@ public class PuzzleLevel extends Level {
 	}
 	
 	void reset(){
-		
+		score = 0;
+		usedMove = 0;
 	}
 }

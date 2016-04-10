@@ -26,6 +26,7 @@ public class ReleaseLevel extends Level {
 	}
 	
 	void reset(){
-		
+		score = 0;
+		numEltLeft = 0;		
 	}
 }
