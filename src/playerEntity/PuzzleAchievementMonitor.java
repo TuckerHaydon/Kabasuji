@@ -1,6 +1,7 @@
 package playerEntity;
 
 import java.util.Hashtable;
+import java.util.Stack;
 
 import playerController.IMove;
 
@@ -15,6 +16,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		this.isillegalMove=false;
 		this.moveCounter=0;
 		this.toBullpenMove=0;
+		this.popingUp=new Stack<String>();
 	}
 	
 	@Override
