@@ -35,14 +35,16 @@ public class GameModel {
 		
 		for(int i = 0; i < 5; i++)
 		{
+			
+			puzzleLevels[i] = new PuzzleLevel(i, 20);
+			puzzleLevels[i].setIsUnlocked(true);
+			
 			lightLevels[i] = new LightningLevel(i, 100);
 			lightLevels[i].setIsUnlocked(true);
 			
 			releaseLevels[i] = new ReleaseLevel(i, 20);
-			releaseLevels[i].setIsUnlocked(false);
-			
-			puzzleLevels[i] = new PuzzleLevel(i, 20);
-			puzzleLevels[i].setIsUnlocked(true);
+			releaseLevels[i].setIsUnlocked(true);
+		
 		}
 		
 		for (int i = 0; i<5; i++)
@@ -57,6 +59,10 @@ public class GameModel {
 	
 	public void setCurrentLevel(int levelNum){
 		this.currentLevel = levels[levelNum];
+	}
+	
+	public Level getCurrentLevel(){
+		return this.currentLevel;
 	}
 	
 	public Level[] getLevels(){
