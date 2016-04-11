@@ -6,7 +6,7 @@ public abstract class Level {
 	Board board;
 	
 	int score;
-	public boolean isUnlocked;
+	boolean isUnlocked;
 	int levelNum;
 	boolean isComplete;
 	

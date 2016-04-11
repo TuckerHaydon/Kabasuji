@@ -17,10 +17,10 @@ public class LevelSelectionMenu extends JFrame {
 	KabasujiPlayerApplication app;
 	GameModel m;
 	
-	public LevelSelectionMenu(KabasujiPlayerApplication app){
+	public LevelSelectionMenu(KabasujiPlayerApplication app, GameModel m){
 		super();
 		this.app = app;
-		
+		this.m = m;
 		goToMainMenu = new JButton("Main Menu");
 		levels = new JButton[15];
 		

@@ -19,11 +19,12 @@ public class PlayLevel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
-		Level[] theseLevels = m.getLevel();
-		if(theseLevels[levelNum].isUnlocked){
+	
+		if(m.getLevels()[levelNum].getIsUnlocked())
+		{
 			app.displayGameWindow();
 		}
+		
 		
 		//app.displayGameWindow();
 	}

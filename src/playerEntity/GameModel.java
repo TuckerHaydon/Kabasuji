@@ -22,16 +22,49 @@ public class GameModel {
 		this.achievements.put("RageQuit", new Achievement("RageQuit",null,null));
 		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
+		
+
+		LightningLevel[] lightLevels = new LightningLevel[5];
+		ReleaseLevel[] releaseLevels = new ReleaseLevel[5];
+		PuzzleLevel[] puzzleLevels = new PuzzleLevel[5];
+		
 	
+
 		this.levels = new Level[15];
+		
+		
+		for(int i = 0; i < 5; i++)
+		{
+			lightLevels[i] = new LightningLevel(i, 100);
+			lightLevels[i].setIsUnlocked(true);
+			
+			releaseLevels[i] = new ReleaseLevel(i, 20);
+			releaseLevels[i].setIsUnlocked(false);
+			
+			puzzleLevels[i] = new PuzzleLevel(i, 20);
+			puzzleLevels[i].setIsUnlocked(true);
+		}
+		
+		for (int i = 0; i<5; i++)
+		{
+			levels[3*i] = puzzleLevels[i];
+			levels[3*i + 1] = lightLevels[i];
+			levels[3*i + 2] = releaseLevels[i];
+			
+		}
+		
 	}
 	
 	public void setCurrentLevel(int levelNum){
 		this.currentLevel = levels[levelNum];
 	}
 	
-	public Level[] getLevel(){
+	public Level[] getLevels(){
 		return this.levels;
+	}
+	
+	public void setLevels(Level[] l){
+		this.levels = l;
 	}
 	
 }

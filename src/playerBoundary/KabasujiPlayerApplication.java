@@ -8,6 +8,9 @@ import javax.swing.SwingConstants;
 
 import playerEntity.GameModel;
 import playerEntity.Level;
+import playerEntity.LightningLevel;
+import playerEntity.PuzzleLevel;
+import playerEntity.ReleaseLevel;
 
 public class KabasujiPlayerApplication {
 	
@@ -31,18 +34,12 @@ public class KabasujiPlayerApplication {
 	public void initModel(){
 		m = new GameModel();
 		
-		Level[] levels = new Level[15];
-		//for (int i = 0; i<15; i++) {
-		//	levels[i].setLevelNum(i + 1);
-		//	levels[i].setIsUnlocked(true);
-		//} 
-		
 	}
 	
 	public void initView(){
 		gameWindow = new GameWindow(this, m);
 		mainMenu = new MainMenu(this);
-		levelSelectionMenu = new LevelSelectionMenu(this);
+		levelSelectionMenu = new LevelSelectionMenu(this, m);
 		achievementsMenu = new AchievementsMenu(this, m);
 		
 		gameWindow.initView();
