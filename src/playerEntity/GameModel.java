@@ -58,7 +58,7 @@ public class GameModel {
 	}
 	
 	public void setCurrentLevel(int levelNum){
-		this.currentLevel = levels[levelNum];
+		this.currentLevel = levels[levelNum - 1];
 	}
 	
 	public Level getCurrentLevel(){

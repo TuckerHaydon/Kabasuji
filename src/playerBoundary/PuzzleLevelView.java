@@ -21,13 +21,8 @@ public class PuzzleLevelView extends LevelView{
 		// TODO Auto-generated method stub
 		// Set properties of the frame
 		this.setSize(200,200);
-		
-		// Set the layout
-		getRootPane().setLayout(new GridLayout(3,1));
-		
-		// Add the buttons to the frame
 		this.add(goToMenu);
-		//this.setVisible(true);
+		this.setVisible(true);
 	}
 
 }
