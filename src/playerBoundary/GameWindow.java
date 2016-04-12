@@ -25,10 +25,11 @@ public class GameWindow extends JFrame {
 		this.setTitle("Game Window");
 		
 		
+		
 	}
 	
 	public void initView(){
-
+		
 	}
 	
 	public void initControllers(){

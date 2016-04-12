@@ -14,6 +14,7 @@ public class PuzzleLevelView extends LevelView{
 	public PuzzleLevelView(PuzzleLevel puzzleLvl) {
 		this.level = puzzleLvl;
 		goToMenu = new JButton("Main Menu");
+		//this.initView();
 	}
 
 	@Override

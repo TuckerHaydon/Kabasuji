@@ -13,10 +13,11 @@ public class LightningLevelView extends LevelView{
 	public LightningLevelView(LightningLevel lightningLvl) {
 		this.level = lightningLvl;
 		goToMenu = new JButton("Main Menu");
+		//this.initView();
 	}
 
 	@Override
-	void initView() {
+	public void initView() {
 		this.setSize(200,200);
 		this.add(goToMenu);
 		this.setVisible(true);
