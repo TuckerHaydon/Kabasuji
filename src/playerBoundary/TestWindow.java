@@ -51,7 +51,6 @@ public class TestWindow extends JFrame {
 		JButton btnReset = new JButton("Reset");
 		
 		levelViewTest levelViewThing = new levelViewTest();
-		levelViewThing.setBackground(Color.WHITE);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)

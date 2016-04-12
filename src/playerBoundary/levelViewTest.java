@@ -6,6 +6,9 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import com.sun.prism.Graphics;
+
 import javax.swing.JLabel;
 
 public class levelViewTest extends JPanel {
@@ -63,9 +66,6 @@ public class levelViewTest extends JPanel {
 							.addComponent(BoardViewThing, GroupLayout.PREFERRED_SIZE, 748, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(35, Short.MAX_VALUE))
 		);
-		
-		JLabel lblStuff = new JLabel("Stuff");
-		BoardViewThing.add(lblStuff);
 		
 		JPanel bullpenViewThing = new JPanel();
 		bullpenViewThing.setBackground(Color.BLUE);
