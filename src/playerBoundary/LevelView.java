@@ -9,9 +9,10 @@ public abstract class LevelView extends View {
 	BullpenView bullpenView;
 	BoardView boardView;
 	JButton goToMenu;
-	JButton resetLevel;
+	JButton resetLvl;
 	JLabel score;
 	Level level;
 	
 	abstract void initView();
+	abstract void initControllers();
 }

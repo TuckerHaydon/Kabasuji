@@ -3,6 +3,7 @@ package playerBoundary;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import builderController.NavigateMainMenu;
 import playerEntity.Level;
 import playerEntity.ReleaseLevel;
 
@@ -12,7 +13,7 @@ public class ReleaseLevelView extends LevelView{
 	public ReleaseLevelView(ReleaseLevel relLvl) {
 		this.level = relLvl;
 		goToMenu = new JButton("Main Menu");
-		resetLevel = new JButton("Reset Level");
+		resetLvl = new JButton("Reset Level");
 	}
 
 	@Override
@@ -22,11 +23,17 @@ public class ReleaseLevelView extends LevelView{
 		//bullpenView = new BullpenView(level.bullpen);
 		//boardView = new BoardView(level.board);
 		
-		this.add(resetLevel);
+		this.add(resetLvl);
 		this.add(goToMenu);
 		//this.add(bullpenView);
 		//this.add(boardView);
 		this.setVisible(true);
+	}
+	
+	@Override
+	public void initControllers(){
+		//goToMenu.addActionListener(new NavigateMainMenu(app));
+		//resetLvl.addActionListener(new ResetLevel());
 	}
 
 }
