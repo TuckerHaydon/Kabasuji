@@ -12,6 +12,7 @@ import playerEntity.LightningLevel;
 import playerEntity.PuzzleLevel;
 import playerEntity.ReleaseLevel;
 
+
 public class GameWindow extends JFrame {
 	
 	LevelView currentLevelView;
