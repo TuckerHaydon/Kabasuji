@@ -72,6 +72,8 @@ public abstract class LevelAchievementMonitor {
 		return false;
 	}
 	
+	abstract boolean checkRageQuit(IMove move);
+	
 	/*Finished*/
 	void popUpScreen(){
 		String message = popingUp.getFirst()+"\n";

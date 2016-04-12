@@ -32,7 +32,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		return somethingnew;
 	}
 	
-	private boolean checkRageQuit(IMove move){
+	boolean checkRageQuit(IMove move){
 		boolean somethingnew = false;
 		return somethingnew;
 	}

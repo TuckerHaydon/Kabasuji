@@ -34,7 +34,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	/*Finished*/
-	private boolean checkRageQuit(IMove move){
+	boolean checkRageQuit(IMove move){
 		boolean typeMatched = move instanceof ReturnToMenuMove;
 		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && typeMatched && !(lv.isLevelDone())){
 			achievements.get("RageQuit").setEarned();

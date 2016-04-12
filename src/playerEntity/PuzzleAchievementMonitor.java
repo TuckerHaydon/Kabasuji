@@ -26,9 +26,14 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return somethingnew;
 	}
 	
+	/*Finished*/
 	private boolean checkJustUnderTheWire(IMove move){
-		boolean somethingnew = false;
-		return somethingnew;
+		if(lv.isMoveUsedUp() && lv.isLevelDone() && this.notEarnJustUnderTheWire()){
+			achievements.get("JustUnderTheWire").setEarned();
+			popingUp.push("JustUnderTheWire");
+			return true;
+		}
+		return false;
 	}
 	
 	private boolean checkNoRegrets(IMove move){
@@ -36,7 +41,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return somethingnew;
 	}
 	
-	private boolean checkRageQuit(IMove move){
+	boolean checkRageQuit(IMove move){
 		boolean somethingnew = false;
 		return somethingnew;
 	}
