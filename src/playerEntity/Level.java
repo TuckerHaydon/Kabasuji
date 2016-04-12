@@ -39,7 +39,15 @@ public abstract class Level {
 	}
 	
 	void reset(){
-		score = 0;
-		
+		score = 0;	
 	}
+
+	public Bullpen getBullpen() {
+		return bullpen;
+	}
+	
+	public Board getBoard() {
+		return board;
+	}
+	
 }
