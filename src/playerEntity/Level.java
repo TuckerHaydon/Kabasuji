@@ -38,6 +38,22 @@ public abstract class Level {
 		return this.isUnlocked;
 	}
 	
+	public Board getBoard(){
+		return this.board;
+	}
+	
+	public void setBoard(Board b){
+		this.board = b;
+	}
+	
+	public Bullpen getBullpen(){
+		return this.bullpen;
+	}
+	
+	public void setBullpen(Bullpen bp){
+	    this.bullpen = bp;
+	}
+	
 	void reset(){
 		score = 0;
 		

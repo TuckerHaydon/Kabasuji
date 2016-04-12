@@ -13,9 +13,9 @@ public class PuzzleLevelView extends LevelView{
 	
 	public PuzzleLevelView(PuzzleLevel puzzleLvl) {
 		this.level = puzzleLvl;
-		goToMenu = new JButton("Main Menu");
+		bullpenView = new BullpenView(level.getBullpen());
+		boardView = new BoardView(level.getBoard());
 
-		resetLvl = new JButton("Reset Level");
 
 	}
 
@@ -23,13 +23,8 @@ public class PuzzleLevelView extends LevelView{
 	public void initView() {
 		//set properties of the view
 		this.setSize(1000,1000);
-		//bullpenView = new BullpenView(level.bullpen);
-		//boardView = new BoardView(level.board);
-		
-		//this.add(resetLvl);
-		this.add(goToMenu);
 		this.add(bullpenView);
-		//this.add(boardView);
+		this.add(boardView);
 		this.setVisible(true);
 	}
 	

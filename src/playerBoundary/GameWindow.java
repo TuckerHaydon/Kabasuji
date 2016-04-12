@@ -1,5 +1,6 @@
 package playerBoundary;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -59,6 +60,7 @@ public class GameWindow extends JFrame {
 		// Add the components
 		this.add(menuButton);
 		this.add(resetButton);
+		this.add(currentLevelView);
 
 	}
 	
