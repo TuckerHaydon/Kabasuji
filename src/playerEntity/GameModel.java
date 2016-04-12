@@ -24,6 +24,11 @@ public class GameModel {
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
 		
 
+		
+	}
+	
+	public void initModel(){
+
 		LightningLevel[] lightLevels = new LightningLevel[5];
 		ReleaseLevel[] releaseLevels = new ReleaseLevel[5];
 		PuzzleLevel[] puzzleLevels = new PuzzleLevel[5];
@@ -54,7 +59,6 @@ public class GameModel {
 			levels[3*i + 2] = releaseLevels[i];
 			
 		}
-		
 	}
 	
 	public void setCurrentLevel(int levelNum){

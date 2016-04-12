@@ -27,6 +27,7 @@ public class KabasujiPlayerApplication {
 	
 	public void initModel(){
 		m = new GameModel();
+		m.initModel();
 	}
 	
 	public void initView(){
