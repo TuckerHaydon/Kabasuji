@@ -13,5 +13,4 @@ public abstract class LevelView extends View {
 	Level level;
 	
 	abstract void initView();
-	
 }
