@@ -25,12 +25,15 @@ public class GameWindow extends JFrame {
 		this.app = app;
 		this.m = m;
 
+
 		// Initialize the buttons
 		menuButton = new JButton("Main Menu");
 		resetButton = new JButton("Reset Level");
+
 	}
 	
 	public void initView(){
+
 		
 		// Set Frame properties
 		this.setSize(1000, 1000);
@@ -39,6 +42,7 @@ public class GameWindow extends JFrame {
 		// Add the components
 		this.add(menuButton);
 		this.add(resetButton);
+
 	}
 	
 	public void initControllers(){
