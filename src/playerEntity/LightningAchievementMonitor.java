@@ -18,12 +18,12 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
-	@Override
+	/*Finished*/
 	public boolean updateAchievement(IMove move) {
-		boolean somethingnew = false;
-		return somethingnew;
+		return (checkSlowPoke(move) || checkRageQuit(move) || this.checkBabySteps(move) || this.checkRebel(move));
 	}
 	
+	/*Finished*/ /*Have questions about isLevelDone */
 	private boolean checkSlowPoke(IMove move){
 		boolean typeMatched = move instanceof ReturnToMenuMove;
 		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && typeMatched && !(lv.isLevelDone())){
@@ -33,10 +33,14 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
-	
+	/*Finished*/
 	private boolean checkRageQuit(IMove move){
 		boolean typeMatched = move instanceof ReturnToMenuMove;
-		boolean somethingnew = false;
-		return somethingnew;
+		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && typeMatched && !(lv.isLevelDone())){
+			achievements.get("RageQuit").setEarned();
+			popingUp.push("RageQuit");
+			return true;
+		}
+		return false;
 	}
 }
