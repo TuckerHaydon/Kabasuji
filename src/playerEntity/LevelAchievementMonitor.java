@@ -3,6 +3,9 @@ package playerEntity;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
 
@@ -68,10 +71,15 @@ public abstract class LevelAchievementMonitor {
 		return false;
 	}
 	
+	/*Finished*/
 	void popUpScreen(){
-		String message = popingUp.pop();
-		
-		//need implementation
+		String message = popingUp.getFirst()+"\n";
+		for(int i=1;i<popingUp.size();i++){
+			message = message + popingUp.get(i)+"\n";
+		}
+		JFrame frame = new JFrame();
+		JOptionPane.showMessageDialog(frame, message, "Achievement Unlocked:", JOptionPane.INFORMATION_MESSAGE);
+		popingUp.clear();
 	}
 	
 	

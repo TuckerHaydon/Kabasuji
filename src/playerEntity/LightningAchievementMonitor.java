@@ -5,10 +5,9 @@ import java.util.LinkedList;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
+import playerController.ReturnToMenuMove;
 
 public class LightningAchievementMonitor extends LevelAchievementMonitor{
-	boolean slowpoke;
-	boolean speedyGonzale;
 	LightningLevel lv;
 	
 	public LightningAchievementMonitor(LightningLevel lv, Hashtable<String,Achievement> achievements){
@@ -16,8 +15,6 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.isillegalMove=false;
 		this.achievements=achievements;
 		this.moveCounter=0;
-		this.slowpoke=false;
-		this.speedyGonzale=false;
 		this.popingUp=new LinkedList<String>();
 	}
 	
@@ -27,12 +24,18 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		return somethingnew;
 	}
 	
-	private boolean checkSlowPoke(IMove move){
-		boolean somethingnew = false;
-		return somethingnew;
+	private boolean checkSlowPoke(IMove move, KabasujiPlayerApplication app){
+		boolean typeMatched = move instanceof ReturnToMenuMove;
+		if(this.notEarnSlowPoke() && move.isValid(app) && lv.isTimeUsedUp() && typeMatched && !(lv.isLevelDone())){
+			achievements.get("SlowPoke").setEarned();
+			popingUp.push("SlowPoke");
+			return true;
+		}
+		return false;
 	}
 	
 	private boolean checkRageQuit(IMove move){
+		boolean typeMatched = move instanceof ReturnToMenuMove;
 		boolean somethingnew = false;
 		return somethingnew;
 	}

@@ -17,10 +17,10 @@ public class LevelSelectionMenu extends JFrame {
 	KabasujiPlayerApplication app;
 	GameModel m;
 	
-	public LevelSelectionMenu(KabasujiPlayerApplication app){
+	public LevelSelectionMenu(KabasujiPlayerApplication app, GameModel m){
 		super();
 		this.app = app;
-		
+		this.m = m;
 		goToMainMenu = new JButton("Main Menu");
 		levels = new JButton[15];
 		
@@ -51,7 +51,7 @@ public class LevelSelectionMenu extends JFrame {
 		goToMainMenu.addActionListener(new NavigateMainMenu(app));
 		// TODO exportGame controller
 		for(int i = 0; i < 15; i++){
-			levels[i].addActionListener(new PlayLevel(app, m, i));
+			levels[i].addActionListener(new PlayLevel(app, m, i + 1));
 		}
 
 	}

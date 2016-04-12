@@ -17,8 +17,9 @@ public class LightningLevelView extends LevelView{
 
 	@Override
 	void initView() {
-		// TODO Auto-generated method stub
-		
+		this.setSize(200,200);
+		this.add(goToMenu);
+		this.setVisible(true);
 	}
 	// can you see me?
 }

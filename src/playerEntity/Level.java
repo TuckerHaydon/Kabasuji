@@ -6,7 +6,7 @@ public abstract class Level {
 	Board board;
 	
 	int score;
-	public boolean isUnlocked;
+	boolean isUnlocked;
 	int levelNum;
 	boolean isComplete;
 	
@@ -18,6 +18,13 @@ public abstract class Level {
 		return score;
 	}
 	
+	public int getLevelNum(){
+		return this.levelNum;
+	}
+	
+	public void setLevelNum(int i){
+		this.levelNum = i;
+	}
 	
 	public boolean isLevelDone(){
 		return isComplete;

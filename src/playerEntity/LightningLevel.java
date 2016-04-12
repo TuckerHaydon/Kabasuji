@@ -36,4 +36,7 @@ public class LightningLevel extends Level{
 		usedTime = 0;
 	}
 
+	public boolean isTimeUsedUp(){
+		return (this.allowedTime==this.usedTime);
+	}
 }

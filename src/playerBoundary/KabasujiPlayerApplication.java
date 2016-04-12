@@ -1,11 +1,8 @@
 package playerBoundary;
 
-import java.util.Scanner;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-
 
 import playerEntity.GameModel;
 
@@ -33,26 +30,23 @@ public class KabasujiPlayerApplication {
 	}
 	
 	public void initView(){
+		
+		// Create the various frames
 		gameWindow = new GameWindow(this, m);
 		mainMenu = new MainMenu(this);
-		levelSelectionMenu = new LevelSelectionMenu(this);
+		levelSelectionMenu = new LevelSelectionMenu(this, m);
 		achievementsMenu = new AchievementsMenu(this, m);
 		
+		// Initialize all the views in the various frames
 		gameWindow.initView();
 		mainMenu.initView();
 		levelSelectionMenu.initView();
 		achievementsMenu.initView();
-		JFrame splash = new JFrame("Splash Screen");
-		splash.setBounds(200, 200, 200, 200);
-		splash.getContentPane().add(new JLabel("Welcome!", SwingConstants.CENTER));
-		splash.setVisible(true);
-		try {
-		    Thread.sleep(5000);
-		} catch (InterruptedException e) {
-		    e.printStackTrace();
-		}
-		splash.setVisible(false);
-		splash.dispose();
+		
+		// Slash screen stuff
+		displaySplashScreen();
+		
+		// SHow the main menu
 		displayMainMenu();
 	}
 	
@@ -93,5 +87,17 @@ public class KabasujiPlayerApplication {
 	
 	public GameWindow getGameWindow(){
 		return gameWindow;
+
+	}
+	
+	void displaySplashScreen(){
+		JFrame splash = new JFrame("Splash Screen");
+		splash.setBounds(200, 200, 200, 200);
+		splash.getContentPane().add(new JLabel("Welcome!", SwingConstants.CENTER));
+		
+		splash.setVisible(true);
+		long start = System.currentTimeMillis();
+		while(System.currentTimeMillis() - start < 5000);
+		splash.dispose();
 	}
 }
