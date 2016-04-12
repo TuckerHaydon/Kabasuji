@@ -24,15 +24,15 @@ public class GameModel {
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
 		
 
+		// Fifteen levels total
+		this.levels = new Level[15];
+		
+		// Five of each type of level
 		LightningLevel[] lightLevels = new LightningLevel[5];
 		ReleaseLevel[] releaseLevels = new ReleaseLevel[5];
 		PuzzleLevel[] puzzleLevels = new PuzzleLevel[5];
 		
-	
-
-		this.levels = new Level[15];
-		
-		
+		// Initialize the various levels
 		for(int i = 0; i < 5; i++)
 		{
 			
@@ -47,6 +47,7 @@ public class GameModel {
 		
 		}
 		
+		// Insert the various levels into the level array
 		for (int i = 0; i<5; i++)
 		{
 			levels[3*i] = puzzleLevels[i];

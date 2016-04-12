@@ -7,8 +7,6 @@ import javax.swing.JFrame;
 
 import playerController.NavigateMainMenu;
 import playerEntity.GameModel;
-import playerEntity.LightningLevel;
-import playerEntity.PuzzleLevel;
 
 public class GameWindow extends JFrame {
 	
