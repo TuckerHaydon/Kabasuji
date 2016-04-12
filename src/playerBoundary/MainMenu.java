@@ -31,6 +31,7 @@ public class MainMenu extends JFrame {
 		// Set properties of the frame
 		this.setSize(1000,1000);
 		this.setTitle("Main Menu");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Set the layout
 		getContentPane().setLayout(new GridLayout(3,1));
