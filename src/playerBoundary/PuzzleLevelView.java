@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import playerController.NavigateMainMenu;
 import playerEntity.Level;
 import playerEntity.PuzzleLevel;
 
@@ -31,7 +32,7 @@ public class PuzzleLevelView extends LevelView{
 	
 	@Override
 	public void initControllers(){
-		//goToMenu.addActionListener(new NavigateMainMenu(app));
+		goToMenu.addActionListener(new NavigateMainMenu(app));
 		//resetLvl.addActionListener(new ResetLevel());
 	}
 
