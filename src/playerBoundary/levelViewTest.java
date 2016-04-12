@@ -1,44 +1,26 @@
 package playerBoundary;
 
-import java.awt.Color;
-import java.awt.GridLayout;
-
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import java.awt.Color;
+import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
 
-import playerController.NavigateMainMenu;
-import playerEntity.Level;
-import playerEntity.PuzzleLevel;
+public class levelViewTest extends JPanel {
 
-public class PuzzleLevelView extends LevelView{
-	JLabel movesLeft;
-	
-	
-	public PuzzleLevelView(PuzzleLevel puzzleLvl) {
-		this.level = puzzleLvl;
-		bullpenView = new BullpenView(level.getBullpen());
-		boardView = new BoardView(level.getBoard());
-		
-
-	}
-
-	@Override
-	public void initView() {
-		//set properties of the view
-		this.setSize(900, 900);
+	/**
+	 * Create the panel.
+	 */
+	public levelViewTest() {
 		setBackground(Color.RED);
-//		this.add(bullpenView);
-//		this.add(boardView);
+		setSize(900,900);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
-		// JPanel BoardViewThing = new JPanel();
-		boardView.setBackground(Color.GREEN);
+		JPanel BoardViewThing = new JPanel();
+		BoardViewThing.setBackground(Color.GREEN);
 		
 		JLabel lblTimeAndStuff = new JLabel("Time and stuff");
 		
@@ -51,7 +33,7 @@ public class PuzzleLevelView extends LevelView{
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 785, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(boardView, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(BoardViewThing, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addPreferredGap(ComponentPlacement.RELATED)))
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
@@ -78,23 +60,17 @@ public class PuzzleLevelView extends LevelView{
 							.addComponent(lblScore))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(27)
-							.addComponent(boardView, GroupLayout.PREFERRED_SIZE, 748, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(BoardViewThing, GroupLayout.PREFERRED_SIZE, 748, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(35, Short.MAX_VALUE))
 		);
 		
 		JLabel lblStuff = new JLabel("Stuff");
-		boardView.add(lblStuff);
+		BoardViewThing.add(lblStuff);
 		
-		// JPanel bullpenViewThing = new JPanel();
-		bullpenView.setBackground(Color.BLUE);
-		scrollPane.setViewportView(bullpenView);
+		JPanel bullpenViewThing = new JPanel();
+		bullpenViewThing.setBackground(Color.BLUE);
+		scrollPane.setViewportView(bullpenViewThing);
 		setLayout(groupLayout);
-	}
-	
-	@Override
-	public void initControllers(){
-		goToMenu.addActionListener(new NavigateMainMenu(app));
-		//resetLvl.addActionListener(new ResetLevel());
-	}
 
+	}
 }
