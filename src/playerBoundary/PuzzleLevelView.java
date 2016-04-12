@@ -11,11 +11,12 @@ import playerEntity.PuzzleLevel;
 public class PuzzleLevelView extends LevelView{
 	JLabel movesLeft;
 	
+	
 	public PuzzleLevelView(PuzzleLevel puzzleLvl) {
 		this.level = puzzleLvl;
 		bullpenView = new BullpenView(level.getBullpen());
 		boardView = new BoardView(level.getBoard());
-
+		
 
 	}
 
