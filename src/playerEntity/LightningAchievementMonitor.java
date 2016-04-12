@@ -19,14 +19,14 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	@Override
-	public boolean updateAchievement(IMove move, KabasujiPlayerApplication app) {
+	public boolean updateAchievement(IMove move) {
 		boolean somethingnew = false;
 		return somethingnew;
 	}
 	
-	private boolean checkSlowPoke(IMove move, KabasujiPlayerApplication app){
+	private boolean checkSlowPoke(IMove move){
 		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(this.notEarnSlowPoke() && move.isValid(app) && lv.isTimeUsedUp() && typeMatched && !(lv.isLevelDone())){
+		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && typeMatched && !(lv.isLevelDone())){
 			achievements.get("SlowPoke").setEarned();
 			popingUp.push("SlowPoke");
 			return true;

@@ -15,7 +15,7 @@ public abstract class LevelAchievementMonitor {
 	LinkedList<String> popingUp;
 	Hashtable<String, Achievement> achievements;
 		
-	public abstract boolean updateAchievement(IMove move, KabasujiPlayerApplication app);
+	public abstract boolean updateAchievement(IMove move);
 	
 	/*Finished*/
 	protected boolean notEarnBabyStep() {

@@ -21,7 +21,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	@Override
-	public boolean updateAchievement(IMove move, KabasujiPlayerApplication app) {
+	public boolean updateAchievement(IMove move) {
 		boolean somethingnew = false;
 		return somethingnew;
 	}
