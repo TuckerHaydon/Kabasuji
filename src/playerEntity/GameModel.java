@@ -32,7 +32,7 @@ public class GameModel {
 
 
 		// Fifteen levels total
-		this.levels = new Level[15];
+		Level[] lev = new Level[15];
 
 		LightningLevel[] lightLevels = new LightningLevel[5];
 		ReleaseLevel[] releaseLevels = new ReleaseLevel[5];
@@ -56,11 +56,19 @@ public class GameModel {
 		// Insert the various levels into the level array
 		for (int i = 0; i<5; i++)
 		{
-			levels[3*i] = puzzleLevels[i];
-			levels[3*i + 1] = lightLevels[i];
-			levels[3*i + 2] = releaseLevels[i];
+			lev[3*i] = puzzleLevels[i];
+			lev[3*i + 1] = lightLevels[i];
+			lev[3*i + 2] = releaseLevels[i];
 			
 		}
+		
+		for (int i = 0; i<15; i++)
+		{
+			lev[i].levelNum = i + 1;
+			
+		}
+		this.levels = lev;
+		this.currentLevel = levels[0];
 	}
 	
 	public void setCurrentLevel(int levelNum){
