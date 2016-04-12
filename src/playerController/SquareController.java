@@ -3,6 +3,7 @@ package playerController;
 import java.awt.event.MouseEvent;
 
 import playerBoundary.BoardView;
+import playerBoundary.GameWindow;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
@@ -23,11 +24,11 @@ public class SquareController extends java.awt.event.MouseAdapter{
 	
 	public void mouseDragged(MouseEvent me){
 		
-		//GameWindow gw = .draggedTile
-		
 	}
 	
 	public void mousePressed(MouseEvent me){
+		
+		GameWindow gw = app.getGameWindow();
 		
 	}
 	

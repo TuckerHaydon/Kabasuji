@@ -90,4 +90,8 @@ public class KabasujiPlayerApplication {
 		levelSelectionMenu.setVisible(false);
 		achievementsMenu.setVisible(true);
 	}
+	
+	public GameWindow getGameWindow(){
+		return gameWindow;
+	}
 }
