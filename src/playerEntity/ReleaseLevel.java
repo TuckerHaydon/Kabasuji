@@ -29,4 +29,13 @@ public class ReleaseLevel extends Level {
 		score = 0;
 		numEltLeft = 0;		
 	}
+	
+	/*added by Dorothy*/
+	public void decrementNumElt(){
+		this.numEltLeft--;
+	}
+	
+	public boolean isCoverAll(){
+		return this.numEltLeft==0;
+	}
 }

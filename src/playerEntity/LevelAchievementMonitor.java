@@ -76,13 +76,18 @@ public abstract class LevelAchievementMonitor {
 	
 	/*Finished*/
 	void popUpScreen(){
-		String message = popingUp.getFirst()+"\n";
-		for(int i=1;i<popingUp.size();i++){
-			message = message + popingUp.get(i)+"\n";
+		if(popingUp.size()!=0){
+			String message = popingUp.getFirst()+"\n";
+			for(int i=1;i<popingUp.size();i++){
+				message = message + popingUp.get(i)+"\n";
+			}
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(frame, message, "Achievement Unlocked:", JOptionPane.INFORMATION_MESSAGE);
+			popingUp.clear();
 		}
-		JFrame frame = new JFrame();
-		JOptionPane.showMessageDialog(frame, message, "Achievement Unlocked:", JOptionPane.INFORMATION_MESSAGE);
-		popingUp.clear();
+		else{
+			System.err.println("LevelAchievementMonitor::popUpScreen :You should NOT popup things without call UpdateAchievement function");
+		}
 	}
 	
 	
