@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import playerBoundary.BoardView;
 import playerBoundary.GameWindow;
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.TileView;
 import playerEntity.GameModel;
 
 
@@ -33,6 +34,14 @@ public class SquareController extends java.awt.event.MouseAdapter{
 	}
 	
 	public void mouseReleased(MouseEvent me){
+		
+		GameWindow gw = app.getGameWindow();
+		
+		TileView draggingTile = gw.getDraggedTile();
+		//if (draggingTile == gw.getNothingBeingDragged()) {
+		//	System.err.println ("SquareController::mouseReleased() unexpectedly found nothing being dragged.");
+		//	gw.releaseDraggingTile();
+		
 		
 	}
 
