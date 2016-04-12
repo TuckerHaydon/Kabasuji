@@ -10,18 +10,17 @@ import playerController.ReturnToMenuMove;
 public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	ReleaseLevel lv;
 	
-	
 	public ReleaseAchievementMonitor(ReleaseLevel lv, Hashtable<String,Achievement> achievements){
 		this.lv=lv;
 		this.achievements=achievements;
 		this.moveCounter=0;
-		this.isillegalMove=false;
 		this.popingUp=new LinkedList<String>();
 	}
 	
 	/*Finished*/
 	public boolean updateAchievement(IMove move) {
-		if(checkOverAchiever(move) && checkRageQuit(move) && this.checkBabySteps(move) && this.checkRebel(move)){
+		if(checkOverAchiever(move) && checkRageQuit(move) && this.checkVictoryLap(move)
+				&& this.checkBabySteps(move) && this.checkRebel(move)){
 			return true;
 		}
 		return false;		
@@ -30,7 +29,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	/*Finished*/
 	private boolean checkOverAchiever(IMove move){
 		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(typeMatched && lv.isLevelDone() && lv.isCoverAll() && this.notEarnOverAchiever()){
+		if(typeMatched && lv.hasWon() && lv.isCoverAll() && this.notEarnOverAchiever()){
 			achievements.get("OverAchiever").setEarned();
 			popingUp.push("OverAchiever");
 			return true;
@@ -40,9 +39,18 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	/*Finished*/
 	boolean checkRageQuit(IMove move){
 		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(this.notEarnRageQuit() && typeMatched && !(lv.isLevelDone())){
+		if(this.notEarnRageQuit() && typeMatched && !(lv.hasWon())){
 			achievements.get("RageQuit").setEarned();
 			popingUp.push("RageQuit");
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	boolean checkVictoryLap(IMove move) {
+		boolean typeMatched = move instanceof ReturnToMenuMove;
+		if(typeMatched && lv.hasWon() && lv.getIsCompleted()){
 			return true;
 		}
 		return false;

@@ -74,4 +74,8 @@ public class GameModel {
 		this.levels = l;
 	}
 	
+	public GameAchievementMonitor getGAM(){
+		return this.GAM;
+	}
+	
 }

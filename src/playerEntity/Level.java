@@ -14,9 +14,11 @@ public abstract class Level {
 		this.levelNum = levelNum;
 	}
 	
-	int getScore(){
+	public int getScore(){
 		return score;
 	}
+	
+	abstract public boolean hasWon();
 	
 	public int getLevelNum(){
 		return this.levelNum;
@@ -26,7 +28,7 @@ public abstract class Level {
 		this.levelNum = i;
 	}
 	
-	public boolean isLevelDone(){
+	public boolean getIsCompleted(){
 		return isComplete;
 	}
 	

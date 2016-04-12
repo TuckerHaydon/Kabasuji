@@ -9,11 +9,6 @@ public class LightningLevel extends Level{
 	Bullpen bullpen;
 	Board board;
 	
-	int score;
-	boolean isUnlocked;
-	int levelNum;
-	boolean isCompleted;
-	
 	public LightningLevel(int levelNum, int allowedTime) {
 		super(levelNum);
 		this.allowedTime = allowedTime;
@@ -23,14 +18,6 @@ public class LightningLevel extends Level{
 		usedTime += delta;
 	}
 	
-	int getScore(){
-		return score;
-	}
-	
-	public boolean isLevelDone(){
-		return isCompleted;
-	}
-	
 	void reset(){
 		score = 0;
 		usedTime = 0;
@@ -38,5 +25,11 @@ public class LightningLevel extends Level{
 
 	public boolean isTimeUsedUp(){
 		return (this.allowedTime==this.usedTime);
+	}
+
+	@Override
+	public boolean hasWon() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
