@@ -18,6 +18,11 @@ public class LightningLevelView extends LevelView{
 	@Override
 	void initView() {
 		this.setSize(200,200);
+		bullpenView = new BullpenView(level.bullpen);
+		boardView = new BoardView(level.board);
+		
+		this.add(bullpenView);
+		this.add(boardView);
 		this.add(goToMenu);
 		this.setVisible(true);
 	}
