@@ -84,6 +84,7 @@ public class PuzzleLevelView extends LevelView{
 		JLabel lblStuff = new JLabel("Stuff");
 		boardView.add(lblStuff);
 		
+		
 		// JPanel bullpenViewThing = new JPanel();
 		bullpenView.setBackground(Color.BLUE);
 		scrollPane.setViewportView(bullpenView);

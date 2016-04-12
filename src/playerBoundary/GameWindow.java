@@ -57,7 +57,7 @@ public class GameWindow extends JFrame {
 		}
 		
 		this.initFrame();
-		
+		this.currentLevelView.initView();
 	}
 	
 	public void initView(){
