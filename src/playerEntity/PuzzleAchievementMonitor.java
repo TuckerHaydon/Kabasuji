@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
+import playerController.ReturnToMenuMove;
+import playerController.TileToBullpenMove;
 
 public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	int toBullpenMove;
@@ -20,30 +22,47 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
-	@Override
+	/*Finished*/
 	public boolean updateAchievement(IMove move) {
-		boolean somethingnew = false;
-		return somethingnew;
+		if(move instanceof TileToBullpenMove){
+			this.toBullpenMove++;
+		}
+		if(this.checkJustUnderTheWire(move) && this.checkNoRegrets(move) 
+				&& this.checkRageQuit(move) && this.checkBabySteps(move) && this.checkRebel(move)){
+			return true;
+		}
+		return false;
 	}
 	
 	/*Finished*/
 	private boolean checkJustUnderTheWire(IMove move){
-		if(lv.isMoveUsedUp() && lv.isLevelDone() && this.notEarnJustUnderTheWire()){
+		boolean typeMatched = move instanceof ReturnToMenuMove;
+		if(typeMatched && lv.isMoveUsedUp() && lv.isLevelDone() && this.notEarnJustUnderTheWire()){
 			achievements.get("JustUnderTheWire").setEarned();
 			popingUp.push("JustUnderTheWire");
 			return true;
 		}
 		return false;
 	}
-	
+	/*Finished*/
 	private boolean checkNoRegrets(IMove move){
-		boolean somethingnew = false;
-		return somethingnew;
+		boolean typeMatched = move instanceof ReturnToMenuMove;
+		if(typeMatched && lv.isLevelDone() && (this.toBullpenMove==0) && this.notEarnNoRegrets()){
+			achievements.get("NoRegrets ").setEarned();
+			popingUp.push("NoRegrets");
+			return true;
+		}
+		return false;
 	}
-	
+	/*Finished*/
 	boolean checkRageQuit(IMove move){
-		boolean somethingnew = false;
-		return somethingnew;
+		boolean typeMatched = move instanceof ReturnToMenuMove;
+		if(this.notEarnRageQuit() && typeMatched && !(lv.isLevelDone())){
+			achievements.get("RageQuit").setEarned();
+			popingUp.push("RageQuit");
+			return true;
+		}
+		return false;
 	}
 	
 	
