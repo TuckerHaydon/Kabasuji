@@ -6,7 +6,6 @@ import java.awt.event.KeyListener;
 
 import playerEntity.Bullpen;
 
-
 /*
  * @Author: Damani
  */
@@ -21,7 +20,8 @@ public class BullpenView extends View implements KeyListener {
 	}
 	
 	public void keyPressed(KeyEvent k) {
-		//TODO fill in method
+		controlKeyPressed = k.isControlDown();
+		shiftKeyPressed = k.isShiftDown();
 	}
 	
 	public void keyReleased(KeyEvent k) {
@@ -33,14 +33,11 @@ public class BullpenView extends View implements KeyListener {
 	}
 	
 	public boolean isControlPressed (){
-		//TODO fill in method
-		
-		return false;
+		return controlKeyPressed;
 	}
 	
 	public boolean isShiftPressed (){
-		//TODO fill in method
-		return false;
+		return shiftKeyPressed;
 	}
 }
 

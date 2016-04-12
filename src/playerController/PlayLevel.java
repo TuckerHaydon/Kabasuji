@@ -24,7 +24,7 @@ public class PlayLevel implements ActionListener {
 	public PlayLevel(KabasujiPlayerApplication app, GameModel m, int ln){
 		this.app = app;
 		this.m = m;
-		this.levelNum = ln;
+		this.levelNum = ln-1; // Must subtract 1 to convert number to index
 	}
 
 	@Override

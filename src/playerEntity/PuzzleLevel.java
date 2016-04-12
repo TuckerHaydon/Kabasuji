@@ -34,4 +34,9 @@ public class PuzzleLevel extends Level {
 		score = 0;
 		usedMove = 0;
 	}
+	
+	/*added by Dorothy for AM uses*/
+	public boolean isMoveUsedUp(){
+		return usedMove==allowedMoves;
+	}
 }

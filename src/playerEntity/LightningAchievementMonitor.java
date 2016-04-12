@@ -18,25 +18,29 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
-	@Override
-	public boolean updateAchievement(IMove move, KabasujiPlayerApplication app) {
-		boolean somethingnew = false;
-		return somethingnew;
+	/*Finished*/
+	public boolean updateAchievement(IMove move) {
+		return (checkSlowPoke(move) || checkRageQuit(move) || this.checkBabySteps(move) || this.checkRebel(move));
 	}
 	
-	private boolean checkSlowPoke(IMove move, KabasujiPlayerApplication app){
+	/*Finished*/ /*Have questions about isLevelDone */
+	private boolean checkSlowPoke(IMove move){
 		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(this.notEarnSlowPoke() && move.isValid(app) && lv.isTimeUsedUp() && typeMatched && !(lv.isLevelDone())){
+		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && typeMatched && !(lv.isLevelDone())){
 			achievements.get("SlowPoke").setEarned();
 			popingUp.push("SlowPoke");
 			return true;
 		}
 		return false;
 	}
-	
-	private boolean checkRageQuit(IMove move){
+	/*Finished*/
+	boolean checkRageQuit(IMove move){
 		boolean typeMatched = move instanceof ReturnToMenuMove;
-		boolean somethingnew = false;
-		return somethingnew;
+		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && typeMatched && !(lv.isLevelDone())){
+			achievements.get("RageQuit").setEarned();
+			popingUp.push("RageQuit");
+			return true;
+		}
+		return false;
 	}
 }

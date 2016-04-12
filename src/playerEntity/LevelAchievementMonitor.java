@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
+import playerController.TileToBoardMove;
 
 public abstract class LevelAchievementMonitor {
 	int moveCounter;
@@ -15,7 +16,7 @@ public abstract class LevelAchievementMonitor {
 	LinkedList<String> popingUp;
 	Hashtable<String, Achievement> achievements;
 		
-	public abstract boolean updateAchievement(IMove move, KabasujiPlayerApplication app);
+	public abstract boolean updateAchievement(IMove move);
 	
 	/*Finished*/
 	protected boolean notEarnBabyStep() {
@@ -62,14 +63,16 @@ public abstract class LevelAchievementMonitor {
 	}
 	
 	/*Finished*/
-	protected boolean checkRebel(IMove move, KabasujiPlayerApplication app){
-		if(!(move.isValid(app)) && this.notEarnRebel()){
+	protected boolean checkRebel(IMove move){
+		if((move instanceof TileToBoardMove) && this.notEarnRebel()){
 			achievements.get("Rebel").setEarned();
 			popingUp.push("Rebel");
 			return true;
 		}
 		return false;
 	}
+	
+	abstract boolean checkRageQuit(IMove move);
 	
 	/*Finished*/
 	void popUpScreen(){
