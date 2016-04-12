@@ -16,8 +16,10 @@ public class ReleaseLevelView extends LevelView{
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
-		
+		// Set properties of the frame
+		this.setSize(200,200);
+		this.add(goToMenu);
+		this.setVisible(true);
 	}
 
 }
