@@ -26,9 +26,9 @@ public class PuzzleLevelView extends LevelView{
 		//bullpenView = new BullpenView(level.bullpen);
 		//boardView = new BoardView(level.board);
 		
-		this.add(resetLvl);
+		//this.add(resetLvl);
 		this.add(goToMenu);
-		//this.add(bullpenView);
+		this.add(bullpenView);
 		//this.add(boardView);
 		this.setVisible(true);
 	}

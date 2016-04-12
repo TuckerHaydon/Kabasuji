@@ -13,7 +13,6 @@ public class LightningLevelView extends LevelView{
 	public LightningLevelView(LightningLevel lightningLvl) {
 		this.level = lightningLvl;
 		goToMenu = new JButton("Main Menu");
-
 		resetLvl = new JButton("Reset Level");
 
 	}
@@ -26,7 +25,6 @@ public class LightningLevelView extends LevelView{
 		//boardView = new BoardView(level.board);
 		
 		this.add(resetLvl);
-
 		this.add(goToMenu);
 		//this.add(bullpenView);
 		//this.add(boardView);
