@@ -46,20 +46,26 @@ public class BoardView extends View{
 				Color squareColor = Color.BLACK;
 				
 				if(elts[row][col] instanceof PlayableBoardElt){
-					squareColor = Color.GREEN;
+					if(((PlayableBoardElt)elts[row][col]).isHint()){
+						squareColor = Color.YELLOW;
+					}
+					else if(elts[row][col] instanceof NumberBoardElt){
+						squareColor = Color.RED;
+					}
+					else{
+						squareColor = Color.GREEN;
+					}
 				}
 				else if(elts[row][col] instanceof UnplayableBoardElt){
 					squareColor = Color.BLACK;
 				}
-				else if(elts[row][col] instanceof NumberBoardElt){
-					squareColor = Color.RED;
-				}
+
 				
 				g.setColor(squareColor);
-				g.fillRect(WIDTH * row, WIDTH * col, WIDTH, WIDTH);
+				g.fillRect(WIDTH * col, WIDTH * row, WIDTH, WIDTH);
 				
 				g.setColor(Color.BLACK);
-				g.drawRect(WIDTH * row, WIDTH * col, WIDTH, WIDTH);
+				g.drawRect(WIDTH * col, WIDTH * row, WIDTH, WIDTH);
 			}
 		}
     } 

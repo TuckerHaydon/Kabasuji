@@ -47,7 +47,7 @@ public class LoadGame implements ActionListener{
 	}
 	
 	public void loadInitialLevel(){
-		String path = "/Users/tuckerhaydon/git/Kabasuji/Games/ExampleGame1";
+		String path = "Games/ExampleGame1";
 		
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			parseFile(fileScanner);
@@ -94,6 +94,8 @@ public class LoadGame implements ActionListener{
 		
 		Bullpen bp = new Bullpen(null);
 		Board b = new Board(elts);
+		
+		// System.out.println(b);
 	
 		switch(levelType)
 		{
@@ -112,7 +114,7 @@ public class LoadGame implements ActionListener{
 	BoardElt[][] parseBoardElts(Scanner fileScanner) {
 		BoardElt elts[][] = new BoardElt[12][12];
 		
-		// Parse the BeginHexomino
+		// Parse the BeginElts
 		fileScanner.next();
 		
 		for(int row = 0; row < 12; row++){
@@ -152,19 +154,31 @@ public class LoadGame implements ActionListener{
 						if(input.length() == 4){	elt = new NumberBoardElt(row, col, true, color, num);}
 						else{						elt = new NumberBoardElt(row, col, false, color, num);}
 						break;
+					default:
+						System.out.println(input);
 				}
 				elts[row][col] = elt;
 			}
 		}
 		
-		// Parse the EndHexomino
+		// Parse the EndElts
 		fileScanner.next();
 		
 		return elts;
 	}
 
 	int[] parseHexominoes(Scanner fileScanner) {
-		// TODO Auto-generated method stub
+		
+		//Parse the BeginHexominos
+		String next = fileScanner.next();
+		
+		do
+		{
+			next = fileScanner.next();
+			// TODO create the hexominos
+		}
+		while(!next.equals("EndHexomino"));
+		
 		return null;
 	}
 
