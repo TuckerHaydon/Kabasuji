@@ -43,14 +43,14 @@ public class PuzzleLevelView extends LevelView{
 		
 		// Create the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(25, 25, 720, 240);
+		scrollPane.setBounds(25, 25, 600, 240);
 		add(scrollPane);
 		
 		// Add the bullpenView to the scrollPane
 		scrollPane.setViewportView(bullpenView);
 		
 		// Add the boardView
-		boardView.setBounds(25, 275, 720, 720);
+		boardView.setBounds(25, 275, 600, 600);
 		add(boardView);
 		
 		JLabel lblNumMovesLeft = new JLabel("Num Moves Left");
