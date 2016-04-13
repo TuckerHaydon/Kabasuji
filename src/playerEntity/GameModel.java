@@ -7,7 +7,8 @@ public class GameModel {
 	Level[] levels;
 	Level currentLevel;	
 	GameAchievementMonitor GAM;
-	LevelAchievementMonitor currentAM;
+	LevelAchievementMonitor lightningAM, puzzleAM, releaseAM;
+	int currentAM;
 	
 	public GameModel(){
 
@@ -67,6 +68,11 @@ public class GameModel {
 		this.achievements.put("RageQuit", new Achievement("RageQuit",null,null));
 		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
+		
+		this.lightningAM = new LightningAchievementMonitor(this.achievements);
+		this.puzzleAM = new PuzzleAchievementMonitor(this.achievements);
+		this.releaseAM = new ReleaseAchievementMonitor(this.achievements);
+		
 	}
 	
 	
@@ -90,4 +96,32 @@ public class GameModel {
 		return this.GAM;
 	}
 	
+	public void selectCurrentAM(int levelNum){
+		if(levelNum<5 && levelNum>=0){
+			this.currentAM=1;
+			this.puzzleAM.reset();
+		}
+		if(levelNum<10 && levelNum>=5){
+			this.currentAM=2;
+			this.lightningAM.reset();
+		}
+		if(levelNum<15 && levelNum>=10){
+
+			this.currentAM=3;
+			this.releaseAM.reset();
+		}
+	}
+	
+	public LevelAchievementMonitor getCurrentAM(){
+		if(this.currentAM==1){
+			return this.puzzleAM;
+		}
+		if(this.currentAM==2){
+			return this.lightningAM;
+		}
+		if(this.currentAM==3){
+			return this.releaseAM;
+		}
+		return null;
+	}
 }

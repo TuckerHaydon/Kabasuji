@@ -10,8 +10,7 @@ import playerController.ReturnToMenuMove;
 public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	ReleaseLevel lv;
 	
-	public ReleaseAchievementMonitor(ReleaseLevel lv, Hashtable<String,Achievement> achievements){
-		this.lv=lv;
+	public ReleaseAchievementMonitor(Hashtable<String,Achievement> achievements){
 		this.achievements=achievements;
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();
@@ -54,5 +53,17 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void setLevel(Level lv) {
+		this.lv=(ReleaseLevel) lv;
+		
+	}
+
+	@Override
+	public void reset() {
+		// TODO Auto-generated method stub
+		
 	}
 }
