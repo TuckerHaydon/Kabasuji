@@ -5,12 +5,12 @@ public class PuzzleLevel extends Level {
 	int usedMove;
 	int allowedMoves;
 	
-	Bullpen bullpen;
-	Board board;
-	
 	public PuzzleLevel(int levelNum, int allowedMoves){
 		super(levelNum);
 		this.allowedMoves = allowedMoves;
+		
+		// TODO probs not this. Want to pass in a file and load a board or something
+		this.board = new Board();
 	}
 	
 	void updateMoves(int delta){

@@ -12,20 +12,30 @@ public class Board {
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
 	
-	Board() {
+	public Board() {
 		elts = new BoardElt[12][12];
+		
+		for(int row = 0; row < 12; row++){
+			for(int col = 0; col < 12; col++){
+				elts[row][col] = new PlayableBoardElt(row, col, false);
+			}
+		}
 	}
 	
-	boolean addTile(Tile t) {
+	public boolean addTile(Tile t) {
 		return tiles.add(t);
 	}
 	
-	boolean removeTile(Tile t) {
+	public boolean removeTile(Tile t) {
 		return tiles.remove(t);
 	}
 
-	boolean removeAll() {
+	public boolean removeAll() {
 		return tiles.removeAll(tiles);
+	}
+	
+	public BoardElt[][] getBoardElts(){
+		return elts;
 	}
 	
 }

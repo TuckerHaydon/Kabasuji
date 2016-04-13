@@ -4,10 +4,6 @@ public class ReleaseLevel extends Level {
 
 	int numEltLeft;
 	
-	Bullpen bullpen;
-	Board board;
-
-	
 	public ReleaseLevel(int levelNum, int numEltLeft){
 		super(levelNum);
 		this.numEltLeft = numEltLeft;
