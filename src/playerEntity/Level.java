@@ -10,8 +10,10 @@ public abstract class Level {
 	int levelNum;
 	boolean isComplete;
 	
-	public Level(int levelNum){
+	public Level(int levelNum, Board b, Bullpen bp){
 		this.levelNum = levelNum;
+		this.bullpen = bp;
+		this.board = b;
 	}
 	
 	public int getScore(){

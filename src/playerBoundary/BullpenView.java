@@ -23,7 +23,8 @@ public class BullpenView extends View implements KeyListener {
 	
 	public void initView(){
 		this.setBackground(Color.BLUE);
-		this.setBounds(0, 0, 4000, 120);
+		this.setSize(4000, 120);
+		//this.setBounds(0, 0, 4000, 120);
 	}
 	
 	public void initControllers(){

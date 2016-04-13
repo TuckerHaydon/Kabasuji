@@ -6,8 +6,8 @@ public class LightningLevel extends Level{
 	int usedTime;
 	javax.swing.Timer timer;
 	
-	public LightningLevel(int levelNum, int allowedTime) {
-		super(levelNum);
+	public LightningLevel(int levelNum, int allowedTime, Board b, Bullpen bp) {
+		super(levelNum, b, bp);
 		this.allowedTime = allowedTime;
 	}
 	

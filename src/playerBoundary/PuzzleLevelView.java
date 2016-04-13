@@ -70,11 +70,7 @@ public class PuzzleLevelView extends LevelView{
 	}
 	
 	@Override
-	public void initControllers(){
-		goToMenu.addActionListener(new NavigateMainMenu(app,m));
-		//resetLvl.addActionListener(new ResetLevel());
-
-		
+	public void initControllers(){		
 		// Init the controllers of the subcomponents
 		bullpenView.initControllers();
 		boardView.initControllers();
