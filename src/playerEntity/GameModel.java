@@ -57,6 +57,7 @@ public class GameModel {
 		this.currentLevel = levels[0];
 		
 		//Dorothy: those still need pictures
+		/*
 		achievements = new Hashtable<String, Achievement>();
 		this.achievements.put("BabySteps", new Achievement("BabySteps",null,null));
 		this.achievements.put("Rebel", new Achievement("Rebel",null,null));
@@ -68,7 +69,7 @@ public class GameModel {
 		this.achievements.put("RageQuit", new Achievement("RageQuit",null,null));
 		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
-		
+		*/
 		this.lightningAM = new LightningAchievementMonitor(this.achievements);
 		this.puzzleAM = new PuzzleAchievementMonitor(this.achievements);
 		this.releaseAM = new ReleaseAchievementMonitor(this.achievements);
