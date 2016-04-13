@@ -32,7 +32,7 @@ public class BoardView extends View{
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BoardController(m, app));
+		setMouseAdapter(new BoardController(b, app, WIDTH));
 	}
 	
 	@Override

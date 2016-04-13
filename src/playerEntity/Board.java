@@ -32,6 +32,10 @@ public class Board {
 		return elts;
 	}
 	
+	public BoardElt getBoardElt(int row, int col){
+		return elts[row][col];
+	}
+	
 	@Override
 	public String toString(){
 		String output = "";
