@@ -3,8 +3,10 @@ package playerBoundary;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import playerController.BoardController;
 import playerEntity.Board;
 import playerEntity.BoardElt;
+import playerEntity.GameModel;
 import playerEntity.NumberBoardElt;
 import playerEntity.PlayableBoardElt;
 import playerEntity.UnplayableBoardElt;
@@ -15,10 +17,14 @@ import playerEntity.UnplayableBoardElt;
 
 public class BoardView extends View{
 	Board b;
+	KabasujiPlayerApplication app;
+	GameModel m;
 	private static int WIDTH = 50;
 	
-	public BoardView(Board b){
+	public BoardView(Board b, KabasujiPlayerApplication app, GameModel m){
 		this.b = b;
+		this.app=app;
+		this.m=m;
 	}
 	
 	public void initView(){
@@ -26,7 +32,7 @@ public class BoardView extends View{
 	}
 	
 	public void initControllers(){
-		
+		setMouseAdapter(new BoardController(m, app));
 	}
 	
 	@Override
