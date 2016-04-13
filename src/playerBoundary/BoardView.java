@@ -1,5 +1,7 @@
 package playerBoundary;
 
+import java.awt.Color;
+
 import playerEntity.Board;
 
 /*
@@ -11,6 +13,14 @@ public class BoardView extends View{
 	
 	public BoardView(Board b){
 		this.b = b;
+	}
+	
+	public void initView(){
+		this.setBackground(Color.RED);
+	}
+	
+	public void initControllers(){
+		
 	}
 	
 }

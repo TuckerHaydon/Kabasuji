@@ -42,44 +42,37 @@ public class GameWindow extends JFrame {
 		menuButton = new JButton("Main Menu");
 		resetButton = new JButton("Reset Level");
 		
-		// TODO NOT THIS
-		Level currLev = m.getCurrentLevel();
-		int currLevNum = currLev.getLevelNum();
-		if(currLevNum == 1 || currLevNum == 4 || currLevNum == 7 || currLevNum == 10 || currLevNum == 13){
-			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev);
-		}
-		else if(currLevNum == 2 || currLevNum == 5 || currLevNum == 6 || currLevNum == 11 || currLevNum == 14){
-			currentLevelView = new LightningLevelView((LightningLevel)currLev);
-		}
-		else if(currLevNum == 3 || currLevNum == 6 || currLevNum == 9 || currLevNum == 12 || currLevNum == 15){
-			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev);
-		}
 	}
 	
 	public void initView(){
 		
+		// Get the first level view
+		updateCurrentLevelView();
+		
 		// Init sub components
-		this.currentLevelView.initView();
+		currentLevelView.initView();
 		
 		// Set Frame properties
-		this.setSize(1000, 1000);
-		this.setTitle("Game Window");
+		setSize(1000, 1000);
+		setTitle("Game Window");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// Create the content pane
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		// Add the buttons
 		menuButton.setBounds(5, 5, 100, 33);
 		contentPane.add(menuButton);
 		
 		resetButton.setBounds(135, 5, 100, 33);
 		contentPane.add(resetButton);
 		
-		// THIS IS WHERE WE ADD THE LEVELVIEW
+		// Add the level view
 		currentLevelView.setBounds(50, 50, 900, 900);
-		// currentLevelView.setBackground(Color.RED);
 		contentPane.add(currentLevelView);
 
 	}
@@ -108,26 +101,37 @@ public class GameWindow extends JFrame {
 		return this.currentLevelView;
 	}
 
-	public void updateCurrentLevelView() {
+	void updateCurrentLevelView() {
 		
 		Level currLev = m.getCurrentLevel();
 		int currLevNum = currLev.getLevelNum();
-		if(currLevNum == 1 || currLevNum == 4 || currLevNum == 7 || currLevNum == 10 || currLevNum == 13){
+		if(currLevNum % 3 == 1){
 			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev);
 		}
-		else if(currLevNum == 2 || currLevNum == 5 || currLevNum == 6 || currLevNum == 11 || currLevNum == 14){
+		else if(currLevNum % 3 == 2){
 			currentLevelView = new LightningLevelView((LightningLevel)currLev);
 		}
-		else if(currLevNum == 3 || currLevNum == 6 || currLevNum == 9 || currLevNum == 12 || currLevNum == 15){
+		else if(currLevNum % 3 == 0){
 			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev);
 		}
+	}
+	
+	public void updateView() {
 		
-		contentPane.remove(2);
+		// Remove the current level view
+		contentPane.remove(currentLevelView);
+		
+		// Get the new level view
+		updateCurrentLevelView();
+		
+		// Initialize it and set proper bounds
 		currentLevelView.initView();
+		// TODO fix this. Find where the controllers should be initialized. 
+		currentLevelView.initControllers();
+		currentLevelView.setBounds(50, 50, 900, 900);
+		
+		// Add the view back into the panel
 		contentPane.add(currentLevelView);
-		
-		System.out.println(1);
-		
 	}
 	
 	
