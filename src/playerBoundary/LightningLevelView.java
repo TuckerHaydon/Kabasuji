@@ -34,7 +34,6 @@ public class LightningLevelView extends LevelView{
 	
 	@Override
 	public void initControllers(){
-		goToMenu.addActionListener(new NavigateMainMenu(app,m));
-		//resetLvl.addActionListener(new ResetLevel());
+
 	}
 }

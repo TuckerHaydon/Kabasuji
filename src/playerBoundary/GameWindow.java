@@ -14,6 +14,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+import playerController.LoadGame;
 import playerController.NavigateMainMenu;
 import playerEntity.GameModel;
 import playerEntity.Level;
@@ -41,6 +42,11 @@ public class GameWindow extends JFrame {
 		// Initialize the buttons
 		menuButton = new JButton("Main Menu");
 		resetButton = new JButton("Reset Level");
+		
+		// TODO NOT THIS
+		LoadGame lg = new LoadGame(m, app);
+		lg.loadInitialLevel();
+		m.setCurrentLevel(1);
 		
 	}
 	

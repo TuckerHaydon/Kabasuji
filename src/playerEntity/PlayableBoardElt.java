@@ -14,21 +14,21 @@ public class PlayableBoardElt extends BoardElt {
 	boolean isCovered;
 	boolean isHint;
 	
-	PlayableBoardElt(int row, int col, boolean isHint){
+	public PlayableBoardElt(int row, int col, boolean isHint){
 		super(row, col);
 		this.isHint = isHint;
 		this.isCovered = false;
 	}
 	
-	void setCovered(boolean b) {
+	public void setCovered(boolean b) {
 		this.isCovered = b;
 	}
 	
-	void toggleCovered() {
+	public void toggleCovered() {
 		isCovered = !isCovered;
 	}
 	
-	void toggleHint() {
+	public void toggleHint() {
 		isHint = !isHint;
 	}
 }
