@@ -99,6 +99,6 @@ public class KabasujiPlayerApplication {
 		splash.setVisible(true);
 		long start = System.currentTimeMillis();
 		while(System.currentTimeMillis() - start < 5000);
-		splash.dispose();
+		splash.setVisible(false);
 	}
 }
