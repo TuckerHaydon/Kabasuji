@@ -19,4 +19,16 @@ public class TileView extends View {
 		this.x = x;
 		this.y = y;
 	}
+
+	@Override
+	void initView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void initControllers() {
+		// TODO Auto-generated method stub
+		
+	}
 }

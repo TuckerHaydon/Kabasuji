@@ -10,8 +10,8 @@ import playerEntity.ReleaseLevel;
 public class ReleaseLevelView extends LevelView{
 	JLabel movesLeft;
 	
-	public ReleaseLevelView(ReleaseLevel relLvl) {
-		this.level = relLvl;
+	public ReleaseLevelView(ReleaseLevel releaseLevel) {
+		this.level = releaseLevel;
 		goToMenu = new JButton("Main Menu");
 		resetLvl = new JButton("Reset Level");
 	}

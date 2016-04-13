@@ -14,9 +14,11 @@ public abstract class Level {
 		this.levelNum = levelNum;
 	}
 	
-	int getScore(){
+	public int getScore(){
 		return score;
 	}
+	
+	abstract public boolean hasWon();
 	
 	public int getLevelNum(){
 		return this.levelNum;
@@ -26,7 +28,7 @@ public abstract class Level {
 		this.levelNum = i;
 	}
 	
-	public boolean isLevelDone(){
+	public boolean getIsCompleted(){
 		return isComplete;
 	}
 	
@@ -38,8 +40,23 @@ public abstract class Level {
 		return this.isUnlocked;
 	}
 	
-	void reset(){
-		score = 0;
-		
+	public Board getBoard(){
+		return this.board;
 	}
+	
+	public void setBoard(Board b){
+		this.board = b;
+	}
+	
+	public Bullpen getBullpen(){
+		return this.bullpen;
+	}
+	
+	public void setBullpen(Bullpen bp){
+	    this.bullpen = bp;
+	}
+	
+	void reset(){
+		score = 0;	
+	}	
 }

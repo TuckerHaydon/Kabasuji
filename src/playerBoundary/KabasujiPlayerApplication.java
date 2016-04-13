@@ -27,6 +27,7 @@ public class KabasujiPlayerApplication {
 	
 	public void initModel(){
 		m = new GameModel();
+		m.initModel();
 	}
 	
 	public void initView(){
@@ -97,7 +98,8 @@ public class KabasujiPlayerApplication {
 		
 		splash.setVisible(true);
 		long start = System.currentTimeMillis();
-		while(System.currentTimeMillis() - start < 5000);
+
+		while(System.currentTimeMillis() - start < 1000);
 		splash.dispose();
 	}
 }
