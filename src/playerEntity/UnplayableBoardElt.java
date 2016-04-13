@@ -12,7 +12,7 @@ public class UnplayableBoardElt extends BoardElt {
 	int row;
 	int col;
 	
-	UnplayableBoardElt(int row, int col) {
+	public UnplayableBoardElt(int row, int col) {
 		super(row, col);
 	}
 }

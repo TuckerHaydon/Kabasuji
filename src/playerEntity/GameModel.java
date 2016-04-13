@@ -2,6 +2,7 @@ package playerEntity;
 
 import java.util.Hashtable;
 
+
 public class GameModel {
 	Hashtable<String, Achievement> achievements;
 	Level[] levels;
@@ -22,7 +23,6 @@ public class GameModel {
 		this.achievements.put("RageQuit", new Achievement("RageQuit",null,null));
 		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
-		
 
 
 		
@@ -39,36 +39,36 @@ public class GameModel {
 		PuzzleLevel[] puzzleLevels = new PuzzleLevel[5];
 		
 		// Initialize the various levels
-		for(int i = 0; i < 5; i++)
-		{
-			
-			puzzleLevels[i] = new PuzzleLevel(i, 20);
-			puzzleLevels[i].setIsUnlocked(true);
-			
-			lightLevels[i] = new LightningLevel(i, 100);
-			lightLevels[i].setIsUnlocked(true);
-			
-			releaseLevels[i] = new ReleaseLevel(i, 20);
-			releaseLevels[i].setIsUnlocked(true);
-		
-		}
-		
-		// Insert the various levels into the level array
-		for (int i = 0; i<5; i++)
-		{
-			lev[3*i] = puzzleLevels[i];
-			lev[3*i + 1] = lightLevels[i];
-			lev[3*i + 2] = releaseLevels[i];
-			
-		}
-		
-		for (int i = 0; i<15; i++)
-		{
-			lev[i].levelNum = i + 1;
-			
-		}
-		this.levels = lev;
-		this.currentLevel = levels[0];
+//		for(int i = 0; i < 5; i++)
+//		{
+//			
+//			puzzleLevels[i] = new PuzzleLevel(i, 20);
+//			puzzleLevels[i].setIsUnlocked(true);
+//			
+//			lightLevels[i] = new LightningLevel(i, 100);
+//			lightLevels[i].setIsUnlocked(true);
+//			
+//			releaseLevels[i] = new ReleaseLevel(i, 20);
+//			releaseLevels[i].setIsUnlocked(true);
+//		
+//		}
+//		
+//		// Insert the various levels into the level array
+//		for (int i = 0; i<5; i++)
+//		{
+//			lev[3*i] = puzzleLevels[i];
+//			lev[3*i + 1] = lightLevels[i];
+//			lev[3*i + 2] = releaseLevels[i];
+//			
+//		}
+//		
+//		for (int i = 0; i<15; i++)
+//		{
+//			lev[i].levelNum = i + 1;
+//			
+//		}
+//		this.levels = lev;
+//		this.currentLevel = levels[0];
 	}
 	
 	public void setCurrentLevel(int levelNum){
