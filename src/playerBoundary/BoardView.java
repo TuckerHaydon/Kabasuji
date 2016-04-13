@@ -19,7 +19,7 @@ public class BoardView extends View{
 	Board b;
 	KabasujiPlayerApplication app;
 	GameModel m;
-	private static int WIDTH = 50;
+	private static int WIDTH = 45;
 	
 	public BoardView(Board b, KabasujiPlayerApplication app, GameModel m){
 		this.b = b;
