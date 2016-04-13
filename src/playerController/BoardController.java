@@ -1,13 +1,20 @@
 package playerController;
 
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.GameModel;
 
-public class BoardController extends MouseAdapter {
+public class BoardController extends MouseAdapter{
+	GameModel m;
+	KabasujiPlayerApplication app;
 	
-	@Override
-	public void mousePressed(MouseEvent me){
-		System.out.println("Board Pressed");
+	public BoardController(GameModel m, KabasujiPlayerApplication app){
+		this.app=app;
+		this.m=m;
 	}
-
+	
+	
+	
+	//achievement stuff will go there -Dorothy
+	
 }

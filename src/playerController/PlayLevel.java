@@ -42,13 +42,20 @@ public class PlayLevel implements ActionListener {
 			
 			// Display the game window
 			app.displayGameWindow();
+			
+			//achievement stuff will go there -Dorothy
+			m.getGAM().setPreviousLevel(levelNum);
+			m.selectCurrentAM(levelNum);
+			
 
 		}
 		else
 		{
 			System.err.println("Level not unlocked.");
 		}
-
+		
+		
+		
 	}
 
 }

@@ -21,6 +21,10 @@ public abstract class LevelAchievementMonitor {
 		
 	public abstract boolean updateAchievement(IMove move);
 	
+	public abstract void setLevel(Level lv);
+	
+	public abstract void reset();
+	
 	/*Finished*/
 	protected boolean notEarnBabyStep() {
 		return !(achievements.get("SpeedyGonzales").getisEarned());
