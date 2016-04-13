@@ -42,8 +42,7 @@ public class GameWindow extends JFrame {
 		menuButton = new JButton("Main Menu");
 		resetButton = new JButton("Reset Level");
 		
-		//initialize the levelView
-		// TODO fix this to load the level from the default game
+		// TODO NOT THIS
 		Level currLev = m.getCurrentLevel();
 		int currLevNum = currLev.getLevelNum();
 		if(currLevNum == 1 || currLevNum == 4 || currLevNum == 7 || currLevNum == 10 || currLevNum == 13){
@@ -55,19 +54,36 @@ public class GameWindow extends JFrame {
 		else if(currLevNum == 3 || currLevNum == 6 || currLevNum == 9 || currLevNum == 12 || currLevNum == 15){
 			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev);
 		}
-		
-		this.initFrame();
-		this.currentLevelView.initView();
 	}
 	
 	public void initView(){
 		
-		// Add the components
-		this.add(menuButton);
-		this.add(resetButton);
-		this.add(currentLevelView);
+		// Init sub components
+		this.currentLevelView.initView();
+		
+		// Set Frame properties
+		this.setSize(1000, 1000);
+		this.setTitle("Game Window");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		menuButton.setBounds(5, 5, 100, 33);
+		contentPane.add(menuButton);
+		
+		resetButton.setBounds(135, 5, 100, 33);
+		contentPane.add(resetButton);
+		
+		// THIS IS WHERE WE ADD THE LEVELVIEW
+		currentLevelView.setBounds(50, 50, 900, 900);
+		// currentLevelView.setBackground(Color.RED);
+		contentPane.add(currentLevelView);
 
 	}
+
 	
 	public void initControllers(){
 		
@@ -91,58 +107,26 @@ public class GameWindow extends JFrame {
 	public LevelView getLevelView(){
 		return this.currentLevelView;
 	}
-	
-	void initFrame(){
+
+	public void updateCurrentLevelView() {
 		
-		// Set Frame properties
-		this.setSize(1000, 1000);
-		this.setTitle("Game Window");
-		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		Level currLev = m.getCurrentLevel();
+		int currLevNum = currLev.getLevelNum();
+		if(currLevNum == 1 || currLevNum == 4 || currLevNum == 7 || currLevNum == 10 || currLevNum == 13){
+			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev);
+		}
+		else if(currLevNum == 2 || currLevNum == 5 || currLevNum == 6 || currLevNum == 11 || currLevNum == 14){
+			currentLevelView = new LightningLevelView((LightningLevel)currLev);
+		}
+		else if(currLevNum == 3 || currLevNum == 6 || currLevNum == 9 || currLevNum == 12 || currLevNum == 15){
+			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev);
+		}
 		
-		currentLevelView.setBackground(Color.WHITE);
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(6)
-							.addComponent(currentLevelView, GroupLayout.PREFERRED_SIZE, 957, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(menuButton)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(resetButton)))
-					.addContainerGap(21, Short.MAX_VALUE))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(menuButton)
-						.addComponent(resetButton))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(currentLevelView, GroupLayout.PREFERRED_SIZE, 902, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(25, Short.MAX_VALUE))
-		);
-		GroupLayout gl_levelViewThing = new GroupLayout(currentLevelView);
-		gl_levelViewThing.setHorizontalGroup(
-			gl_levelViewThing.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 957, Short.MAX_VALUE)
-		);
-		gl_levelViewThing.setVerticalGroup(
-			gl_levelViewThing.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 902, Short.MAX_VALUE)
-		);
-		currentLevelView.setLayout(gl_levelViewThing);
-		contentPane.setLayout(gl_contentPane);
-	
+		contentPane.remove(2);
+		currentLevelView.initView();
+		contentPane.add(currentLevelView);
 		
+		System.out.println(1);
 		
 	}
 	
