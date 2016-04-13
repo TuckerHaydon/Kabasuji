@@ -31,4 +31,18 @@ public class PlayableBoardElt extends BoardElt {
 	public void toggleHint() {
 		isHint = !isHint;
 	}
+	
+	public boolean isHint(){
+		return isHint;
+	}
+	
+	@Override
+	public String toString(){
+		if(isHint){
+			return "PH";
+		}
+		else{
+			return "P";
+		}
+	}
 }

@@ -32,4 +32,17 @@ public class Board {
 		return elts;
 	}
 	
+	@Override
+	public String toString(){
+		String output = "";
+		for(int row = 0; row < elts.length; row++){
+			for(int col = 0; col < elts[0].length; col++){
+				output += elts[row][col];
+				output += " ";
+			}
+			output += "\n";
+		}
+		return output;
+	}
+	
 }

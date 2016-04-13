@@ -34,7 +34,7 @@ public class KabasujiPlayerApplication {
 		
 		// Create the various frames
 		gameWindow = new GameWindow(this, m);
-		mainMenu = new MainMenu(this);
+		mainMenu = new MainMenu(this, m);
 		levelSelectionMenu = new LevelSelectionMenu(this, m);
 		achievementsMenu = new AchievementsMenu(this, m);
 		
