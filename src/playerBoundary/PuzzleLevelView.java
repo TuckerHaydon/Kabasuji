@@ -1,6 +1,8 @@
 package playerBoundary;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.GroupLayout;
@@ -48,15 +50,15 @@ public class PuzzleLevelView extends LevelView{
 		setLayout(null);
 		
 		// Create the scrollPane
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(25, 25, 600, 240);
+		JScrollPane scrollPane = new JScrollPane(bullpenView, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(25, 25, 540, 270);
+		scrollPane.setMinimumSize(new Dimension(540, 270));
+		scrollPane.setPreferredSize(new Dimension(540, 270));
 		add(scrollPane);
 		
-		// Add the bullpenView to the scrollPane
-		scrollPane.setViewportView(bullpenView);
 		
 		// Add the boardView
-		boardView.setBounds(25, 275, 600, 600);
+		boardView.setBounds(25, 305, 540, 540);
 		add(boardView);
 		
 		JLabel lblNumMovesLeft = new JLabel("Num Moves Left");

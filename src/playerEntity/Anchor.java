@@ -16,14 +16,19 @@ public class Anchor extends Square {
 	int row;
 	int col;
 	
-	Anchor(int row, int col, Tile t) {
+	public Anchor(int row, int col, Tile t) {
 		super(0,0,t);
 		this.row = row;
 		this.col = col;
 	}
 	
-	int[] getRowCol() {
+	public int[] getRowCol() {
 		int[] ints = {this.row, this.col};
 		return ints;
+	}
+	
+	public void setRowCol(int row, int col){
+		this.row = row;
+		this.col = col;
 	}
 }
