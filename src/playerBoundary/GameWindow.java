@@ -81,7 +81,7 @@ public class GameWindow extends JFrame {
 	public void initControllers(){
 		
 		// Register the button controllers
-		menuButton.addActionListener(new NavigateMainMenu(app));
+		menuButton.addActionListener(new NavigateMainMenu(app,m));
 		// resetButton.addActionListener(new resetLevelController());
 	}
 	
@@ -106,13 +106,13 @@ public class GameWindow extends JFrame {
 		Level currLev = m.getCurrentLevel();
 		int currLevNum = currLev.getLevelNum();
 		if(currLevNum % 3 == 1){
-			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev);
+			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev,m);
 		}
 		else if(currLevNum % 3 == 2){
-			currentLevelView = new LightningLevelView((LightningLevel)currLev);
+			currentLevelView = new LightningLevelView((LightningLevel)currLev, m);
 		}
 		else if(currLevNum % 3 == 0){
-			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev);
+			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev,m);
 		}
 	}
 	

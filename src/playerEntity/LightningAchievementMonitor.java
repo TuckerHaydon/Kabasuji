@@ -10,12 +10,13 @@ import playerController.ReturnToMenuMove;
 public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	LightningLevel lv;
 	
-	public LightningAchievementMonitor(LightningLevel lv, Hashtable<String,Achievement> achievements){
-		this.lv=lv;
+	public LightningAchievementMonitor(Hashtable<String,Achievement> achievements){
 		this.achievements=achievements;
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();
 	}
+	
+	
 	
 	/*Finished*/
 	public boolean updateAchievement(IMove move) {
@@ -50,5 +51,20 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 			return true;
 		}
 		return false;
+	}
+
+
+
+	@Override
+	public void setLevel(Level lv) {
+		this.lv=(LightningLevel) lv;
+	}
+
+
+
+	@Override
+	public void reset() {
+		// TODO Auto-generated method stub
+		
 	}
 }

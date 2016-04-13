@@ -7,25 +7,11 @@ public class GameModel {
 	Level[] levels;
 	Level currentLevel;	
 	GameAchievementMonitor GAM;
-	LevelAchievementMonitor currentAM;
+	LevelAchievementMonitor lightningAM, puzzleAM, releaseAM;
+	int currentAM;
 	
 	public GameModel(){
-		//Dorothy: those still need pictures
-		achievements = new Hashtable<String, Achievement>();
-		this.achievements.put("BabySteps", new Achievement("BabySteps",null,null));
-		this.achievements.put("Rebel", new Achievement("Rebel",null,null));
-		this.achievements.put("OverAchiever", new Achievement("OverAchiever",null,null));
-		this.achievements.put("SlowPoke", new Achievement("SlowPoke",null,null));
-		this.achievements.put("SpeedyGonzales", new Achievement("SpeedyGonzales",null,null));
-		this.achievements.put("JustUnderTheWire", new Achievement("JustUnderTheWire",null,null));
-		this.achievements.put("NoRegrets", new Achievement("NoRegrets",null,null));
-		this.achievements.put("RageQuit", new Achievement("RageQuit",null,null));
-		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
-		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
-		
 
-
-		
 	}
 	
 	public void initModel(){
@@ -69,7 +55,26 @@ public class GameModel {
 		}
 		this.levels = lev;
 		this.currentLevel = levels[0];
+		
+		//Dorothy: those still need pictures
+		achievements = new Hashtable<String, Achievement>();
+		this.achievements.put("BabySteps", new Achievement("BabySteps",null,null));
+		this.achievements.put("Rebel", new Achievement("Rebel",null,null));
+		this.achievements.put("OverAchiever", new Achievement("OverAchiever",null,null));
+		this.achievements.put("SlowPoke", new Achievement("SlowPoke",null,null));
+		this.achievements.put("SpeedyGonzales", new Achievement("SpeedyGonzales",null,null));
+		this.achievements.put("JustUnderTheWire", new Achievement("JustUnderTheWire",null,null));
+		this.achievements.put("NoRegrets", new Achievement("NoRegrets",null,null));
+		this.achievements.put("RageQuit", new Achievement("RageQuit",null,null));
+		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
+		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
+		
+		this.lightningAM = new LightningAchievementMonitor(this.achievements);
+		this.puzzleAM = new PuzzleAchievementMonitor(this.achievements);
+		this.releaseAM = new ReleaseAchievementMonitor(this.achievements);
+		
 	}
+	
 	
 	public void setCurrentLevel(int levelNum){
 		this.currentLevel = levels[levelNum];
@@ -91,4 +96,32 @@ public class GameModel {
 		return this.GAM;
 	}
 	
+	public void selectCurrentAM(int levelNum){
+		if(levelNum<5 && levelNum>=0){
+			this.currentAM=1;
+			this.puzzleAM.reset();
+		}
+		if(levelNum<10 && levelNum>=5){
+			this.currentAM=2;
+			this.lightningAM.reset();
+		}
+		if(levelNum<15 && levelNum>=10){
+
+			this.currentAM=3;
+			this.releaseAM.reset();
+		}
+	}
+	
+	public LevelAchievementMonitor getCurrentAM(){
+		if(this.currentAM==1){
+			return this.puzzleAM;
+		}
+		if(this.currentAM==2){
+			return this.lightningAM;
+		}
+		if(this.currentAM==3){
+			return this.releaseAM;
+		}
+		return null;
+	}
 }

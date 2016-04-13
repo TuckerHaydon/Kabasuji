@@ -16,20 +16,21 @@ import javax.swing.border.EmptyBorder;
 import playerController.NavigateMainMenu;
 
 import playerController.LevelController;
-
+import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.PuzzleLevel;
 
 public class PuzzleLevelView extends LevelView{
 	JLabel movesLeft;
+	GameModel m;
 	
-	
-	public PuzzleLevelView(PuzzleLevel puzzleLvl) {
+	public PuzzleLevelView(PuzzleLevel puzzleLvl, GameModel m) {
 		this.level = puzzleLvl;
+		this.m=m;
 		
 		// Initialize the sub-view components
 		bullpenView = new BullpenView(level.getBullpen());
-		boardView = new BoardView(level.getBoard());
+		boardView = new BoardView(level.getBoard(), app, m);
 	}
 
 	@Override
@@ -70,7 +71,7 @@ public class PuzzleLevelView extends LevelView{
 	
 	@Override
 	public void initControllers(){
-		goToMenu.addActionListener(new NavigateMainMenu(app));
+		goToMenu.addActionListener(new NavigateMainMenu(app,m));
 		//resetLvl.addActionListener(new ResetLevel());
 
 		

@@ -8,7 +8,7 @@ import playerController.PlayLevel;
 
 public class GameAchievementMonitor {
 	LinkedList<Level> levels;
-	Level currentLevel;
+	int previousLvNum;
 	int numConsecutiveLevelsCompleted;
 	
 	public GameAchievementMonitor(LinkedList<Level> levels){
@@ -17,27 +17,18 @@ public class GameAchievementMonitor {
 	}
 	
 	/* Attention : Set before enter the level*/
-	public void setCurrentLevel(Level currentLevel){
-		this.currentLevel=currentLevel;
+	public void setPreviousLevel(int num){
+		this.previousLvNum=num;
 	}
 	
-	public void updateAchievements(IMove move){
-		//need to be implemented
-	}
-
-	private boolean checkKomboBreaker(IMove move){
-//		if(move instanceof NavigateMainMenu){
-//			this.numConsecutiveLevelsCompleted=0;
-//		}
-//		if(move instanceof PlayLevel)
-		return false;
+	public void updateConsecutiveNum(int levelNum){
+		if(this.previousLvNum==levelNum){
+			this.numConsecutiveLevelsCompleted++;
+		}
 	}
 	
-	
-	
-	public void incrementConsecutiveNum(){
-		this.numConsecutiveLevelsCompleted++;
+	public void reset(){
+		this.numConsecutiveLevelsCompleted=0;
+		this.previousLvNum=-999;	
 	}
-	
-	
 }

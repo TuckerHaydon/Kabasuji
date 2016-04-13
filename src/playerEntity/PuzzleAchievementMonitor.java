@@ -13,8 +13,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	PuzzleLevel lv;
 	
 	
-	public PuzzleAchievementMonitor(PuzzleLevel lv, Hashtable<String, Achievement> achievements){
-		this.lv=lv;
+	public PuzzleAchievementMonitor(Hashtable<String, Achievement> achievements){
 		this.achievements=achievements;
 		this.moveCounter=0;
 		this.toBullpenMove=0;
@@ -71,6 +70,17 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void setLevel(Level lv) {
+		this.lv=(PuzzleLevel) lv;
+	}
+
+	@Override
+	public void reset() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

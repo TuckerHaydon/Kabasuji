@@ -6,17 +6,19 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import playerController.NavigateMainMenu;
+import playerEntity.GameModel;
 import playerEntity.Level;
 
 import playerEntity.LightningLevel;
 
 public class LightningLevelView extends LevelView{
 	JLabel timeLeft; 
-	
-	public LightningLevelView(LightningLevel lightningLvl) {
+	GameModel m;
+	public LightningLevelView(LightningLevel lightningLvl, GameModel m) {
 		this.level = lightningLvl;
+		this.m=m;
 		bullpenView = new BullpenView(level.getBullpen());
-		boardView = new BoardView(level.getBoard());
+		boardView = new BoardView(level.getBoard(),app,m);
 
 	}
 
@@ -26,13 +28,13 @@ public class LightningLevelView extends LevelView{
 
 		// this.setSize(900, 900);
 		bullpenView = new BullpenView(level.getBullpen());
-		boardView = new BoardView(level.getBoard());
+		boardView = new BoardView(level.getBoard(), app, m);
 		
 	}
 	
 	@Override
 	public void initControllers(){
-		goToMenu.addActionListener(new NavigateMainMenu(app));
+		goToMenu.addActionListener(new NavigateMainMenu(app,m));
 		//resetLvl.addActionListener(new ResetLevel());
 	}
 }
