@@ -81,7 +81,7 @@ public class GameWindow extends JFrame {
 	public void initControllers(){
 		
 		// Register the button controllers
-		menuButton.addActionListener(new NavigateMainMenu(app));
+		menuButton.addActionListener(new NavigateMainMenu(app,m));
 		// resetButton.addActionListener(new resetLevelController());
 	}
 	

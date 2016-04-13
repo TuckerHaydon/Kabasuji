@@ -45,7 +45,7 @@ public class AchievementsMenu extends JFrame {
 	}
 	
 	public void initControllers(){
-		goToMenu.addActionListener(new NavigateMainMenu(app));
+		goToMenu.addActionListener(new NavigateMainMenu(app,m));
 		// TODO reset achievements controller
 	}
 

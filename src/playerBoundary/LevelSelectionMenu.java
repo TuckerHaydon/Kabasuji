@@ -49,7 +49,7 @@ public class LevelSelectionMenu extends JFrame {
 	}
 	
 	public void initControllers(){
-		goToMainMenu.addActionListener(new NavigateMainMenu(app));
+		goToMainMenu.addActionListener(new NavigateMainMenu(app,m));
 		// TODO exportGame controller
 		for(int i = 0; i < 15; i++){
 			levels[i].addActionListener(new PlayLevel(app, m, i + 1));
