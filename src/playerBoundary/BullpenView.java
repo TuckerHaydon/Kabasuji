@@ -2,6 +2,7 @@
 package playerBoundary;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -27,7 +28,7 @@ public class BullpenView extends View implements KeyListener {
 	public void initView(){
 		this.setBackground(Color.BLUE);
 		this.setSize(4000, 120);
-		//this.setBounds(0, 0, 4000, 120);
+		this.setPreferredSize(new Dimension(7*WIDTH*bp.getTiles().size(), 120));
 		
 	}
 	
