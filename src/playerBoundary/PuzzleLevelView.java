@@ -24,9 +24,10 @@ public class PuzzleLevelView extends LevelView{
 	JLabel movesLeft;
 	GameModel m;
 	
-	public PuzzleLevelView(PuzzleLevel puzzleLvl, GameModel m) {
+	public PuzzleLevelView(PuzzleLevel puzzleLvl, GameModel m, KabasujiPlayerApplication app) {
 		this.level = puzzleLvl;
 		this.m=m;
+		this.app = app;
 		
 		// Initialize the sub-view components
 		bullpenView = new BullpenView(level.getBullpen());
