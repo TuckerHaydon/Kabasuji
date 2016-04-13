@@ -66,8 +66,8 @@ public class EntityTest extends TestCase {
 		levels.add(puzzlelevel);
 		levels.add(lightninglevel);
 		levels.add(releaselevel);
-		pam = 
-		lam = new LightningAchievementMonitor(lightninglevel);
+		//pam = new PuzzleAchievementMonitor();
+		//lam = new LightningAchievementMonitor(lightninglevel);
 		gam = new GameAchievementMonitor(levels);
 		
 		
