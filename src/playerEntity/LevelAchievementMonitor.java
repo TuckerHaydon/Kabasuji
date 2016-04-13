@@ -8,15 +8,22 @@ import javax.swing.JOptionPane;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
+import playerController.ReturnToMenuMove;
+import playerController.RotateTileClockwiseMove;
+import playerController.RotateTileCounterClockwiseMove;
 import playerController.TileToBoardMove;
+import playerController.TileToBullpenMove;
 
 public abstract class LevelAchievementMonitor {
 	int moveCounter;
-	boolean isillegalMove;
 	LinkedList<String> popingUp;
 	Hashtable<String, Achievement> achievements;
 		
 	public abstract boolean updateAchievement(IMove move);
+	
+	public abstract void setLevel(Level lv);
+	
+	public abstract void reset();
 	
 	/*Finished*/
 	protected boolean notEarnBabyStep() {
@@ -53,7 +60,10 @@ public abstract class LevelAchievementMonitor {
 	
 	/*Finished*/
 	protected boolean checkBabySteps(IMove move){
-		this.moveCounter++;
+		if((move instanceof TileToBoardMove)||(move instanceof TileToBullpenMove)
+				||(move instanceof RotateTileCounterClockwiseMove)||(move instanceof RotateTileClockwiseMove)){
+			this.moveCounter++;
+		}
 		if(this.moveCounter==10 && this.notEarnBabyStep()){
 			achievements.get("BabySteps").setEarned();
 			popingUp.push("BabySteps");
@@ -73,6 +83,9 @@ public abstract class LevelAchievementMonitor {
 	}
 	
 	abstract boolean checkRageQuit(IMove move);
+	
+	
+	abstract boolean checkVictoryLap(IMove move);
 	
 	/*Finished*/
 	void popUpScreen(){

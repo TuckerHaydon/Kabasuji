@@ -8,24 +8,45 @@ import java.util.ArrayList;
  *
  */
 
-public class Board {
+public class Board {  
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
 	
-	Board() {
-		elts = new BoardElt[12][12];
+	public Board(BoardElt elts[][]) {
+		this.elts = elts;
 	}
 	
-	boolean addTile(Tile t) {
+	public boolean addTile(Tile t) {
 		return tiles.add(t);
 	}
 	
-	boolean removeTile(Tile t) {
+	public boolean removeTile(Tile t) {
 		return tiles.remove(t);
 	}
 
-	boolean removeAll() {
+	public boolean removeAll() {
 		return tiles.removeAll(tiles);
+	}
+	
+	public BoardElt[][] getBoardElts(){
+		return elts;
+	}
+	
+	public BoardElt getBoardElt(int row, int col){
+		return elts[row][col];
+	}
+	
+	@Override
+	public String toString(){
+		String output = "";
+		for(int row = 0; row < elts.length; row++){
+			for(int col = 0; col < elts[0].length; col++){
+				output += elts[row][col];
+				output += " ";
+			}
+			output += "\n";
+		}
+		return output;
 	}
 	
 }

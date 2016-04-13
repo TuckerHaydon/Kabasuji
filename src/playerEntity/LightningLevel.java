@@ -6,29 +6,13 @@ public class LightningLevel extends Level{
 	int usedTime;
 	javax.swing.Timer timer;
 	
-	Bullpen bullpen;
-	Board board;
-	
-	int score;
-	boolean isUnlocked;
-	int levelNum;
-	boolean isCompleted;
-	
-	public LightningLevel(int levelNum, int allowedTime) {
-		super(levelNum);
+	public LightningLevel(int levelNum, int allowedTime, Board b, Bullpen bp) {
+		super(levelNum, b, bp);
 		this.allowedTime = allowedTime;
 	}
 	
 	void updateTime(int delta){
 		usedTime += delta;
-	}
-	
-	int getScore(){
-		return score;
-	}
-	
-	public boolean isLevelDone(){
-		return isCompleted;
 	}
 	
 	void reset(){
@@ -38,5 +22,11 @@ public class LightningLevel extends Level{
 
 	public boolean isTimeUsedUp(){
 		return (this.allowedTime==this.usedTime);
+	}
+
+	@Override
+	public boolean hasWon() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

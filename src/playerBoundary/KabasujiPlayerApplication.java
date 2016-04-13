@@ -27,13 +27,14 @@ public class KabasujiPlayerApplication {
 	
 	public void initModel(){
 		m = new GameModel();
+		m.initModel();
 	}
 	
 	public void initView(){
 		
 		// Create the various frames
 		gameWindow = new GameWindow(this, m);
-		mainMenu = new MainMenu(this);
+		mainMenu = new MainMenu(this, m);
 		levelSelectionMenu = new LevelSelectionMenu(this, m);
 		achievementsMenu = new AchievementsMenu(this, m);
 		
@@ -97,7 +98,8 @@ public class KabasujiPlayerApplication {
 		
 		splash.setVisible(true);
 		long start = System.currentTimeMillis();
-		while(System.currentTimeMillis() - start < 5000);
+
+		while(System.currentTimeMillis() - start < 1000);
 		splash.dispose();
 	}
 }

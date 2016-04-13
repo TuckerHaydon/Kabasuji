@@ -30,33 +30,32 @@ public class PlayLevel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 	
+		// Check to make sure the level you clicked on is unlocked
 		if(m.getLevels()[levelNum].getIsUnlocked())
 		{
-			app.displayGameWindow();
+			// Update the current level
 			m.setCurrentLevel(levelNum);
-		
-		GameWindow currWindow = app.getGameWindow();
-		int currLN = m.getCurrentLevel().getLevelNum();
-		if((currLN == 1) || (currLN == 4) || (currLN == 7) || (currLN == 10) || (currLN == 13))
-		{
-			PuzzleLevelView levView = new PuzzleLevelView((PuzzleLevel) m.getCurrentLevel());
-			currWindow.setLevelView((PuzzleLevelView) levView);
-			//currWindow.add(levView);
+
+			
+			// Update the level view panel in the game window
+			app.getGameWindow().updateView();
+			
+			// Display the game window
+			app.displayGameWindow();
+			
+			//achievement stuff will go there -Dorothy
+			// m.getGAM().setPreviousLevel(levelNum);
+			// m.selectCurrentAM(levelNum);
+			
+
 		}
-		else if((currLN == 2) || (currLN == 5) || (currLN == 8) || (currLN == 11) || (currLN == 14))
+		else
 		{
-			LightningLevelView levView = new LightningLevelView((LightningLevel) m.getCurrentLevel());
-			currWindow.setLevelView(levView);
-			//currWindow.add(levView);
-		}
-		else if((currLN == 3) || (currLN == 6) || (currLN == 9) || (currLN == 12) || (currLN == 15))
-		{
-			//ReleaseLevelView levView = new ReleaseLevelView((ReleaseLevel) m.getCurrentLevel());
-			//this.add(levView);
-		}
+			System.err.println("Level not unlocked.");
 		}
 		
-		//app.displayGameWindow();
+		
+		
 	}
 
 }

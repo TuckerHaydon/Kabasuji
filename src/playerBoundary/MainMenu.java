@@ -6,8 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import application.PlayerLauncher;
+import playerController.LoadGame;
 import playerController.NavigateAchievementMenu;
 import playerController.NavigateLevelSelectionMenu;
+import playerEntity.GameModel;
 
 public class MainMenu extends JFrame {
 	
@@ -15,10 +17,12 @@ public class MainMenu extends JFrame {
 	JButton playGame;
 	JButton viewAchievements;
 	KabasujiPlayerApplication app;
+	GameModel m;
 	
-	public MainMenu(KabasujiPlayerApplication app){
+	public MainMenu(KabasujiPlayerApplication app, GameModel m){
 		super();
 		this.app = app;
+		this.m = m;
 		
 		loadGame = new JButton("Load Game");
 		playGame = new JButton("Play Game");
@@ -31,6 +35,7 @@ public class MainMenu extends JFrame {
 		// Set properties of the frame
 		this.setSize(1000,1000);
 		this.setTitle("Main Menu");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Set the layout
 		getContentPane().setLayout(new GridLayout(3,1));
@@ -44,6 +49,7 @@ public class MainMenu extends JFrame {
 	public void initControllers(){
 		viewAchievements.addActionListener(new NavigateAchievementMenu(app));
 		playGame.addActionListener(new NavigateLevelSelectionMenu(app));
+		loadGame.addActionListener(new LoadGame(m, app));
 		// TODO add a loadGame controller
 	}
 

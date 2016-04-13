@@ -9,6 +9,5 @@ public class PlayerLauncher {
 		System.out.println("Player Application launched.");
 		
 		KabasujiPlayerApplication app = new KabasujiPlayerApplication();
-		app.init();
 	}	
 }

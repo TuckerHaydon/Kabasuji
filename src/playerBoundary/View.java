@@ -15,4 +15,7 @@ public abstract class View extends JPanel {
 		this.addMouseMotionListener(ma);
 	}
 	
+	abstract void initView();
+	abstract void initControllers();
+	
 }

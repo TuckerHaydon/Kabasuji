@@ -33,6 +33,7 @@ public class AchievementsMenu extends JFrame {
 		// Set the properties of the frame
 		this.setSize(1000, 1000);
 		this.setTitle("Achievements Menu");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Set the layout of the frame
 		getContentPane().setLayout(new GridLayout(3,1));
@@ -44,7 +45,7 @@ public class AchievementsMenu extends JFrame {
 	}
 	
 	public void initControllers(){
-		goToMenu.addActionListener(new NavigateMainMenu(app));
+		goToMenu.addActionListener(new NavigateMainMenu(app,m));
 		// TODO reset achievements controller
 	}
 

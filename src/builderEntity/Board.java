@@ -9,9 +9,6 @@ public class Board {
 		this.elts = elts;
 	}
 	
-	Board() {
-		elts = new BoardElt[12][12];
-	}
 	
 	void setElts(BoardElt[][] elts){
 		this.elts = elts;
@@ -22,4 +19,7 @@ public class Board {
 	}
 	
 
+	public BoardElt[][] getBoardElts(){
+		return this.elts;
+	}
 }
