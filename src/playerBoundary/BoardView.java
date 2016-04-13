@@ -3,6 +3,7 @@ package playerBoundary;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import playerController.BoardController;
 import playerEntity.Board;
 import playerEntity.BoardElt;
 import playerEntity.NumberBoardElt;
@@ -26,7 +27,7 @@ public class BoardView extends View{
 	}
 	
 	public void initControllers(){
-		
+		setMouseAdapter(new BoardController());
 	}
 	
 	@Override

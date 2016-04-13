@@ -20,13 +20,13 @@ public class ReleaseLevelView extends LevelView{
 	public void initView() {
 		//set properties of the view
 		this.setSize(1000,1000);
-		//bullpenView = new BullpenView(level.bullpen);
-		//boardView = new BoardView(level.board);
+		bullpenView = new BullpenView(level.getBullpen());
+		boardView = new BoardView(level.getBoard());
 		
 		this.add(resetLvl);
 		this.add(goToMenu);
-		//this.add(bullpenView);
-		//this.add(boardView);
+		this.add(bullpenView);
+		this.add(boardView);
 		this.setVisible(true);
 	}
 	

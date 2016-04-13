@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import playerController.BullpenController;
 import playerEntity.Bullpen;
 
 /*
@@ -26,7 +27,7 @@ public class BullpenView extends View implements KeyListener {
 	}
 	
 	public void initControllers(){
-		
+		setMouseAdapter(new BullpenController());
 	}
 	
 	public void keyPressed(KeyEvent k) {

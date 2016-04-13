@@ -12,7 +12,11 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+
+import playerController.NavigateMainMenu;
+
 import playerController.LevelController;
+
 import playerEntity.Level;
 import playerEntity.PuzzleLevel;
 
@@ -66,6 +70,9 @@ public class PuzzleLevelView extends LevelView{
 	
 	@Override
 	public void initControllers(){
+		goToMenu.addActionListener(new NavigateMainMenu(app));
+		//resetLvl.addActionListener(new ResetLevel());
+
 		
 		// Init the controllers of the subcomponents
 		bullpenView.initControllers();
@@ -73,6 +80,7 @@ public class PuzzleLevelView extends LevelView{
 		
 		// Init own controllers
 		setMouseAdapter(new LevelController());
+
 	}
 
 }

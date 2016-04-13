@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import playerController.NavigateMainMenu;
 import playerEntity.Level;
 
 import playerEntity.LightningLevel;
@@ -31,6 +32,7 @@ public class LightningLevelView extends LevelView{
 	
 	@Override
 	public void initControllers(){
-
+		goToMenu.addActionListener(new NavigateMainMenu(app));
+		//resetLvl.addActionListener(new ResetLevel());
 	}
 }
