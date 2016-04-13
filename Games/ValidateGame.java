@@ -6,6 +6,7 @@ import playerEntity.NumberBoardElt;
 import playerEntity.PuzzleLevel;
 import playerEntity.ReleaseLevel;
 
+
 public class ValidateGame {
 	Level[] levels;
 	
