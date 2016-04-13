@@ -30,6 +30,7 @@ public class PuzzleLevelView extends LevelView{
 	public void initView() {
 		//set properties of the view
 		this.setSize(900, 900);
+		this.setBounds(50, 50, 900, 900);
 		setBackground(Color.RED);
 //		this.add(bullpenView);
 //		this.add(boardView);
@@ -39,9 +40,9 @@ public class PuzzleLevelView extends LevelView{
 		// JPanel BoardViewThing = new JPanel();
 		boardView.setBackground(Color.GREEN);
 		
-		JLabel lblTimeAndStuff = new JLabel("Time and stuff");
+		JLabel lblTimeAndStuff = new JLabel("Num levels left");
 		
-		JLabel lblScore = new JLabel("Score");
+		JLabel lblScore = new JLabel(""+this.level.getScore());
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
