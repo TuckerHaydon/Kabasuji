@@ -1,6 +1,7 @@
 
 package playerBoundary;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -17,6 +18,15 @@ public class BullpenView extends View implements KeyListener {
 	
 	public BullpenView(Bullpen b){
 		this.b = b;
+	}
+	
+	public void initView(){
+		this.setBackground(Color.BLUE);
+		this.setBounds(0, 0, 4000, 120);
+	}
+	
+	public void initControllers(){
+		
 	}
 	
 	public void keyPressed(KeyEvent k) {

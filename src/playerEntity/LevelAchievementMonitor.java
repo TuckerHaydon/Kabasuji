@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
+import playerController.ReturnToMenuMove;
 import playerController.RotateTileClockwiseMove;
 import playerController.RotateTileCounterClockwiseMove;
 import playerController.TileToBoardMove;
@@ -15,7 +16,6 @@ import playerController.TileToBullpenMove;
 
 public abstract class LevelAchievementMonitor {
 	int moveCounter;
-	boolean isillegalMove;
 	LinkedList<String> popingUp;
 	Hashtable<String, Achievement> achievements;
 		
@@ -79,6 +79,9 @@ public abstract class LevelAchievementMonitor {
 	}
 	
 	abstract boolean checkRageQuit(IMove move);
+	
+	
+	abstract boolean checkVictoryLap(IMove move);
 	
 	/*Finished*/
 	void popUpScreen(){
