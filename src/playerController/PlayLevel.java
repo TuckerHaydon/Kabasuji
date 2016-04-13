@@ -35,6 +35,7 @@ public class PlayLevel implements ActionListener {
 		{
 			// Update the current level
 			m.setCurrentLevel(levelNum);
+
 			
 			// Update the level view panel in the game window
 			app.getGameWindow().updateView();
