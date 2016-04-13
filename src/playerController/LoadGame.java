@@ -47,7 +47,7 @@ public class LoadGame implements ActionListener{
 	}
 	
 	public void loadInitialLevel(){
-		String path = "/Users/tuckerhaydon/git/Kabasuji/Games/ExampleGame1";
+		String path = "Games/ExampleGame1";
 		
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			parseFile(fileScanner);
