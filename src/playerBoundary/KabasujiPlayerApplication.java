@@ -93,13 +93,13 @@ public class KabasujiPlayerApplication {
 	
 	void displaySplashScreen(){
 		JFrame splash = new JFrame("Splash Screen");
-		splash.setBounds(200, 200, 200, 200);
-		splash.getContentPane().add(new JLabel("Welcome!", SwingConstants.CENTER));
+		splash.setBounds(200, 200, 400, 200);
+		splash.getContentPane().add(new JLabel("Welcome!\nAuthors: Tucker, Dorothy, Kacper, Nidhi, and Damani", SwingConstants.CENTER));
 		
 		splash.setVisible(true);
 		long start = System.currentTimeMillis();
 
-		while(System.currentTimeMillis() - start < 1000);
+		while(System.currentTimeMillis() - start < 3000);
 		splash.dispose();
 	}
 }
