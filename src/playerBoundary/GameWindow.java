@@ -112,13 +112,13 @@ public class GameWindow extends JFrame {
 		Level currLev = m.getCurrentLevel();
 		int currLevNum = currLev.getLevelNum();
 		if(currLevNum % 3 == 1){
-			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev,m);
+			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev, m, app);
 		}
 		else if(currLevNum % 3 == 2){
-			currentLevelView = new LightningLevelView((LightningLevel)currLev, m);
+			currentLevelView = new LightningLevelView((LightningLevel)currLev, m, app);
 		}
 		else if(currLevNum % 3 == 0){
-			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev,m);
+			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev, m, app);
 		}
 	}
 	
