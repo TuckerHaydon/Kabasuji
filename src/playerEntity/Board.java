@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  */
 
-public class Board {
+public class Board {  
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
 	

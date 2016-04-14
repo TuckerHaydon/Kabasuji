@@ -4,6 +4,10 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
+import com.sun.prism.paint.Color;
 
 import builderController.CreateLevelHandler;
 import builderController.NavigateMainMenu;
@@ -23,10 +27,7 @@ public class LevelEditorMenu extends JFrame {
 		this.app = app;
 		this.m = m;
 		
-		// Create the buttons
-		createLevelButton = new JButton("Create Level");
-		editLevelButton = new JButton("Edit Level");
-		goToMenuButton = new JButton("Main Menu");
+	
 	}
 	
 	public void initView(){
@@ -36,12 +37,21 @@ public class LevelEditorMenu extends JFrame {
 		this.setTitle("Level Editor Menu");
 		
 		// Set layout
-		getContentPane().setLayout(new GridLayout(3,1));
-		
+		setLayout(null);
+		// Create the buttons
+		createLevelButton = new JButton("Create Level");
+		editLevelButton = new JButton("Edit Level");
+		goToMenuButton = new JButton("Main Menu");
 		// Add the buttons
+		createLevelButton.setBounds(375, 50, 250, 150);
+		//createLevelButton.setBackground();
+		editLevelButton.setBounds(375, 400, 250, 150);
+		goToMenuButton.setBounds(375, 775, 250, 150);
 		this.add(createLevelButton);
 		this.add(editLevelButton);
 		this.add(goToMenuButton);
+		
+		
 	}
 	
 	public void initControllers(){

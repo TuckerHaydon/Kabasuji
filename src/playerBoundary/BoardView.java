@@ -28,7 +28,7 @@ public class BoardView extends View{
 	}
 	
 	public void initView(){
-		
+	
 	}
 	
 	public void initControllers(){

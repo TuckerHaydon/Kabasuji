@@ -1,5 +1,6 @@
 package builderBoundary;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,7 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
@@ -29,20 +32,20 @@ public class LevelEditor extends JFrame implements KeyListener {
 			boardEltColors[] = {"red", "blue", "green"};
 	
 	LevelBuilderView levelBuilderView;
+	JPanel contentPane;
+
 	
 	public LevelEditor(KabasujiBuilderApplication app){
 		super();
 		
 		this.app = app;
 		m = new BuilderModel();
+
 		
 		levelBuilderView = new LevelBuilderView(m.getLevel(), app); 
 		
 		// Create all of the components
-		nextBankTiles = new JButton("Next");
-		prevBankTiles = new JButton("Prev");
-		nextBullpenTiles = new JButton("Next");
-		prevBullpenTiles = new JButton("Prev");
+	
 		exportGameButton = new JButton("Export");
 		goToMenuButton = new JButton("Main Menu");
 		
@@ -62,30 +65,37 @@ public class LevelEditor extends JFrame implements KeyListener {
 	}
 	
 	public void initView(){
+				
+//aa
 		
-		// Set the frame properties
-		this.setSize(1000, 1000);
-		this.setTitle("Level Editor");
-		
-		// Set the frame layout
-		getContentPane().setLayout(new GridLayout(5,5));
-		
-		// LevelBuilderView stuff
-		levelBuilderView.setSize(200, 200);
+		// Init sub components
 		levelBuilderView.initView();
 		
-		// Add all of the components
-		this.add(nextBankTiles);
-		this.add(prevBankTiles);
-		this.add(nextBullpenTiles);
-		this.add(prevBullpenTiles);
-		this.add(exportGameButton);
-		this.add(goToMenuButton);
-		this.add(boardEltNumBox);
-		this.add(levelTypeBox);
-		this.add(boardEltColorsBox);
-		this.add(boardEltTypeBox);
-		this.add(levelBuilderView);
+		// Set Frame properties
+		setSize(1000, 1000);
+		setTitle("Level Editor");
+		
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// Create the content pane
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setBackground(new Color(50,50,50));
+		contentPane.setLayout(null);
+		
+		// Add the buttons
+		exportGameButton.setBounds(5, 5, 100, 33);
+		contentPane.add(exportGameButton);
+		
+		goToMenuButton.setBounds(135, 5, 100, 33);
+		contentPane.add(goToMenuButton);
+		
+		// Add the level view
+		levelBuilderView.setBounds(50, 50, 900, 900);
+		contentPane.add(levelBuilderView);
+
 		
 	}
 	

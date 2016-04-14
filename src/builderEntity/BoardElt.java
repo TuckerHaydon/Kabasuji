@@ -21,4 +21,6 @@ public abstract class BoardElt {
 		this.col = rowcol[1];
 	}
 	
+
+	
 }
