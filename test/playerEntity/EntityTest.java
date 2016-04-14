@@ -3,6 +3,7 @@
  */
 package playerEntity;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -52,7 +53,7 @@ public class EntityTest extends TestCase {
 		tile = new Tile(coords, "Sample");
 		square = new Square(1,1,tile);
 		anchor = new Anchor(0,0,tile);
-		nbe = new NumberBoardElt(0,0, true, "red");
+		nbe = new NumberBoardElt(0,0, true, Color.red,1);
 		pbe = new PlayableBoardElt(0,1, false);
 		ube = new UnplayableBoardElt(0,2);
 		board = new Board();

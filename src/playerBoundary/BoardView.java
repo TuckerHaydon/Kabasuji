@@ -19,7 +19,7 @@ public class BoardView extends View{
 	Board b;
 	KabasujiPlayerApplication app;
 	GameModel m;
-	private static int WIDTH = 50;
+	private static int WIDTH = 45;
 	
 	public BoardView(Board b, KabasujiPlayerApplication app, GameModel m){
 		this.b = b;
@@ -32,7 +32,7 @@ public class BoardView extends View{
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BoardController(m, app));
+		setMouseAdapter(new BoardController(b, app, WIDTH));
 	}
 	
 	@Override
@@ -46,20 +46,26 @@ public class BoardView extends View{
 				Color squareColor = Color.BLACK;
 				
 				if(elts[row][col] instanceof PlayableBoardElt){
-					squareColor = Color.GREEN;
+					if(((PlayableBoardElt)elts[row][col]).isHint()){
+						squareColor = Color.YELLOW;
+					}
+					else if(elts[row][col] instanceof NumberBoardElt){
+						squareColor = Color.RED;
+					}
+					else{
+						squareColor = Color.GREEN;
+					}
 				}
 				else if(elts[row][col] instanceof UnplayableBoardElt){
 					squareColor = Color.BLACK;
 				}
-				else if(elts[row][col] instanceof NumberBoardElt){
-					squareColor = Color.RED;
-				}
+
 				
 				g.setColor(squareColor);
-				g.fillRect(WIDTH * row, WIDTH * col, WIDTH, WIDTH);
+				g.fillRect(WIDTH * col, WIDTH * row, WIDTH, WIDTH);
 				
 				g.setColor(Color.BLACK);
-				g.drawRect(WIDTH * row, WIDTH * col, WIDTH, WIDTH);
+				g.drawRect(WIDTH * col, WIDTH * row, WIDTH, WIDTH);
 			}
 		}
     } 

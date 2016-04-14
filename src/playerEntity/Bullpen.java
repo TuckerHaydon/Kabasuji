@@ -6,29 +6,34 @@ package playerEntity;
 
 import java.util.ArrayList;
 
-/**
- * @author kacper
- *
- */
+
 public class Bullpen {
 
 	/**
 	 * 
 	 */
 	ArrayList<Tile> tiles;
-	public Bullpen(ArrayList<Tile> t) {
-		tiles = t;
+	public Bullpen(ArrayList<Integer> hexominoes) {
+		
+		tiles = new ArrayList<Tile>();
+		for(Integer i: hexominoes){
+			tiles.add(new Tile(i, "Bullpen"));
+		}
 	}
 	
-	boolean addTile(Tile t) {
+	public boolean addTile(Tile t) {
 		return tiles.add(t);
 	}
 	
-	boolean removeTile(Tile t) {
+	public boolean removeTile(Tile t) {
 		return tiles.remove(t);
 	}
 	
-	void shiftTiles(int num) {
+	public void shiftTiles(int num) {
 		
+	}
+	
+	public ArrayList<Tile> getTiles(){
+		return tiles;
 	}
 }

@@ -4,9 +4,9 @@ public class ReleaseLevel extends Level {
 
 	int numEltLeft;
 	
-	public ReleaseLevel(int levelNum, int numEltLeft){
-		super(levelNum);
-		this.numEltLeft = numEltLeft;
+	public ReleaseLevel(int levelNum, Board b, Bullpen bp){
+		super(levelNum, b, bp);
+		// this.numEltLeft = numEltLeft;
 	}
 	
 	void reset(){

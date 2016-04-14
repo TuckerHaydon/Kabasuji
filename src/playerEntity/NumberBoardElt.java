@@ -3,6 +3,8 @@
  */
 package playerEntity;
 
+import java.awt.Color;
+
 /**
  * @author kacper
  *
@@ -13,9 +15,11 @@ public class NumberBoardElt extends PlayableBoardElt {
 	int col;
 	int isHint;
 	int number;
-	String color;
-	public NumberBoardElt(int row, int col, boolean isHint, String color) {
+	Color color;
+	
+	public NumberBoardElt(int row, int col, boolean isHint, Color color, int num) {
 		super(row, col, isHint);
 		this.color = color;
+		this.number = num;
 	}
 }

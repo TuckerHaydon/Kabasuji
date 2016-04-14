@@ -24,7 +24,7 @@ BeginLevel
 Lightning
 300
 BeginHexomino
-<Hexominos available>
+1 2 3
 EndHexomino
 BeginElts
 U U U U U U U U U U U U
@@ -44,7 +44,7 @@ EndLevel
 
 BeginLevel
 Release
-null
+1
 BeginHexomino
 22 21 3 5 6 7 4 8 5 27 19 31 30
 EndHexomino

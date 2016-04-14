@@ -12,21 +12,8 @@ public class Board {
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
 	
-	public Board() {
-		elts = new BoardElt[12][12];
-		
-		// TODO dont hardcode this shit
-		for(int row = 0; row < 12; row++){
-			for(int col = 0; col < 12; col++){
-				elts[row][col] = new PlayableBoardElt(row, col, false);
-			}
-		}
-		
-		elts[5][5] = new UnplayableBoardElt(5, 5);
-		elts[5][6] = new UnplayableBoardElt(5, 6);
-		elts[6][5] = new UnplayableBoardElt(6, 5);
-		elts[6][6] = new UnplayableBoardElt(6, 6);
-		
+	public Board(BoardElt elts[][]) {
+		this.elts = elts;
 	}
 	
 	public boolean addTile(Tile t) {
@@ -43,6 +30,23 @@ public class Board {
 	
 	public BoardElt[][] getBoardElts(){
 		return elts;
+	}
+	
+	public BoardElt getBoardElt(int row, int col){
+		return elts[row][col];
+	}
+	
+	@Override
+	public String toString(){
+		String output = "";
+		for(int row = 0; row < elts.length; row++){
+			for(int col = 0; col < elts[0].length; col++){
+				output += elts[row][col];
+				output += " ";
+			}
+			output += "\n";
+		}
+		return output;
 	}
 	
 }

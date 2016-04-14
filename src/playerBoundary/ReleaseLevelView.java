@@ -1,9 +1,10 @@
 package playerBoundary;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
 import builderController.NavigateMainMenu;
+import playerController.LevelController;
 import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.ReleaseLevel;
@@ -12,31 +13,58 @@ public class ReleaseLevelView extends LevelView{
 	JLabel movesLeft;
 	GameModel m;
 	
-	public ReleaseLevelView(ReleaseLevel releaseLevel, GameModel m) {
+	public ReleaseLevelView(ReleaseLevel releaseLevel, GameModel m, KabasujiPlayerApplication app) {
 		this.level = releaseLevel;
 		this.m=m;
-		goToMenu = new JButton("Main Menu");
-		resetLvl = new JButton("Reset Level");
+		this.app = app;
+		
+		bullpenView = new BullpenView(level.getBullpen());
+		boardView = new BoardView(level.getBoard(),app,m);
 	}
 
 	@Override
 	public void initView() {
-		//set properties of the view
-		this.setSize(1000,1000);
-		bullpenView = new BullpenView(level.getBullpen());
-		boardView = new BoardView(level.getBoard(),app,m);
+		// Init the subcomponets views
+		bullpenView.initView();
+		boardView.initView();
 		
-		this.add(resetLvl);
-		this.add(goToMenu);
-		this.add(bullpenView);
-		this.add(boardView);
-		this.setVisible(true);
+		//set properties of the view
+		this.setSize(900, 900);
+		
+		// No layout; using exact coordinates.
+		setLayout(null);
+		
+		// Create the scrollPane
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(25, 25, 600, 240);
+		add(scrollPane);
+		
+		// Add the bullpenView to the scrollPane
+		scrollPane.setViewportView(bullpenView);
+		
+		// Add the boardView
+		boardView.setBounds(25, 275, 600, 600);
+		add(boardView);
+		
+		JLabel lblNumMovesLeft = new JLabel("Not sure about this stuff");
+		lblNumMovesLeft.setBounds(770, 50, 60, 15);
+		add(lblNumMovesLeft);
+		
+		JLabel lblScoreNStuff = new JLabel("Score n stuff");
+		lblScoreNStuff.setBounds(770, 250, 60, 15);
+		add(lblScoreNStuff);
+		
+		
 	}
 	
 	@Override
 	public void initControllers(){
-		//goToMenu.addActionListener(new NavigateMainMenu(app));
-		//resetLvl.addActionListener(new ResetLevel());
+		// Init the controllers of the subcomponents
+		bullpenView.initControllers();
+		boardView.initControllers();
+		
+		// Init own controllers
+		setMouseAdapter(new LevelController());
 	}
 
 }
