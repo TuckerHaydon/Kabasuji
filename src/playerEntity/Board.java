@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  */
 
-public class Board {
+public class Board {  
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
 	
@@ -30,6 +30,10 @@ public class Board {
 	
 	public BoardElt[][] getBoardElts(){
 		return elts;
+	}
+	
+	public BoardElt getBoardElt(int row, int col){
+		return elts[row][col];
 	}
 	
 	@Override

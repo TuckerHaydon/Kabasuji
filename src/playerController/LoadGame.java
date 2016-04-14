@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -88,11 +89,11 @@ public class LoadGame implements ActionListener{
 		String levelType = fileScanner.next();
 		int levelData = Integer.parseInt(fileScanner.next());
 		
-		int hexominos[] = parseHexominoes(fileScanner);
+		ArrayList<Integer> hexominoes = parseHexominoes(fileScanner);
 		BoardElt elts[][] = parseBoardElts(fileScanner);
 		
 		
-		Bullpen bp = new Bullpen(null);
+		Bullpen bp = new Bullpen(hexominoes);
 		Board b = new Board(elts);
 		
 		// System.out.println(b);
@@ -167,19 +168,23 @@ public class LoadGame implements ActionListener{
 		return elts;
 	}
 
-	int[] parseHexominoes(Scanner fileScanner) {
+	ArrayList<Integer> parseHexominoes(Scanner fileScanner) {
+		
+		ArrayList<Integer> hexominoes = new ArrayList<>();
 		
 		//Parse the BeginHexominos
 		String next = fileScanner.next();
-		
+		next = fileScanner.next();
+
 		do
 		{
+			hexominoes.add(Integer.parseInt(next));
 			next = fileScanner.next();
-			// TODO create the hexominos
+			
 		}
 		while(!next.equals("EndHexomino"));
 		
-		return null;
+		return hexominoes;
 	}
 
 }

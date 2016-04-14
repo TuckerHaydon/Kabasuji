@@ -1,5 +1,9 @@
 package builderBoundary;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
 import builderEntity.BuilderModel;
 
 public class KabasujiBuilderApplication {
@@ -42,6 +46,10 @@ public class KabasujiBuilderApplication {
 		gameEditorMenu.initView();
 		gameEditor.initView();
 		
+		// Display Splash screen
+		displaySplashScreen();
+		
+		// Display the main menu
 		displayMainMenu();
 	}
 	
@@ -91,6 +99,18 @@ public class KabasujiBuilderApplication {
 		levelEditor.setVisible(false);
 		gameEditorMenu.setVisible(false);
 		gameEditor.setVisible(true);
+	}
+	
+	void displaySplashScreen(){
+		JFrame splash = new JFrame("Splash Screen");
+		splash.setBounds(200, 200, 400, 200);
+		splash.getContentPane().add(new JLabel("Welcome!\nAuthors: Tucker, Dorothy, Kacper, Nidhi, and Damani", SwingConstants.CENTER));
+		
+		splash.setVisible(true);
+		long start = System.currentTimeMillis();
+
+		while(System.currentTimeMillis() - start < 3000);
+		splash.dispose();
 	}
 
 }

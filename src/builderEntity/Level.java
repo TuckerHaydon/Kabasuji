@@ -7,7 +7,7 @@ public class Level {
 	int levelNum;
 	String levelType;
 	
-	public Level(Bullpen bp, Board board, int levelNum, String levelType){
+	public Level(Bullpen bp, Board board, int levelNum, String levelType){;
 		this.bullpen = bp;
 		this.board = board;
 		this.levelNum = levelNum;
