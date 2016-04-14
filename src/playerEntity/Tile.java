@@ -71,7 +71,7 @@ public void rotateRight() {
 	
 	public Square getSquare(int x, int y) {
 		for(int i = 0; i < 6; i++) {
-			if(squares[i].getX() == x && squares[i].getY() == y) {
+			if(squares[i].getRelX() == x && squares[i].getRelY() == y) {
 				return squares[i];
 			}
 		}
