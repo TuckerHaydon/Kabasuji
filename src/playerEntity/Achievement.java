@@ -1,17 +1,12 @@
 package playerEntity;
-import java.awt.Image;
 
 public class Achievement {
 	boolean isEarned;
 	String name;
-	Image earnedPic;
-	Image unEarnedPic;
 
-	public Achievement(String name, Image pic, Image notPic){
+	public Achievement(String name){
 		this.isEarned=false;
 		this.name=name;
-		this.earnedPic=pic;
-		this.unEarnedPic=notPic;
 	}
 	
 	boolean getIsEarned(){
@@ -28,22 +23,6 @@ public class Achievement {
 	
 	void setName(String n){
 		this.name = n;
-	}
-	
-	Image getEarnedPic(){
-		return this.earnedPic;
-	}
-	
-	void setEarnedPic(Image i){
-		this.earnedPic = i;
-	}
-	
-	Image getUnEarnedPic(){
-		return this.unEarnedPic;
-	}
-	
-	void setUnEarnedPic(Image i){
-		this.unEarnedPic = i;
 	}
 	
 	public boolean getisEarned(){
