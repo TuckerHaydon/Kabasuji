@@ -7,4 +7,9 @@ public class UnplayableBoardElt extends BoardElt{
 		
 	}
 
+	@Override
+	public String toString() {
+		return "U";
+	}
+
 }
