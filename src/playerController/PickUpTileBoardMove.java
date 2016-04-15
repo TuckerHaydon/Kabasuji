@@ -1,21 +1,22 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.Board;
 import playerEntity.Bullpen;
 import playerEntity.Tile;
 
 public class PickUpTileBoardMove implements IMove{
 	Tile tile;
-	Bullpen bullpen;
+	Board board;
 	
-	public PickUpTileBoardMove(Tile tile, Bullpen bullpen){
+	public PickUpTileBoardMove(Tile tile, Board board){
 		this.tile=tile;
-		this.bullpen=bullpen;
+		this.board=board;
 	}
 	
 	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
-		bullpen.removeTile(tile);
+		board.removeTile(tile);
 		return true;
 	}
 

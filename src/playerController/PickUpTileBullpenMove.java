@@ -13,16 +13,15 @@ public class PickUpTileBullpenMove implements IMove{
 		this.bullpen=bullpen;
 	}
 	
-	@Override
+	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		return false;
+		bullpen.removeTile(tile);
+		return true;
 	}
 
-	@Override
+	
 	public boolean isValid(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
