@@ -10,6 +10,7 @@ import playerEntity.Level;
 import playerEntity.ReleaseLevel;
 
 public class ReleaseLevelView extends LevelView{
+	KabasujiPlayerApplication app;
 	JLabel movesLeft;
 	GameModel m;
 	
@@ -18,7 +19,7 @@ public class ReleaseLevelView extends LevelView{
 		this.m=m;
 		this.app = app;
 		
-		bullpenView = new BullpenView(level.getBullpen());
+		bullpenView = new BullpenView(app, level.getBullpen());
 		boardView = new BoardView(level.getBoard(),app,m);
 	}
 

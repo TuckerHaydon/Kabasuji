@@ -23,6 +23,7 @@ import playerEntity.Level;
 import playerEntity.PuzzleLevel;
 
 public class PuzzleLevelView extends LevelView{
+	KabasujiPlayerApplication app;
 	JLabel movesLeft;
 	GameModel m;
 	
@@ -32,7 +33,7 @@ public class PuzzleLevelView extends LevelView{
 		this.app = app;
 		
 		// Initialize the sub-view components
-		bullpenView = new BullpenView(level.getBullpen());
+		bullpenView = new BullpenView(app, level.getBullpen());
 		boardView = new BoardView(level.getBoard(), app, m);
 	}
 

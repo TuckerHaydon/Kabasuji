@@ -14,6 +14,7 @@ import playerEntity.Level;
 import playerEntity.LightningLevel;
 
 public class LightningLevelView extends LevelView{
+	KabasujiPlayerApplication app;
 	JLabel timeLeft; 
 	GameModel m;
 	public LightningLevelView(LightningLevel lightningLvl, GameModel m, KabasujiPlayerApplication app) {
@@ -22,7 +23,7 @@ public class LightningLevelView extends LevelView{
 		this.m=m;
 		this.app = app;
 		
-		bullpenView = new BullpenView(level.getBullpen());
+		bullpenView = new BullpenView(app, level.getBullpen());
 		boardView = new BoardView(level.getBoard(),app,m);
 
 	}
