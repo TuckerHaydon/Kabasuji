@@ -6,27 +6,41 @@ public class NumberedBoardElt extends PlayableBoardElt{
 
 	Color c;
 	int num;
-	NumberedBoardElt(int row, int col, boolean isHint, Color c, int num) {
+	
+	public NumberedBoardElt(int row, int col, boolean isHint, Color c, int num) {
 		super(row, col, isHint);
 		this.c = c;
 		this.num = num;
 		
 	}
 	
-	void setColor(Color c){
+	public void setColor(Color c){
 		this.c = c;
 	}
 	
-	Color getColor(){
+	public Color getColor(){
 		return this.c;
 	}
 	
-	void setNum(int n){
+	public void setNum(int n){
 		this.num = n;
 	}
 	
-	int getNum(){
+	public int getNum(){
 		return this.num;
+	}
+	
+	@Override
+	public String toString(){
+		if(c.equals(Color.RED)){
+			return "P"+num + "R";
+		}
+		else if(c.equals(Color.BLUE)){
+			return "P"+num + "B";
+		}
+		else {
+			return "P"+num + "G";
+		}
 	}
 
 }

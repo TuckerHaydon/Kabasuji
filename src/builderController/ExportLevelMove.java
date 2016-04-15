@@ -51,9 +51,7 @@ public class ExportLevelMove implements IMove {
 		int data = lvl.getlevelData();
 		
 		try {
-			String content = "This is the content to write into file";
-
-			File file = new File(filePath);
+			File file = new File("src/resources/levels/"+filePath);
 
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
@@ -71,8 +69,25 @@ public class ExportLevelMove implements IMove {
 			bw.write("BeginLevel"); 	bw.newLine();
 			bw.write(type);				bw.newLine();
 			bw.write(""+data);			bw.newLine();
+			
+			// Write the hexomino numbers
 			bw.write("BeginHexomino"); 	bw.newLine();
-			// for(Integer i:)
+			for(Integer i:tileReferenceNumbers){
+				bw.write(i+" ");
+			}
+			bw.write("EndHexomio"); 	bw.newLine();
+		
+			// Write the board elts
+			bw.write("BeginElts");		bw.newLine();
+			for(int row = 0; row < 12; row++){
+				for(int col = 0; col < 12; col++){
+					bw.write(elts[row][col].toString());
+				}
+				if(row != 11) {bw.newLine();}
+			}
+			bw.write("EndElts");		bw.newLine();
+			bw.write("EndLevel"); 	bw.newLine();
+			
 			
 
 		} catch (IOException e) {

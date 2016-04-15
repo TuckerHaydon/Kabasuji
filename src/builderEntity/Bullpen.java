@@ -6,8 +6,12 @@ public class Bullpen {
 
 	ArrayList<Integer> tileReferenceNumbers;
 	
-	Bullpen(){
-		
+	public Bullpen(){
+		tileReferenceNumbers = new ArrayList<>();
+	}
+	
+	public Bullpen(ArrayList<Integer> tileRefNums){
+		this.tileReferenceNumbers = tileRefNums;
 	}
 	
 	public void setTiles(ArrayList<Integer> nums){
