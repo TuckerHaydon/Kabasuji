@@ -16,13 +16,15 @@ import playerEntity.Tile;
 
 public class BullpenView extends View implements KeyListener {
 	Bullpen bp;
+	KabasujiPlayerApplication app;
 	boolean controlKeyPressed;
 	boolean shiftKeyPressed;
 	
 	static int WIDTH = 45;
 	
-	public BullpenView(Bullpen bp){
+	public BullpenView(KabasujiPlayerApplication app, Bullpen bp){
 		this.bp = bp;
+		this.app=app;
 	}
 	
 	public void initView(){
@@ -33,7 +35,7 @@ public class BullpenView extends View implements KeyListener {
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BullpenController(bp));
+		setMouseAdapter(new BullpenController(app, bp));
 	}
 	
 	public void keyPressed(KeyEvent k) {
