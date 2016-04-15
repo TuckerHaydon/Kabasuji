@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import playerController.LoadGame;
 import playerController.NavigateMainMenu;
+import playerController.ResetLevelController;
 import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.LightningLevel;
@@ -88,7 +89,7 @@ public class GameWindow extends JFrame {
 		
 		// Register the button controllers
 		menuButton.addActionListener(new NavigateMainMenu(app,m));
-		// resetButton.addActionListener(new resetLevelController());
+		resetButton.addActionListener(new ResetLevelController(app,m));
 	}
 	
 	public void setDraggedTile(TileView tv){
