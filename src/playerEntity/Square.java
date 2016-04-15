@@ -9,22 +9,21 @@ package playerEntity;
  *
  */
 public class Square {
-	int anchorX;
-	int anchorY;
+	int anchorRelX;
+	int anchorRelY;
 	Tile tile;
 	
-	public Square(int anchorX, int anchorY, Tile tile) {
-		this.anchorX = anchorX;
-		this.anchorY = anchorY;
-		this.tile = tile;
+	public Square(int anchorRelX, int anchorRelY) {
+		this.anchorRelX = anchorRelX;
+		this.anchorRelY = anchorRelY;
 	}
 	
 	public void setX(int k) {
-		anchorX = k;
+		anchorRelX = k;
 	}
 	
 	public void setY(int k) {
-		anchorY = k;
+		anchorRelY = k;
 	}
 	
 	public Tile getTile() {
@@ -36,10 +35,10 @@ public class Square {
 	}	
 	
 	public int getRelX(){
-		return anchorX;
+		return anchorRelX;
 	}
 	
 	public int getRelY(){
-		return anchorY;
+		return anchorRelY;
 	}
 }
