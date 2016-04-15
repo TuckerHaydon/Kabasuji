@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import builderController.ExportLevelHandler;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
@@ -65,8 +66,6 @@ public class LevelEditor extends JFrame implements KeyListener {
 	}
 	
 	public void initView(){
-				
-//aa
 		
 		// Init sub components
 		levelBuilderView.initView();
@@ -103,6 +102,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		// TODO add all the controllers
 		levelBuilderView.initControllers();
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
+		exportGameButton.addActionListener(new ExportLevelHandler(m));
 	}
 
 	@Override

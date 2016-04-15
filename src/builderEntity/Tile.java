@@ -7,6 +7,7 @@ public class Tile {
 	Square[] squares;
 	Anchor anchor;
 	String location;
+	int referenceNumber;
 	
 	Tile(Square[] squares, Anchor anchor, String location) {
 		if(squares.length != 6) {
@@ -18,7 +19,7 @@ public class Tile {
 		this.location = location;
 	}
 	
-public void rotateRight() {
+	public void rotateRight() {
 		int temp;
 		for(Square square : squares) {
 			temp = square.anchorRelX;
@@ -59,5 +60,7 @@ public void rotateRight() {
 	Square[] getSquares(){
 		return this.squares;
 	}
+	
+	
 	
 }

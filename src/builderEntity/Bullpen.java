@@ -4,31 +4,26 @@ import java.util.ArrayList;
 
 public class Bullpen {
 
-	ArrayList<Tile> tiles;
+	ArrayList<Integer> tileReferenceNumbers;
 	
-	Bullpen(ArrayList<Tile> tiles){
-		this.tiles = tiles;
+	Bullpen(){
+		
 	}
 	
-	void setTiles(ArrayList<Tile> t){
-		this.tiles = t;
+	public void setTiles(ArrayList<Integer> nums){
+		this.tileReferenceNumbers = nums;
 	}
 	
-	ArrayList<Tile> getTiles(){
-		return this.tiles;
+	public ArrayList<Integer> getTileReferenceNumbers(){
+		return this.tileReferenceNumbers;
 	}
 	
-	boolean addTile(Tile t){
-		return tiles.add(t);
+	public boolean addTile(Integer num){
+		return tileReferenceNumbers.add(num);
 	}
 	
-	boolean remTile(Tile t){
-		return tiles.remove(t);
+	public boolean remTile(Integer num){
+		return tileReferenceNumbers.remove(num);
 	}
 	
-	
-	//do we need this method?
-	boolean shiftTiles(int numShift){
-		return true; 
-	}
 }
