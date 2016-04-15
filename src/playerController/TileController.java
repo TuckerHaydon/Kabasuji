@@ -9,13 +9,13 @@ import playerBoundary.TileView;
 import playerEntity.GameModel;
 
 
-public class SquareController extends java.awt.event.MouseAdapter{
+public class TileController extends java.awt.event.MouseAdapter{
 	
 	KabasujiPlayerApplication app;
 	BoardView bv;
 	GameModel m;	
 	
-	public SquareController (KabasujiPlayerApplication app, BoardView boardview, GameModel model){
+	public TileController (KabasujiPlayerApplication app, BoardView boardview, GameModel model){
 		super();
 		
 		this.app = app;
@@ -46,6 +46,7 @@ public class SquareController extends java.awt.event.MouseAdapter{
 		
 		int mouse_x = me.getX();
 		int mouse_y = me.getY();
+		
 		
 		
 		//tileview tView = square.getOwner();
