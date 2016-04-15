@@ -10,7 +10,6 @@ public class DragTileMove implements IMove{
 	
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
