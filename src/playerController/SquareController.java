@@ -47,7 +47,9 @@ public class SquareController extends java.awt.event.MouseAdapter{
 		int mouse_x = me.getX();
 		int mouse_y = me.getY();
 		
-		//square.getOwner();
+		
+		//tileview tView = square.getOwner();
+		//gw.setDraggedTile(tView);
 		
 	}
 	

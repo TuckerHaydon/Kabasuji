@@ -3,6 +3,7 @@ package playerController;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import playerBoundary.GameWindow;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Board;
 import playerEntity.BoardElt;
@@ -44,9 +45,9 @@ public class BoardController extends MouseAdapter{
 	
 	public void mouseRelease(MouseEvent me){
 		
+		GameWindow gw = app.getGameWindow();
 		
-		
-		
+		gw.setDraggedTile(null);
 		
 		//achievement stuff goes here!
 		
