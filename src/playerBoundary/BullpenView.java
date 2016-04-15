@@ -74,9 +74,9 @@ public class BullpenView extends View implements KeyListener {
 		
 		for(Square s: squares){
 			g.setColor(Color.GREEN);
-			g.fillRect(upperX+s.getRelX()*WIDTH, upperY+s.getRelY()*WIDTH, WIDTH, WIDTH);
+			g.fillRect(upperX+s.getRelX()*WIDTH + width/2, upperY+s.getRelY()*WIDTH+height/2, WIDTH, WIDTH);
 			g.setColor(Color.BLACK);
-			g.drawRect(upperX+s.getRelX()*WIDTH, upperY+s.getRelY()*WIDTH, WIDTH, WIDTH);
+			g.drawRect(upperX+s.getRelX()*WIDTH+width/2, upperY+s.getRelY()*WIDTH+height/2, WIDTH, WIDTH);
 		}
 	}
 }
