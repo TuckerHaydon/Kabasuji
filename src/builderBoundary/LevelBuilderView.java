@@ -13,6 +13,7 @@ import builderController.BoardController;
 import builderEntity.Level;
 import builderEntity.Tile;
 import builderEntity.TileBank;
+import playerController.LoadGame;
 
 public class LevelBuilderView extends JPanel{
 	
@@ -33,6 +34,7 @@ public class LevelBuilderView extends JPanel{
 		this.lvl = lvl;
 		this.app = app;
 		ArrayList<Tile> banklist = new ArrayList<Tile>();
+			
 		bullpenView = new BullpenView(lvl.getBullpen());
 		boardView = new BoardView(lvl.getBoard());
 		bankView = new BullpenView(lvl.getBullpen());	//change back later

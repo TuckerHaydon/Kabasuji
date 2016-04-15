@@ -47,7 +47,7 @@ public class KabasujiBuilderApplication {
 		gameEditor.initView();
 		
 		// Display Splash screen
-		displaySplashScreen();
+//		displaySplashScreen();
 		
 		// Display the main menu
 		displayMainMenu();
