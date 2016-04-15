@@ -15,7 +15,8 @@ public class PuzzleLevel extends Level {
 		usedMove += delta;
 	}
 
-	void reset(){
+	public void reset(){
+		System.out.println("puzzle level reset");
 		score = 0;
 		usedMove = 0;
 	}

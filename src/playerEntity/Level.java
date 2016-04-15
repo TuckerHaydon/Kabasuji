@@ -58,7 +58,5 @@ public abstract class Level {
 	    this.bullpen = bp;
 	}
 	
-	void reset(){
-		score = 0;	
-	}	
+	abstract public void reset();
 }

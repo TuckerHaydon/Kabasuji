@@ -11,17 +11,16 @@ public class ResetLevelMove implements IMove{
 		this.app=app;
 		this.m=m;
 	}
-	
-	@Override
+
 	public boolean doMove(KabasujiPlayerApplication app) {
-		System.out.println("Reset has been pressed");
+		System.out.println("Reset!");
+		m.getCurrentLevel().reset();
 		return true;
 	}
 
-	@Override
+
 	public boolean isValid(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

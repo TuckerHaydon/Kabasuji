@@ -15,7 +15,8 @@ public class LightningLevel extends Level{
 		usedTime += delta;
 	}
 	
-	void reset(){
+	public void reset(){
+		System.out.println("Lighting level reset");
 		score = 0;
 		usedTime = 0;
 	}

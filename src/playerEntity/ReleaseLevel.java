@@ -9,7 +9,8 @@ public class ReleaseLevel extends Level {
 		// this.numEltLeft = numEltLeft;
 	}
 	
-	void reset(){
+	public void reset(){
+		System.out.println("release level reset");
 		score = 0;
 		numEltLeft = 0;		
 	}
