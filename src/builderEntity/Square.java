@@ -14,18 +14,19 @@ public class Square {
 		this.owner = tile;
 	}	
 		
-	void setAnchorRelX(int x){
-		this.anchorRelX = x;
+	public void setX(int k) {
+		anchorRelX = k;
 	}
+	
+	public void setY(int k) {
+		anchorRelY = k;
+	}
+	
 	
 	int getAnchorRelX(){
 		return this.anchorRelX;
 	}
-	
-	void setAnchorRelY(int y){
-		this.anchorRelY = y;
-	}
-	
+
 	int getAnchorRelY(){
 		return this.anchorRelY;
 	}
@@ -37,4 +38,9 @@ public class Square {
 	Tile getOwner(){
 		return this.owner;
 	}
+	
+	
+	public void setTile(Tile t) {
+		this.owner = t;
+	}	
 }
