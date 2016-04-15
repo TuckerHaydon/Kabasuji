@@ -50,6 +50,7 @@ public class EntityTest extends TestCase {
 		coords[5][0] = 1;
 		coords[5][1] = 0;
 		
+		/*
 		tile = new Tile(coords, "Sample");
 		square = new Square(1,1,tile);
 		anchor = new Anchor(0,0,tile);
@@ -70,6 +71,7 @@ public class EntityTest extends TestCase {
 		//pam = new PuzzleAchievementMonitor();
 		//lam = new LightningAchievementMonitor(lightninglevel);
 		gam = new GameAchievementMonitor(levels);
+		*/
 		
 		
 		

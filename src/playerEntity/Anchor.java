@@ -10,14 +10,11 @@ package playerEntity;
  */
 public class Anchor extends Square {
 
-	int anchorX;
-	int anchorY;
-	Tile tile;
 	int row;
 	int col;
 	
 	public Anchor(int row, int col, Tile t) {
-		super(0,0,t);
+		super(0, 0, t);
 		this.row = row;
 		this.col = col;
 	}

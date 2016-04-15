@@ -28,44 +28,39 @@ public class Tile {
 	
 		public Tile(int referenceNumber, String location){
 		
-		// TODO actually implement the tile constructor with a reference number
-		squares = new Square[6];
-		squares[0] = new Square(0,0,this);
-		squares[1] = new Square(1,0,this);
-		squares[2] = new Square(2,0,this);
-		squares[3] = new Square(3,0,this);
-		squares[4] = new Square(4,0,this);
-		squares[5] = new Square(5,0,this);
-		this.anchor = new Anchor(-1, -1, this);
+		this.squares = TileManager.getSquares(referenceNumber, this);
+		this.location = location;
+		
+		anchor = new Anchor(0,0, this);
 	}
 	
-public void rotateRight() {
+	public void rotateRight() {
 		int temp;
 		for(Square square : squares) {
-			temp = square.anchorX;
-			square.anchorX = square.anchorY;
-			square.anchorY = -temp;
+			temp = square.anchorRelX;
+			square.anchorRelX = square.anchorRelY;
+			square.anchorRelY = -temp;
 		}
 	}
 	
 	public void rotateLeft() {
 		int temp;
 		for(Square square : squares) {
-			temp = square.anchorX;
-			square.anchorX = -square.anchorY;
-			square.anchorY = temp;
+			temp = square.anchorRelX;
+			square.anchorRelX = -square.anchorRelY;
+			square.anchorRelY = temp;
 		}
 	}
 	
 	public void flipVertical() {
 		for(Square square : squares) {
-			square.anchorY = -square.anchorY;
+			square.anchorRelY = -square.anchorRelY;
 		}
 	}
 	
 	public void flipHorizontal() {
 		for(Square square : squares) {
-			square.anchorX = -square.anchorX;
+			square.anchorRelX = -square.anchorRelX;
 		}
 	}
 	
@@ -76,6 +71,10 @@ public void rotateRight() {
 			}
 		}
 		return null;
+	}
+	
+	public Square[] getSquares(){
+		return this.squares;
 	}
 	
 }
