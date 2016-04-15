@@ -39,7 +39,7 @@ public class Tile {
 		this.anchor = new Anchor(-1, -1, this);
 	}
 	
-public void rotateRight() {
+	public void rotateRight() {
 		int temp;
 		for(Square square : squares) {
 			temp = square.anchorX;
@@ -76,6 +76,10 @@ public void rotateRight() {
 			}
 		}
 		return null;
+	}
+	
+	public Square[] getSquares(){
+		return this.squares;
 	}
 	
 }
