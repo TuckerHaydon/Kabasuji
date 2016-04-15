@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
-import playerController.ReturnToMenuMove;
 import playerController.RotateTileClockwiseMove;
 import playerController.RotateTileCounterClockwiseMove;
 import playerController.TileToBoardMove;
@@ -19,11 +18,35 @@ public abstract class LevelAchievementMonitor {
 	LinkedList<String> popingUp;
 	Hashtable<String, Achievement> achievements;
 		
-	public abstract boolean updateAchievement(IMove move);
-	
+	public abstract boolean updateAchievement_whengotonextlevel();
+	public abstract boolean updateAchievement_whenclickbullpen();
+	public abstract boolean updateAchievement_whenclickboard();
+	public abstract boolean updateAchievement_wheninvalidmove();
+	public abstract boolean updateAchievement_whenquit();
 	public abstract void setLevel(Level lv);
-	
 	protected abstract void reset();
+	
+	abstract boolean checkRageQuit();
+	abstract boolean checkVictoryLap();
+	/*Finished*/
+	protected boolean checkBabySteps(){
+		if(this.moveCounter==10 && this.notEarnBabyStep()){
+			achievements.get("BabySteps").setEarned();
+			popingUp.push("BabySteps");
+			return true;
+		}
+		return false;
+	}
+	
+	/*Finished*/
+	protected boolean checkRebel(){
+		if(this.notEarnRebel()){
+			achievements.get("Rebel").setEarned();
+			popingUp.push("Rebel");
+			return true;
+		}
+		return false;
+	}
 	
 	/*Finished*/
 	protected boolean notEarnBabyStep() {
@@ -57,35 +80,7 @@ public abstract class LevelAchievementMonitor {
 	protected boolean notEarnRageQuit() {
 		return !(achievements.get("RageQuit").getisEarned());
 	}
-	
-	/*Finished*/
-	protected boolean checkBabySteps(IMove move){
-		if((move instanceof TileToBoardMove)||(move instanceof TileToBullpenMove)
-				||(move instanceof RotateTileCounterClockwiseMove)||(move instanceof RotateTileClockwiseMove)){
-			this.moveCounter++;
-		}
-		if(this.moveCounter==10 && this.notEarnBabyStep()){
-			achievements.get("BabySteps").setEarned();
-			popingUp.push("BabySteps");
-			return true;
-		}
-		return false;
-	}
-	
-	/*Finished*/
-	protected boolean checkRebel(IMove move){
-		if((move instanceof TileToBoardMove) && this.notEarnRebel()){
-			achievements.get("Rebel").setEarned();
-			popingUp.push("Rebel");
-			return true;
-		}
-		return false;
-	}
-	
-	abstract boolean checkRageQuit(IMove move);
-	
-	
-	abstract boolean checkVictoryLap(IMove move);
+
 	
 	/*Finished*/
 	void popUpScreen(){

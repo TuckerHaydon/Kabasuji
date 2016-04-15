@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
-import playerController.ReturnToMenuMove;
 
 public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	LightningLevel lv;
@@ -16,17 +15,48 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
-	
-	
 	/*Finished*/
-	public boolean updateAchievement(IMove move) {
-		return (checkSlowPoke(move) || checkRageQuit(move) || this.checkBabySteps(move) || this.checkRebel(move) || this.checkVictoryLap(move));
+	public void setLevel(Level lv) {
+		reset();
+		this.lv=(LightningLevel) lv;
 	}
 	
+	public boolean updateAchievement_whengotonextlevel(){
+		if(this.checkSlowPoke()||this.checkVictoryLap()){
+			return true;
+		}
+		return false;
+	}
+	public boolean updateAchievement_whenclickbullpen(){
+		if(this.checkBabySteps()){
+			return true;
+		}
+		return false;
+	}
+	public boolean updateAchievement_wheninvalidmove(){
+		if(this.checkRebel()){
+			return true;
+		}
+		return false;
+	}
+	public boolean updateAchievement_whenclickboard(){
+		this.moveCounter++;
+		if(this.checkBabySteps()){
+			return true;
+		}
+		return false;
+	}
+	public boolean updateAchievement_whenquit(){
+		if(this.checkRageQuit()){
+			return true;
+		}
+		return false;
+	}
+	
+	
 	/*Finished*/ /*Have questions about isLevelDone */
-	private boolean checkSlowPoke(IMove move){
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && typeMatched && !(lv.hasWon())){
+	private boolean checkSlowPoke(){
+		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && !(lv.hasWon())){
 			achievements.get("SlowPoke").setEarned();
 			popingUp.push("SlowPoke");
 			return true;
@@ -34,9 +64,8 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	/*Finished*/
-	boolean checkRageQuit(IMove move){
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && typeMatched && !(lv.hasWon())){
+	boolean checkRageQuit(){
+		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && !(lv.hasWon())){
 			achievements.get("RageQuit").setEarned();
 			popingUp.push("RageQuit");
 			return true;
@@ -45,23 +74,12 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	}
 
 	@Override
-	boolean checkVictoryLap(IMove move) {
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(typeMatched && lv.hasWon() && lv.getIsCompleted()){
+	boolean checkVictoryLap() {
+		if(lv.hasWon() && lv.getIsCompleted()){
 			return true;
 		}
 		return false;
 	}
-
-
-
-	/*Finished*/
-	public void setLevel(Level lv) {
-		reset();
-		this.lv=(LightningLevel) lv;
-	}
-
-
 
 	/*Finished*/
 	protected void reset() {
@@ -69,4 +87,8 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();
 	}
+
+
+
+
 }

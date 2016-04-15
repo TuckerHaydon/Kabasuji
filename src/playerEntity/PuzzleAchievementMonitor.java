@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
-import playerController.ReturnToMenuMove;
 import playerController.TileToBullpenMove;
 
 public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
@@ -20,42 +19,71 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
-	/*Finished*/
-	public boolean updateAchievement(IMove move) {
-		if(move instanceof TileToBullpenMove){
-			this.toBullpenMove++;
+	//this one goes to playlevel handler
+	public void setLevel(Level lv) {
+		reset();
+		this.lv=(PuzzleLevel) lv;
+	}
+	
+	//should be called when make a move to the board/bullpen/next level or quit
+	public boolean updateAchievement_whengotonextlevel(){
+		if(this.checkJustUnderTheWire()||this.checkNoRegrets()||this.checkVictoryLap()){
+			return true;
 		}
-		if(this.checkJustUnderTheWire(move) && this.checkNoRegrets(move) && this.checkVictoryLap(move)
-				&& this.checkRageQuit(move) && this.checkBabySteps(move) && this.checkRebel(move)){
+		return false;
+	}
+	//should goes to bullpen handler when make a new move
+	public boolean updateAchievement_whenclickbullpen(){
+		this.moveCounter++;
+		this.toBullpenMove++;
+		return false;
+	}
+	//should goes to move class
+	public boolean updateAchievement_wheninvalidmove(){
+		if(this.checkRebel()){
+			return true;
+		}
+		return false;
+	}
+	//should goes to board handler
+	public boolean updateAchievement_whenclickboard(){
+		this.moveCounter++;
+		if(this.checkRebel()||this.checkBabySteps()){
+			return true;
+		}
+		return false;
+	}
+	//should goes to Jbutton mainmenu handler
+	public boolean updateAchievement_whenquit(){
+		if(this.checkRageQuit()){
 			return true;
 		}
 		return false;
 	}
 	
 	/*Finished*/
-	private boolean checkJustUnderTheWire(IMove move){
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(typeMatched && lv.isMoveUsedUp() && lv.hasWon() && this.notEarnJustUnderTheWire()){
+	private boolean checkJustUnderTheWire(){
+		if(lv.isMoveUsedUp() && lv.hasWon() && this.notEarnJustUnderTheWire()){
 			achievements.get("JustUnderTheWire").setEarned();
 			popingUp.push("JustUnderTheWire");
 			return true;
 		}
 		return false;
 	}
+	
 	/*Finished*/
-	private boolean checkNoRegrets(IMove move){
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(typeMatched && lv.hasWon()&& (this.toBullpenMove==0) && this.notEarnNoRegrets()){
+	private boolean checkNoRegrets(){
+		if(lv.hasWon()&& (this.toBullpenMove==0) && this.notEarnNoRegrets()){
 			achievements.get("NoRegrets ").setEarned();
 			popingUp.push("NoRegrets");
 			return true;
 		}
 		return false;
 	}
+	
 	/*Finished*/
-	boolean checkRageQuit(IMove move){
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(this.notEarnRageQuit() && typeMatched && !(lv.hasWon())){
+	boolean checkRageQuit(){
+		if(this.notEarnRageQuit() && !(lv.hasWon())){
 			achievements.get("RageQuit").setEarned();
 			popingUp.push("RageQuit");
 			return true;
@@ -63,20 +91,16 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	@Override
-	boolean checkVictoryLap(IMove move) {
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(typeMatched && lv.hasWon() && lv.getIsCompleted()){
+	/*Finished*/
+	boolean checkVictoryLap() {
+		if(lv.hasWon() && lv.getIsCompleted()){
+			achievements.get("VictoryLap").setEarned();
+			popingUp.push("VictoryLap");
 			return true;
 		}
 		return false;
 	}
 
-	/*Finished*/
-	public void setLevel(Level lv) {
-		reset();
-		this.lv=(PuzzleLevel) lv;
-	}
 	/*Finished*/
 	protected void reset() {
 		this.lv=null;
@@ -84,4 +108,5 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();
 	}
+
 }
