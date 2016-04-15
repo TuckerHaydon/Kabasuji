@@ -4,9 +4,10 @@ public class PlayableBoardElt extends BoardElt{
 
 	boolean isHint;
 	
-	PlayableBoardElt(int row, int col, boolean isHint) {
+	public PlayableBoardElt(int row, int col, boolean isHint) {
 		super(row, col);
 		this.isHint = isHint;
+		// TODO Auto-generated constructor stub
 	}
 	
 	void setIsHint(boolean h){
@@ -19,13 +20,8 @@ public class PlayableBoardElt extends BoardElt{
 
 	@Override
 	public String toString() {
-		
-		if(isHint){
-			return "PH";
-		}
-		else{
-			return "P";
-		}
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
