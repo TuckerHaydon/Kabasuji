@@ -83,10 +83,12 @@ public class ExportLevelMove implements IMove {
 				for(int col = 0; col < 12; col++){
 					bw.write(elts[row][col].toString());
 				}
-				if(row != 11) {bw.newLine();}
+				bw.newLine();
 			}
 			bw.write("EndElts");		bw.newLine();
 			bw.write("EndLevel"); 	bw.newLine();
+			
+			bw.close();
 			
 			
 
