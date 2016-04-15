@@ -8,6 +8,7 @@ public class Tile {
 	Square[] squares;
 	Anchor anchor;
 	String location;
+	int referenceNumber;
 	
 	Tile(int[][] coords, String location) {
 		//first coordinate must be that of the anchor
@@ -23,7 +24,7 @@ public class Tile {
 		this.location = location;
 	}
 	
-		public Tile(int referenceNumber, String location){
+	public Tile(int referenceNumber, String location){
 		
 		this.squares = TileManager.getSquares(referenceNumber, this);
 		this.location = location;
@@ -31,7 +32,8 @@ public class Tile {
 		anchor = new Anchor(0,0, this);
 	}
 	
-public void rotateRight() {
+	public void rotateRight() {
+
 		int temp;
 		for(Square square : squares) {
 			temp = square.anchorRelX;
@@ -72,5 +74,7 @@ public void rotateRight() {
 	Square[] getSquares(){
 		return this.squares;
 	}
+	
+	
 	
 }

@@ -6,6 +6,7 @@ public class Level {
 	Board board;
 	int levelNum;
 	String levelType;
+	int levelData;
 	
 	public Level(Bullpen bp, Board board, int levelNum, String levelType){;
 		this.bullpen = bp;
@@ -48,6 +49,14 @@ public class Level {
 	
 	public void setLevelType(String type){
 		this.levelType = type;
+	}
+	
+	public int getlevelData(){
+		return -1;
+	}
+	
+	public void setLevelData(int data){
+		this.levelData = data;
 	}
 	
 }

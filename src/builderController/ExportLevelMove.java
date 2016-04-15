@@ -1,32 +1,83 @@
 package builderController;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import builderController.IMove;
+import builderEntity.Board;
+import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
+import builderEntity.Bullpen;
+import builderEntity.Level;
 
 public class ExportLevelMove implements IMove {
 
 	BuilderModel model;
+	String filePath;
 	
-	ExportLevelMove(BuilderModel m){
+	ExportLevelMove(BuilderModel m, String filePath){
 		this.model = m;
+		this.filePath = filePath;
 	}
 	
 	@Override
 	public boolean doMove() {
-		// TODO Auto-generated method stub
-		return false;
+		this.writeFile();
+		return true;
 	}
 
 	@Override
 	public boolean undoMove() {
-		// TODO Auto-generated method stub
+		// This cannot be undone
 		return false;
 	}
 
 	@Override
 	public boolean isValid() {
-		// TODO Auto-generated method stub
-		return false;
+		// TODO this is not always true
+		return true;
+	}
+	
+	void writeFile(){
+		
+		// Extract the data that will be written
+		Level lvl = model.getLevel();
+		BoardElt elts[][] = lvl.getBoard().getBoardElts();
+		ArrayList<Integer> tileReferenceNumbers =  lvl.getBullpen().getTileReferenceNumbers();
+		String type = lvl.getLevelType();
+		int data = lvl.getlevelData();
+		
+		try {
+			String content = "This is the content to write into file";
+
+			File file = new File(filePath);
+
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			else{
+				// TODO maybe check to make sure they want to overwrite
+				file.delete();
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+
+			bw.write("BeginLevel"); 	bw.newLine();
+			bw.write(type);				bw.newLine();
+			bw.write(""+data);			bw.newLine();
+			bw.write("BeginHexomino"); 	bw.newLine();
+			// for(Integer i:)
+			
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

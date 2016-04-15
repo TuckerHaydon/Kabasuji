@@ -34,10 +34,7 @@ public class LevelBuilderView extends JPanel{
 		this.lvl = lvl;
 		this.app = app;
 		ArrayList<Tile> banklist = new ArrayList<Tile>();
-		
-		LoadGame lg = new LoadGame(lvl, app);
-		lg.loadInitialLevel();
-		
+			
 		bullpenView = new BullpenView(lvl.getBullpen());
 		boardView = new BoardView(lvl.getBoard());
 		bankView = new BullpenView(lvl.getBullpen());	//change back later
