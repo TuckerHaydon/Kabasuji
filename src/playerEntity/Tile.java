@@ -28,12 +28,8 @@ public class Tile {
 	
 		public Tile(int referenceNumber, String location){
 		
-		this.squares = TileManager.getSquares(referenceNumber);
+		this.squares = TileManager.getSquares(referenceNumber, this);
 		this.location = location;
-		
-		for(Square s: squares){
-			s.setTile(this);
-		}
 		
 		anchor = new Anchor(0,0, this);
 	}

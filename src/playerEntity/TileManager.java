@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class TileManager {
 
-	public static Square[] getSquares(int referenceNumber){
+	public static Square[] getSquares(int referenceNumber, Tile t){
 		
 		String path = "src/resources/tiles/tiles";
 		Square squares[] = new Square[6];
 		
 		try (Scanner fileScanner = new Scanner(new File(path))){
-			squares = parseTile(fileScanner, referenceNumber);
+			squares = parseTile(fileScanner, referenceNumber, t);
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
@@ -20,7 +20,7 @@ public class TileManager {
 		return squares;
 	}
 	
-	static Square[] parseTile(Scanner fileScanner, int referenceNumber){
+	static Square[] parseTile(Scanner fileScanner, int referenceNumber, Tile t){
 		
 		// Move the scanner ahead to the desired tile
 		for(int i = 0; i < referenceNumber - 1; i++){
@@ -32,7 +32,7 @@ public class TileManager {
 		for(int i = 0; i < 6; i++){
 			int relX = fileScanner.nextInt();
 			int relY = fileScanner.nextInt();
-			squares[i] = new Square(relX, relY);
+			squares[i] = new Square(relX, relY, t);
 		}
 		
 		

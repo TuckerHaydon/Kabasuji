@@ -13,9 +13,10 @@ public class Square {
 	int anchorRelY;
 	Tile tile;
 	
-	public Square(int anchorRelX, int anchorRelY) {
+	public Square(int anchorRelX, int anchorRelY, Tile t) {
 		this.anchorRelX = anchorRelX;
 		this.anchorRelY = anchorRelY;
+		this.tile = t;
 	}
 	
 	public void setX(int k) {
