@@ -23,7 +23,7 @@ public abstract class LevelAchievementMonitor {
 	
 	public abstract void setLevel(Level lv);
 	
-	public abstract void reset();
+	protected abstract void reset();
 	
 	/*Finished*/
 	protected boolean notEarnBabyStep() {

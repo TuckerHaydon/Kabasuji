@@ -50,20 +50,23 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	boolean checkVictoryLap(IMove move) {
 		boolean typeMatched = move instanceof ReturnToMenuMove;
 		if(typeMatched && lv.hasWon() && lv.getIsCompleted()){
+			achievements.get("VictoryLap").setEarned();
+			popingUp.push("VictoryLap");
 			return true;
 		}
 		return false;
 	}
 
-	@Override
+	/*Finished*/
 	public void setLevel(Level lv) {
+		reset();
 		this.lv=(ReleaseLevel) lv;
-		
 	}
 
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-		
+	/*Finish*/
+	protected void reset() {
+		this.lv=null;
+		this.moveCounter=0;
+		this.popingUp=new LinkedList<String>();	
 	}
 }

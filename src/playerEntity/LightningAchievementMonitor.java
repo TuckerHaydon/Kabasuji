@@ -55,16 +55,18 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 
 
 
-	@Override
+	/*Finished*/
 	public void setLevel(Level lv) {
+		reset();
 		this.lv=(LightningLevel) lv;
 	}
 
 
 
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-		
+	/*Finished*/
+	protected void reset() {
+		this.lv=null;
+		this.moveCounter=0;
+		this.popingUp=new LinkedList<String>();
 	}
 }

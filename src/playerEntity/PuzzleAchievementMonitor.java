@@ -72,17 +72,16 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	@Override
+	/*Finished*/
 	public void setLevel(Level lv) {
+		reset();
 		this.lv=(PuzzleLevel) lv;
 	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-		
+	/*Finished*/
+	protected void reset() {
+		this.lv=null;
+		this.toBullpenMove=0;
+		this.moveCounter=0;
+		this.popingUp=new LinkedList<String>();
 	}
-	
-	
-	
 }
