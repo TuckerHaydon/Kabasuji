@@ -1,16 +1,16 @@
 package builderController;
 
-import builderEntity.Level;
+import builderEntity.BuilderModel;
 
-public class SetLevelTypeMove implements IMove {
-	Level l;
-	String levelType;
+public class SetBoardEltColorMove implements IMove {
+
+	BuilderModel model;
+	String color;
 	
-	SetLevelTypeMove(Level l, String levelType){
-		this.l = l;
-		this.levelType = levelType;
+	SetBoardEltColorMove(BuilderModel m, String color){
+		this.model = m;
 	}
-
+	
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -28,5 +28,5 @@ public class SetLevelTypeMove implements IMove {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 }

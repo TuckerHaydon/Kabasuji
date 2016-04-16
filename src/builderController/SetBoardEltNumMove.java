@@ -2,14 +2,16 @@ package builderController;
 
 import builderEntity.BuilderModel;
 
-public class SetColorMove implements IMove {
-
-	BuilderModel model;
+public class SetBoardEltNumMove implements IMove{
 	
-	SetColorMove(BuilderModel m){
-		this.model = m;
+	int num;
+	BuilderModel m;
+	
+	public SetBoardEltNumMove(BuilderModel m, int num) {
+		this.num = num;
+		this.m = m;
 	}
-	
+
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub

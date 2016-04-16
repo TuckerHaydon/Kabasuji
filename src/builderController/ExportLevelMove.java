@@ -31,7 +31,7 @@ public class ExportLevelMove implements IMove {
 
 	@Override
 	public boolean undoMove() {
-		// This cannot be undone
+		// This move cannot be undone
 		return false;
 	}
 

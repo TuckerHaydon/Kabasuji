@@ -10,6 +10,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import builderController.BoardController;
+import builderController.SetBoardEltColorHandler;
+import builderController.SetBoardEltNumHandler;
+import builderController.SetBoardEltTypeHandler;
+import builderController.SetLevelTypeHandler;
+import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.Tile;
 import builderEntity.TileBank;
@@ -21,6 +26,7 @@ public class LevelBuilderView extends JPanel{
 	BullpenView bankView;  //change back later
 	BoardView boardView;
 	Level lvl;
+	BuilderModel m;
 	KabasujiBuilderApplication app;
 	JLabel timeLabel, movesLabel, numLabel;
 	JTextField timeAllowed, numMovesAllowed;
@@ -30,9 +36,11 @@ public class LevelBuilderView extends JPanel{
 			boardEltTypes[] = {"playable", "unplayable", "hint", "numbered"},
 			boardEltColors[] = {"red", "blue", "green"};
 	
-	public LevelBuilderView(Level lvl, KabasujiBuilderApplication app){
+	public LevelBuilderView(Level lvl, KabasujiBuilderApplication app, BuilderModel m){
 		this.lvl = lvl;
 		this.app = app;
+		this.m = m;
+		
 		ArrayList<Tile> banklist = new ArrayList<Tile>();
 			
 		bullpenView = new BullpenView(lvl.getBullpen());
@@ -113,6 +121,12 @@ public class LevelBuilderView extends JPanel{
 	public void initControllers(){
 		boardView.addMouseListener(new BoardController(boardView, app));
 		// TODO add handlers for the bullpen and bank
+		
+		// Action listeners for the various 
+		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(m, boardEltNumBox));
+		levelTypeBox.addActionListener(new SetLevelTypeHandler(lvl, levelTypeBox));
+		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(m, boardEltTypeBox));
+		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(m, boardEltColorsBox));
 	}
 
 }
