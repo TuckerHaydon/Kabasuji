@@ -75,6 +75,7 @@ public class ExportLevelMove implements IMove {
 			for(Integer i:tileReferenceNumbers){
 				bw.write(i+" ");
 			}
+			bw.newLine();
 			bw.write("EndHexomio"); 	bw.newLine();
 		
 			// Write the board elts

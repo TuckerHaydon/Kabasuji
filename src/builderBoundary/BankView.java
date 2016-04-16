@@ -30,7 +30,6 @@ public class BankView extends View{
 	@Override
 	public void paintComponent(Graphics g){
 		ArrayList<Tile> tiles = bank.getTiles();
-		this.setPreferredSize(new Dimension(CELL_WIDTH*bank.getTileReferenceNumbers().size(), CELL_HEIGHT));
 		
 		for(int i = 0; i < tiles.size(); i++){
 			g.setColor(Color.black);
