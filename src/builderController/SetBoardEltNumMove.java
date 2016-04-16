@@ -14,8 +14,8 @@ public class SetBoardEltNumMove implements IMove{
 
 	@Override
 	public boolean doMove() {
-		// TODO Auto-generated method stub
-		return false;
+		m.setSelectedNumber(num);
+		return true;
 	}
 
 	@Override

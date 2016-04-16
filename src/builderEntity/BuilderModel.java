@@ -68,5 +68,10 @@ public class BuilderModel {
 	public Level getLevel(){
 		return this.level;
 	}
+	
+	@Override
+	public String toString(){
+		return "Level: "+level+"\nGame: "+game+"\nBoard Elt Type: "+selectedBoardEltType+"\nColor: "+selectedColor+"\nNumber: "+selectedNumber;
+	}
 
 }

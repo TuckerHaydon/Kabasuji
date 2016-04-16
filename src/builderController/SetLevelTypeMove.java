@@ -13,8 +13,10 @@ public class SetLevelTypeMove implements IMove {
 
 	@Override
 	public boolean doMove() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		l.setLevelType(levelType);
+		
+		return true;
 	}
 
 	@Override
@@ -26,7 +28,7 @@ public class SetLevelTypeMove implements IMove {
 	@Override
 	public boolean isValid() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 }

@@ -13,8 +13,8 @@ public class SetBoardEltColorMove implements IMove {
 	
 	@Override
 	public boolean doMove() {
-		// TODO Auto-generated method stub
-		return false;
+		model.setSelectedColor(color);
+		return true;
 	}
 
 	@Override

@@ -15,8 +15,9 @@ public class SetBoardEltTypeMove implements IMove{
 
 	@Override
 	public boolean doMove() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		model.setSelectedBoardEltType(boardEltType);
+		return true;
 	}
 
 	@Override
