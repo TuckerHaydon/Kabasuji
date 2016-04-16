@@ -4,11 +4,11 @@ import javax.swing.JPanel;
 
 import builderEntity.TileBank;
 
-public class TileBankView extends JPanel{
+public class BankView extends View{
 	
 	TileBank tb;
 	
-	public TileBankView(TileBank tb){
+	public BankView(TileBank tb){
 		this.tb = tb;
 	}
 

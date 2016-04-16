@@ -4,14 +4,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import builderBoundary.KabasujiBuilderApplication;
-import builderBoundary.TileBankView;
+import builderBoundary.BankView;
 
 public class TileBankController extends MouseAdapter{
 	
-	TileBankView tbv;
+	BankView tbv;
 	KabasujiBuilderApplication app;
 	
-	public TileBankController(TileBankView tbv, KabasujiBuilderApplication app){
+	public TileBankController(BankView tbv, KabasujiBuilderApplication app){
 		this.tbv = tbv;
 		this.app = app;
 	}
