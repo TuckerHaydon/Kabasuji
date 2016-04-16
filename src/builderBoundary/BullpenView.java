@@ -24,13 +24,14 @@ public class BullpenView extends View {
 	
 	public void initView(){
 		this.setSize(1000, 200);
-		this.setPreferredSize(new Dimension(1000, 200));
+		this.setPreferredSize(new Dimension(CELL_WIDTH*bp.getTileReferenceNumbers().size(), CELL_HEIGHT));
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
 		ArrayList<Tile> tiles = bp.getTiles();
-		
+		this.setPreferredSize(new Dimension(CELL_WIDTH*bp.getTileReferenceNumbers().size(), CELL_HEIGHT));
+
 		for(int i = 0; i < tiles.size(); i++){
 			g.setColor(Color.black);
 			g.drawRect(i*CELL_WIDTH, 0, CELL_WIDTH, CELL_HEIGHT);
