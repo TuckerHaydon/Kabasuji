@@ -60,5 +60,9 @@ public class BankView extends View{
 	public int getSquareWidth(){
 		return SQUARE_WIDTH;
 	}
+	
+	public Bank getBank(){
+		return this.bank;
+	}
 
 }

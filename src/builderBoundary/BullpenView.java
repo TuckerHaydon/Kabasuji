@@ -60,5 +60,9 @@ public class BullpenView extends View {
 	public int getSquareWidth(){
 		return SQUARE_WIDTH;
 	}
+	
+	public Bullpen getBullpen(){
+		return this.bp;
+	}
 
 }

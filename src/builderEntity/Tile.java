@@ -75,6 +75,10 @@ public class Tile {
 		return this.squares;
 	}
 	
+	public int getReferenceNumber(){
+		return this.referenceNumber;
+	}
+	
 	
 	
 }
