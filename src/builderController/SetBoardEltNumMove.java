@@ -27,7 +27,7 @@ public class SetBoardEltNumMove implements IMove{
 	@Override
 	public boolean isValid() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

@@ -2,7 +2,7 @@ package builderEntity;
 
 public class UnplayableBoardElt extends BoardElt{
 
-	UnplayableBoardElt(int row, int col) {
+	public UnplayableBoardElt(int row, int col) {
 		super(row, col);
 		
 	}
