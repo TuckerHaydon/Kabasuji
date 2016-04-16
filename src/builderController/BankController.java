@@ -24,13 +24,9 @@ public class BankController extends MouseAdapter {
 		
 		int x = me.getX();
 		int y = me.getY();
-		
-		System.out.println("Bank Clicked.");
-		
+				
 		int cellNum = x / bankView.getCellWidth();
-		
-		System.out.println("Cell number: "+(cellNum + 1));
-		
+				
 		Bank b = bankView.getBank();
 		Tile t = null;
 		

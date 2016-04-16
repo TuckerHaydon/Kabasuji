@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import builderBoundary.BankView;
 import builderBoundary.BullpenView;
 import builderEntity.Bank;
+import builderEntity.Bullpen;
+import builderEntity.Tile;
 
 public class BullpenController extends MouseAdapter {
 	
@@ -23,12 +25,27 @@ public class BullpenController extends MouseAdapter {
 		
 		int x = me.getX();
 		int y = me.getY();
-		
-		System.out.println("Bullpen Clicked.");
-		
+				
 		int cellNum = x/bullpenView.getCellWidth();
 		
-		System.out.println("Clicked cell: "+(cellNum+1));
+		Bullpen bullpen = bullpenView.getBullpen();
+		Tile t = null;
+		
+		try{
+			t = bullpen.getTiles().get(cellNum);
+		}
+		catch(ArrayIndexOutOfBoundsException e){
+			System.out.println("No tile there.");
+		}
+		
+		RemoveTileFromBullpenMove move = new RemoveTileFromBullpenMove(t, bullpenView);
+		
+		if(move.isValid()){
+			move.doMove();
+		}
+		
+		
+		
 	}
 
 }
