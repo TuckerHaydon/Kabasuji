@@ -28,6 +28,7 @@ public class Tile {
 		
 		this.squares = TileManager.getSquares(referenceNumber, this);
 		this.location = location;
+		this.referenceNumber = referenceNumber;
 		
 		anchor = new Anchor(0,0, this);
 	}
