@@ -34,8 +34,9 @@ public class BullpenController extends MouseAdapter {
 		try{
 			t = bullpen.getTiles().get(cellNum);
 		}
-		catch(ArrayIndexOutOfBoundsException e){
+		catch(IndexOutOfBoundsException e){
 			System.out.println("No tile there.");
+			return;
 		}
 		
 		RemoveTileFromBullpenMove move = new RemoveTileFromBullpenMove(t, bullpenView);

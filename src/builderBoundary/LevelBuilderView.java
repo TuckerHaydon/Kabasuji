@@ -117,7 +117,7 @@ public class LevelBuilderView extends JPanel{
 	public void initControllers(){
 		
 		// Allow mouse functionality for board, bullpen, and bank.
-		boardView.addMouseAdapter(new BoardController(boardView, app));
+		boardView.addMouseAdapter(new BoardController(boardView, m));
 		bullpenView.addMouseAdapter(new BullpenController(bullpenView, bankView));
 		bankView.addMouseAdapter(new BankController(bankView, bullpenView));
 		

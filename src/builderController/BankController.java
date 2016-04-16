@@ -33,7 +33,7 @@ public class BankController extends MouseAdapter {
 		try{
 			t = b.getTiles().get(cellNum);
 		}
-		catch(ArrayIndexOutOfBoundsException e)
+		catch(IndexOutOfBoundsException e)
 		{
 			System.out.println("No Tile there.");
 			return;

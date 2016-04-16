@@ -5,14 +5,16 @@ import java.awt.event.MouseEvent;
 
 import builderBoundary.BoardView;
 import builderBoundary.KabasujiBuilderApplication;
+import builderEntity.BuilderModel;
 
 public class BoardController extends MouseAdapter {
 	
 	BoardView bv;
+	BuilderModel model;
 	KabasujiBuilderApplication app;
 	
-	public BoardController(BoardView bv, KabasujiBuilderApplication app){
-		this.app = app;
+	public BoardController(BoardView bv, BuilderModel model){
+		this.model = model;
 		this.bv = bv;
 	}
 	
