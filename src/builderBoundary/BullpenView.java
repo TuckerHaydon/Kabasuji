@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 import builderEntity.Bullpen;
 
-public class BullpenView extends JPanel {
+public class BullpenView extends View {
 	
 	Bullpen bp;
 	

@@ -9,7 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import builderController.BankController;
 import builderController.BoardController;
+import builderController.BullpenController;
 import builderController.SetBoardEltColorHandler;
 import builderController.SetBoardEltNumHandler;
 import builderController.SetBoardEltTypeHandler;
@@ -111,16 +113,15 @@ public class LevelBuilderView extends JPanel{
 		boardEltColorsBox.setBackground(new Color(255, 190, 190));
 		this.add(boardEltColorsBox);
 		
-		this.add(bullpenView);
-		this.add(bankView);
-		this.add(boardView);
-		
 		
 	}
 	
 	public void initControllers(){
-		boardView.addMouseListener(new BoardController(boardView, app));
-		// TODO add handlers for the bullpen and bank
+		
+		// Allow mouse functionality for board, bullpen, and bank.
+		boardView.addMouseAdapter(new BoardController(boardView, app));
+		bullpenView.addMouseAdapter(new BullpenController());
+		bankView.addMouseAdapter(new BankController());
 		
 		// Action listeners for the various 
 		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(m, boardEltNumBox));

@@ -11,7 +11,7 @@ import builderEntity.NumberedBoardElt;
 import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 
-public class BoardView extends JPanel {
+public class BoardView extends View {
 
 	Board b;
 	
