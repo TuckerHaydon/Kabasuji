@@ -23,17 +23,17 @@ public class BullpenView extends View {
 	}
 	
 	public void initView(){
-		this.setBackground(Color.RED);
 		this.setSize(1000, 200);
 		this.setPreferredSize(new Dimension(1000, 200));
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
-		// TODO draw all the tiles
 		ArrayList<Tile> tiles = bp.getTiles();
 		
 		for(int i = 0; i < tiles.size(); i++){
+			g.setColor(Color.black);
+			g.drawRect(i*CELL_WIDTH, 0, CELL_WIDTH, CELL_HEIGHT);
 			drawTile(tiles.get(i), i*CELL_WIDTH+CELL_WIDTH/2, CELL_HEIGHT/2, g);
 		}
 	}

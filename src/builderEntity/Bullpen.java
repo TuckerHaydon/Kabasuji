@@ -10,9 +10,9 @@ public class Bullpen {
 		tileReferenceNumbers = new ArrayList<>();
 		
 		// TODO remove this. For debugging purposes only.
-		for(int i = 1; i < 36; i++){
-			this.addTile(i);
-		}
+//		for(int i = 1; i < 36; i++){
+//			this.addTile(i);
+//		}
 	}
 	
 	public Bullpen(ArrayList<Integer> tileRefNums){

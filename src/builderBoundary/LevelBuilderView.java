@@ -47,7 +47,7 @@ public class LevelBuilderView extends JPanel{
 			
 		bullpenView = new BullpenView(lvl.getBullpen());
 		boardView = new BoardView(lvl.getBoard());
-		bankView = new BankView(null);	// TODO fix this
+		bankView = new BankView(new Bank());	// TODO fix this
 		
 		boardEltNumBox = new JComboBox<String>(boardEltNums);
 		levelTypeBox = new JComboBox<String>(levelTypes);

@@ -2,33 +2,13 @@ package builderEntity;
 
 import java.util.ArrayList;
 
-public class Bank {
+public class Bank extends Bullpen {
 
-	ArrayList<Tile> tiles;
-	
-	Bank(ArrayList<Tile> t){
-		this.tiles = t;
-	}
-	
-	ArrayList<Tile> getTiles(){
-		return this.tiles;
-	}
-
-	void setTiles(ArrayList<Tile> t){
-		this.tiles = t;
-	}
-
-	//maybe implement as scroll pane instead?
-
-	void shiftTiles(int numShift){
+	public Bank(){
+		super();
 		
-	}
-	
-	boolean addTile(Tile t) {
-		return tiles.add(t);
-	}
-	
-	boolean removeTile(Tile t) {
-		return tiles.remove(t);
+		for(int i = 1; i < 36; i++){
+			this.addTile(i);
+		}
 	}
 }

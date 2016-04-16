@@ -61,10 +61,6 @@ public class BuilderModel {
 		return this.tb;
 	}
 	
-	public boolean addTile(Tile t) {
-		return tb.addTile(t);
-	}
-	
 	public Level getLevel(){
 		return this.level;
 	}
