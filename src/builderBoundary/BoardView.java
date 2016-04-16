@@ -1,15 +1,11 @@
 package builderBoundary;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Dimension;
 
-import javax.swing.JPanel;
 
 import builderEntity.Board;
-import builderEntity.BoardElt;
-import builderEntity.NumberedBoardElt;
-import builderEntity.PlayableBoardElt;
-import builderEntity.UnplayableBoardElt;
+
 
 public class BoardView extends View {
 
@@ -19,9 +15,10 @@ public class BoardView extends View {
 		this.b = b;
 	}
 	
-	void initView(){
+	public void initView(){
 		this.setBackground(new Color(255, 50, 50));
-		this.setBounds(0, 0, 4000, 4000);
+		this.setSize(1000, 200);
+		this.setPreferredSize(new Dimension(1000, 200));
 	}
 	
 }

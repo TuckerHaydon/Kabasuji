@@ -14,7 +14,7 @@ public class Bullpen {
 		this.tileReferenceNumbers = tileRefNums;
 	}
 	
-	public void setTiles(ArrayList<Integer> nums){
+	public void setTileReferenceNums(ArrayList<Integer> nums){
 		this.tileReferenceNumbers = nums;
 	}
 	
@@ -28,6 +28,16 @@ public class Bullpen {
 	
 	public boolean remTile(Integer num){
 		return tileReferenceNumbers.remove(num);
+	}
+	
+	public ArrayList<Tile> getTiles(){
+		ArrayList<Tile> tiles = new ArrayList<>();
+		
+		for(Integer i: tileReferenceNumbers){
+			tiles.add(new Tile(i, "Bullpen"));
+		}
+		
+		return tiles;
 	}
 	
 }

@@ -23,19 +23,19 @@ public class Square {
 	}
 	
 	
-	int getAnchorRelX(){
+	public int getAnchorRelX(){
 		return this.anchorRelX;
 	}
 
-	int getAnchorRelY(){
+	public int getAnchorRelY(){
 		return this.anchorRelY;
 	}
 	
-	void setOwner(Tile o){
+	public void setOwner(Tile o){
 		this.owner = o;
 	}
 	
-	Tile getOwner(){
+	public Tile getOwner(){
 		return this.owner;
 	}
 	

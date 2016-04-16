@@ -25,7 +25,7 @@ import playerController.LoadGame;
 public class LevelBuilderView extends JPanel{
 	
 	BullpenView bullpenView;
-	BullpenView bankView;  //change back later
+	BankView bankView;  //change back later
 	BoardView boardView;
 	Level lvl;
 	BuilderModel m;
@@ -47,7 +47,7 @@ public class LevelBuilderView extends JPanel{
 			
 		bullpenView = new BullpenView(lvl.getBullpen());
 		boardView = new BoardView(lvl.getBoard());
-		bankView = new BullpenView(lvl.getBullpen());	//change back later
+		bankView = new BankView(null);	// TODO fix this
 		
 		boardEltNumBox = new JComboBox<String>(boardEltNums);
 		levelTypeBox = new JComboBox<String>(levelTypes);
@@ -64,12 +64,10 @@ public class LevelBuilderView extends JPanel{
 	public void initView(){
 		
 		
-		// bankView = new BankView();
 		// Init the subcomponents views
-		
-		//aa
 		bullpenView.initView();
 		boardView.initView();
+		bankView.initView();
 		
 		//set properties of the view
 		this.setSize(900, 900);
