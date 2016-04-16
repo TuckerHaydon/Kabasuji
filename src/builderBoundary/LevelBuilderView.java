@@ -19,7 +19,7 @@ import builderController.SetLevelTypeHandler;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.Tile;
-import builderEntity.TileBank;
+import builderEntity.Bank;
 import playerController.LoadGame;
 
 public class LevelBuilderView extends JPanel{
@@ -118,7 +118,7 @@ public class LevelBuilderView extends JPanel{
 		
 		// Allow mouse functionality for board, bullpen, and bank.
 		boardView.addMouseAdapter(new BoardController(boardView, app));
-		bullpenView.addMouseAdapter(new BullpenController());
+		bullpenView.addMouseAdapter(new BullpenController(bullpenView, bankView));
 		bankView.addMouseAdapter(new BankController());
 		
 		// Action listeners for the various 

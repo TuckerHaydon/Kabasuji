@@ -5,13 +5,13 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
-import builderEntity.TileBank;
+import builderEntity.Bank;
 
 public class BankView extends View{
 	
-	TileBank tb;
+	Bank tb;
 	
-	public BankView(TileBank tb){
+	public BankView(Bank tb){
 		this.tb = tb;
 	}
 	

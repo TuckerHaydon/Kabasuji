@@ -7,7 +7,7 @@ public class BuilderModel {
 	String selectedBoardEltType;
 	String selectedColor;
 	int selectedNumber;
-	TileBank tb;
+	Bank tb;
 	
 	public BuilderModel(){
 		this.level = new Level();
@@ -53,11 +53,11 @@ public class BuilderModel {
 		return this.selectedNumber;
 	}
 	
-	public void setTileBank(TileBank tb){
+	public void setTileBank(Bank tb){
 		this.tb = tb;
 	}
 	
-	public TileBank getTileBank(){
+	public Bank getTileBank(){
 		return this.tb;
 	}
 	

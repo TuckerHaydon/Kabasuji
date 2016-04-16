@@ -2,11 +2,11 @@ package builderEntity;
 
 import java.util.ArrayList;
 
-public class TileBank {
+public class Bank {
 
 	ArrayList<Tile> tiles;
 	
-	TileBank(ArrayList<Tile> t){
+	Bank(ArrayList<Tile> t){
 		this.tiles = t;
 	}
 	
