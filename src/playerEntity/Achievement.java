@@ -32,4 +32,8 @@ public class Achievement {
 	public void setEarned(){
 		this.isEarned=true;
 	}
+	
+	public void reset(){
+		this.isEarned=false;
+	}
 }

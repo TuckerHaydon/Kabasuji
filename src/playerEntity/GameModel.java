@@ -57,20 +57,17 @@ public class GameModel {
 //		this.levels = lev;
 //		this.currentLevel = levels[0];
 		
-		//Dorothy: those still need pictures
-		/*
 		achievements = new Hashtable<String, Achievement>();
-		this.achievements.put("BabySteps", new Achievement("BabySteps",null,null));
-		this.achievements.put("Rebel", new Achievement("Rebel",null,null));
-		this.achievements.put("OverAchiever", new Achievement("OverAchiever",null,null));
-		this.achievements.put("SlowPoke", new Achievement("SlowPoke",null,null));
-		this.achievements.put("SpeedyGonzales", new Achievement("SpeedyGonzales",null,null));
-		this.achievements.put("JustUnderTheWire", new Achievement("JustUnderTheWire",null,null));
-		this.achievements.put("NoRegrets", new Achievement("NoRegrets",null,null));
-		this.achievements.put("RageQuit", new Achievement("RageQuit",null,null));
-		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker",null,null));
-		this.achievements.put("VictoryLap", new Achievement("VictoryLap",null,null));
-		*/
+		this.achievements.put("BabySteps", new Achievement("BabySteps"));
+		this.achievements.put("Rebel", new Achievement("Rebel"));
+		this.achievements.put("OverAchiever", new Achievement("OverAchiever"));
+		this.achievements.put("SlowPoke", new Achievement("SlowPoke"));
+		this.achievements.put("SpeedyGonzales", new Achievement("SpeedyGonzales"));
+		this.achievements.put("JustUnderTheWire", new Achievement("JustUnderTheWire"));
+		this.achievements.put("NoRegrets", new Achievement("NoRegrets"));
+		this.achievements.put("RageQuit", new Achievement("RageQuit"));
+		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker"));
+		this.achievements.put("VictoryLap", new Achievement("VictoryLap"));
 		this.lightningAM = new LightningAchievementMonitor(this.achievements);
 		this.puzzleAM = new PuzzleAchievementMonitor(this.achievements);
 		this.releaseAM = new ReleaseAchievementMonitor(this.achievements);
@@ -92,6 +89,10 @@ public class GameModel {
 	
 	public void setLevels(Level[] l){
 		this.levels = l;
+	}
+	
+	public Hashtable<String, Achievement> getAchievements(){
+		return this.achievements;
 	}
 	
 	public GameAchievementMonitor getGAM(){
