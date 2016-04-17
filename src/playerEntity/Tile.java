@@ -28,7 +28,7 @@ public class Tile {
 	
 		public Tile(int referenceNumber, String location){
 		
-		this.squares = TileManager.getSquares(referenceNumber, this);
+		this.squares = TileParser.getSquares(referenceNumber, this);
 		this.location = location;
 		
 		anchor = new Anchor(0,0, this);
