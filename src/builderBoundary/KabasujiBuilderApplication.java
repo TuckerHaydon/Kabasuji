@@ -112,5 +112,9 @@ public class KabasujiBuilderApplication {
 		while(System.currentTimeMillis() - start < 3000);
 		splash.dispose();
 	}
+	
+	public void refreshLevelEditor(){
+		this.levelEditor.initView();
+	}
 
 }
