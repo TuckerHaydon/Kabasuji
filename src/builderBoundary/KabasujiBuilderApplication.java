@@ -37,7 +37,7 @@ public class KabasujiBuilderApplication {
 		levelEditorMenu = new LevelEditorMenu(this, m);
 		levelEditor = new LevelEditor(this);
 		gameEditorMenu = new GameEditorMenu(this, m);
-		gameEditor = new GameEditor(this);
+		gameEditor = new GameEditor(this, m);
 		
 		// Have the frames create their various views
 		mainMenu.initView();
@@ -111,6 +111,10 @@ public class KabasujiBuilderApplication {
 
 		while(System.currentTimeMillis() - start < 3000);
 		splash.dispose();
+	}
+	
+	public void refreshLevelEditor(){
+		this.levelEditor.initView();
 	}
 
 }

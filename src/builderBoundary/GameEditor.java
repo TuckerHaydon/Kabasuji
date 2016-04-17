@@ -5,7 +5,9 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import builderController.AddLevelToGameHandler;
 import builderController.NavigateMainMenu;
+import builderEntity.BuilderModel;
 
 public class GameEditor extends JFrame {
 	
@@ -13,11 +15,13 @@ public class GameEditor extends JFrame {
 	JButton levelButtons[];
 	JButton exportGameButton;
 	JButton goToMenuButton;
+	BuilderModel m;
 	
-	public GameEditor(KabasujiBuilderApplication app){
+	public GameEditor(KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		
 		this.app = app;
+		this.m = m;
 		
 		// Create the buttons
 		exportGameButton = new JButton("Export Game");
@@ -51,7 +55,10 @@ public class GameEditor extends JFrame {
 	public void initControllers(){
 		// TODO exportGame controller
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
-		// TODO level button controllers
+		
+		for(int i = 0; i < levelButtons.length; i++){
+			levelButtons[i].addActionListener(new AddLevelToGameHandler(m, i));
+		}
 	}
 
 }

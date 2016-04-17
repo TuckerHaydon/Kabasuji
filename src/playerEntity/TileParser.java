@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class TileManager {
+public class TileParser {
 
 	public static Square[] getSquares(int referenceNumber, Tile t){
 		
