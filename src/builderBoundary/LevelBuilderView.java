@@ -3,6 +3,7 @@ package builderBoundary;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,6 +16,7 @@ import builderController.BullpenController;
 import builderController.SetBoardEltColorHandler;
 import builderController.SetBoardEltNumHandler;
 import builderController.SetBoardEltTypeHandler;
+import builderController.SetHintHandler;
 import builderController.SetLevelTypeHandler;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
@@ -27,6 +29,7 @@ public class LevelBuilderView extends JPanel{
 	BullpenView bullpenView;
 	BankView bankView;  //change back later
 	BoardView boardView;
+	JCheckBox hintBox;
 	Level lvl;
 	BuilderModel m;
 	KabasujiBuilderApplication app;
@@ -42,9 +45,7 @@ public class LevelBuilderView extends JPanel{
 		this.lvl = lvl;
 		this.app = app;
 		this.m = m;
-		
-		ArrayList<Tile> banklist = new ArrayList<Tile>();
-			
+					
 		bullpenView = new BullpenView(lvl.getBullpen());
 		boardView = new BoardView(lvl.getBoard());
 		bankView = new BankView(new Bank());	// TODO fix this
@@ -53,6 +54,7 @@ public class LevelBuilderView extends JPanel{
 		levelTypeBox = new JComboBox<String>(levelTypes);
 		boardEltTypeBox = new JComboBox<String>(boardEltTypes);
 		boardEltColorsBox = new JComboBox<String>(boardEltColors);
+		hintBox = new JCheckBox("Hint");
 		
 		// Set the combo boxes to a default selected value
 		boardEltNumBox.setSelectedIndex(0);
@@ -74,7 +76,7 @@ public class LevelBuilderView extends JPanel{
 		
 		// No layout; using exact coordinates.
 		setLayout(null);
-		setBackground(new Color(50,50,50));
+		setBackground(new Color(255,192,203));
 		
 		// Create the scrollPane
 		JScrollPane bullpenScrollPane = new JScrollPane();
@@ -111,6 +113,9 @@ public class LevelBuilderView extends JPanel{
 		boardEltColorsBox.setBackground(new Color(255, 190, 190));
 		this.add(boardEltColorsBox);
 		
+		hintBox.setBounds(605, 530, 100, 100);
+		this.add(hintBox);
+		
 		
 	}
 	
@@ -126,6 +131,7 @@ public class LevelBuilderView extends JPanel{
 		levelTypeBox.addActionListener(new SetLevelTypeHandler(lvl, levelTypeBox));
 		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(m, boardEltTypeBox));
 		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(m, boardEltColorsBox));
+		hintBox.addActionListener(new SetHintHandler(m, hintBox));
 	}
 
 }

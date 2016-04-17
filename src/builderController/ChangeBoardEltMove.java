@@ -14,6 +14,7 @@ public class ChangeBoardEltMove implements IMove {
 	int selectedNumber;
 	int row, col;
 	Board board;
+	boolean isHint;
 	
 	public ChangeBoardEltMove(BuilderModel model, Board board, int row, int col) {
 		this.board = board;
@@ -22,6 +23,7 @@ public class ChangeBoardEltMove implements IMove {
 		this.selectedBoardEltType = model.getSelectedBoardEltType();
 		this.selectedColor = model.getSelectedColor();
 		this.selectedNumber = model.getSelectedNumber();
+		isHint = model.isHintSelected();
 	}
 
 	@Override
@@ -29,7 +31,7 @@ public class ChangeBoardEltMove implements IMove {
 		
 		switch(selectedBoardEltType){
 		case "playable":
-			board.getBoardElts()[row][col] = new PlayableBoardElt(row, col, false);// TODO this is not always false
+			board.getBoardElts()[row][col] = new PlayableBoardElt(row, col, isHint);// TODO this is not always false
 			break;
 		case "unplayable": 
 			board.getBoardElts()[row][col] = new UnplayableBoardElt(row, col);
@@ -41,7 +43,7 @@ public class ChangeBoardEltMove implements IMove {
 			else if(selectedColor.equals("blue")){c = Color.BLUE;}
 			else if(selectedColor.equals("green")){c = Color.GREEN;}
 			
-			board.getBoardElts()[row][col] = new NumberedBoardElt(row, col, false, c, selectedNumber); // TODO hint is not always false
+			board.getBoardElts()[row][col] = new NumberedBoardElt(row, col, isHint, c, selectedNumber); // TODO hint is not always false
 			break;
 		default:
 			System.err.println("Something wrong with the board elt type selection in ChangeBoardEltMove");
