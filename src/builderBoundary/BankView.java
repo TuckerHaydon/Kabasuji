@@ -14,8 +14,8 @@ import builderEntity.Tile;
 public class BankView extends View{
 	
 	Bank bank;
-	static int CELL_HEIGHT = 200;
-	static int CELL_WIDTH = 200;
+	static int CELL_HEIGHT = 190;
+	static int CELL_WIDTH = CELL_HEIGHT;
 	static int SQUARE_WIDTH = 20;
 	
 	public BankView(Bank tb){

@@ -60,7 +60,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setBackground(new Color(50,50,50));
+		contentPane.setBackground(new Color(255,192,203));
 		contentPane.setLayout(null);
 		
 		// Add the buttons

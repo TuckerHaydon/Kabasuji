@@ -7,6 +7,7 @@ public class BuilderModel {
 	String selectedBoardEltType;
 	String selectedColor;
 	int selectedNumber;
+	boolean isHint;
 	Bank tb;
 	
 	public BuilderModel(){
@@ -27,6 +28,14 @@ public class BuilderModel {
 	
 		public Game getGame(){
 		return this.game;
+	}
+		
+	public boolean isHintSelected(){
+		return isHint;
+	}
+	
+	public void setHintSelected(boolean isHint){
+		this.isHint = isHint;
 	}
 	
 	public void setSelectedBoardEltType(String type){
