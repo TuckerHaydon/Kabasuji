@@ -83,7 +83,7 @@ public abstract class LevelAchievementMonitor {
 
 	
 	/*Finished*/
-	void popUpScreen(){
+	public void popUpScreen(){
 		if(popingUp.size()!=0){
 			String message = popingUp.getFirst()+"\n";
 			for(int i=1;i<popingUp.size();i++){

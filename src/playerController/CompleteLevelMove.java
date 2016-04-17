@@ -12,16 +12,22 @@ public class CompleteLevelMove implements IMove{
 		this.m=m;
 	}
 	
-	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
+		if(isValid(app)){
+			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
+				m.getCurrentAM().popUpScreen();
+			}
+			app.displayLevelSelectionMenu();
+			return true;
+		}
 		return false;
 	}
 
-	@Override
+
 	public boolean isValid(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
+		if(m.getCurrentLevel().hasWon()){
+			return true;
+		}
 		return false;
 	}
-	
 }
