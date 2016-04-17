@@ -3,6 +3,7 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Board;
 import playerEntity.Bullpen;
+import playerEntity.LightningLevel;
 import playerEntity.Tile;
 
 public class PickUpTileBoardMove implements IMove{
@@ -16,12 +17,15 @@ public class PickUpTileBoardMove implements IMove{
 	
 	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
-		board.removeTile(tile);
-		return true;
+		if(isValid(app)) return board.removeTile(tile);
+		return false;
 	}
 
 	/*you can always pick it up from board*/
 	public boolean isValid(KabasujiPlayerApplication app) {
+		if(app.getGameModel().getCurrentLevel() instanceof LightningLevel) {
+			return false;
+		}
 		return true;
 	}
 

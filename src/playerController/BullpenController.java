@@ -23,6 +23,8 @@ public class BullpenController extends MouseAdapter {
 		int x = me.getX();
 		int y = me.getY();
 		
+		int cellNum;
+		
 		//determine if a tile is there
 		//set that tile view to dragged
 	}

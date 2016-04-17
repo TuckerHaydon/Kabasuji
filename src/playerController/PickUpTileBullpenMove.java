@@ -15,8 +15,7 @@ public class PickUpTileBullpenMove implements IMove{
 	
 	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
-		bullpen.removeTile(tile);
-		return true;
+		return bullpen.removeTile(tile);
 	}
 
 	
