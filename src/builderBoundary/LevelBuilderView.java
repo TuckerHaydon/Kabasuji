@@ -117,7 +117,6 @@ public class LevelBuilderView extends JPanel{
 		
 		hintBox.setBounds(605, 530, 100, 100);
 		this.add(hintBox);
-		hintBox.setVisible(false);
 		
 		
 	}
