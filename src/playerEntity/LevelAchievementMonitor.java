@@ -24,7 +24,7 @@ public abstract class LevelAchievementMonitor {
 	public abstract boolean updateAchievement_wheninvalidmove();
 	public abstract boolean updateAchievement_whenquit();
 	public abstract void setLevel(Level lv);
-	protected abstract void reset();
+	public abstract void reset();
 	
 	abstract boolean checkRageQuit();
 	abstract boolean checkVictoryLap();

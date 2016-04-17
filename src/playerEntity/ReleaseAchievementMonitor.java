@@ -81,7 +81,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	}
 
 	/*Finish*/
-	protected void reset() {
+	public void reset() {
 		this.lv=null;
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();	

@@ -91,6 +91,10 @@ public class KabasujiPlayerApplication {
 
 	}
 	
+	public GameModel getGameModel(){
+		return m;
+	}
+	
 	void displaySplashScreen(){
 		JFrame splash = new JFrame("Splash Screen");
 		splash.setBounds(200, 200, 400, 200);

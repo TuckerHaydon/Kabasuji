@@ -46,12 +46,19 @@ public class BoardController extends MouseAdapter{
 	public void mouseRelease(MouseEvent me){
 		
 		GameWindow gw = app.getGameWindow();
-		
+		GameModel m = app.getGameModel();
 		gw.setDraggedTile(null);
 		
 		//achievement stuff goes here!
 		
-		
+		IMove move = new CompleteLevelMove(m);
+		if(move.doMove(app)){
+			app.displayLevelSelectionMenu();
+			app.getGameWindow().updateView();
+			if(m.getGAM().updateAchievement(m.getCurrentLevel().getLevelNum())){
+				m.getGAM().pop();
+			}
+		}
 	}
 	
 }
