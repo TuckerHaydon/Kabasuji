@@ -35,7 +35,7 @@ public class LevelBuilderView extends JPanel{
 	JComboBox<String> boardEltNumBox, levelTypeBox, boardEltTypeBox, boardEltColorsBox;
 	String boardEltNums[] = {"1", "2", "3", "4", "5", "6"}, 
 			levelTypes[] = {"puzzle", "release", "lightning"}, 
-			boardEltTypes[] = {"playable", "unplayable", "hint", "numbered"},
+			boardEltTypes[] = {"playable", "unplayable", "numbered"},
 			boardEltColors[] = {"red", "blue", "green"};
 	
 	public LevelBuilderView(Level lvl, KabasujiBuilderApplication app, BuilderModel m){

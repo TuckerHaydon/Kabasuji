@@ -9,6 +9,7 @@ public class SetBoardEltColorMove implements IMove {
 	
 	SetBoardEltColorMove(BuilderModel m, String color){
 		this.model = m;
+		this.color = color;
 	}
 	
 	@Override

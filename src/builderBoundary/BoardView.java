@@ -1,6 +1,7 @@
 package builderBoundary;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import builderEntity.Board;
@@ -51,10 +52,10 @@ public class BoardView extends View {
 						squareColor = Color.YELLOW;
 					}
 					else if(elts[row][col] instanceof NumberedBoardElt){
-						squareColor = Color.RED;
+						squareColor = Color.LIGHT_GRAY;
 					}
 					else{
-						squareColor = Color.GREEN;
+						squareColor = Color.WHITE;
 					}
 				}
 				else if(elts[row][col] instanceof UnplayableBoardElt){
@@ -67,6 +68,15 @@ public class BoardView extends View {
 				
 				g.setColor(Color.BLACK);
 				g.drawRect(SQUARE_WITH * col, SQUARE_WITH * row, SQUARE_WITH, SQUARE_WITH);
+				
+				if(elts[row][col] instanceof NumberedBoardElt){
+					int num = ((NumberedBoardElt) elts[row][col]).getNum();
+					Color numberColor =  ((NumberedBoardElt) elts[row][col]).getColor();
+					
+					g.setColor(numberColor);
+					g.setFont(new Font("TimesRoman", Font.PLAIN, 20)); 
+					g.drawString(""+num, SQUARE_WITH * col+(SQUARE_WITH)/3, SQUARE_WITH * row + (2*SQUARE_WITH)/3);
+				}
 			}
 		}
     }
