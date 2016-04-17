@@ -17,7 +17,7 @@ public class BoardController extends MouseAdapter {
 		this.bv = bv;
 	}
 	
-	public void mouseClicked(MouseEvent me){
+	public void mousePressed(MouseEvent me){
 		
 		// Determine the XY location where the mouse was clicked. 
 		int x = me.getX();
