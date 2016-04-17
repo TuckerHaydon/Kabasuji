@@ -33,13 +33,13 @@ public class NumberedBoardElt extends PlayableBoardElt{
 	@Override
 	public String toString(){
 		if(c.equals(Color.RED)){
-			return "P"+num + "R";
+			return "N"+num + "R";
 		}
 		else if(c.equals(Color.BLUE)){
-			return "P"+num + "B";
+			return "N"+num + "B";
 		}
 		else {
-			return "P"+num + "G";
+			return "N"+num + "G";
 		}
 	}
 

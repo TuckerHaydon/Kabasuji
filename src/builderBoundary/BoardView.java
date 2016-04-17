@@ -74,7 +74,7 @@ public class BoardView extends View {
 					Color numberColor =  ((NumberedBoardElt) elts[row][col]).getColor();
 					
 					g.setColor(numberColor);
-					g.setFont(new Font("TimesRoman", Font.PLAIN, 20)); 
+					g.setFont(new Font("Arial", Font.BOLD, 25)); 
 					g.drawString(""+num, SQUARE_WITH * col+(SQUARE_WITH)/3, SQUARE_WITH * row + (2*SQUARE_WITH)/3);
 				}
 			}
