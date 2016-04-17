@@ -20,4 +20,5 @@ public class UnplayableBoardElt extends BoardElt {
 	public String toString(){
 		return "U";
 	}
+	
 }

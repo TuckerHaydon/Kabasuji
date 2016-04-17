@@ -12,11 +12,22 @@ public class Board {
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
 	
+	public static int XELTS = 12;
+	public static int YELTS = 12;
+	
 	public Board(BoardElt elts[][]) {
+		if(elts.length != XELTS || elts[0].length != YELTS) {
+			throw new RuntimeException("Invalid board made");
+		}
 		this.elts = elts;
 	}
 	
-	public boolean addTile(Tile t) {
+	//adds a tile to the board
+	public boolean addTile(Tile t, int row, int col) {
+		((Anchor) t.getSquare(0,0)).setRowCol(row,col);
+		for(Square s : t.getSquares()) {
+			((PlayableBoardElt) elts[row + s.getRelX()][col + s.getRelY()]).setCovered(true);	
+		}
 		return tiles.add(t);
 	}
 	

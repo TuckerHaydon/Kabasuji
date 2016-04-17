@@ -24,6 +24,9 @@ public class PlayableBoardElt extends BoardElt {
 		this.isCovered = b;
 	}
 	
+	public boolean getCovered() {
+		return this.isCovered;
+	}
 	public void toggleCovered() {
 		isCovered = !isCovered;
 	}
@@ -45,4 +48,5 @@ public class PlayableBoardElt extends BoardElt {
 			return "P";
 		}
 	}
+	
 }
