@@ -3,6 +3,7 @@ package builderBoundary;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -38,7 +39,8 @@ public class LevelBuilderView extends JPanel{
 	JComboBox<String> boardEltNumBox, levelTypeBox, boardEltTypeBox, boardEltColorsBox;
 	String boardEltNums[] = {"1", "2", "3", "4", "5", "6"}, 
 			levelTypes[] = {"puzzle", "release", "lightning"}, 
-			boardEltTypes[] = {"playable", "unplayable", "numbered"},
+			numberedBoardEltTypes[] = {"playable", "unplayable", "numbered"},
+			regularBoardEltTypes[] = {"playable", "unplayable"},
 			boardEltColors[] = {"red", "blue", "green"};
 	
 	public LevelBuilderView(Level lvl, KabasujiBuilderApplication app, BuilderModel m){
@@ -52,13 +54,13 @@ public class LevelBuilderView extends JPanel{
 		
 		boardEltNumBox = new JComboBox<String>(boardEltNums);
 		levelTypeBox = new JComboBox<String>(levelTypes);
-		boardEltTypeBox = new JComboBox<String>(boardEltTypes);
+		boardEltTypeBox = new JComboBox<String>(numberedBoardEltTypes);
 		boardEltColorsBox = new JComboBox<String>(boardEltColors);
 		hintBox = new JCheckBox("Hint");
 		
 		// Set the combo boxes to a default selected value
 		boardEltNumBox.setSelectedIndex(0);
-		levelTypeBox.setSelectedIndex(0);
+		levelTypeBox.setSelectedIndex(1);
 		boardEltColorsBox.setSelectedIndex(0);
 		boardEltTypeBox.setSelectedIndex(0);
 	}
@@ -115,6 +117,7 @@ public class LevelBuilderView extends JPanel{
 		
 		hintBox.setBounds(605, 530, 100, 100);
 		this.add(hintBox);
+		hintBox.setVisible(false);
 		
 		
 	}
@@ -128,10 +131,36 @@ public class LevelBuilderView extends JPanel{
 		
 		// Action listeners for the various 
 		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(m, boardEltNumBox));
-		levelTypeBox.addActionListener(new SetLevelTypeHandler(lvl, levelTypeBox));
+		levelTypeBox.addActionListener(new SetLevelTypeHandler(lvl, levelTypeBox, this));
 		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(m, boardEltTypeBox));
 		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(m, boardEltColorsBox));
 		hintBox.addActionListener(new SetHintHandler(m, hintBox));
+	}
+	
+	public void updateView(String levelType){
+		switch(levelType)
+		{
+		case "puzzle":
+			boardEltNumBox.setVisible(false);
+			boardEltColorsBox.setVisible(false);
+			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(regularBoardEltTypes));
+			break;
+		case "lightning":
+			boardEltNumBox.setVisible(false);
+			boardEltColorsBox.setVisible(false);
+			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(regularBoardEltTypes));
+			break;
+		case "release":
+			boardEltNumBox.setVisible(true);
+			boardEltColorsBox.setVisible(true);
+			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(numberedBoardEltTypes));
+			break;
+		}
+		
+		// update the UI
+		this.revalidate();
+		this.repaint();
+		
 	}
 
 }
