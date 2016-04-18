@@ -13,10 +13,12 @@ public class BullpenController extends MouseAdapter {
 	KabasujiPlayerApplication app;
 	GameModel m;
 	Bullpen bp;
+	int boxwidth;
 	
-	public BullpenController(KabasujiPlayerApplication app, GameModel m, Bullpen bp){
+	public BullpenController(KabasujiPlayerApplication app, GameModel m, Bullpen bp, int boxwidth){
 		this.bp = bp;
 		this.app = app;
+		this.boxwidth = boxwidth;
 	}
 	
 	@Override
@@ -26,16 +28,22 @@ public class BullpenController extends MouseAdapter {
 		int x = me.getX();
 		int y = me.getY();
 		
-		int cellNum;
+		int cellNum = x/boxwidth;
 		
-		//determine if a tile is there
+		Tile pressedTile = bp.getTiles().get(cellNum);
+		//create tileview
 		//set that tile view to dragged
+		//take tile out of array list
 	}
 	
 	@Override
 	public void mouseReleased(MouseEvent me){
 		
 		//release drag tile goes there
+		//gamewindow dragged tile = null
+		//pull tile out of that dragged tile 
+		//*got to bullpenview and add argument
+		//add tile to array list
 		
 		Tile tile = app.getGameWindow().getDraggedTile().getTile();
 		if(tile==null){
@@ -46,7 +54,7 @@ public class BullpenController extends MouseAdapter {
 		LevelAchievementMonitor AM = m.getCurrentAM();
 		IMove move = new TileToBullpenMove(tile, bp);
 			if(move.doMove(app)){
-				if(AM.updateAchievement_whenclickbullpen()){
+				if(AM.updateAchievement_releaseonbullpen()){
 					AM.popUpScreen();
 				}
 			}else{
@@ -54,6 +62,12 @@ public class BullpenController extends MouseAdapter {
 					AM.popUpScreen();
 				}
 			}
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent me){
+		//the usual - update x,y
+		
 	}
 	
 }

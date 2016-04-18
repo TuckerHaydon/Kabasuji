@@ -2,6 +2,10 @@ package playerController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
@@ -17,8 +21,7 @@ public class GameWindowNavigateMainMenu implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//DONT DELET THE COMMENT!!!!!!!!!!!!!!!!
-
+		playCatScreech();
 		if(m.getCurrentAM().updateAchievement_whenquit()){
 			m.getCurrentAM().popUpScreen();
 		}
@@ -27,5 +30,16 @@ public class GameWindowNavigateMainMenu implements ActionListener{
 		System.out.println("AM is checking stuff");
 		app.displayMainMenu();
 	}
-
+	
+	void playCatScreech(){
+		try {
+			File f = new File("src/resources/audio/cat_screech.wav");
+			Clip clip = AudioSystem.getClip();
+			clip.open(AudioSystem.getAudioInputStream(f));
+			clip.start();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
