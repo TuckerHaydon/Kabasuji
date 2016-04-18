@@ -20,9 +20,8 @@ public class BullpenView extends View implements KeyListener {
 	boolean controlKeyPressed;
 	boolean shiftKeyPressed;
 	
-	int boxwidth;
-	static int WIDTH = 45;
-	static int CELL_HEIGHT = 110;
+	static int SQUARE_WIDTH = 45;
+	static int CELL_WIDTH = 7*SQUARE_WIDTH;
 	
 	public BullpenView(KabasujiPlayerApplication app, Bullpen bp){
 		this.bp = bp;
@@ -30,14 +29,12 @@ public class BullpenView extends View implements KeyListener {
 	}
 	
 	public void initView(){
-		this.setBackground(Color.BLUE);
-		this.setSize(4000, 120);
-		this.setPreferredSize(new Dimension(7*WIDTH*bp.getTiles().size(), CELL_HEIGHT));
+		this.setPreferredSize(new Dimension(CELL_WIDTH*bp.getTiles().size(), CELL_WIDTH));
 		
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BullpenController(app, app.getGameModel(), bp, boxwidth));
+		setMouseAdapter(new BullpenController(app, app.getGameModel(), bp, CELL_WIDTH));
 	}
 	
 	public void keyPressed(KeyEvent k) {
@@ -65,10 +62,10 @@ public class BullpenView extends View implements KeyListener {
 	public void paintComponent(Graphics g){
 		ArrayList<Tile> tiles = bp.getTiles();
 		int counter = 0;
-		int boxWidth = 315;
-		int boxHeight = 240;
 		for(Tile t: tiles){
-			paintTile(g, t, counter*boxWidth, 0, boxWidth, boxHeight);
+			paintTile(g, t, counter*CELL_WIDTH, 0, CELL_WIDTH, CELL_WIDTH);
+			g.setColor(Color.BLACK);
+			g.drawLine(counter*CELL_WIDTH, 0, counter*CELL_WIDTH, CELL_WIDTH);
 			counter++;
 		}
 	}
@@ -78,9 +75,9 @@ public class BullpenView extends View implements KeyListener {
 		
 		for(Square s: squares){
 			g.setColor(Color.GREEN);
-			g.fillRect(upperX+s.getRelX()*WIDTH + width/2, upperY+s.getRelY()*WIDTH+height/2, WIDTH, WIDTH);
+			g.fillRect(upperX+s.getRelX()*SQUARE_WIDTH + width/2, upperY+s.getRelY()*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);
 			g.setColor(Color.BLACK);
-			g.drawRect(upperX+s.getRelX()*WIDTH+width/2, upperY+s.getRelY()*WIDTH+height/2, WIDTH, WIDTH);
+			g.drawRect(upperX+s.getRelX()*SQUARE_WIDTH+width/2, upperY+s.getRelY()*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);
 		}
 	}
 }
