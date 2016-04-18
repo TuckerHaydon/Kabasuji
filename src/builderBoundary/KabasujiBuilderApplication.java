@@ -51,6 +51,7 @@ public class KabasujiBuilderApplication {
 		
 		// Display the main menu
 		displayMainMenu();
+		
 	}
 	
 	public void initControllers(){
