@@ -20,6 +20,7 @@ public class BullpenView extends View implements KeyListener {
 	boolean controlKeyPressed;
 	boolean shiftKeyPressed;
 	
+	int boxwidth;
 	static int WIDTH = 45;
 	static int CELL_HEIGHT = 110;
 	
@@ -36,7 +37,7 @@ public class BullpenView extends View implements KeyListener {
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BullpenController(app, app.getGameModel(), bp));
+		setMouseAdapter(new BullpenController(app, app.getGameModel(), bp, boxwidth));
 	}
 	
 	public void keyPressed(KeyEvent k) {

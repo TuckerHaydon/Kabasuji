@@ -23,6 +23,9 @@ public class BoardController extends MouseAdapter{
 		this.eltWidth = eltWidth;
 	}
 	
+	//TODO add mousedragged
+	
+	//activity here depends on what kind of level we have 
 	public void mousePressed(MouseEvent me){
 	
 		// Get the XY location of mouse event
@@ -44,7 +47,7 @@ public class BoardController extends MouseAdapter{
 	}
 	
 	
-	public void mouseRelease(MouseEvent me){
+	public void mouseReleased(MouseEvent me){
 		
 		GameWindow gw = app.getGameWindow();
 		GameModel m = app.getGameModel();

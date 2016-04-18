@@ -12,9 +12,8 @@ public class LevelController extends MouseAdapter {
 	public LevelController(){
 	}
 	
-	@Override
-	public void mousePressed(MouseEvent e) {
-		System.out.println("Level Pressed");
+	//@Override
+	//public void mousePressed(MouseEvent e) {
+	//	System.out.println("Level Pressed");
 	}
 
-}
