@@ -1,10 +1,13 @@
 package playerBoundary;
 
+import java.awt.Container;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import playerController.NavigateMainMenu;
 import playerController.ResetAchievementController;
@@ -14,19 +17,19 @@ public class AchievementsMenu extends JFrame {
 	
 	KabasujiPlayerApplication app;
 	GameModel m;
-	
 	JButton goToMenu;
 	JButton resetAchievements;
 	JLabel achievements[];
+	AchievementPanel panel;
 	
 	public AchievementsMenu(KabasujiPlayerApplication app, GameModel m){
 		super();
 		this.m = m;
 		this.app = app;
-		
 		// Create the buttons
-		goToMenu = new JButton("Main Menu");
-		resetAchievements = new JButton("Reset Achievements");
+		panel = new AchievementPanel();
+		goToMenu = panel.getMainMenuButton();
+		resetAchievements = panel.getResetAchievementButton();
 	}
 	
 	public void initView(){
@@ -36,12 +39,8 @@ public class AchievementsMenu extends JFrame {
 		this.setTitle("Achievements Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		// Set the layout of the frame
-		getContentPane().setLayout(new GridLayout(3,1));
+		this.add(panel);
 		
-		// Add the buttons
-		this.add(goToMenu);
-		this.add(resetAchievements);
 		
 	}
 	
