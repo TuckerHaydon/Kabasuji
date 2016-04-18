@@ -75,7 +75,7 @@ public class BoardController extends MouseAdapter{
 			System.err.println("Null Tile::BoardController::mouseReleased");
 			return;
 		}
-		gw.releaseDraggedTile();
+		gw.setDraggedTile(null);
 		
 		//achievement stuff goes here!
 		
