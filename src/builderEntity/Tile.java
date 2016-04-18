@@ -2,7 +2,7 @@ package builderEntity;
 
 import builderEntity.Anchor;
 import builderEntity.Square;
-import builderEntity.TileManager;
+import builderEntity.TileParser;
 
 public class Tile {
 	Square[] squares;
@@ -26,7 +26,7 @@ public class Tile {
 	
 	public Tile(int referenceNumber, String location){
 		
-		this.squares = TileManager.getSquares(referenceNumber, this);
+		this.squares = TileParser.getSquares(referenceNumber, this);
 		this.location = location;
 		this.referenceNumber = referenceNumber;
 		

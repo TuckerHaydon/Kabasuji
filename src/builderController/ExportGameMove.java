@@ -1,3 +1,5 @@
+
+
 package builderController;
 
 import java.io.BufferedWriter;
@@ -15,7 +17,7 @@ public class ExportGameMove implements IMove{
 	BuilderModel gm;
 	String filePath;
 	
-	ExportGameMove(BuilderModel gm, String filePath){
+	public ExportGameMove(BuilderModel gm, String filePath){
 		this.gm = gm;
 		this.filePath = filePath;
 	}
@@ -35,25 +37,16 @@ public class ExportGameMove implements IMove{
 	@Override
 	public boolean isValid() {
 		// TODO to be edited
-		return false;
+		return true;
 	}
 	
 	public void writeToFile(){
-		int data;
-		String type;
-		ArrayList<Integer> tileReferenceNumbers;
-		BoardElt[][] elts;
 		
-		// Extract the data that will be written
-		Level[] lvl = gm.getGame().getLevels();
-		
-		elts = lvl[0].getBoard().getBoardElts();
-		tileReferenceNumbers =  lvl[0].getBullpen().getTileReferenceNumbers();
-		type = lvl[0].getLevelType();
-		data = lvl[0].getlevelData();
+		// Extract the levels
+		Level[] levels = gm.getGame().getLevels();
 		
 		try {
-			File file = new File("src/resources/levels/"+filePath);
+			File file = new File(filePath);
 			
 			// if file doesn't exist, then create it
 			if (!file.exists()) {
@@ -65,89 +58,80 @@ public class ExportGameMove implements IMove{
 				file.createNewFile();
 			}
 
+			// Create the filewriter
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
 			
+			// Write the BeginGame
 			bw.write("BeginGame"); 		bw.newLine();
-			bw.write("BeginLevel"); 	bw.newLine();
-			bw.write(type);				bw.newLine();
-			bw.write(""+data);			bw.newLine();
-					
-			// Write the hexomino numbers
-			bw.write("BeginHexomino"); 	bw.newLine();
-			for(Integer i:tileReferenceNumbers){
-				bw.write(i+" ");
-			}
-			bw.write("EndHexomio"); 	bw.newLine();
-				
-			// Write the board elts
-			bw.write("BeginElts");		bw.newLine();
-			for(int row = 0; row < 12; row++){
-				for(int col = 0; col < 12; col++){
-					bw.write(elts[row][col].toString());
-				}
-				bw.newLine();
-			}
-			bw.write("EndElts");		bw.newLine();
-			bw.write("EndLevel"); 		bw.newLine();
 			
+			// Write the 15 levels
+			for (int i=0; i<15; i++){
+				
+				// Dont write a null level
+				if(levels[i] == null){
+					continue;
+				}
+				
+				try{
+					writeFile(levels[i], bw);
+				}
+				catch(IOException e){
+					e.printStackTrace();
+				}
+			}		
+			
+			// Write the EndGame
+			bw.write("EndGame");
+			
+			// Close the filewriter
 			bw.close();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		for (int i=1; i<15; i++){
-			elts = lvl[i].getBoard().getBoardElts();
-			tileReferenceNumbers =  lvl[i].getBullpen().getTileReferenceNumbers();
-			type = lvl[i].getLevelType();
-			data = lvl[i].getlevelData();
-			writeFile(i, elts, tileReferenceNumbers, type, data);
-			//maybe clear all variables before the next run
-		}
+		
 	}
 	
-	public void writeFile (int levelNum, BoardElt elts[][], ArrayList<Integer> tileReferenceNumbers,
-			String type, int data){
-	
-		try {
-			File file = new File("src/resources/levels/"+filePath);
+	public void writeFile (Level lvl, BufferedWriter bw) throws IOException{
 			
-			//with the second argument, "true", it will append to the end of the file
-			//if it already exists
-			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
-			BufferedWriter bw = new BufferedWriter(fw);
-			
-			bw.write("BeginLevel"); 	bw.newLine();
-			bw.write(type);				bw.newLine();
-			bw.write(""+data);			bw.newLine();
-					
-			// Write the hexomino numbers
-			bw.write("BeginHexomino"); 	bw.newLine();
-			for(Integer i:tileReferenceNumbers){
-				bw.write(i+" ");
-			}
-			bw.write("EndHexomio"); 	bw.newLine();
+		// Extract the data
+		BoardElt elts[][] = lvl.getBoard().getBoardElts();
+		String type = lvl.getLevelType();
+		int data = lvl.getlevelData();
+		ArrayList<Integer> tileReferenceNumbers = lvl.getBullpen().getTileReferenceNumbers();
+		
+		// Write the BeginLevel
+		bw.write("BeginLevel"); 	bw.newLine();
+		
+		// Write the level type
+		bw.write(type);				bw.newLine();
+		
+		// Write the level data
+		bw.write(""+data);			bw.newLine();
 				
-			// Write the board elts
-			bw.write("BeginElts");		bw.newLine();
-			for(int row = 0; row < 12; row++){
-				for(int col = 0; col < 12; col++){
-					bw.write(elts[row][col].toString());
-				}
-				bw.newLine();
-			}
-			bw.write("EndElts");		bw.newLine();
-			bw.write("EndLevel"); 		bw.newLine();
-			
-			if(levelNum==14){
-				bw.write("EndGame");	bw.newLine();
-			}
-			bw.close();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
+		// Write the hexomino numbers
+		bw.write("BeginHexomino"); 	bw.newLine();
+		System.out.println(tileReferenceNumbers.size());
+		for(Integer i:tileReferenceNumbers){
+			bw.write(i.intValue()+" ");
 		}
+		bw.newLine();
+		bw.write("EndHexomino"); 	bw.newLine();
+			
+		// Write the board elts
+		bw.write("BeginElts");		bw.newLine();
+		for(int row = 0; row < 12; row++){
+			for(int col = 0; col < 12; col++){
+				bw.write(elts[row][col].toString()+" ");
+			}
+			bw.newLine();
+		}
+		bw.write("EndElts");		bw.newLine();
+		bw.write("EndLevel"); 		bw.newLine();
+		
 	}
 
 }
+

@@ -17,10 +17,17 @@ public class ExportLevelMove implements IMove {
 
 	BuilderModel model;
 	String filePath;
+	boolean overwrite = true;
 	
-	ExportLevelMove(BuilderModel m, String filePath){
+	public ExportLevelMove(BuilderModel m, String filePath){
 		this.model = m;
 		this.filePath = filePath;
+	}
+	
+	public ExportLevelMove(BuilderModel m, String filePath, boolean overwrite){
+		this.model = m;
+		this.filePath = filePath;
+		this.overwrite = overwrite;
 	}
 	
 	@Override
@@ -57,7 +64,7 @@ public class ExportLevelMove implements IMove {
 			if (!file.exists()) {
 				file.createNewFile();
 			}
-			else{
+			else if(overwrite == true){
 				// TODO maybe check to make sure they want to overwrite
 				file.delete();
 				file.createNewFile();
@@ -76,7 +83,7 @@ public class ExportLevelMove implements IMove {
 				bw.write(i+" ");
 			}
 			bw.newLine();
-			bw.write("EndHexomio"); 	bw.newLine();
+			bw.write("EndHexomino"); 	bw.newLine();
 		
 			// Write the board elts
 			bw.write("BeginElts");		bw.newLine();

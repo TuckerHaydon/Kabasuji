@@ -2,6 +2,7 @@ package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Bullpen;
+import playerEntity.LightningLevel;
 import playerEntity.Tile;
 
 public class TileToBullpenMove implements IMove{
@@ -16,13 +17,16 @@ public class TileToBullpenMove implements IMove{
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
 		// TODO Auto-generated method stub
-		return false;
+		return bullpen.addTile(tile);
 	}
 
 	@Override
 	public boolean isValid(KabasujiPlayerApplication app) {
 		// TODO Auto-generated method stub
-		return false;
+		if(app.getGameModel().getCurrentLevel() instanceof LightningLevel) {
+			return false;
+		}
+		return true;
 	}
 	
 }

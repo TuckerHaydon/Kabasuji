@@ -37,6 +37,7 @@ public class BoardController extends MouseAdapter{
 		int row = y / eltWidth;
 		int col = x / eltWidth;
 		BoardElt elt = b.getBoardElt(row, col);
+		System.out.println(row + " "+col);
 		if(elt instanceof NumberBoardElt){System.out.println("NumberBoardElt");}
 		else if(elt instanceof PlayableBoardElt){System.out.println("PlayableBoardElt");}
 		else if(elt instanceof UnplayableBoardElt){System.out.println("UnplayableBoardElt");}

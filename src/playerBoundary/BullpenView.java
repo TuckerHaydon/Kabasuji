@@ -21,6 +21,7 @@ public class BullpenView extends View implements KeyListener {
 	boolean shiftKeyPressed;
 	
 	static int WIDTH = 45;
+	static int CELL_HEIGHT = 110;
 	
 	public BullpenView(KabasujiPlayerApplication app, Bullpen bp){
 		this.bp = bp;
@@ -30,7 +31,7 @@ public class BullpenView extends View implements KeyListener {
 	public void initView(){
 		this.setBackground(Color.BLUE);
 		this.setSize(4000, 120);
-		this.setPreferredSize(new Dimension(7*WIDTH*bp.getTiles().size(), 120));
+		this.setPreferredSize(new Dimension(7*WIDTH*bp.getTiles().size(), CELL_HEIGHT));
 		
 	}
 	

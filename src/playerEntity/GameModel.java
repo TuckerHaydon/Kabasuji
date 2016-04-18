@@ -9,7 +9,7 @@ public class GameModel {
 	Level currentLevel;	
 	GameAchievementMonitor GAM;
 	LevelAchievementMonitor lightningAM, puzzleAM, releaseAM;
-	int currentAM;
+	int currentAMNum;
 	
 	public GameModel(){
 
@@ -72,6 +72,14 @@ public class GameModel {
 		this.puzzleAM = new PuzzleAchievementMonitor(this.achievements);
 		this.releaseAM = new ReleaseAchievementMonitor(this.achievements);
 		
+		//initiate GAM, LAM, PAM, RAM
+		this.GAM = new GameAchievementMonitor(this.achievements);
+		this.puzzleAM = new PuzzleAchievementMonitor(this.achievements);
+		this.releaseAM = new ReleaseAchievementMonitor(this.achievements);
+		this.lightningAM = new LightningAchievementMonitor(this.achievements);
+		this.currentAMNum=0;
+		
+		
 	}
 	
 	
@@ -100,29 +108,32 @@ public class GameModel {
 	}
 	
 	public void selectCurrentAM(int levelNum){
-		if(levelNum<5 && levelNum>=0){
-			this.currentAM=1;
+		if(levelNum%3==0){
+			this.currentAMNum=1;
 			this.puzzleAM.reset();
+			System.out.println("SelectingAM:puzzle:lv num:"+levelNum);
 		}
-		if(levelNum<10 && levelNum>=5){
-			this.currentAM=2;
+		if(levelNum%3==1){
+			this.currentAMNum=2;
 			this.lightningAM.reset();
+			System.out.println("SelectingAM:lightning:lv num:"+levelNum);
 		}
-		if(levelNum<15 && levelNum>=10){
+		if(levelNum%3==2){
 
-			this.currentAM=3;
+			this.currentAMNum=3;
 			this.releaseAM.reset();
+			System.out.println("SelectingAM:release:lv num:"+levelNum);
 		}
 	}
 	
 	public LevelAchievementMonitor getCurrentAM(){
-		if(this.currentAM==1){
+		if(this.currentAMNum==1){
 			return this.puzzleAM;
 		}
-		if(this.currentAM==2){
+		if(this.currentAMNum==2){
 			return this.lightningAM;
 		}
-		if(this.currentAM==3){
+		if(this.currentAMNum==3){
 			return this.releaseAM;
 		}
 		return null;

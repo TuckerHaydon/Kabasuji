@@ -37,9 +37,23 @@ public class LoadGame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		String path = JOptionPane.showInputDialog("What is the path to the game file?");
+		File folder = new File("src/resources/games/");
+		File[] listOfFiles = folder.listFiles();
+		ArrayList<String> gameNames = new ArrayList<>();
 		
-		try (Scanner fileScanner = new Scanner(new File("path"))){
+		// Get all of the levels in the levels directory
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile() && !listOfFiles[i].getName().substring(0, 1).equals(".")) {
+				gameNames.add(listOfFiles[i].getName());
+		    }
+		}
+		
+		String chosenGameName = (String) JOptionPane.showInputDialog(null, "Choose a game to load", "Game Loader",
+		        JOptionPane.QUESTION_MESSAGE, null, gameNames.toArray(), gameNames.get(0));
+
+		String path = "src/resources/games/"+chosenGameName;
+		
+		try (Scanner fileScanner = new Scanner(new File(path))){
 			parseFile(fileScanner);
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();

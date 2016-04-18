@@ -29,10 +29,6 @@ public class Bullpen {
 		return tiles.remove(t);
 	}
 	
-	public void shiftTiles(int num) {
-		
-	}
-	
 	public ArrayList<Tile> getTiles(){
 		return tiles;
 	}

@@ -5,7 +5,7 @@ public class Game {
 	String name;
 	Level levels[];
 	
-	Game(String name, Level levels[]){
+	public Game(String name, Level levels[]){
 		this.name = name;
 		this.levels = levels;
 	}
@@ -14,19 +14,23 @@ public class Game {
 		levels = new Level[15];
 	}
 	
-	void setName(String n){
+	public void setName(String n){
 		this.name = n;
 	}
 	
-	String getName(){
+	public String getName(){
 		return this.name;
 	}
 	
-	void setLevels(Level l[]){
+	public void setLevels(Level l[]){
 		this.levels = l;
 	}
 	
 	public Level[] getLevels(){
 		return this.levels;
+	}
+	
+	public void setLevel(Level l, int index){
+		levels[index] = l;
 	}
 }
