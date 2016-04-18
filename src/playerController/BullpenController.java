@@ -54,7 +54,7 @@ public class BullpenController extends MouseAdapter {
 		LevelAchievementMonitor AM = m.getCurrentAM();
 		IMove move = new TileToBullpenMove(tile, bp);
 			if(move.doMove(app)){
-				if(AM.updateAchievement_whenclickbullpen()){
+				if(AM.updateAchievement_releaseonbullpen()){
 					AM.popUpScreen();
 				}
 			}else{
