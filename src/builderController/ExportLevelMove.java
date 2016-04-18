@@ -76,7 +76,7 @@ public class ExportLevelMove implements IMove {
 				bw.write(i+" ");
 			}
 			bw.newLine();
-			bw.write("EndHexomio"); 	bw.newLine();
+			bw.write("EndHexomino"); 	bw.newLine();
 		
 			// Write the board elts
 			bw.write("BeginElts");		bw.newLine();

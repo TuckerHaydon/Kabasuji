@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import builderEntity.BuilderModel;
+import builderEntity.Level;
+import builderEntity.LevelParser;
 
 public class AddLevelToGameMove implements IMove {
 	
@@ -34,8 +36,12 @@ public class AddLevelToGameMove implements IMove {
 		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to add", "Level "+levelIndex,
 		        JOptionPane.QUESTION_MESSAGE, null, levelNames.toArray(), levelNames.get(0));
 
-		    
+		String path = "src/resources/levels/"+chosenLevelName;
+		Level lvl = LevelParser.getLevel(path);
+		lvl.setLevelNum(levelIndex);
 		
+		m.getGame().setLevel(lvl, levelIndex);
+		System.out.println(m.getGame().getLevels()[0].getBoard());
 		return true;
 	}
 
