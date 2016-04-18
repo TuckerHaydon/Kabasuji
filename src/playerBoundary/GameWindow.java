@@ -104,7 +104,11 @@ public class GameWindow extends JFrame {
 	public TileView getDraggedTile(){
 		return this.draggedTile;
 	}
-
+	
+	public void releaseDraggedTile(){
+		this.draggedTile=null;
+	}
+	
 	public LevelView getLevelView(){
 		return this.currentLevelView;
 	}

@@ -15,37 +15,42 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
-	/*Finished*/
+	@Override
 	public void setLevel(Level lv) {
 		reset();
 		this.lv=(LightningLevel) lv;
 	}
 	
+	@Override
 	public boolean updateAchievement_whengotonextlevel(){
 		if(this.checkSlowPoke()||this.checkVictoryLap()){
 			return true;
 		}
 		return false;
 	}
-	public boolean updateAchievement_whenclickbullpen(){
+	@Override
+	public boolean updateAchievement_releaseonbullpen(){
 		if(this.checkBabySteps()){
 			return true;
 		}
 		return false;
 	}
+	@Override
 	public boolean updateAchievement_wheninvalidmove(){
 		if(this.checkRebel()){
 			return true;
 		}
 		return false;
 	}
-	public boolean updateAchievement_whenclickboard(){
+	@Override
+	public boolean updateAchievement_releaseonboard(){
 		this.moveCounter++;
 		if(this.checkBabySteps()){
 			return true;
 		}
 		return false;
 	}
+	@Override
 	public boolean updateAchievement_whenquit(){
 		if(this.checkRageQuit()){
 			return true;
@@ -63,7 +68,8 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
-	/*Finished*/
+
+	@Override
 	boolean checkRageQuit(){
 		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && !(lv.hasWon())){
 			achievements.get("RageQuit").setEarned();
@@ -75,7 +81,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 
 	@Override
 	boolean checkVictoryLap() {
-		if(lv.hasWon() && lv.getIsCompleted()){
+		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
 			return true;
 		}
 		return false;
@@ -87,8 +93,6 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();
 	}
-
-
 
 
 }

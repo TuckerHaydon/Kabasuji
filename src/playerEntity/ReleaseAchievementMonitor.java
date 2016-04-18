@@ -14,30 +14,40 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();
 	}
+	@Override
+	public void setLevel(Level lv) {
+		reset();
+		this.lv=(ReleaseLevel) lv;
+	}
 	
+	@Override
 	public boolean updateAchievement_whengotonextlevel(){
 		if(this.checkVictoryLap()||this.checkOverAchiever()){
 			return true;
 		}
 		return false;
 	}
-	public boolean updateAchievement_whenclickbullpen(){
+	@Override
+	public boolean updateAchievement_releaseonbullpen(){
 		this.moveCounter++;
 		return false;
 	}
+	@Override
 	public boolean updateAchievement_wheninvalidmove(){
 		if(this.checkRebel()){
 			return true;
 		}
 		return false;
 	}
-	public boolean updateAchievement_whenclickboard(){
+	@Override
+	public boolean updateAchievement_releaseonboard(){
 		this.moveCounter++;
 		if(this.checkBabySteps()){
 			return true;
 		}
 		return false;
 	}
+	@Override
 	public boolean updateAchievement_whenquit(){
 		if(this.checkRageQuit()){
 			return true;
@@ -54,7 +64,8 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
-	/*Finished*/
+	
+	@Override
 	boolean checkRageQuit(){
 		if(this.notEarnRageQuit() && !(lv.hasWon())){
 			achievements.get("RageQuit").setEarned();
@@ -64,20 +75,14 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	/*Finished*/
+	@Override
 	boolean checkVictoryLap() {
-		if(lv.hasWon() && lv.getIsCompleted()){
+		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
 			achievements.get("VictoryLap").setEarned();
 			popingUp.push("VictoryLap");
 			return true;
 		}
 		return false;
-	}
-
-	/*Finished*/
-	public void setLevel(Level lv) {
-		reset();
-		this.lv=(ReleaseLevel) lv;
 	}
 
 	/*Finish*/

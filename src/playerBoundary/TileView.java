@@ -1,10 +1,12 @@
 package playerBoundary;
 
+
 import playerEntity.Tile;
 
-/* 
- * Author: Damani 
- */
+import java.awt.Color;
+import java.awt.Graphics;
+import playerEntity.Square;
+
 
 public class TileView extends View {
 	Tile t;
@@ -20,14 +22,14 @@ public class TileView extends View {
 		this.y = y;
 	}
 
-	@Override
-	void initView() {
-		// TODO Auto-generated method stub
+	
+	public void initView() {
 		
 	}
+	
 
 	@Override
-	void initControllers() {
+	public void initControllers() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -35,4 +37,5 @@ public class TileView extends View {
 	public Tile getTile(){
 		return t;
 	}
+
 }

@@ -19,13 +19,14 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
-	//this one goes to playlevel handler
+	@Override
 	public void setLevel(Level lv) {
 		reset();
 		this.lv=(PuzzleLevel) lv;
 	}
 	
 	//should be called when make a move to the board/bullpen/next level or quit
+	@Override
 	public boolean updateAchievement_whengotonextlevel(){
 		if(this.checkJustUnderTheWire()||this.checkNoRegrets()||this.checkVictoryLap()){
 			return true;
@@ -33,12 +34,14 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	//should goes to bullpen handler when make a new move
-	public boolean updateAchievement_whenclickbullpen(){
+	@Override
+	public boolean updateAchievement_releaseonbullpen(){
 		this.moveCounter++;
 		this.toBullpenMove++;
 		return false;
 	}
-	//should goes to move class
+	//should goes to move class //
+	@Override
 	public boolean updateAchievement_wheninvalidmove(){
 		if(this.checkRebel()){
 			return true;
@@ -46,7 +49,8 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	//should goes to board handler
-	public boolean updateAchievement_whenclickboard(){
+	@Override
+	public boolean updateAchievement_releaseonboard(){
 		this.moveCounter++;
 		if(this.checkRebel()||this.checkBabySteps()){
 			return true;
@@ -54,6 +58,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	//should goes to Jbutton mainmenu handler
+	@Override
 	public boolean updateAchievement_whenquit(){
 		if(this.checkRageQuit()){
 			return true;
@@ -81,7 +86,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	
-	/*Finished*/
+	@Override
 	boolean checkRageQuit(){
 		if(this.notEarnRageQuit() && !(lv.hasWon())){
 			achievements.get("RageQuit").setEarned();
@@ -91,9 +96,9 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	/*Finished*/
+	@Override
 	boolean checkVictoryLap() {
-		if(lv.hasWon() && lv.getIsCompleted()){
+		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
 			achievements.get("VictoryLap").setEarned();
 			popingUp.push("VictoryLap");
 			return true;
