@@ -32,10 +32,11 @@ public class PlayLevel implements ActionListener {
 	
 		// Check to make sure the level you clicked on is unlocked
 		if(m.getLevels()[levelNum].getIsUnlocked())
-		{
+		{	
 			// Update the current level
 			m.setCurrentLevel(levelNum);
-
+			//before play the level reset the level first
+			m.getCurrentLevel().reset();
 			
 			// Update the level view panel in the game window
 			app.getGameWindow().updateView();

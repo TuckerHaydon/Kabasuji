@@ -36,7 +36,7 @@ public class BullpenView extends View implements KeyListener {
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BullpenController(app, bp));
+		setMouseAdapter(new BullpenController(app, app.getGameModel(), bp));
 	}
 	
 	public void keyPressed(KeyEvent k) {
