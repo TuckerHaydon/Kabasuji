@@ -9,7 +9,9 @@ import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.BoardElt;
+import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
+import playerEntity.LevelAchievementMonitor;
 import playerEntity.NumberBoardElt;
 import playerEntity.PlayableBoardElt;
 import playerEntity.Tile;
@@ -65,14 +67,18 @@ public class BoardController extends MouseAdapter{
 		
 		GameWindow gw = app.getGameWindow();
 		GameModel m = app.getGameModel();
+		LevelAchievementMonitor AM = m.getCurrentAM();
+		GameAchievementMonitor GAM = m.getGAM();
 		TileView tileview = gw.getDraggedTile();
 		if(tileview==null){
 			System.err.println("Null TileView::BoardController::mouseReleased");
+			gw.releaseDraggedTile();
 			return;
 		}
 		Tile tile = tileview.getTile();
 		if(tile==null){
 			System.err.println("Null Tile::BoardController::mouseReleased");
+			gw.releaseDraggedTile();
 			return;
 		}
 		gw.setDraggedTile(null);
@@ -83,19 +89,27 @@ public class BoardController extends MouseAdapter{
 		if(move.doMove(app)){
 			app.displayLevelSelectionMenu();
 			app.getGameWindow().updateView();
-			if(m.getGAM().updateAchievement(m.getCurrentLevel().getLevelNum())){
-				m.getGAM().pop();
+			if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
+				GAM.pop();
 			}
 		}
 		
 		
-		
+		//This Anchor is just there for console reason
 		Anchor a = new Anchor(row,col,tile);
 		
-		IMove move = new TileToBoardMove(b,);
+		IMove move2 = new TileToBoardMove(b,a,row,col);
+		if(move2.doMove(app)){
+			
+			//TODO move and app change stuff go there
+			
+			if(AM.updateAchievement_releaseonboard()){
+				AM.popUpScreen();
+			}
+		}
 		else{
-			if(m.getCurrentAM().updateAchievement_releaseonboard()){
-				m.getCurrentAM().popUpScreen();
+			if(AM.updateAchievement_wheninvalidmove()){
+				AM.popUpScreen();
 			}
 		}
 	}
