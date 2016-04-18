@@ -31,4 +31,8 @@ public class TileView extends View {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public Tile getTile(){
+		return t;
+	}
 }

@@ -108,18 +108,24 @@ public class GameModel {
 	}
 	
 	public void selectCurrentAM(int levelNum){
-		if(levelNum<5 && levelNum>=0){
+		if(levelNum%3==0){
 			this.currentAMNum=1;
 			this.puzzleAM.reset();
+			this.puzzleAM.setLevel(levels[levelNum]);
+			System.out.println("SelectingAM:puzzle:lv num:"+levelNum);
 		}
-		if(levelNum<10 && levelNum>=5){
+		if(levelNum%3==1){
 			this.currentAMNum=2;
 			this.lightningAM.reset();
+			this.lightningAM.setLevel(levels[levelNum]);
+			System.out.println("SelectingAM:lightning:lv num:"+levelNum);
 		}
-		if(levelNum<15 && levelNum>=10){
+		if(levelNum%3==2){
 
 			this.currentAMNum=3;
 			this.releaseAM.reset();
+			this.releaseAM.setLevel(levels[levelNum]);
+			System.out.println("SelectingAM:release:lv num:"+levelNum);
 		}
 	}
 	

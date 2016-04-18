@@ -56,7 +56,7 @@ public class BoardView extends View {
 					}
 					else{
 						squareColor = Color.WHITE;
-					}
+					} 
 				}
 				else if(elts[row][col] instanceof UnplayableBoardElt){
 					squareColor = Color.BLACK;

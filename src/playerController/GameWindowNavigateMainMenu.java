@@ -18,12 +18,12 @@ public class GameWindowNavigateMainMenu implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//DONT DELET THE COMMENT!!!!!!!!!!!!!!!!
-		/*
+
 		if(m.getCurrentAM().updateAchievement_whenquit()){
 			m.getCurrentAM().popUpScreen();
 		}
 		m.getGAM().reset();
-		*/
+		
 		System.out.println("AM is checking stuff");
 		app.displayMainMenu();
 	}

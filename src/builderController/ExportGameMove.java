@@ -132,3 +132,4 @@ public class ExportGameMove implements IMove{
 	}
 
 }
+

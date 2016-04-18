@@ -1,5 +1,9 @@
 package playerBoundary;
 
+import java.io.File;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -16,6 +20,7 @@ public class KabasujiPlayerApplication {
 	
 	public KabasujiPlayerApplication(){
 		init();
+		playThemeSong();
 	}
 
 	
@@ -105,5 +110,18 @@ public class KabasujiPlayerApplication {
 
 		while(System.currentTimeMillis() - start < 3000);
 		splash.dispose();
+	}
+	
+	void playThemeSong(){
+		try {
+			File f = new File("src/resources/audio/rainbow_bunchie.wav");
+			Clip clip = AudioSystem.getClip();
+			clip.open(AudioSystem.getAudioInputStream(f));
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+			clip.start();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

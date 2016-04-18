@@ -6,7 +6,6 @@ public class NumberedBoardElt extends PlayableBoardElt{
 
 	Color c;
 	int num;
-	
 	public NumberedBoardElt(int row, int col, boolean isHint, Color c, int num) {
 		super(row, col, isHint);
 		this.c = c;
@@ -14,7 +13,7 @@ public class NumberedBoardElt extends PlayableBoardElt{
 		
 	}
 	
-	public void setColor(Color c){
+	void setColor(Color c){
 		this.c = c;
 	}
 	
@@ -22,12 +21,13 @@ public class NumberedBoardElt extends PlayableBoardElt{
 		return this.c;
 	}
 	
-	public void setNum(int n){
+	void setNum(int n){
 		this.num = n;
 	}
 	
 	public int getNum(){
 		return this.num;
+
 	}
 	
 	@Override
