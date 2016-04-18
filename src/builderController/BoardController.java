@@ -17,6 +17,7 @@ public class BoardController extends MouseAdapter {
 		this.bv = bv;
 	}
 	
+	@Override
 	public void mousePressed(MouseEvent me){
 		
 		// Determine the XY location where the mouse was clicked. 
@@ -38,6 +39,11 @@ public class BoardController extends MouseAdapter {
 		// Repaint the board
 		bv.repaint();
 		
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent me){
+		this.mousePressed(me);
 	}
 	
 
