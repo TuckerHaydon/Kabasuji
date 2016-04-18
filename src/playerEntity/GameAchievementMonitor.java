@@ -22,6 +22,7 @@ public class GameAchievementMonitor {
 	//this one goes to playLevel Handler
 	public void setPreviousLevel(int num){
 		this.previousLvNum=num;
+		System.out.println("GAM::setPreviousLevel  "+num);
 	}
 	
 	//goes to complete level handler
