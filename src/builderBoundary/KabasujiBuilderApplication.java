@@ -117,4 +117,14 @@ public class KabasujiBuilderApplication {
 		this.levelEditor.initView();
 	}
 
+	public LevelEditor getLevelEditor(){
+		return this.levelEditor;
+	}
+	public LevelEditorMenu getLevelEditorMenu(){
+		return this.levelEditorMenu;
+	}
+	
+	public BuilderModel getBuilderModel(){
+		return this.m;
+	}
 }

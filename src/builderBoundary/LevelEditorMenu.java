@@ -17,7 +17,7 @@ public class LevelEditorMenu extends JFrame {
 	
 	KabasujiBuilderApplication app;
 	BuilderModel m;
-	JButton createLevelButton;
+	public JButton createLevelButton;
 	JButton editLevelButton;
 	JButton goToMenuButton;
 	

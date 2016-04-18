@@ -103,5 +103,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 		
 	}
 	
+	public LevelBuilderView getLevelBuilderView(){
+		return this.levelBuilderView;
+	}
+	
 
 }

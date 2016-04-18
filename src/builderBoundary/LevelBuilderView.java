@@ -162,4 +162,7 @@ public class LevelBuilderView extends JPanel{
 		
 	}
 
+	public Level getLevel(){
+		return this.lvl;
+	}
 }
