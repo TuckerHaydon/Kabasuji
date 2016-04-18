@@ -26,7 +26,7 @@ public class Game {
 		this.levels = l;
 	}
 	
-	Level[] getLevels(){
+	public Level[] getLevels(){
 		return this.levels;
 	}
 }

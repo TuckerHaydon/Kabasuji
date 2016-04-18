@@ -4,24 +4,30 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
 public class CompleteLevelMove implements IMove{
-	KabasujiPlayerApplication app;
 	GameModel m;
 	
-	public CompleteLevelMove(KabasujiPlayerApplication app, GameModel m){
-		this.app=app;
+	public CompleteLevelMove(GameModel m){
 		this.m=m;
 	}
 	
-	@Override
+	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
+		if(isValid(app)){
+			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
+				m.getCurrentAM().popUpScreen();
+				m.getCurrentAM().reset();
+			}
+			m.getCurrentLevel().reset();
+			return true;
+		}
 		return false;
 	}
 
-	@Override
+	/*Finished*/
 	public boolean isValid(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
+		if(m.getCurrentLevel().hasWon()){
+			return true;
+		}
 		return false;
 	}
-	
 }

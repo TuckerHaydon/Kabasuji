@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerController.IMove;
-import playerController.ReturnToMenuMove;
 
 public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	ReleaseLevel lv;
@@ -16,19 +15,39 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
-	/*Finished*/
-	public boolean updateAchievement(IMove move) {
-		if(checkOverAchiever(move) && checkRageQuit(move) && this.checkVictoryLap(move)
-				&& this.checkBabySteps(move) && this.checkRebel(move)){
+	public boolean updateAchievement_whengotonextlevel(){
+		if(this.checkVictoryLap()||this.checkOverAchiever()){
 			return true;
 		}
-		return false;		
+		return false;
+	}
+	public boolean updateAchievement_whenclickbullpen(){
+		this.moveCounter++;
+		return false;
+	}
+	public boolean updateAchievement_wheninvalidmove(){
+		if(this.checkRebel()){
+			return true;
+		}
+		return false;
+	}
+	public boolean updateAchievement_whenclickboard(){
+		this.moveCounter++;
+		if(this.checkBabySteps()){
+			return true;
+		}
+		return false;
+	}
+	public boolean updateAchievement_whenquit(){
+		if(this.checkRageQuit()){
+			return true;
+		}
+		return false;
 	}
 	
 	/*Finished*/
-	private boolean checkOverAchiever(IMove move){
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(typeMatched && lv.hasWon() && lv.isCoverAll() && this.notEarnOverAchiever()){
+	private boolean checkOverAchiever(){
+		if(lv.hasWon() && lv.isCoverAll() && this.notEarnOverAchiever()){
 			achievements.get("OverAchiever").setEarned();
 			popingUp.push("OverAchiever");
 			return true;
@@ -36,9 +55,8 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	/*Finished*/
-	boolean checkRageQuit(IMove move){
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(this.notEarnRageQuit() && typeMatched && !(lv.hasWon())){
+	boolean checkRageQuit(){
+		if(this.notEarnRageQuit() && !(lv.hasWon())){
 			achievements.get("RageQuit").setEarned();
 			popingUp.push("RageQuit");
 			return true;
@@ -46,10 +64,9 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	@Override
-	boolean checkVictoryLap(IMove move) {
-		boolean typeMatched = move instanceof ReturnToMenuMove;
-		if(typeMatched && lv.hasWon() && lv.getIsCompleted()){
+	/*Finished*/
+	boolean checkVictoryLap() {
+		if(lv.hasWon() && lv.getIsCompleted()){
 			achievements.get("VictoryLap").setEarned();
 			popingUp.push("VictoryLap");
 			return true;
@@ -64,7 +81,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	}
 
 	/*Finish*/
-	protected void reset() {
+	public void reset() {
 		this.lv=null;
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();	

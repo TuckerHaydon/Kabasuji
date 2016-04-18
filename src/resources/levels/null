@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+=======
+BeginLevel
+Puzzle
+-1
+BeginHexomino
+2 
+EndHexomio
+BeginElts
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+>>>>>>> branch 'master' of https://github.com/TuckerHaydon/Kabasuji-Cebriones.git

@@ -1,5 +1,6 @@
 package builderController;
 
+import builderBoundary.BullpenView;
 import builderEntity.BuilderModel;
 import builderEntity.Bullpen;
 import builderEntity.Tile;
@@ -7,17 +8,25 @@ import builderEntity.Tile;
 public class RemoveTileFromBullpenMove implements IMove{
 
 	Tile t;
-	Bullpen bp;
+	BullpenView bullpenView;
 	
-	RemoveTileFromBullpenMove(Tile t, Bullpen bp){
+	RemoveTileFromBullpenMove(Tile t, BullpenView bpv){
 		this.t = t;
-		this.bp = bp;
+		this.bullpenView = bpv;
 	}
 	
 	@Override
 	public boolean doMove() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Bullpen bullpen = bullpenView.getBullpen();
+		
+		// Remove the tile from the bullpen
+		bullpen.remTile(t.getReferenceNumber());
+		
+		// Repaint the component
+		bullpenView.repaint();
+		
+		return true;
 	}
 
 	@Override
@@ -29,7 +38,7 @@ public class RemoveTileFromBullpenMove implements IMove{
 	@Override
 	public boolean isValid() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

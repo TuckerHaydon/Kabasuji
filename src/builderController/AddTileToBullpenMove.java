@@ -5,38 +5,39 @@ package builderController;
 
 import builderBoundary.*;
 import builderEntity.*;
-/**
- * @author kacper
- *
- */
-public class AddTileToBullpenMove implements IBuildMove {
+
+
+public class AddTileToBullpenMove implements IMove {
 	
-	KabasujiBuilderApplication app;
-	BuilderModel model;
+	Tile t;
+	BullpenView bullpenView;
 
 	
-	AddTileToBullpenMove(Tile t) {
+	AddTileToBullpenMove(Tile t, BullpenView bpv) {
+		this.t = t;
+		this.bullpenView = bpv;
+	}
+
+	
+	public boolean doMove() {
 		
-	}
-	/* (non-Javadoc)
-	 * @see playerController.IMove#doMove(playerBoundary.KabasujiPlayerApplication)
-	 */
-	@Override
-	public boolean doMove(KabasujiBuilderApplication app) {
-		// TODO Auto-generated method stub
-		return false;
+		// Add the tile to the bullpen
+		Bullpen bullpen = bullpenView.getBullpen();
+		bullpen.addTile(t.getReferenceNumber());
+		
+		// Repaint the component
+		bullpenView.repaint();
+		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see playerController.IMove#isValid(playerBoundary.KabasujiPlayerApplication)
-	 */
-	@Override
-	public boolean isValid(KabasujiBuilderApplication app) {
-		// TODO Auto-generated method stub
-		return false;
+
+	
+	public boolean isValid() {
+		// TODO fix this.
+		return true; 
 	}
 	
-	public boolean undoMove(KabasujiBuilderApplication app) {
+	public boolean undoMove() {
 		return false;
 	}
 

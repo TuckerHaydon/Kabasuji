@@ -6,22 +6,26 @@ import java.awt.event.ActionListener;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
-public class ResetLevelController implements ActionListener{
+public class ResetAchievementController implements ActionListener{
 	KabasujiPlayerApplication app;
 	GameModel m;
-
-	public ResetLevelController(KabasujiPlayerApplication app, GameModel m){
-		this.app=app;
+	
+	
+	public ResetAchievementController(KabasujiPlayerApplication app, GameModel m){
 		this.m=m;
+		this.app=app;
 	}
 	
-	/*Finished*/
+	/*Finished*/	
 	public void actionPerformed(ActionEvent e) {
-		IMove move = new ResetLevelMove(app,m);
+		
+		IMove move = new ResetAchievementMove(m.getAchievements());
 		if(move.doMove(app)){
 			app.getGameWindow().updateView();
-			System.out.println("ResetLevelController::actionPerformed");
+			System.out.println("ResetAchievementController::actionPerformed");
 		}
+		
+		
 	}
-	
+
 }

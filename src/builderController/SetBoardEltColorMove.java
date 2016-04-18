@@ -2,18 +2,20 @@ package builderController;
 
 import builderEntity.BuilderModel;
 
-public class SetColorMove implements IMove {
+public class SetBoardEltColorMove implements IMove {
 
 	BuilderModel model;
+	String color;
 	
-	SetColorMove(BuilderModel m){
+	SetBoardEltColorMove(BuilderModel m, String color){
 		this.model = m;
+		this.color = color;
 	}
 	
 	@Override
 	public boolean doMove() {
-		// TODO Auto-generated method stub
-		return false;
+		model.setSelectedColor(color);
+		return true;
 	}
 
 	@Override
@@ -25,7 +27,7 @@ public class SetColorMove implements IMove {
 	@Override
 	public boolean isValid() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

@@ -7,7 +7,8 @@ public class BuilderModel {
 	String selectedBoardEltType;
 	String selectedColor;
 	int selectedNumber;
-	TileBank tb;
+	boolean isHint;
+	Bank tb;
 	
 	public BuilderModel(){
 		this.level = new Level();
@@ -27,6 +28,14 @@ public class BuilderModel {
 	
 		public Game getGame(){
 		return this.game;
+	}
+		
+	public boolean isHintSelected(){
+		return isHint;
+	}
+	
+	public void setHintSelected(boolean isHint){
+		this.isHint = isHint;
 	}
 	
 	public void setSelectedBoardEltType(String type){
@@ -53,20 +62,21 @@ public class BuilderModel {
 		return this.selectedNumber;
 	}
 	
-	public void setTileBank(TileBank tb){
+	public void setTileBank(Bank tb){
 		this.tb = tb;
 	}
 	
-	public TileBank getTileBank(){
+	public Bank getTileBank(){
 		return this.tb;
-	}
-	
-	public boolean addTile(Tile t) {
-		return tb.addTile(t);
 	}
 	
 	public Level getLevel(){
 		return this.level;
+	}
+	
+	@Override
+	public String toString(){
+		return "Level: "+level+"\nGame: "+game+"\nBoard Elt Type: "+selectedBoardEltType+"\nColor: "+selectedColor+"\nNumber: "+selectedNumber;
 	}
 
 }

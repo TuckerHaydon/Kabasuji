@@ -4,24 +4,40 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import builderBoundary.BoardView;
-import builderBoundary.KabasujiBuilderApplication;
+import builderEntity.Board;
+import builderEntity.BuilderModel;
 
 public class BoardController extends MouseAdapter {
 	
 	BoardView bv;
-	KabasujiBuilderApplication app;
+	BuilderModel model;
 	
-	public BoardController(BoardView bv, KabasujiBuilderApplication app){
-		this.app = app;
+	public BoardController(BoardView bv, BuilderModel model){
+		this.model = model;
 		this.bv = bv;
 	}
 	
-	public void mouseClicked(MouseEvent me){
+	public void mousePressed(MouseEvent me){
+		
+		// Determine the XY location where the mouse was clicked. 
 		int x = me.getX();
 		int y = me.getY();
-		System.out.println("Ive been clicked!");
+
+		// Determine the row/col where the mouse was clicked.
+		int col = x/bv.getSquareWidth();
+		int row = y/bv.getSquareWidth();
+
+		Board b = bv.getBoard();
 		
-		// TODO find what object is at the location and create a move for it.
+		ChangeBoardEltMove move = new ChangeBoardEltMove(model, b, row, col);
+		
+		if(move.isValid()){
+			move.doMove();
+		}
+
+		// Repaint the board
+		bv.repaint();
+		
 	}
 	
 

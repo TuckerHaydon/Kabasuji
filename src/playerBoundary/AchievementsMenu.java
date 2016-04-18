@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import playerController.NavigateMainMenu;
+import playerController.ResetAchievementController;
 import playerEntity.GameModel;
 
 public class AchievementsMenu extends JFrame {
@@ -46,7 +47,7 @@ public class AchievementsMenu extends JFrame {
 	
 	public void initControllers(){
 		goToMenu.addActionListener(new NavigateMainMenu(app,m));
-		// TODO reset achievements controller
+		this.resetAchievements.addActionListener(new ResetAchievementController(app,m));
 	}
 
 }

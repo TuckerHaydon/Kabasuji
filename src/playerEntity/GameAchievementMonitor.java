@@ -1,39 +1,49 @@
 package playerEntity;
 
-import java.util.LinkedList;
+import java.util.Hashtable;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import playerController.IMove;
-import playerController.NavigateMainMenu;
-import playerController.PlayLevel;
-
 public class GameAchievementMonitor {
+	Hashtable<String, Achievement> achievements;
 	int previousLvNum;
-	int numConsecutiveLevelsCompleted;
+	boolean isWonlst[];
 	
-	public GameAchievementMonitor(){
-		this.numConsecutiveLevelsCompleted=0;
+	public GameAchievementMonitor(Hashtable<String, Achievement> ac){
+		previousLvNum=0;
+		achievements=ac;
+		isWonlst=new boolean[15];
+		for(int i=0;i<15;i++){
+			isWonlst[i]=false;
+		}
 	}
 	
-	/* Attention : Set before enter the level*/
+	//this one goes to playLevel Handler
 	public void setPreviousLevel(int num){
 		this.previousLvNum=num;
 	}
 	
-	//check in the boardController
-	public boolean updateAchievement(Level lv){
-		if(this.previousLvNum==lv.getLevelNum()){
-			this.numConsecutiveLevelsCompleted++;
-		}
-		if(this.numConsecutiveLevelsCompleted==3){
-			return true;
+	//goes to complete level handler
+	public boolean updateAchievement(int lvNum){
+		if(!achievements.get("K-komboBreaker").getisEarned()){
+			updateWonlst(lvNum);
+			for(int i=0;i<5;i++){
+				if(isWonlst[i] && isWonlst[i+5] && isWonlst[i+10]){
+					achievements.get("K-komboBreaker").setEarned();
+					return true;
+				}
+			}
 		}
 		return false;
 	}
 	
-	//
+	void updateWonlst(int lvNum){
+		if(this.previousLvNum==lvNum){
+			isWonlst[lvNum]=true;
+		}
+	}
+	
 	public void pop(){
 		JFrame frame = new JFrame();
 		JOptionPane.showMessageDialog(frame, "K-komboBreaker!", "Achievement Unlocked:", JOptionPane.INFORMATION_MESSAGE);
@@ -41,7 +51,9 @@ public class GameAchievementMonitor {
 	
 	//reset when press BackToMainMenu Button
 	public void reset(){
-		this.numConsecutiveLevelsCompleted=0;
-		this.previousLvNum=-999;	
+		for(int i=0;i<15;i++){
+			isWonlst[i]=false;
+		}
+		this.previousLvNum=0;
 	}
 }

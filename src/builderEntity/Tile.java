@@ -28,6 +28,7 @@ public class Tile {
 		
 		this.squares = TileManager.getSquares(referenceNumber, this);
 		this.location = location;
+		this.referenceNumber = referenceNumber;
 		
 		anchor = new Anchor(0,0, this);
 	}
@@ -63,16 +64,20 @@ public class Tile {
 		}
 	}
 	
-	Tile() {
+	public Tile() {
 		squares = new Square[6];
 	}
 	
-	void setSquares(Square s[]){
+	public void setSquares(Square s[]){
 		this.squares = s;
 	}
 	
-	Square[] getSquares(){
+	public Square[] getSquares(){
 		return this.squares;
+	}
+	
+	public int getReferenceNumber(){
+		return this.referenceNumber;
 	}
 	
 	

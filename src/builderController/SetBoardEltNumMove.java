@@ -2,21 +2,19 @@ package builderController;
 
 import builderEntity.BuilderModel;
 
-public class SetBoardEltTypeMove implements IMove{
+public class SetBoardEltNumMove implements IMove{
 	
-	BuilderModel model;
-	String boardEltType;
+	int num;
+	BuilderModel m;
 	
-	SetBoardEltTypeMove(BuilderModel m, String bet){
-		this.model = m;
-		this.boardEltType = bet;
-		
+	public SetBoardEltNumMove(BuilderModel m, int num) {
+		this.num = num;
+		this.m = m;
 	}
 
 	@Override
 	public boolean doMove() {
-		
-		model.setSelectedBoardEltType(boardEltType);
+		m.setSelectedNumber(num);
 		return true;
 	}
 

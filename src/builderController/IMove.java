@@ -1,7 +1,12 @@
+/**
+ * 
+ */
 package builderController;
 
+
 public interface IMove {
-	boolean doMove();
-	boolean undoMove();
-	boolean isValid();
+
+	public boolean doMove();
+	public boolean isValid();
+	public boolean undoMove();
 }

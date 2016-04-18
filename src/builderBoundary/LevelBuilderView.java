@@ -3,50 +3,64 @@ package builderBoundary;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import builderController.BankController;
 import builderController.BoardController;
+import builderController.BullpenController;
+import builderController.SetBoardEltColorHandler;
+import builderController.SetBoardEltNumHandler;
+import builderController.SetBoardEltTypeHandler;
+import builderController.SetHintHandler;
+import builderController.SetLevelTypeHandler;
+import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.Tile;
-import builderEntity.TileBank;
+import builderEntity.Bank;
 import playerController.LoadGame;
 
 public class LevelBuilderView extends JPanel{
 	
 	BullpenView bullpenView;
-	BullpenView bankView;  //change back later
+	BankView bankView;  //change back later
 	BoardView boardView;
+	JCheckBox hintBox;
 	Level lvl;
+	BuilderModel m;
 	KabasujiBuilderApplication app;
 	JLabel timeLabel, movesLabel, numLabel;
 	JTextField timeAllowed, numMovesAllowed;
 	JComboBox<String> boardEltNumBox, levelTypeBox, boardEltTypeBox, boardEltColorsBox;
 	String boardEltNums[] = {"1", "2", "3", "4", "5", "6"}, 
 			levelTypes[] = {"puzzle", "release", "lightning"}, 
-			boardEltTypes[] = {"playable", "unplayable", "hint", "numbered"},
+			numberedBoardEltTypes[] = {"playable", "unplayable", "numbered"},
+			regularBoardEltTypes[] = {"playable", "unplayable"},
 			boardEltColors[] = {"red", "blue", "green"};
 	
-	public LevelBuilderView(Level lvl, KabasujiBuilderApplication app){
+	public LevelBuilderView(Level lvl, KabasujiBuilderApplication app, BuilderModel m){
 		this.lvl = lvl;
 		this.app = app;
-		ArrayList<Tile> banklist = new ArrayList<Tile>();
-			
+		this.m = m;
+					
 		bullpenView = new BullpenView(lvl.getBullpen());
 		boardView = new BoardView(lvl.getBoard());
-		bankView = new BullpenView(lvl.getBullpen());	//change back later
+		bankView = new BankView(new Bank());	// TODO fix this
 		
 		boardEltNumBox = new JComboBox<String>(boardEltNums);
 		levelTypeBox = new JComboBox<String>(levelTypes);
-		boardEltTypeBox = new JComboBox<String>(boardEltTypes);
+		boardEltTypeBox = new JComboBox<String>(numberedBoardEltTypes);
 		boardEltColorsBox = new JComboBox<String>(boardEltColors);
+		hintBox = new JCheckBox("Hint");
 		
 		// Set the combo boxes to a default selected value
 		boardEltNumBox.setSelectedIndex(0);
-		levelTypeBox.setSelectedIndex(0);
+		levelTypeBox.setSelectedIndex(1);
 		boardEltColorsBox.setSelectedIndex(0);
 		boardEltTypeBox.setSelectedIndex(0);
 	}
@@ -54,19 +68,17 @@ public class LevelBuilderView extends JPanel{
 	public void initView(){
 		
 		
-		// bankView = new BankView();
 		// Init the subcomponents views
-		
-		//aa
 		bullpenView.initView();
 		boardView.initView();
+		bankView.initView();
 		
 		//set properties of the view
 		this.setSize(900, 900);
 		
 		// No layout; using exact coordinates.
 		setLayout(null);
-		setBackground(new Color(50,50,50));
+		setBackground(new Color(255,192,203));
 		
 		// Create the scrollPane
 		JScrollPane bullpenScrollPane = new JScrollPane();
@@ -103,16 +115,51 @@ public class LevelBuilderView extends JPanel{
 		boardEltColorsBox.setBackground(new Color(255, 190, 190));
 		this.add(boardEltColorsBox);
 		
-		this.add(bullpenView);
-		this.add(bankView);
-		this.add(boardView);
+		hintBox.setBounds(605, 530, 100, 100);
+		this.add(hintBox);
 		
 		
 	}
 	
 	public void initControllers(){
-		boardView.addMouseListener(new BoardController(boardView, app));
-		// TODO add handlers for the bullpen and bank
+		
+		// Allow mouse functionality for board, bullpen, and bank.
+		boardView.addMouseAdapter(new BoardController(boardView, m));
+		bullpenView.addMouseAdapter(new BullpenController(bullpenView, bankView));
+		bankView.addMouseAdapter(new BankController(bankView, bullpenView));
+		
+		// Action listeners for the various 
+		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(m, boardEltNumBox));
+		levelTypeBox.addActionListener(new SetLevelTypeHandler(lvl, levelTypeBox, this));
+		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(m, boardEltTypeBox));
+		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(m, boardEltColorsBox));
+		hintBox.addActionListener(new SetHintHandler(m, hintBox));
+	}
+	
+	public void updateView(String levelType){
+		switch(levelType)
+		{
+		case "puzzle":
+			boardEltNumBox.setVisible(false);
+			boardEltColorsBox.setVisible(false);
+			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(regularBoardEltTypes));
+			break;
+		case "lightning":
+			boardEltNumBox.setVisible(false);
+			boardEltColorsBox.setVisible(false);
+			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(regularBoardEltTypes));
+			break;
+		case "release":
+			boardEltNumBox.setVisible(true);
+			boardEltColorsBox.setVisible(true);
+			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(numberedBoardEltTypes));
+			break;
+		}
+		
+		// update the UI
+		this.revalidate();
+		this.repaint();
+		
 	}
 
 }

@@ -7,31 +7,30 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import builderEntity.Bullpen;
+import builderEntity.Bank;
 import builderEntity.Square;
 import builderEntity.Tile;
 
-public class BullpenView extends View {
+public class BankView extends View{
 	
-	Bullpen bp;
+	Bank bank;
 	static int CELL_HEIGHT = 190;
 	static int CELL_WIDTH = CELL_HEIGHT;
 	static int SQUARE_WIDTH = 20;
 	
-	public BullpenView(Bullpen bp){
-		this.bp = bp;
+	public BankView(Bank tb){
+		this.bank = tb;
 	}
 	
 	public void initView(){
 		this.setSize(1000, 200);
-		this.setPreferredSize(new Dimension(CELL_WIDTH*bp.getTileReferenceNumbers().size(), CELL_HEIGHT));
+		this.setPreferredSize(new Dimension(CELL_WIDTH*bank.getTileReferenceNumbers().size(), CELL_HEIGHT));
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
-		ArrayList<Tile> tiles = bp.getTiles();
-		this.setPreferredSize(new Dimension(CELL_WIDTH*bp.getTileReferenceNumbers().size(), CELL_HEIGHT));
-
+		ArrayList<Tile> tiles = bank.getTiles();
+		
 		for(int i = 0; i < tiles.size(); i++){
 			g.setColor(Color.black);
 			g.drawRect(i*CELL_WIDTH, 0, CELL_WIDTH, CELL_HEIGHT);
@@ -62,8 +61,8 @@ public class BullpenView extends View {
 		return SQUARE_WIDTH;
 	}
 	
-	public Bullpen getBullpen(){
-		return this.bp;
+	public Bank getBank(){
+		return this.bank;
 	}
 
 }

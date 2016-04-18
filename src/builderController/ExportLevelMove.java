@@ -31,7 +31,7 @@ public class ExportLevelMove implements IMove {
 
 	@Override
 	public boolean undoMove() {
-		// This cannot be undone
+		// This move cannot be undone
 		return false;
 	}
 
@@ -75,13 +75,14 @@ public class ExportLevelMove implements IMove {
 			for(Integer i:tileReferenceNumbers){
 				bw.write(i+" ");
 			}
+			bw.newLine();
 			bw.write("EndHexomio"); 	bw.newLine();
 		
 			// Write the board elts
 			bw.write("BeginElts");		bw.newLine();
 			for(int row = 0; row < 12; row++){
 				for(int col = 0; col < 12; col++){
-					bw.write(elts[row][col].toString());
+					bw.write(elts[row][col].toString()+" ");
 				}
 				bw.newLine();
 			}

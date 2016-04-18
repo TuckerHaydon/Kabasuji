@@ -17,7 +17,7 @@ public class NumberedBoardElt extends PlayableBoardElt{
 		this.c = c;
 	}
 	
-	Color getColor(){
+	public Color getColor(){
 		return this.c;
 	}
 	
@@ -25,8 +25,22 @@ public class NumberedBoardElt extends PlayableBoardElt{
 		this.num = n;
 	}
 	
-	int getNum(){
+	public int getNum(){
 		return this.num;
+
+	}
+	
+	@Override
+	public String toString(){
+		if(c.equals(Color.RED)){
+			return "N"+num + "R";
+		}
+		else if(c.equals(Color.BLUE)){
+			return "N"+num + "B";
+		}
+		else {
+			return "N"+num + "G";
+		}
 	}
 
 }

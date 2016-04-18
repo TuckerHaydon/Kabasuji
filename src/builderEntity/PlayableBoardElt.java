@@ -14,7 +14,7 @@ public class PlayableBoardElt extends BoardElt{
 		this.isHint = h;
 	}
 	
-	public boolean getIsHint(){
+	public boolean isHint(){
 		return this.isHint;
 	}
 
