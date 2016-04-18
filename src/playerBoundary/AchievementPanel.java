@@ -45,61 +45,61 @@ public class AchievementPanel extends JPanel {
 		
 		this.achievements = new Hashtable<String, JLabel>();
 		achievements.put("Rebel", new JLabel("Rebel"));
-		achievements.get("Rebel").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Rebl.png"));
+		achievements.get("Rebel").setIcon(new ImageIcon("src\\resources\\pictures\\Rebl.png"));
 		achievements.get("Rebel").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("Rebel").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("Rebel").setBackground(Color.WHITE);
 		
 		achievements.put("BabySteps", new JLabel("BabySteps"));
 		achievements.get("BabySteps").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("BabySteps").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Baby_Step.png"));
+		achievements.get("BabySteps").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
 		achievements.get("BabySteps").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("BabySteps").setBackground(Color.WHITE);
 		
 		achievements.put("OverAchiever", new JLabel("OverAchiever"));
-		achievements.get("OverAchiever").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Baby_Step.png"));
+		achievements.get("OverAchiever").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
 		achievements.get("OverAchiever").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("OverAchiever").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("OverAchiever").setBackground(Color.WHITE);
 		
 		achievements.put("SlowPoke", new JLabel("SlowPoke"));
-		achievements.get("SlowPoke").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Rebl.png"));
+		achievements.get("SlowPoke").setIcon(new ImageIcon("src\\resources\\pictures\\Rebl.png"));
 		achievements.get("SlowPoke").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("SlowPoke").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("SlowPoke").setBackground(Color.WHITE);
 		
 		achievements.put("SpeedyGonzales", new JLabel("SpeedyGonzales"));
-		achievements.get("SpeedyGonzales").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Baby_Step.png"));
+		achievements.get("SpeedyGonzales").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
 		achievements.get("SpeedyGonzales").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("SpeedyGonzales").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("SpeedyGonzales").setBackground(Color.WHITE);
 		
 		achievements.put("RageQuit", new JLabel("RageQuit"));
-		achievements.get("RageQuit").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Baby_Step.png"));
+		achievements.get("RageQuit").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
 		achievements.get("RageQuit").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("RageQuit").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("RageQuit").setBackground(Color.WHITE);
 		
 		achievements.put("NoRegrets", new JLabel("NoRegrets"));
-		achievements.get("NoRegrets").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Baby_Step.png"));
+		achievements.get("NoRegrets").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
 		achievements.get("NoRegrets").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("NoRegrets").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("NoRegrets").setBackground(Color.WHITE);
 		
 		achievements.put("K-komboBreaker", new JLabel("K-komboBreaker"));
-		achievements.get("K-komboBreaker").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Baby_Step.png"));
+		achievements.get("K-komboBreaker").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
 		achievements.get("K-komboBreaker").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("K-komboBreaker").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("K-komboBreaker").setBackground(Color.WHITE);
 		
 		achievements.put("VictoryLap", new JLabel("VictoryLap"));
-		achievements.get("VictoryLap").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Baby_Step.png"));
+		achievements.get("VictoryLap").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
 		achievements.get("VictoryLap").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("VictoryLap").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("VictoryLap").setBackground(Color.WHITE);
 		
 		achievements.put("JustUnderTheWire", new JLabel("JustUnderTheWire"));
-		achievements.get("JustUnderTheWire").setIcon(new ImageIcon("S:\\Java\\Kabasuji\\src\\resources\\pictures\\Baby_Step.png"));
+		achievements.get("JustUnderTheWire").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
 		achievements.get("JustUnderTheWire").setHorizontalAlignment(SwingConstants.LEFT);
 		achievements.get("JustUnderTheWire").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		achievements.get("JustUnderTheWire").setBackground(Color.WHITE);
