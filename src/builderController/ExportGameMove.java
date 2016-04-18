@@ -116,7 +116,7 @@ public class ExportGameMove implements IMove{
 			bw.write(i.intValue()+" ");
 		}
 		bw.newLine();
-		bw.write("EndHexomio"); 	bw.newLine();
+		bw.write("EndHexomino"); 	bw.newLine();
 			
 		// Write the board elts
 		bw.write("BeginElts");		bw.newLine();
