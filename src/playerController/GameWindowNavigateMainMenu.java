@@ -21,7 +21,6 @@ public class GameWindowNavigateMainMenu implements ActionListener{
 		/*
 		if(m.getCurrentAM().updateAchievement_whenquit()){
 			m.getCurrentAM().popUpScreen();
-			m.getCurrentAM().reset();
 		}
 		m.getGAM().reset();
 		*/
