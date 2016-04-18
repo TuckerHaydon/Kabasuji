@@ -14,7 +14,6 @@ import playerController.ResetAchievementController;
 import playerEntity.GameModel;
 
 public class AchievementsMenu extends JFrame {
-	
 	KabasujiPlayerApplication app;
 	GameModel m;
 	JButton goToMenu;
@@ -27,7 +26,7 @@ public class AchievementsMenu extends JFrame {
 		this.m = m;
 		this.app = app;
 		// Create the buttons
-		panel = new AchievementPanel();
+		panel = new AchievementPanel(m.getAchievements());
 		goToMenu = panel.getMainMenuButton();
 		resetAchievements = panel.getResetAchievementButton();
 	}
@@ -48,5 +47,8 @@ public class AchievementsMenu extends JFrame {
 		goToMenu.addActionListener(new NavigateMainMenu(app,m));
 		this.resetAchievements.addActionListener(new ResetAchievementController(app,m));
 	}
-
+	
+	public void updateView(){
+		this.panel.redraw();
+	}
 }

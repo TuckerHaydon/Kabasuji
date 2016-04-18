@@ -14,18 +14,25 @@ import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.border.EmptyBorder;
+
+import playerEntity.Achievement;
+
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
 
 public class AchievementPanel extends JPanel {
+	Hashtable<String, Achievement> achievements;
+	Hashtable<String, JLabel> achievementlabels;
 	JButton mainmenu;
 	JButton reset;
-	Hashtable<String, JLabel> achievements;
 	
 	/**
 	 * Create the panel.
 	 */
-	public AchievementPanel() {
+	public AchievementPanel(Hashtable<String, Achievement> achievements) {
+		this.achievements=achievements;
+		this.achievementlabels = new Hashtable<String, JLabel>();
+		
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setBackground(new Color(255, 228, 225));
 		
@@ -43,93 +50,94 @@ public class AchievementPanel extends JPanel {
 		mainmenu.setForeground(Color.GRAY);
 		mainmenu.setBackground(new Color(255, 228, 196));
 		
-		this.achievements = new Hashtable<String, JLabel>();
-		achievements.put("Rebel", new JLabel("Rebel"));
-		achievements.get("Rebel").setIcon(new ImageIcon("src\\resources\\pictures\\Rebl.png"));
-		achievements.get("Rebel").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("Rebel").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("Rebel").setBackground(Color.WHITE);
 		
-		achievements.put("BabySteps", new JLabel("BabySteps"));
-		achievements.get("BabySteps").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("BabySteps").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
-		achievements.get("BabySteps").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("BabySteps").setBackground(Color.WHITE);
+		achievementlabels.put("Rebel", new JLabel("Rebel"));
+		achievementlabels.get("Rebel").setIcon(new ImageIcon("src\\resources\\pictures\\Rebl.png"));
+		achievementlabels.get("Rebel").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("Rebel").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("Rebel").setBackground(Color.WHITE);
 		
-		achievements.put("OverAchiever", new JLabel("OverAchiever"));
-		achievements.get("OverAchiever").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
-		achievements.get("OverAchiever").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("OverAchiever").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("OverAchiever").setBackground(Color.WHITE);
+		achievementlabels.put("BabySteps", new JLabel("BabySteps"));
+		achievementlabels.get("BabySteps").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("BabySteps").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		achievementlabels.get("BabySteps").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("BabySteps").setBackground(Color.WHITE);
 		
-		achievements.put("SlowPoke", new JLabel("SlowPoke"));
-		achievements.get("SlowPoke").setIcon(new ImageIcon("src\\resources\\pictures\\Rebl.png"));
-		achievements.get("SlowPoke").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("SlowPoke").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("SlowPoke").setBackground(Color.WHITE);
+		achievementlabels.put("OverAchiever", new JLabel("OverAchiever"));
+		achievementlabels.get("OverAchiever").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		achievementlabels.get("OverAchiever").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("OverAchiever").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("OverAchiever").setBackground(Color.WHITE);
 		
-		achievements.put("SpeedyGonzales", new JLabel("SpeedyGonzales"));
-		achievements.get("SpeedyGonzales").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
-		achievements.get("SpeedyGonzales").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("SpeedyGonzales").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("SpeedyGonzales").setBackground(Color.WHITE);
+		achievementlabels.put("SlowPoke", new JLabel("SlowPoke"));
+		achievementlabels.get("SlowPoke").setIcon(new ImageIcon("src\\resources\\pictures\\Rebl.png"));
+		achievementlabels.get("SlowPoke").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("SlowPoke").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("SlowPoke").setBackground(Color.WHITE);
 		
-		achievements.put("RageQuit", new JLabel("RageQuit"));
-		achievements.get("RageQuit").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
-		achievements.get("RageQuit").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("RageQuit").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("RageQuit").setBackground(Color.WHITE);
+		achievementlabels.put("SpeedyGonzales", new JLabel("SpeedyGonzales"));
+		achievementlabels.get("SpeedyGonzales").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		achievementlabels.get("SpeedyGonzales").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("SpeedyGonzales").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("SpeedyGonzales").setBackground(Color.WHITE);
 		
-		achievements.put("NoRegrets", new JLabel("NoRegrets"));
-		achievements.get("NoRegrets").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
-		achievements.get("NoRegrets").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("NoRegrets").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("NoRegrets").setBackground(Color.WHITE);
+		achievementlabels.put("RageQuit", new JLabel("RageQuit"));
+		achievementlabels.get("RageQuit").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		achievementlabels.get("RageQuit").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("RageQuit").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("RageQuit").setBackground(Color.WHITE);
 		
-		achievements.put("K-komboBreaker", new JLabel("K-komboBreaker"));
-		achievements.get("K-komboBreaker").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
-		achievements.get("K-komboBreaker").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("K-komboBreaker").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("K-komboBreaker").setBackground(Color.WHITE);
+		achievementlabels.put("NoRegrets", new JLabel("NoRegrets"));
+		achievementlabels.get("NoRegrets").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		achievementlabels.get("NoRegrets").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("NoRegrets").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("NoRegrets").setBackground(Color.WHITE);
 		
-		achievements.put("VictoryLap", new JLabel("VictoryLap"));
-		achievements.get("VictoryLap").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
-		achievements.get("VictoryLap").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("VictoryLap").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("VictoryLap").setBackground(Color.WHITE);
+		achievementlabels.put("K-komboBreaker", new JLabel("K-komboBreaker"));
+		achievementlabels.get("K-komboBreaker").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		achievementlabels.get("K-komboBreaker").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("K-komboBreaker").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("K-komboBreaker").setBackground(Color.WHITE);
 		
-		achievements.put("JustUnderTheWire", new JLabel("JustUnderTheWire"));
-		achievements.get("JustUnderTheWire").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
-		achievements.get("JustUnderTheWire").setHorizontalAlignment(SwingConstants.LEFT);
-		achievements.get("JustUnderTheWire").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		achievements.get("JustUnderTheWire").setBackground(Color.WHITE);
+		achievementlabels.put("VictoryLap", new JLabel("VictoryLap"));
+		achievementlabels.get("VictoryLap").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		achievementlabels.get("VictoryLap").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("VictoryLap").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("VictoryLap").setBackground(Color.WHITE);
+		
+		achievementlabels.put("JustUnderTheWire", new JLabel("JustUnderTheWire"));
+		achievementlabels.get("JustUnderTheWire").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		achievementlabels.get("JustUnderTheWire").setHorizontalAlignment(SwingConstants.LEFT);
+		achievementlabels.get("JustUnderTheWire").setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		achievementlabels.get("JustUnderTheWire").setBackground(Color.WHITE);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(mainmenu, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 596, Short.MAX_VALUE)
+//					.addPreferredGap(ComponentPlacement.RELATED, 596, Short.MAX_VALUE)
+					.addGap(575)
 					.addComponent(reset)
 					.addGap(183))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(117)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(achievements.get("Rebel"), GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
+							.addComponent(achievementlabels.get("Rebel"), GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
 							.addGap(105)
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(achievements.get("SpeedyGonzales"), Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-								.addComponent(achievements.get("JustUnderTheWire"), Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE)
-								.addComponent(achievements.get("OverAchiever"), Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(achievements.get("BabySteps"), Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(achievements.get("RageQuit"), GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
-						.addComponent(achievements.get("K-komboBreaker"), GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE))
+								.addComponent(achievementlabels.get("SpeedyGonzales"), Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+								.addComponent(achievementlabels.get("JustUnderTheWire"), Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE)
+								.addComponent(achievementlabels.get("OverAchiever"), Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(achievementlabels.get("BabySteps"), Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(achievementlabels.get("RageQuit"), GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
+						.addComponent(achievementlabels.get("K-komboBreaker"), GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE))
 					.addGap(31)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(achievements.get("VictoryLap"), GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
-						.addComponent(achievements.get("NoRegrets"), GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
-						.addComponent(achievements.get("SlowPoke"), GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE))
+						.addComponent(achievementlabels.get("VictoryLap"), GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
+						.addComponent(achievementlabels.get("NoRegrets"), GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
+						.addComponent(achievementlabels.get("SlowPoke"), GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE))
 					.addGap(304))
 		);
 		groupLayout.setVerticalGroup(
@@ -140,24 +148,24 @@ public class AchievementPanel extends JPanel {
 						.addComponent(mainmenu, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
 						.addComponent(reset, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
 					.addGap(35)
-					.addComponent(achievements.get("BabySteps"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+					.addComponent(achievementlabels.get("BabySteps"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
 					.addGap(86)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(achievements.get("Rebel"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
-						.addComponent(achievements.get("SlowPoke"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
-						.addComponent(achievements.get("SpeedyGonzales"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
+						.addComponent(achievementlabels.get("Rebel"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+						.addComponent(achievementlabels.get("SlowPoke"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+						.addComponent(achievementlabels.get("SpeedyGonzales"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
 					.addGap(105)
-					.addComponent(achievements.get("OverAchiever"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+					.addComponent(achievementlabels.get("OverAchiever"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
 					.addGap(91)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(achievements.get("RageQuit"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
-						.addComponent(achievements.get("NoRegrets"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
+						.addComponent(achievementlabels.get("RageQuit"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+						.addComponent(achievementlabels.get("NoRegrets"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
 					.addGap(50)
-					.addComponent(achievements.get("JustUnderTheWire"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+					.addComponent(achievementlabels.get("JustUnderTheWire"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(achievements.get("K-komboBreaker"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
-						.addComponent(achievements.get("VictoryLap"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
+						.addComponent(achievementlabels.get("K-komboBreaker"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+						.addComponent(achievementlabels.get("VictoryLap"), GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
 					.addGap(54))
 		);
 		setLayout(groupLayout);
@@ -171,20 +179,21 @@ public class AchievementPanel extends JPanel {
 		return this.reset;
 	}
 	
-	public void labelAppear(String name){
-		this.achievements.get(name).setVisible(true);
+	public void displayAllAchievements(){
+		for(String key: this.achievementlabels.keySet()){
+			this.achievementlabels.get(key).setVisible(true);
+		}
 	}
 	
-	public void setAllInvisible(){
-		this.achievements.get("BabySteps").setVisible(false);
-		this.achievements.get("Rebel").setVisible(false);
-		this.achievements.get("OverAchiever").setVisible(false);
-		this.achievements.get("SpeedyGonzales").setVisible(false);
-		this.achievements.get("JustUnderTheWire").setVisible(false);
-		this.achievements.get("NoRegrets").setVisible(false);
-		this.achievements.get("SlowPoke").setVisible(false);
-		this.achievements.get("RageQuit").setVisible(false);
-		this.achievements.get("VictoryLap").setVisible(false);
-		this.achievements.get("K-komboBreaker").setVisible(false);
+	public void hideAllAchievements(){
+		for(String key: this.achievementlabels.keySet()){
+			this.achievementlabels.get(key).setVisible(false);
+		}
+	}
+	
+	public void redraw(){
+		for(String key: this.achievementlabels.keySet()){
+			this.achievementlabels.get(key).setVisible(this.achievements.get(key).getisEarned());
+		}
 	}
 }

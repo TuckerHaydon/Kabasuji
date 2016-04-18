@@ -89,6 +89,7 @@ public class KabasujiPlayerApplication {
 		gameWindow.setVisible(false);
 		levelSelectionMenu.setVisible(false);
 		achievementsMenu.setVisible(true);
+		achievementsMenu.updateView();
 	}
 	
 	public GameWindow getGameWindow(){
@@ -98,6 +99,10 @@ public class KabasujiPlayerApplication {
 	
 	public GameModel getGameModel(){
 		return m;
+	}
+	
+	public AchievementsMenu getAchievementsMenu(){
+		return this.achievementsMenu;
 	}
 	
 	void displaySplashScreen(){
