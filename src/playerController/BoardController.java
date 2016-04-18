@@ -81,7 +81,7 @@ public class BoardController extends MouseAdapter{
 			gw.releaseDraggedTile();
 			return;
 		}
-		gw.setDraggedTile(null);
+		gw.releaseDraggedTile();
 		
 		//achievement stuff goes here!
 		
