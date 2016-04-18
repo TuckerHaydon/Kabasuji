@@ -96,7 +96,7 @@ public class ExportGameMove implements IMove{
 			
 		// Extract the data
 		BoardElt elts[][] = lvl.getBoard().getBoardElts();
-		String type = lvl.getLevelType();
+		String type = lvl.getLevelType().substring(0, 1).toUpperCase()+lvl.getLevelType().substring(1);
 		int data = lvl.getlevelData();
 		ArrayList<Integer> tileReferenceNumbers = lvl.getBullpen().getTileReferenceNumbers();
 		
