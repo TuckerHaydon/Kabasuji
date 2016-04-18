@@ -10,7 +10,7 @@ import builderEntity.BuilderModel;
 public class ExportGameHandler implements ActionListener{
 	BuilderModel bm;
 
-	ExportGameHandler(BuilderModel bm){
+	public ExportGameHandler(BuilderModel bm){
 		this.bm = bm;
 	}
 
@@ -18,7 +18,9 @@ public class ExportGameHandler implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 			
 		// Create the filepath
-		String path = JOptionPane.showInputDialog("Name the level.");
+		String name = JOptionPane.showInputDialog("Name the game.");
+		
+		String path = "src/resources/games/"+name;
 				
 		// Create an export move and do it
 		ExportGameMove move = new ExportGameMove(bm, path);

@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import builderController.AddLevelToGameHandler;
+import builderController.ExportGameHandler;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
@@ -55,6 +56,7 @@ public class GameEditor extends JFrame {
 	public void initControllers(){
 		// TODO exportGame controller
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
+		exportGameButton.addActionListener(new ExportGameHandler(m));
 		
 		for(int i = 0; i < levelButtons.length; i++){
 			levelButtons[i].addActionListener(new AddLevelToGameHandler(m, i));

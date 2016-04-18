@@ -39,7 +39,6 @@ public class LevelParser {
 		// Scan the hexominos
 		ArrayList<Integer> hexominoReferenceNums = new ArrayList<>();
 		String next = fileScanner.next();
-		next = fileScanner.next();
 		while(!next.equals("EndHexomino")){		
 			hexominoReferenceNums.add(Integer.parseInt(next));
 			next = fileScanner.next();
