@@ -18,8 +18,6 @@ public class NavigateMainMenu implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		app.displayMainMenu();
-		
-		//achievement stuff will go here - Dorothy
 	}
 
 }

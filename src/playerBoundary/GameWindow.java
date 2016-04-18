@@ -14,6 +14,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+import playerController.GameWindowNavigateMainMenu;
 import playerController.LoadGame;
 import playerController.NavigateMainMenu;
 import playerController.ResetLevelController;
@@ -88,7 +89,7 @@ public class GameWindow extends JFrame {
 	public void initControllers(){
 		
 		// Register the button controllers
-		menuButton.addActionListener(new NavigateMainMenu(app,m));
+		menuButton.addActionListener(new GameWindowNavigateMainMenu(app,m));
 		resetButton.addActionListener(new ResetLevelController(app,m));
 	}
 	
