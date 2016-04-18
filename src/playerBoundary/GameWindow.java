@@ -95,6 +95,7 @@ public class GameWindow extends JFrame {
 	
 	public void setDraggedTile(TileView tv){
 		this.draggedTile = tv;
+		this.add(draggedTile, 0);
 	}
 	
 	public void setLevelView(LevelView lv){
@@ -105,8 +106,11 @@ public class GameWindow extends JFrame {
 		return this.draggedTile;
 	}
 	
+
+	
 	public void releaseDraggedTile(){
-		this.draggedTile=null;
+		this.remove(draggedTile);
+		draggedTile = null;
 	}
 	
 	public LevelView getLevelView(){
@@ -144,6 +148,14 @@ public class GameWindow extends JFrame {
 		
 		// Add the view back into the panel
 		contentPane.add(currentLevelView);
+	}
+	
+	public void displayDraggedTile(){
+		
+		if(draggedTile != null){
+			// TODO fix this. 
+			draggedTile.setBounds(draggedTile.getX(), draggedTile.getY(), 100, 100);
+		}
 	}
 	
 	

@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.TileView;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
 import playerEntity.LevelAchievementMonitor;
@@ -34,6 +35,11 @@ public class BullpenController extends MouseAdapter {
 		//create tileview
 		//set that tile view to dragged
 		//take tile out of array list
+		
+		TileView tv = new TileView(pressedTile);
+		tv.setLocation(x, y);
+		app.getGameWindow().setDraggedTile(tv);
+		app.getGameWindow().displayDraggedTile();
 	}
 	
 	@Override
@@ -46,27 +52,37 @@ public class BullpenController extends MouseAdapter {
 		//add tile to array list
 		
 		Tile tile = app.getGameWindow().getDraggedTile().getTile();
-		if(tile==null){
+		if(tile == null){
 			System.err.print("BullpenController::mouseRealeased");
+		}
+		else
+		{
+			app.getGameWindow().releaseDraggedTile();
+			app.getGameWindow().revalidate();
+			app.getGameWindow().repaint();
 		}
 		
 		
-		LevelAchievementMonitor AM = m.getCurrentAM();
+		//LevelAchievementMonitor AM = m.getCurrentAM();
 		IMove move = new TileToBullpenMove(tile, bp);
-			if(move.doMove(app)){
-				if(AM.updateAchievement_releaseonbullpen()){
-					AM.popUpScreen();
-				}
-			}else{
-				if(AM.updateAchievement_wheninvalidmove()){
-					AM.popUpScreen();
-				}
-			}
+//			if(move.doMove(app)){
+//				if(AM.updateAchievement_releaseonbullpen()){
+//					AM.popUpScreen();
+//				}
+//			}else{
+//				if(AM.updateAchievement_wheninvalidmove()){
+//					AM.popUpScreen();
+//				}
+//			}
 	}
 	
 	@Override
 	public void mouseDragged(MouseEvent me){
 		//the usual - update x,y
+		
+		app.getGameWindow().getDraggedTile().setLocation(me.getX(), me.getY());
+		app.getGameWindow().displayDraggedTile();
+
 		
 	}
 	
