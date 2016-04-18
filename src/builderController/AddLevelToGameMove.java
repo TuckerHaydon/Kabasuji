@@ -41,7 +41,6 @@ public class AddLevelToGameMove implements IMove {
 		lvl.setLevelNum(levelIndex);
 		
 		m.getGame().setLevel(lvl, levelIndex);
-		System.out.println(m.getGame().getLevels()[0].getBoard());
 		return true;
 	}
 
