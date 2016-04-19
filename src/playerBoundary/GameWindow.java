@@ -69,14 +69,17 @@ public class GameWindow extends JFrame {
 		// Create the content pane
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(255, 228, 225));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		// Add the buttons
 		menuButton.setBounds(5, 5, 100, 33);
+		menuButton.setBackground(new Color(128, 128, 128));
 		contentPane.add(menuButton);
 		
 		resetButton.setBounds(135, 5, 100, 33);
+		resetButton.setBackground(new Color(128, 128, 128));
 		contentPane.add(resetButton);
 		
 		// Add the level view

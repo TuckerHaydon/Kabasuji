@@ -1,6 +1,7 @@
 package playerBoundary;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -23,11 +24,15 @@ public class LevelSelectionMenu extends JFrame {
 		this.app = app;
 		this.m = m;
 		goToMainMenu = new JButton("Main Menu");
-		levels = new JButton[15];
+		goToMainMenu.setBackground(new Color(128, 128, 128));
+		goToMainMenu.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		
+		levels = new JButton[15];
 		// Create the 15 level buttons
 		for(int i = 0; i < 15; i++){
 			levels[i] = new JButton("Level " + (i+1));
+			levels[i].setBackground(new Color(128, 128, 128));
+			levels[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		}
 	}
 	

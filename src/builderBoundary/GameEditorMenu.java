@@ -1,5 +1,7 @@
 package builderBoundary;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -33,15 +35,21 @@ public class GameEditorMenu extends JFrame {
 	}
 	
 	public void initView(){
-		setResizable(false);
+		this.setResizable(false);
 		// Set frame properties
 		this.setSize(1000, 1000);
 		this.setTitle("Game Editor Menu");
-		
+		getContentPane().setBackground(new Color(255,228,225));
 		// Set frame layout
 		getContentPane().setLayout(new GridLayout(3,1));
 		
 		// Add the buttons
+		createGameButton.setBackground(new Color(128, 128, 128));
+		createGameButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		editGameButton.setBackground(new Color(128, 128, 128));
+		editGameButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		goToMenuButton.setBackground(new Color(128, 128, 128));
+		goToMenuButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
 		this.add(createGameButton);
 		this.add(editGameButton);
 		this.add(goToMenuButton);

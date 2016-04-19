@@ -1,5 +1,7 @@
 package builderBoundary;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -7,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import com.sun.prism.paint.Color;
 
 import builderController.CreateLevelHandler;
 import builderController.NavigateMainMenu;
@@ -31,11 +32,11 @@ public class LevelEditorMenu extends JFrame {
 	}
 	
 	public void initView(){
-		setResizable(false);
 		// Set frame properties
 		this.setSize(1000, 1000);
 		this.setTitle("Level Editor Menu");
-		
+		this.setResizable(false);
+		this.getContentPane().setBackground(new Color(255, 228, 225));
 		// Set layout
 		setLayout(null);
 		// Create the buttons
@@ -43,10 +44,16 @@ public class LevelEditorMenu extends JFrame {
 		editLevelButton = new JButton("Edit Level");
 		goToMenuButton = new JButton("Main Menu");
 		// Add the buttons
-		createLevelButton.setBounds(375, 50, 250, 150);
+		createLevelButton.setBounds(375, 150, 250, 150);
 		//createLevelButton.setBackground();
 		editLevelButton.setBounds(375, 400, 250, 150);
-		goToMenuButton.setBounds(375, 775, 250, 150);
+		goToMenuButton.setBounds(375, 650, 250, 150);
+		createLevelButton.setBackground(new Color(128, 128, 128));
+		createLevelButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 24));
+		editLevelButton.setBackground(new Color(128, 128, 128));
+		editLevelButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 24));
+		goToMenuButton.setBackground(new Color(128, 128, 128));
+		goToMenuButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 24));
 		this.add(createLevelButton);
 		this.add(editLevelButton);
 		this.add(goToMenuButton);
