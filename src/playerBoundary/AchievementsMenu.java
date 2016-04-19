@@ -50,7 +50,7 @@ public class AchievementsMenu extends JFrame {
 		
 		pics.put("NoRegrets", new JLabel("NoRegrets")); 
 		pics.get("NoRegrets").setBounds(441, 262, 80, 80);
-		pics.get("NoRegrets").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("NoRegrets").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("NoRegrets"));
 		
 		pics.put("Rebel", new JLabel("Rebel")); 

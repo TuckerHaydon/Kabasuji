@@ -1,5 +1,7 @@
 package builderBoundary;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -21,6 +23,7 @@ public class MainMenu extends JFrame {
 		// Create the buttons
 		levelEditorButton = new JButton("Create or Edit a Level");
 		gameEditorButton = new JButton("Create or Edit a Game");
+
 	}
 	
 	public void initView(){
@@ -31,7 +34,13 @@ public class MainMenu extends JFrame {
 		
 		// Set the layout
 		getContentPane().setLayout(new GridLayout(2,1));
+		this.setResizable(false);
+		this.getContentPane().setBackground(new Color(255, 228, 225));
 		
+		levelEditorButton.setBackground(new Color(128, 128, 128));
+		levelEditorButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		gameEditorButton.setBackground(new Color(128, 128, 128));
+		gameEditorButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
 		// Add the buttons
 		this.add(levelEditorButton);
 		this.add(gameEditorButton);

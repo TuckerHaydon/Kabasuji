@@ -1,5 +1,7 @@
 package playerBoundary;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -42,6 +44,13 @@ public class MainMenu extends JFrame {
 		getContentPane().setLayout(new GridLayout(3,1));
 		
 		// Add the buttons to the frame
+
+		loadGame.setBackground(new Color(128, 128, 128));
+		loadGame.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		playGame.setBackground(new Color(128, 128, 128));
+		playGame.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		viewAchievements.setBackground(new Color(128, 128, 128));
+		viewAchievements.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));this.add(loadGame);
 		this.add(loadGame);
 		this.add(playGame);
 		this.add(viewAchievements);
