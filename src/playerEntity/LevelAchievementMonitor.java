@@ -19,8 +19,8 @@ public abstract class LevelAchievementMonitor {
 	Hashtable<String, Achievement> achievements;
 		
 	public abstract boolean updateAchievement_whengotonextlevel();
-	public abstract boolean updateAchievement_whenclickbullpen();
-	public abstract boolean updateAchievement_whenclickboard();
+	public abstract boolean updateAchievement_releaseonbullpen();
+	public abstract boolean updateAchievement_releaseonboard();
 	public abstract boolean updateAchievement_wheninvalidmove();
 	public abstract boolean updateAchievement_whenquit();
 	public abstract void setLevel(Level lv);
@@ -80,7 +80,11 @@ public abstract class LevelAchievementMonitor {
 	protected boolean notEarnRageQuit() {
 		return !(achievements.get("RageQuit").getisEarned());
 	}
-
+	
+	/*Finished*/
+	protected boolean notEarnVictoryLap(){
+		return !(achievements.get("VictoryLap").getisEarned());
+	}
 	
 	/*Finished*/
 	public void popUpScreen(){

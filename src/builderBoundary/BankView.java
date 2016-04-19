@@ -19,6 +19,7 @@ public class BankView extends View{
 	static int SQUARE_WIDTH = 20;
 	
 	public BankView(Bank tb){
+		super();
 		this.bank = tb;
 	}
 	
@@ -30,6 +31,7 @@ public class BankView extends View{
 	@Override
 	public void paintComponent(Graphics g){
 		ArrayList<Tile> tiles = bank.getTiles();
+		super.paintComponent(g);
 		
 		for(int i = 0; i < tiles.size(); i++){
 			g.setColor(Color.black);

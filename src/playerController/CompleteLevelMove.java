@@ -15,9 +15,7 @@ public class CompleteLevelMove implements IMove{
 		if(isValid(app)){
 			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
 				m.getCurrentAM().popUpScreen();
-				m.getCurrentAM().reset();
 			}
-			m.getCurrentLevel().reset();
 			return true;
 		}
 		return false;

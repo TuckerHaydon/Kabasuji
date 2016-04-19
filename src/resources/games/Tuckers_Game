@@ -3,28 +3,7 @@ BeginLevel
 Puzzle
 -1
 BeginHexomino
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
-EndHexomino
-BeginElts
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-EndElts
-EndLevel
-BeginLevel
-Puzzle
--1
-BeginHexomino
-1 
+1 2 3 4 
 EndHexomino
 BeginElts
 U U U U U U U U U U U U 
@@ -42,24 +21,45 @@ U U U U U U U U U U U U
 EndElts
 EndLevel
 BeginLevel
-Puzzle
+Lightning
 -1
 BeginHexomino
-1 
+1 2 3 4 
 EndHexomino
 BeginElts
-U U U U U U U U U U U U 
-U PH PH PH PH PH PH PH PH PH PH U 
-U PH P P P P P P P P PH U 
-U PH P P P P P P P P PH U 
-U PH P P P P P P P P PH U 
-U PH P P P P P P P P PH U 
-U PH P P P P P P P P PH U 
-U PH P P P P P P P P PH U 
-U PH P P P P P P P P PH U 
-U PH P P P P P P P P PH U 
-U PH PH PH PH PH PH PH PH PH PH U 
-U U U U U U U U U U U U 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P PH PH PH PH PH P P 
+P P P PH PH PH PH PH PH PH P P 
+P P P PH PH PH PH PH PH P P P 
+P P P P PH PH PH PH PH P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+BeginLevel
+Release
+-1
+BeginHexomino
+1 2 3 4 
+EndHexomino
+BeginElts
+P P P P P P P P N1R P P P 
+P P P P N1R N1R N1R N1R N1R P P P 
+P P N1R N1R P P P P N1R P P P 
+P P N1R P P P P P P N1R P P 
+P P N1R P P PH PH PH PH N1R P P 
+P P N1R PH PH PH PH PH PH PH P P 
+P P N1R PH PH PH PH PH PH N1R P P 
+P P N1R P PH PH PH PH PH N1R N1R N1R 
+P P P N1R N1R N1R N1R N1R N1R P N1R P 
+P P P N1R P P P P N1R N1R N1R P 
+P P P N1R N1R P N1R N1R N1R N1R P P 
+P P P P N1R N1R P P P P P P 
 EndElts
 EndLevel
 EndGame

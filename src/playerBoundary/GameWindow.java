@@ -69,14 +69,17 @@ public class GameWindow extends JFrame {
 		// Create the content pane
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(255, 228, 225));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		// Add the buttons
 		menuButton.setBounds(5, 5, 100, 33);
+		menuButton.setBackground(new Color(128, 128, 128));
 		contentPane.add(menuButton);
 		
 		resetButton.setBounds(135, 5, 100, 33);
+		resetButton.setBackground(new Color(128, 128, 128));
 		contentPane.add(resetButton);
 		
 		// Add the level view
@@ -95,6 +98,7 @@ public class GameWindow extends JFrame {
 	
 	public void setDraggedTile(TileView tv){
 		this.draggedTile = tv;
+		this.add(draggedTile, 0);
 	}
 	
 	public void setLevelView(LevelView lv){
@@ -104,7 +108,14 @@ public class GameWindow extends JFrame {
 	public TileView getDraggedTile(){
 		return this.draggedTile;
 	}
+	
 
+	
+	public void releaseDraggedTile(){
+		this.remove(draggedTile);
+		draggedTile = null;
+	}
+	
 	public LevelView getLevelView(){
 		return this.currentLevelView;
 	}
@@ -140,6 +151,13 @@ public class GameWindow extends JFrame {
 		
 		// Add the view back into the panel
 		contentPane.add(currentLevelView);
+	}
+	
+	public void displayDraggedTile(){
+		
+		if(draggedTile != null){
+			draggedTile.setBounds(draggedTile.getX(), draggedTile.getY(), 6*draggedTile.getSquareWidth(), 6*draggedTile.getSquareWidth());
+		}
 	}
 	
 	

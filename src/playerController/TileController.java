@@ -25,31 +25,23 @@ public class TileController extends java.awt.event.MouseAdapter{
 	
 	public void mouseDragged(MouseEvent me){
 		
-		//change x, y of dragging tile
+		//update x,y location of tile
 		
-		GameWindow gw = app.getGameWindow();
-		TileView dragging_tv = gw.getDraggedTile();
+		app.getGameWindow().getDraggedTile().setLocation(me.getX(), me.getY());
+		app.getGameWindow().displayDraggedTile();
 		
-		int mouse_x = me.getX();
-		int mouse_y = me.getY();
-		
-		dragging_tv.setLocation(mouse_x, mouse_y);
-		
-		//call to boundary?
+		//call to boundary
 		
 	}
 	
 	public void mousePressed(MouseEvent me){
-		//find the tile that is the owner of the square and set that tileview to "draggedTile"
-
+		
 		GameWindow gw = app.getGameWindow();
 		
 		int mouse_x = me.getX();
 		int mouse_y = me.getY();
 		
-		
-		
-		//tileview tView = square.getOwner();
+		//do some math to figure which tile/tileview it is
 		//gw.setDraggedTile(tView);
 		
 	}

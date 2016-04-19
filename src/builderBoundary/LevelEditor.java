@@ -1,6 +1,7 @@
 package builderBoundary;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -39,12 +40,18 @@ public class LevelEditor extends JFrame implements KeyListener {
 		// Create all of the components
 		exportGameButton = new JButton("Export");
 		goToMenuButton = new JButton("Main Menu");
+
 		
 		// TODO implement all the other shit.
 		
 	}
 	
 	public void initView(){
+		
+		exportGameButton.setBackground(new Color(128, 128, 128));
+		exportGameButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		goToMenuButton.setBackground(new Color(128, 128, 128));
+		goToMenuButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
 		
 		// Init sub components
 		levelBuilderView.initView();
@@ -60,7 +67,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setBackground(new Color(255,192,203));
+		contentPane.setBackground(new Color(255,228,225));
 		contentPane.setLayout(null);
 		
 		// Add the buttons
@@ -93,7 +100,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+		if(e.isControlDown() && e.getKeyCode() == 'z'){
+			
+		}
 		
 	}
 

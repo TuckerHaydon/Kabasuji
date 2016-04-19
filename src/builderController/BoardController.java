@@ -13,6 +13,7 @@ public class BoardController extends MouseAdapter {
 	BuilderModel model;
 	
 	public BoardController(BoardView bv, BuilderModel model){
+		super();
 		this.model = model;
 		this.bv = bv;
 	}
