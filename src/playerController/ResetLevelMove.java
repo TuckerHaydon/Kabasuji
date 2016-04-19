@@ -3,6 +3,11 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class ResetLevelMove implements IMove{
 	KabasujiPlayerApplication app;
 	GameModel m;

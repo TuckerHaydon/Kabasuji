@@ -14,6 +14,11 @@ import builderController.CreateLevelHandler;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class LevelEditorMenu extends JFrame {
 	
 	KabasujiBuilderApplication app;
@@ -32,17 +37,21 @@ public class LevelEditorMenu extends JFrame {
 	}
 	
 	public void initView(){
+		
 		// Set frame properties
 		this.setSize(1000, 1000);
 		this.setTitle("Level Editor Menu");
 		this.setResizable(false);
 		this.getContentPane().setBackground(new Color(255, 228, 225));
+		
 		// Set layout
 		setLayout(null);
+		
 		// Create the buttons
 		createLevelButton = new JButton("Create Level");
 		editLevelButton = new JButton("Edit Level");
 		goToMenuButton = new JButton("Main Menu");
+		
 		// Add the buttons
 		createLevelButton.setBounds(375, 150, 250, 150);
 		//createLevelButton.setBackground();

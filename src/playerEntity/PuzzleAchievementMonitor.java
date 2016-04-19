@@ -3,10 +3,11 @@ package playerEntity;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
-import playerBoundary.KabasujiPlayerApplication;
-import playerController.IMove;
-import playerController.TileToBullpenMove;
-
+/**
+ * 
+ * @author dorothy
+ *
+ */
 public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	int toBullpenMove;
 	PuzzleLevel lv;

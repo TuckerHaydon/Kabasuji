@@ -4,6 +4,11 @@ import builderEntity.Anchor;
 import builderEntity.Square;
 import builderEntity.TileParser;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class Tile {
 	Square[] squares;
 	Anchor anchor;

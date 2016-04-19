@@ -1,17 +1,14 @@
-
-/**
- * 
- */
 package playerEntity;
 
 import java.util.ArrayList;
 
-
+/**
+ * 
+ * @author kacper
+ *
+ */
 public class Bullpen {
 
-	/**
-	 * 
-	 */
 	ArrayList<Tile> tiles;
 	public Bullpen(ArrayList<Integer> hexominoes) {
 		

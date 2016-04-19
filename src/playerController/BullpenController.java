@@ -9,6 +9,11 @@ import playerEntity.Bullpen;
 import playerEntity.GameModel;
 import playerEntity.Tile;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BullpenController extends MouseAdapter {
 	KabasujiPlayerApplication app;
 	GameModel m;

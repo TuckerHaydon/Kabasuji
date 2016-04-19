@@ -15,6 +15,11 @@ import playerEntity.Level;
 import playerEntity.LightningLevel;
 import playerEntity.PuzzleLevel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class PlayLevel implements ActionListener {
 
 	KabasujiPlayerApplication app;

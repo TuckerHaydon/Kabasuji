@@ -6,6 +6,11 @@ import java.awt.event.ActionListener;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author dorothy
+ *
+ */
 public class ResetAchievementController implements ActionListener{
 	KabasujiPlayerApplication app;
 	GameModel m;

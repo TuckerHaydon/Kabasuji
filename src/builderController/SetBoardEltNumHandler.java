@@ -7,6 +7,11 @@ import javax.swing.JComboBox;
 
 import builderEntity.BuilderModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class SetBoardEltNumHandler implements ActionListener {
 	
 	JComboBox<String> box;

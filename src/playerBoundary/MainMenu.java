@@ -7,12 +7,16 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import application.PlayerLauncher;
 import playerController.LoadGame;
 import playerController.NavigateAchievementMenu;
 import playerController.NavigateLevelSelectionMenu;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class MainMenu extends JFrame {
 	
 	JButton loadGame;

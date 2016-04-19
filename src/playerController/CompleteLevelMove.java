@@ -3,6 +3,11 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class CompleteLevelMove implements IMove{
 	GameModel m;
 	

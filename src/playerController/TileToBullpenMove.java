@@ -5,6 +5,11 @@ import playerEntity.Bullpen;
 import playerEntity.LightningLevel;
 import playerEntity.Tile;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class TileToBullpenMove implements IMove{
 	Tile tile;
 	Bullpen bullpen;

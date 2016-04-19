@@ -11,7 +11,11 @@ import playerEntity.NumberBoardElt;
 import playerEntity.PlayableBoardElt;
 import playerEntity.UnplayableBoardElt;
 
-
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BoardView extends View{
 	Board b;
 	KabasujiPlayerApplication app;

@@ -1,6 +1,10 @@
 package builderEntity;
 
-
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class Bank extends Bullpen {
 
 	public Bank(){

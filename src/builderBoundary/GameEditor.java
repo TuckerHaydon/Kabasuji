@@ -12,6 +12,11 @@ import builderController.ExportGameHandler;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class GameEditor extends JFrame {
 	
 	KabasujiBuilderApplication app;

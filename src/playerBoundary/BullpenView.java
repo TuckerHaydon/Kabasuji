@@ -4,16 +4,17 @@ package playerBoundary;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
-
 import playerController.BullpenController;
 import playerEntity.Bullpen;
 import playerEntity.Square;
 import playerEntity.Tile;
 
-
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BullpenView extends View {
 	Bullpen bp;
 	KabasujiPlayerApplication app;

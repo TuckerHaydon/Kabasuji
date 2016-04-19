@@ -3,15 +3,17 @@ package playerBoundary;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
-import builderBoundary.KabasujiBuilderApplication;
 import playerController.NavigateMainMenu;
 import playerController.PlayLevel;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class LevelSelectionMenu extends JFrame {
 	
 	JButton levels[];

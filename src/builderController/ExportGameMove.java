@@ -10,6 +10,11 @@ import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class ExportGameMove implements IMove{
 	
 	BuilderModel gm;

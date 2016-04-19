@@ -18,6 +18,11 @@ import playerEntity.ReleaseLevel;
 import playerEntity.Tile;
 import playerEntity.UnplayableBoardElt;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BoardController extends MouseAdapter{
 	Board b;
 	KabasujiPlayerApplication app;

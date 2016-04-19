@@ -4,6 +4,11 @@ import java.awt.event.MouseAdapter;
 
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public abstract class View extends JPanel {
 	
 	public View() {

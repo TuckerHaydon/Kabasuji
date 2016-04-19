@@ -1,10 +1,7 @@
-/**
- * 
- */
 package playerEntity;
 
 /**
- * @author kacper
+ * @author kacper, tuckerhaydon
  *
  */
 public class UnplayableBoardElt extends BoardElt {

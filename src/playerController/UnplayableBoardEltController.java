@@ -7,6 +7,11 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class UnplayableBoardEltController extends java.awt.event.MouseAdapter {
 
 	KabasujiPlayerApplication app;

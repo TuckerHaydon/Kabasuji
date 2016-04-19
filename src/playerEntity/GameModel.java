@@ -2,7 +2,11 @@ package playerEntity;
 
 import java.util.Hashtable;
 
-
+/**
+ * 
+ * @author tuckerhaydon, dorothy
+ *
+ */
 public class GameModel {
 	Hashtable<String, Achievement> achievements;
 	Level[] levels;
@@ -16,46 +20,6 @@ public class GameModel {
 	}
 	
 	public void initModel(){
-
-
-		// Fifteen levels total
-		Level[] lev = new Level[15];
-
-		LightningLevel[] lightLevels = new LightningLevel[5];
-		ReleaseLevel[] releaseLevels = new ReleaseLevel[5];
-		PuzzleLevel[] puzzleLevels = new PuzzleLevel[5];
-		
-		// Initialize the various levels
-//		for(int i = 0; i < 5; i++)
-//		{
-//			
-//			puzzleLevels[i] = new PuzzleLevel(i, 20);
-//			puzzleLevels[i].setIsUnlocked(true);
-//			
-//			lightLevels[i] = new LightningLevel(i, 100);
-//			lightLevels[i].setIsUnlocked(true);
-//			
-//			releaseLevels[i] = new ReleaseLevel(i, 20);
-//			releaseLevels[i].setIsUnlocked(true);
-//		
-//		}
-//		
-//		// Insert the various levels into the level array
-//		for (int i = 0; i<5; i++)
-//		{
-//			lev[3*i] = puzzleLevels[i];
-//			lev[3*i + 1] = lightLevels[i];
-//			lev[3*i + 2] = releaseLevels[i];
-//			
-//		}
-//		
-//		for (int i = 0; i<15; i++)
-//		{
-//			lev[i].levelNum = i + 1;
-//			
-//		}
-//		this.levels = lev;
-//		this.currentLevel = levels[0];
 		
 		achievements = new Hashtable<String, Achievement>();
 		this.achievements.put("BabySteps", new Achievement("BabySteps"));
@@ -78,8 +42,7 @@ public class GameModel {
 		this.releaseAM = new ReleaseAchievementMonitor(this.achievements);
 		this.lightningAM = new LightningAchievementMonitor(this.achievements);
 		this.currentAMNum=0;
-		
-		
+			
 	}
 	
 	

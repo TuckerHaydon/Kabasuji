@@ -5,6 +5,11 @@ import java.awt.event.ActionListener;
 
 import builderBoundary.KabasujiBuilderApplication;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class NavigateGameEditorMenu implements ActionListener {
 	
 	KabasujiBuilderApplication app;

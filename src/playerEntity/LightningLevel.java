@@ -1,5 +1,10 @@
 package playerEntity;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class LightningLevel extends Level{
 
 	int allowedTime;

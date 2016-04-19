@@ -7,6 +7,11 @@ import playerEntity.PlayableBoardElt;
 import playerEntity.Square;
 import playerEntity.UnplayableBoardElt;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class TileToBoardMove implements IMove{
 	int row;
 	int col;

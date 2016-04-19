@@ -10,7 +10,11 @@ import builderEntity.NumberedBoardElt;
 import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 
-
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BoardView extends View {
 
 	static int BOARD_WIDTH = 600;

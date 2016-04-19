@@ -1,6 +1,10 @@
 package builderEntity;
 
-
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class Board {
 	
 	BoardElt elts[][];

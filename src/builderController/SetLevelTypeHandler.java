@@ -8,10 +8,15 @@ import javax.swing.JComboBox;
 import builderBoundary.LevelBuilderView;
 import builderEntity.Level;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class SetLevelTypeHandler implements ActionListener {
 
 	Level l;
-	JComboBox box;
+	JComboBox<String> box;
 	LevelBuilderView editorView;
 	
 	public SetLevelTypeHandler(Level l, JComboBox<String> box, LevelBuilderView editorView) {

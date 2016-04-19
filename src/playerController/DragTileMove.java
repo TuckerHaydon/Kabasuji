@@ -2,6 +2,11 @@ package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class DragTileMove implements IMove{
 	
 	public DragTileMove(){

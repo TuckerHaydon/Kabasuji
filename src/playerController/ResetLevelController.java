@@ -6,6 +6,11 @@ import java.awt.event.ActionListener;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class ResetLevelController implements ActionListener{
 	KabasujiPlayerApplication app;
 	GameModel m;

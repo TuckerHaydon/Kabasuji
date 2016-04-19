@@ -1,12 +1,9 @@
-/**
- * 
- */
 package playerEntity;
 
 import java.awt.Color;
 
 /**
- * @author kacper
+ * @author kacper, tuckerhaydon
  *
  */
 public class NumberBoardElt extends PlayableBoardElt {

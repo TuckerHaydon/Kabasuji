@@ -2,6 +2,11 @@ package builderEntity;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class Bullpen {
 
 	ArrayList<Integer> tileReferenceNumbers;

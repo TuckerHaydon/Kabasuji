@@ -9,6 +9,11 @@ import playerController.LevelController;
 import playerEntity.GameModel;
 import playerEntity.PuzzleLevel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class PuzzleLevelView extends LevelView{
 	KabasujiPlayerApplication app;
 	JLabel movesLeft;

@@ -1,7 +1,5 @@
 package playerBoundary;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -10,12 +8,16 @@ import java.util.Hashtable;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import playerController.NavigateMainMenu;
 import playerController.ResetAchievementController;
 import playerEntity.GameModel;
 import javax.swing.ImageIcon;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class AchievementsMenu extends JFrame {
 	KabasujiPlayerApplication app;
 	GameModel m;

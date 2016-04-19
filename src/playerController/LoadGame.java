@@ -23,6 +23,11 @@ import playerEntity.Board;
 import playerEntity.BoardElt;
 import playerEntity.Bullpen;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class LoadGame implements ActionListener{
 	
 	GameModel m;
