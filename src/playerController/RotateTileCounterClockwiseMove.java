@@ -14,8 +14,7 @@ public class RotateTileCounterClockwiseMove implements IMove{
 	public boolean doMove(KabasujiPlayerApplication app) {
 		
 		tile.rotateLeft();
-		app.getGameWindow().updateView();
-		
+		app.getGameWindow().getLevelView().getScrollPane().repaint();		
 		return true;
 	}
 
