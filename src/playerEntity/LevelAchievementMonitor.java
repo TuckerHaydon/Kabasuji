@@ -1,14 +1,17 @@
 package playerEntity;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
+import playerBoundary.KabasujiPlayerApplication;
+import playerController.IMove;
+import playerController.RotateTileClockwiseMove;
+import playerController.RotateTileCounterClockwiseMove;
+import playerController.TileToBoardMove;
+import playerController.TileToBullpenMove;
 
 public abstract class LevelAchievementMonitor {
 	int moveCounter;
@@ -91,8 +94,7 @@ public abstract class LevelAchievementMonitor {
 				message = message + popingUp.get(i)+"\n";
 			}
 			JFrame frame = new JFrame();
-			frame.setBounds(0,0,100,100);
-			JOptionPane.showMessageDialog(frame, message, "Achievement Unlocked:", JOptionPane.NO_OPTION);
+			JOptionPane.showMessageDialog(frame, message, "Achievement Unlocked:", JOptionPane.INFORMATION_MESSAGE);
 			popingUp.clear();
 		}
 		else{

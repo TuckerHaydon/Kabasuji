@@ -2,7 +2,6 @@ package playerBoundary;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.GroupLayout;
@@ -58,8 +57,6 @@ public class GameWindow extends JFrame {
 		// Get the first level view
 		updateCurrentLevelView();
 		
-		setResizable(false);
-		
 		// Init sub components
 		currentLevelView.initView();
 		
@@ -71,25 +68,19 @@ public class GameWindow extends JFrame {
 		
 		// Create the content pane
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 228, 225));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		// Add the buttons
-		menuButton.setBounds(5, 5, 150, 33);
-		menuButton.setBackground(new Color(128, 128, 128));
-		menuButton.setFont(new Font("Snap ITC", Font.PLAIN, 16));
+		menuButton.setBounds(5, 5, 100, 33);
 		contentPane.add(menuButton);
 		
-		resetButton.setBounds(170, 5, 150, 33);
-		resetButton.setBackground(new Color(128, 128, 128));
-		resetButton.setFont(new Font("Snap ITC", Font.PLAIN, 16));
+		resetButton.setBounds(135, 5, 100, 33);
 		contentPane.add(resetButton);
 		
 		// Add the level view
 		currentLevelView.setBounds(50, 50, 900, 900);
-		contentPane.setBackground(new Color(255, 228, 225));
 		contentPane.add(currentLevelView);
 
 	}
