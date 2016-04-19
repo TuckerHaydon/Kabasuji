@@ -55,47 +55,47 @@ public class AchievementsMenu extends JFrame {
 		
 		pics.put("Rebel", new JLabel("Rebel")); 
 		pics.get("Rebel").setBounds(719, 434, 80, 80);
-		pics.get("Rebel").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("Rebel").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("Rebel"));
 		
 		pics.put("OverAchiever", new JLabel("OverAchiever"));
 		pics.get("OverAchiever").setBounds(148, 647, 80, 80);
-		pics.get("OverAchiever").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("OverAchiever").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("OverAchiever"));
 		
 		pics.put("K-komboBreaker", new JLabel("K-komboBreaker"));
 		pics.get("K-komboBreaker").setBounds(441, 521, 80, 80);
-		pics.get("K-komboBreaker").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("K-komboBreaker").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("K-komboBreaker"));
 		
 		pics.put("VictoryLap", new JLabel("VictoryLap"));
 		pics.get("VictoryLap").setBounds(719, 647, 80, 80);
-		pics.get("VictoryLap").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("VictoryLap").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("VictoryLap"));
 		
 		pics.put("SpeedyGonzales", new JLabel("SpeedyGonzales"));
 		pics.get("SpeedyGonzales").setBounds(148, 434, 80, 80);
-		pics.get("SpeedyGonzales").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("SpeedyGonzales").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("SpeedyGonzales"));
 
 		pics.put("BabySteps", new JLabel("BabySteps"));
 		pics.get("BabySteps").setBounds(441, 65, 80, 80);
-		pics.get("BabySteps").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("BabySteps").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("BabySteps"));
 		
 		pics.put("RageQuit", new JLabel("RageQuit"));
 		pics.get("RageQuit").setBounds(719, 220, 80, 80);
-		pics.get("RageQuit").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("RageQuit").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("RageQuit"));
 		
 		pics.put("SlowPoke", new JLabel("SlowPoke"));
 		pics.get("SlowPoke").setBounds(148, 220, 80, 80);
-		pics.get("SlowPoke").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("SlowPoke").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("SlowPoke"));
 		
 		pics.put("JustUnderTheWire", new JLabel("JustUnderTheWire"));
 		pics.get("JustUnderTheWire").setBounds(441, 765, 80, 80);
-		pics.get("JustUnderTheWire").setIcon(new ImageIcon("src\\resources\\pictures\\Baby_Step.png"));
+		pics.get("JustUnderTheWire").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
 		contentPane.add(pics.get("JustUnderTheWire"));
 
 
