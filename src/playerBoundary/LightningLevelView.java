@@ -17,8 +17,9 @@ public class LightningLevelView extends LevelView{
 	KabasujiPlayerApplication app;
 	JLabel timeLeft; 
 	GameModel m;
+	
 	public LightningLevelView(LightningLevel lightningLvl, GameModel m, KabasujiPlayerApplication app) {
-		
+		super();
 		this.level = lightningLvl;
 		this.m=m;
 		this.app = app;

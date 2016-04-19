@@ -10,6 +10,7 @@ public class LevelController extends MouseAdapter {
 
 	
 	public LevelController(){
+		super();
 	}
 	
 	//@Override

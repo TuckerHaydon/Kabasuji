@@ -18,6 +18,7 @@ public class BullpenController extends MouseAdapter {
 	int boxwidth;
 	
 	public BullpenController(KabasujiPlayerApplication app, GameModel m, Bullpen bp, int boxwidth){
+		super();
 		this.bp = bp;
 		this.app = app;
 		this.boxwidth = boxwidth;

@@ -18,6 +18,7 @@ public class BoardView extends View {
 	Board b;
 	
 	public BoardView(Board b){
+		super();
 		this.b = b;
 	}
 	

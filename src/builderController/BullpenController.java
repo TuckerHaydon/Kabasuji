@@ -15,6 +15,7 @@ public class BullpenController extends MouseAdapter {
 	BankView bankView;
 	
 	public BullpenController(BullpenView bullpenView, BankView bankView) {
+		super();
 		this.bankView = bankView;
 		this.bullpenView = bullpenView;
 	}

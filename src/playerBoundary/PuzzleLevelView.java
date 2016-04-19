@@ -28,6 +28,7 @@ public class PuzzleLevelView extends LevelView{
 	GameModel m;
 	
 	public PuzzleLevelView(PuzzleLevel puzzleLvl, GameModel m, KabasujiPlayerApplication app) {
+		super();
 		this.level = puzzleLvl;
 		this.m=m;
 		this.app = app;

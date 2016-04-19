@@ -26,6 +26,7 @@ public class AchievementsMenu extends JFrame {
 
 	
 	public AchievementsMenu(KabasujiPlayerApplication app, GameModel m) {
+		super();
 		this.m=m;
 		this.app=app;
 		this.pics=new Hashtable<String, JLabel>();

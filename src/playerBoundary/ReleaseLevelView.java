@@ -17,6 +17,7 @@ public class ReleaseLevelView extends LevelView{
 	GameModel m;
 	
 	public ReleaseLevelView(ReleaseLevel releaseLevel, GameModel m, KabasujiPlayerApplication app) {
+		super();
 		this.level = releaseLevel;
 		this.m=m;
 		this.app = app;

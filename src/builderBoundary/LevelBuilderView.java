@@ -44,6 +44,7 @@ public class LevelBuilderView extends JPanel{
 			boardEltColors[] = {"red", "blue", "green"};
 	
 	public LevelBuilderView(Level lvl, KabasujiBuilderApplication app, BuilderModel m){
+		super();
 		this.lvl = lvl;
 		this.app = app;
 		this.m = m;

@@ -14,6 +14,7 @@ public class UnplayableBoardEltController extends java.awt.event.MouseAdapter {
 	GameWindow gw;
 	
 	public UnplayableBoardEltController(KabasujiPlayerApplication app, GameWindow gw, GameModel m){
+		super();
 		this.app = app;
 		this.gw = gw;
 		this.m = m;

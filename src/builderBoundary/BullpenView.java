@@ -19,6 +19,7 @@ public class BullpenView extends View {
 	static int SQUARE_WIDTH = 20;
 	
 	public BullpenView(Bullpen bp){
+		super();
 		this.bp = bp;
 	}
 	
@@ -29,6 +30,7 @@ public class BullpenView extends View {
 	
 	@Override
 	public void paintComponent(Graphics g){
+		super.paintComponent(g);
 		ArrayList<Tile> tiles = bp.getTiles();
 		this.setPreferredSize(new Dimension(CELL_WIDTH*bp.getTileReferenceNumbers().size(), CELL_HEIGHT));
 
