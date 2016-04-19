@@ -14,7 +14,7 @@ import playerEntity.Square;
 import playerEntity.Tile;
 
 
-public class BullpenView extends View implements KeyListener {
+public class BullpenView extends View {
 	Bullpen bp;
 	KabasujiPlayerApplication app;
 	boolean controlKeyPressed;
@@ -40,27 +40,6 @@ public class BullpenView extends View implements KeyListener {
 	
 	public void initControllers(){
 		setMouseAdapter(new BullpenController(app, app.getGameModel(), bp, CELL_WIDTH));
-	}
-	
-	public void keyPressed(KeyEvent k) {
-		controlKeyPressed = k.isControlDown();
-		shiftKeyPressed = k.isShiftDown();
-	}
-	
-	public void keyReleased(KeyEvent k) {
-		//TODO fill in method
-	}
-	
-	public void keyTyped(KeyEvent k){
-		//TODO fill in method
-	}
-	
-	public boolean isControlPressed (){
-		return controlKeyPressed;
-	}
-	
-	public boolean isShiftPressed (){
-		return shiftKeyPressed;
 	}
 	
 	@Override

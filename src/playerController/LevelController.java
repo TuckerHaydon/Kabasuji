@@ -8,15 +8,15 @@ import playerBoundary.LevelView;
 import playerEntity.GameModel;
 
 public class LevelController extends MouseAdapter {
-	
+
 	KabasujiPlayerApplication app;
 	LevelView lv;
 	
 	public LevelController(KabasujiPlayerApplication app, LevelView lv){
+		super();
 		this.app = app;
 		this.lv = lv;
-	}
-	
+	}	
 	//@Override
 	public void mousePressed(MouseEvent e) {
 		System.out.println("Level Pressed");

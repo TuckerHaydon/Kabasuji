@@ -14,6 +14,7 @@ public class TileView extends View {
 	int SQUARE_WIDTH = 40;
 	
 	public TileView(Tile t){
+		super();
 		this.t = t;
 	}
 	

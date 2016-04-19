@@ -13,6 +13,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	
 	public PuzzleAchievementMonitor(Hashtable<String, Achievement> achievements){
+		super();
 		this.achievements=achievements;
 		this.moveCounter=0;
 		this.toBullpenMove=0;

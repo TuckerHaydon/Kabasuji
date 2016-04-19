@@ -19,6 +19,7 @@ public class BoardView extends View{
 	private static int SQUARE_WIDTH = 40;
 	
 	public BoardView(Board b, KabasujiPlayerApplication app, GameModel m){
+		super();
 		this.b = b;
 		this.app=app;
 		this.m=m;

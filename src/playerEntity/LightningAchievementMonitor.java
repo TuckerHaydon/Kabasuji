@@ -10,6 +10,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	LightningLevel lv;
 	
 	public LightningAchievementMonitor(Hashtable<String,Achievement> achievements){
+		super();
 		this.achievements=achievements;
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();

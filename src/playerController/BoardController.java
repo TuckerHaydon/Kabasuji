@@ -24,6 +24,7 @@ public class BoardController extends MouseAdapter{
 	int eltWidth;
 	
 	public BoardController(Board b, KabasujiPlayerApplication app, int eltWidth){
+		super();
 		this.app=app;
 		this.b=b;
 		this.eltWidth = eltWidth;

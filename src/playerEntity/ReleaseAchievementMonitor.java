@@ -10,6 +10,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	ReleaseLevel lv;
 	
 	public ReleaseAchievementMonitor(Hashtable<String,Achievement> achievements){
+		super();
 		this.achievements=achievements;
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();
