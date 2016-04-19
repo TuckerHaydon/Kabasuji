@@ -28,7 +28,12 @@ public class BoardController extends MouseAdapter{
 		this.eltWidth = eltWidth;
 	}
 	
-	//TODO add mousedragged
+	public void mouseDragged(MouseEvent me){
+		
+		//update x,y position of tile
+		app.getGameWindow().getDraggedTile().setLocation(me.getX(), me.getY());
+		app.getGameWindow().displayDraggedTile();
+	}
 	
 	//activity here depends on what kind of level we have 
 	public void mousePressed(MouseEvent me){

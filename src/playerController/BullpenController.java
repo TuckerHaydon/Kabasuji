@@ -32,13 +32,11 @@ public class BullpenController extends MouseAdapter {
 		int cellNum = x/boxwidth;
 		
 		Tile pressedTile = bp.getTiles().get(cellNum);
-		//create tileview
-		//set that tile view to dragged
-		//take tile out of array list
-		
 		TileView tv = new TileView(pressedTile);
-		tv.setLocation(x, y);
 		app.getGameWindow().setDraggedTile(tv);
+		bp.removeTile(pressedTile);
+		
+		tv.setLocation(x, y);
 		app.getGameWindow().displayDraggedTile();
 	}
 	
@@ -78,8 +76,7 @@ public class BullpenController extends MouseAdapter {
 	
 	@Override
 	public void mouseDragged(MouseEvent me){
-		//the usual - update x,y
-		
+				
 		app.getGameWindow().getDraggedTile().setLocation(me.getX(), me.getY());
 		app.getGameWindow().displayDraggedTile();
 
