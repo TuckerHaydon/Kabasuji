@@ -169,4 +169,12 @@ public class LevelBuilderView extends JPanel{
 	public Level getLevel(){
 		return this.lvl;
 	}
+	
+	public BullpenView getBullpenView(){
+		return this.bullpenView;
+	}
+	
+	public BankView getBankView(){
+		return this.bankView;
+	}
 }

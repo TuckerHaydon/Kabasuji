@@ -102,7 +102,7 @@ public class KabasujiBuilderApplication {
 		gameEditor.setVisible(true);
 	}
 	
-	void displaySplashScreen(){
+	public void displaySplashScreen(){
 		JFrame splash = new JFrame("Splash Screen");
 		splash.setBounds(200, 200, 400, 200);
 		splash.getContentPane().add(new JLabel("Welcome!\nAuthors: Tucker, Dorothy, Kacper, Nidhi, and Damani", SwingConstants.CENTER));
@@ -124,6 +124,19 @@ public class KabasujiBuilderApplication {
 	public LevelEditorMenu getLevelEditorMenu(){
 		return this.levelEditorMenu;
 	}
+	
+	public GameEditor getGameEditor(){
+		return this.gameEditor;
+	}
+	
+	public GameEditorMenu getGameEditorMenu(){
+		return this.gameEditorMenu;
+	}
+	
+	public MainMenu getMainMenu(){
+		return this.mainMenu;
+	}
+	
 	
 	public BuilderModel getBuilderModel(){
 		return this.m;

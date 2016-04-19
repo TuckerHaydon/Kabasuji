@@ -36,6 +36,11 @@ public class AddLevelToGameMove implements IMove {
 		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to add", "Level "+levelIndex,
 		        JOptionPane.QUESTION_MESSAGE, null, levelNames.toArray(), levelNames.get(0));
 
+		return processName(chosenLevelName);
+	}
+	
+	boolean processName (String chosenLevelName) {
+
 		String path = "src/resources/levels/"+chosenLevelName;
 		Level lvl = LevelParser.getLevel(path);
 		lvl.setLevelNum(levelIndex);
