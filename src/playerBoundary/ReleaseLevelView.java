@@ -1,5 +1,7 @@
 package playerBoundary;
 
+import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
@@ -53,6 +55,7 @@ public class ReleaseLevelView extends LevelView{
 		lblScoreNStuff.setBounds(770, 850, 60, 15);
 		add(lblScoreNStuff);
 		
+		setBackground(new Color(255, 228, 225));
 		
 	}
 	

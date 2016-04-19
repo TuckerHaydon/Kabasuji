@@ -1,5 +1,6 @@
 package playerBoundary;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -32,9 +33,11 @@ public class LevelSelectionMenu extends JFrame {
 	
 	public void initView(){
 		
+		setResizable(false);
 		// Set properties of the frame
 		this.setSize(1000,1000);
 		this.setTitle("Level Selection Menu");
+		this.getContentPane().setBackground(new Color(255, 228, 225));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Set the layout of the frame

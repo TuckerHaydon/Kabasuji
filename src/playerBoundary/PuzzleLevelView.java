@@ -68,6 +68,7 @@ public class PuzzleLevelView extends LevelView{
 		lblScoreNStuff.setBounds(770, 850, 60, 15);
 		add(lblScoreNStuff);
 		
+		setBackground(new Color(255, 228, 225));
 		
 	}
 	

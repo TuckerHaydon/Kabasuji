@@ -31,7 +31,7 @@ public class LevelEditorMenu extends JFrame {
 	}
 	
 	public void initView(){
-		
+		setResizable(false);
 		// Set frame properties
 		this.setSize(1000, 1000);
 		this.setTitle("Level Editor Menu");

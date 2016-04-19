@@ -28,7 +28,7 @@ public class BoardView extends View{
 	}
 	
 	public void initView(){
-	
+		setBackground(new Color(255, 228, 225));
 	}
 	
 	public int getSquareWidth(){
