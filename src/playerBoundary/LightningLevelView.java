@@ -60,6 +60,7 @@ public class LightningLevelView extends LevelView{
 		lblScoreNStuff.setBounds(770, 250, 60, 15);
 		add(lblScoreNStuff);
 		
+		setBackground(new Color(255, 228, 225));
 		
 	}
 	
