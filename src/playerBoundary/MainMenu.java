@@ -35,6 +35,7 @@ public class MainMenu extends JFrame {
 		// Set properties of the frame
 		this.setSize(1000,1000);
 		this.setTitle("Main Menu");
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Set the layout

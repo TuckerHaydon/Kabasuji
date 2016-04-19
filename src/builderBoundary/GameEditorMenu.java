@@ -33,7 +33,7 @@ public class GameEditorMenu extends JFrame {
 	}
 	
 	public void initView(){
-		
+		setResizable(false);
 		// Set frame properties
 		this.setSize(1000, 1000);
 		this.setTitle("Game Editor Menu");
