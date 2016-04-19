@@ -93,7 +93,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+		if(e.isControlDown() && e.getKeyCode() == 'z'){
+			
+		}
 		
 	}
 

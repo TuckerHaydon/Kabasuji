@@ -11,15 +11,12 @@ import playerEntity.NumberBoardElt;
 import playerEntity.PlayableBoardElt;
 import playerEntity.UnplayableBoardElt;
 
-/*
- * Author: Damani
- */
 
 public class BoardView extends View{
 	Board b;
 	KabasujiPlayerApplication app;
 	GameModel m;
-	private static int WIDTH = 45;
+	private static int SQUARE_WIDTH = 40;
 	
 	public BoardView(Board b, KabasujiPlayerApplication app, GameModel m){
 		this.b = b;
@@ -31,8 +28,12 @@ public class BoardView extends View{
 		setBackground(new Color(255, 228, 225));
 	}
 	
+	public int getSquareWidth(){
+		return SQUARE_WIDTH;
+	}
+	
 	public void initControllers(){
-		setMouseAdapter(new BoardController(b, app, WIDTH));
+		setMouseAdapter(new BoardController(b, app, SQUARE_WIDTH));
 	}
 	
 	@Override
@@ -53,7 +54,7 @@ public class BoardView extends View{
 						squareColor = Color.RED;
 					}
 					else{
-						squareColor = Color.GREEN;
+						squareColor = Color.WHITE;
 					}
 				}
 				else if(elts[row][col] instanceof UnplayableBoardElt){
@@ -62,10 +63,10 @@ public class BoardView extends View{
 
 				
 				g.setColor(squareColor);
-				g.fillRect(WIDTH * col, WIDTH * row, WIDTH, WIDTH);
+				g.fillRect(SQUARE_WIDTH * col, SQUARE_WIDTH * row, SQUARE_WIDTH, SQUARE_WIDTH);
 				
 				g.setColor(Color.BLACK);
-				g.drawRect(WIDTH * col, WIDTH * row, WIDTH, WIDTH);
+				g.drawRect(SQUARE_WIDTH * col, SQUARE_WIDTH * row, SQUARE_WIDTH, SQUARE_WIDTH);
 			}
 		}
     } 

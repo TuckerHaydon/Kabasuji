@@ -20,12 +20,16 @@ public class BullpenView extends View implements KeyListener {
 	boolean controlKeyPressed;
 	boolean shiftKeyPressed;
 	
-	static int SQUARE_WIDTH = 45;
+	static int SQUARE_WIDTH = 40;
 	static int CELL_WIDTH = 7*SQUARE_WIDTH;
 	
 	public BullpenView(KabasujiPlayerApplication app, Bullpen bp){
 		this.bp = bp;
 		this.app=app;
+	}
+	
+	public int getSquareWidth(){
+		return SQUARE_WIDTH;
 	}
 	
 	public void initView(){
@@ -74,7 +78,7 @@ public class BullpenView extends View implements KeyListener {
 		Square squares[] = t.getSquares();
 		
 		for(Square s: squares){
-			g.setColor(Color.GREEN);
+			g.setColor(Color.WHITE);
 			g.fillRect(upperX+s.getRelX()*SQUARE_WIDTH + width/2, upperY+s.getRelY()*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);
 			g.setColor(Color.BLACK);
 			g.drawRect(upperX+s.getRelX()*SQUARE_WIDTH+width/2, upperY+s.getRelY()*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);

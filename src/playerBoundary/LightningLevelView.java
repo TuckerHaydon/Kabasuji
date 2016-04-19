@@ -41,23 +41,21 @@ public class LightningLevelView extends LevelView{
 		setLayout(null);
 		
 		// Create the scrollPane
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(25, 25, 600, 240);
+		JScrollPane scrollPane = new JScrollPane(bullpenView, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(25, 25, 850, 7*bullpenView.getSquareWidth());
 		add(scrollPane);
 		
-		// Add the bullpenView to the scrollPane
-		scrollPane.setViewportView(bullpenView);
 		
 		// Add the boardView
-		boardView.setBounds(25, 275, 600, 600);
+		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
 		JLabel lblNumMovesLeft = new JLabel("Not sure about this stuff");
-		lblNumMovesLeft.setBounds(770, 50, 60, 15);
+		lblNumMovesLeft.setBounds(770, 770, 60, 15);
 		add(lblNumMovesLeft);
 		
 		JLabel lblScoreNStuff = new JLabel("Score n stuff");
-		lblScoreNStuff.setBounds(770, 250, 60, 15);
+		lblScoreNStuff.setBounds(770, 850, 60, 15);
 		add(lblScoreNStuff);
 		
 		setBackground(new Color(255, 228, 225));

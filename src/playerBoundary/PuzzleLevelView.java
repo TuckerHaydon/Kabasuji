@@ -52,22 +52,20 @@ public class PuzzleLevelView extends LevelView{
 		
 		// Create the scrollPane
 		JScrollPane scrollPane = new JScrollPane(bullpenView, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scrollPane.setBounds(25, 25, 540, 270);
-		scrollPane.setMinimumSize(new Dimension(540, 270));
-		scrollPane.setPreferredSize(new Dimension(540, 270));
+		scrollPane.setBounds(25, 25, 850, 7*bullpenView.getSquareWidth());
 		add(scrollPane);
 		
 		
 		// Add the boardView
-		boardView.setBounds(25, 305, 540, 540);
+		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
 		JLabel lblNumMovesLeft = new JLabel("Num Moves Left");
-		lblNumMovesLeft.setBounds(770, 50, 60, 15);
+		lblNumMovesLeft.setBounds(770, 770, 60, 15);
 		add(lblNumMovesLeft);
 		
 		JLabel lblScoreNStuff = new JLabel("Score n stuff");
-		lblScoreNStuff.setBounds(770, 250, 60, 15);
+		lblScoreNStuff.setBounds(770, 850, 60, 15);
 		add(lblScoreNStuff);
 		
 		setBackground(new Color(255, 228, 225));

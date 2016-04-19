@@ -1,21 +1,19 @@
 package playerBoundary;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.util.Hashtable;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import playerController.NavigateMainMenu;
 import playerController.ResetAchievementController;
 import playerEntity.GameModel;
-
-import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.Font;
-import java.util.Hashtable;
-
-import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class AchievementsMenu extends JFrame {
@@ -173,5 +171,6 @@ public class AchievementsMenu extends JFrame {
 	public void initControllers(){
 		mainMenuButton.addActionListener(new NavigateMainMenu(app,m));
 		this.resetButton.addActionListener(new ResetAchievementController(app,m));
+
 	}
 }
