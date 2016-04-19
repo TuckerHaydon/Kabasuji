@@ -153,7 +153,6 @@ public class GameWindow extends JFrame {
 	public void displayDraggedTile(){
 		
 		if(draggedTile != null){
-			// TODO fix this. 
 			draggedTile.setBounds(draggedTile.getX(), draggedTile.getY(), 6*draggedTile.getSquareWidth(), 6*draggedTile.getSquareWidth());
 		}
 	}

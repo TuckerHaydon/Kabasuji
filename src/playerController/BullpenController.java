@@ -1,5 +1,6 @@
 package playerController;
 
+import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -36,8 +37,15 @@ public class BullpenController extends MouseAdapter {
 		app.getGameWindow().setDraggedTile(tv);
 		bp.removeTile(pressedTile);
 		
-		tv.setLocation(x, y);
+		double mouseLocationX = app.getGameWindow().getMousePosition().getX();
+		double mouseLocationY = app.getGameWindow().getMousePosition().getY();
+		
+		int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
+		int centerLocationY = (int)(mouseLocationY - 3*app.getGameWindow().getDraggedTile().getSquareWidth());
+		
+		tv.setLocation(centerLocationX, centerLocationY);
 		app.getGameWindow().displayDraggedTile();
+		
 	}
 	
 	@Override
@@ -76,8 +84,14 @@ public class BullpenController extends MouseAdapter {
 	
 	@Override
 	public void mouseDragged(MouseEvent me){
+		
+		double mouseLocationX = app.getGameWindow().getMousePosition().getX();
+		double mouseLocationY = app.getGameWindow().getMousePosition().getY();
+		
+		int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
+		int centerLocationY = (int)(mouseLocationY - 3*app.getGameWindow().getDraggedTile().getSquareWidth());
 				
-		app.getGameWindow().getDraggedTile().setLocation(me.getX(), me.getY());
+		app.getGameWindow().getDraggedTile().setLocation(centerLocationX, centerLocationY);
 		app.getGameWindow().displayDraggedTile();
 
 		
