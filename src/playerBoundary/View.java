@@ -6,8 +6,8 @@ import javax.swing.JPanel;
 
 public abstract class View extends JPanel {
 	
-	public View(){
-		
+	public View() {
+		super();
 	}
 	
 	public void setMouseAdapter(MouseAdapter ma){

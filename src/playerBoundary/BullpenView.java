@@ -24,6 +24,7 @@ public class BullpenView extends View implements KeyListener {
 	static int CELL_WIDTH = 7*SQUARE_WIDTH;
 	
 	public BullpenView(KabasujiPlayerApplication app, Bullpen bp){
+		super();
 		this.bp = bp;
 		this.app=app;
 	}
@@ -64,6 +65,8 @@ public class BullpenView extends View implements KeyListener {
 	
 	@Override
 	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		
 		ArrayList<Tile> tiles = bp.getTiles();
 		int counter = 0;
 		for(Tile t: tiles){

@@ -50,10 +50,6 @@ public class BullpenController extends MouseAdapter {
 	
 	@Override
 	public void mouseReleased(MouseEvent me){
-
-		//pull tile out of that dragged tile 
-		//*got to bullpenview and add argument
-		//add tile to array list
 		
 		Tile tile = app.getGameWindow().getDraggedTile().getTile();
 		if(tile == null){
