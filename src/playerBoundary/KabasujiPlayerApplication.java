@@ -1,9 +1,12 @@
 package playerBoundary;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -106,13 +109,16 @@ public class KabasujiPlayerApplication {
 	}
 	
 	void displaySplashScreen(){
-		JFrame splash = new JFrame("Splash Screen");
-		splash.setBounds(200, 200, 400, 200);
-		splash.getContentPane().add(new JLabel("Welcome!\nAuthors: Tucker, Dorothy, Kacper, Nidhi, and Damani", SwingConstants.CENTER));
+//		JFrame splash = new JFrame("Splash Screen");
+		JFrame splash = new JFrame("Tucker,Dorothy,Kacper,Joey,Nidhi,Damani");
+		splash.setBounds(200, 250, 505, 400);
+		JLabel meow = new JLabel("");
+		meow.setIcon(new ImageIcon("src\\resources\\pictures\\RainbowBunchie.gif"));
+//		splash.getContentPane().add(new JLabel("Welcome!\nAuthors: Tucker, Dorothy, Kacper, Nidhi, and Damani", SwingConstants.CENTER));
+		splash.getContentPane().add(meow);
 		
 		splash.setVisible(true);
 		long start = System.currentTimeMillis();
-
 		while(System.currentTimeMillis() - start < 3000);
 		splash.dispose();
 	}
