@@ -1,25 +1,12 @@
 package playerBoundary;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.EmptyBorder;
-
-
-import playerController.NavigateMainMenu;
 
 import playerController.LevelController;
 import playerEntity.GameModel;
-import playerEntity.Level;
 import playerEntity.PuzzleLevel;
 
 public class PuzzleLevelView extends LevelView{

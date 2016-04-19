@@ -1,6 +1,5 @@
 package playerController;
 
-import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -8,7 +7,6 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
-import playerEntity.LevelAchievementMonitor;
 import playerEntity.Tile;
 
 public class BullpenController extends MouseAdapter {
@@ -35,9 +33,7 @@ public class BullpenController extends MouseAdapter {
 		Tile pressedTile = bp.getTiles().get(cellNum);
 	
 		if(me.isControlDown()){
-			System.out.println("Control is down.");
 			if (me.getButton() == MouseEvent.BUTTON1){
-				System.out.println("Left click.");
 				RotateTileClockwiseMove move = new RotateTileClockwiseMove(pressedTile);
 				if(move.isValid(app)){
 					move.doMove(app);
@@ -45,7 +41,6 @@ public class BullpenController extends MouseAdapter {
 			}
 			else if (me.getButton() == MouseEvent.BUTTON3)
 			{
-				System.out.println("Right click.");
 				RotateTileCounterClockwiseMove move = new RotateTileCounterClockwiseMove(pressedTile);
 				if(move.isValid(app)){
 					move.doMove(app);
@@ -53,9 +48,7 @@ public class BullpenController extends MouseAdapter {
 			}
 		}
 		else if(me.isShiftDown()){
-			System.out.println("Shift is down.");
 			if (me.getButton() == MouseEvent.BUTTON1){
-				System.out.println("Left click.");
 				MirrorTileHorizontalMove move = new MirrorTileHorizontalMove(pressedTile);
 				if(move.isValid(app)){
 					move.doMove(app);
@@ -63,7 +56,6 @@ public class BullpenController extends MouseAdapter {
 			}
 			else if (me.getButton() == MouseEvent.BUTTON3)
 			{
-				System.out.println("Right click.");
 				MirrorTileVerticalMove move = new MirrorTileVerticalMove(pressedTile);
 				if(move.isValid(app)){
 					move.doMove(app);
