@@ -2,6 +2,11 @@ package builderController;
 
 import builderEntity.BuilderModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class SetBoardEltTypeMove implements IMove{
 	
 	BuilderModel model;

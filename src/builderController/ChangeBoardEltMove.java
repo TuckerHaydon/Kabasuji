@@ -8,6 +8,11 @@ import builderEntity.NumberedBoardElt;
 import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class ChangeBoardEltMove implements IMove {
 	
 	String selectedBoardEltType, selectedColor; 
@@ -31,7 +36,7 @@ public class ChangeBoardEltMove implements IMove {
 		
 		switch(selectedBoardEltType){
 		case "playable":
-			board.getBoardElts()[row][col] = new PlayableBoardElt(row, col, isHint);// TODO this is not always false
+			board.getBoardElts()[row][col] = new PlayableBoardElt(row, col, isHint);
 			break;
 		case "unplayable": 
 			board.getBoardElts()[row][col] = new UnplayableBoardElt(row, col);
@@ -43,7 +48,7 @@ public class ChangeBoardEltMove implements IMove {
 			else if(selectedColor.equals("blue")){c = Color.BLUE;}
 			else if(selectedColor.equals("green")){c = Color.GREEN;}
 			
-			board.getBoardElts()[row][col] = new NumberedBoardElt(row, col, isHint, c, selectedNumber); // TODO hint is not always false
+			board.getBoardElts()[row][col] = new NumberedBoardElt(row, col, isHint, c, selectedNumber); 
 			break;
 		default:
 			System.err.println("Something wrong with the board elt type selection in ChangeBoardEltMove");

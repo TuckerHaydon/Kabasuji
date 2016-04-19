@@ -6,6 +6,11 @@ import playerEntity.Bullpen;
 import playerEntity.LightningLevel;
 import playerEntity.Tile;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class PickUpTileBoardMove implements IMove{
 	Tile tile;
 	Board board;

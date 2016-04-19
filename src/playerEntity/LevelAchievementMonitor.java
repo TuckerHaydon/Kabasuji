@@ -2,17 +2,14 @@ package playerEntity;
 
 import java.util.Hashtable;
 import java.util.LinkedList;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import playerBoundary.KabasujiPlayerApplication;
-import playerController.IMove;
-import playerController.RotateTileClockwiseMove;
-import playerController.RotateTileCounterClockwiseMove;
-import playerController.TileToBoardMove;
-import playerController.TileToBullpenMove;
-
+/**
+ * 
+ * @author dorothy
+ *
+ */
 public abstract class LevelAchievementMonitor {
 	int moveCounter;
 	LinkedList<String> popingUp;

@@ -5,6 +5,11 @@ import javax.swing.JScrollPane;
 
 import playerEntity.Level;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public abstract class LevelView extends View {
 	
 	KabasujiPlayerApplication app;

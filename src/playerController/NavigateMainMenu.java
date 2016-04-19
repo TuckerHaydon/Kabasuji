@@ -6,6 +6,11 @@ import java.awt.event.ActionListener;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class NavigateMainMenu implements ActionListener {
 	KabasujiPlayerApplication app;
 	GameModel m;

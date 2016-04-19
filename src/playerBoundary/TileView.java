@@ -6,6 +6,11 @@ import java.awt.Graphics;
 import playerEntity.Square;
 import playerEntity.Tile;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class TileView extends View {
 	Tile t;
 	int x;

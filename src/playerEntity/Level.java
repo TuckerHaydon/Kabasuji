@@ -1,5 +1,10 @@
 package playerEntity;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public abstract class Level {
 	
 	Bullpen bullpen;

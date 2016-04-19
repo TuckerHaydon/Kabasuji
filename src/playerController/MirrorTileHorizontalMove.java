@@ -3,6 +3,11 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Tile;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class MirrorTileHorizontalMove implements IMove{
 	Tile tile;
 	

@@ -1,5 +1,10 @@
 package playerEntity;
 
+/**
+ * 
+ * @author dorothy
+ *
+ */
 public class Achievement {
 	boolean isEarned;
 	String name;

@@ -1,5 +1,10 @@
 package builderEntity;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class PlayableBoardElt extends BoardElt{
 
 	boolean isHint;

@@ -2,6 +2,11 @@ package application;
 
 import builderBoundary.KabasujiBuilderApplication;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BuilderLauncher {
 	
 	public static void main(String args[])

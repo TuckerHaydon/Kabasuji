@@ -11,6 +11,11 @@ import builderEntity.Bullpen;
 import builderEntity.Square;
 import builderEntity.Tile;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BullpenView extends View {
 	
 	Bullpen bp;

@@ -1,5 +1,10 @@
 package playerEntity;
 
+/**
+ * 
+ * @author tuckerhaydon, dorothy
+ *
+ */
 public class PuzzleLevel extends Level {
 	
 	int usedMove;

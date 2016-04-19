@@ -1,18 +1,18 @@
 package playerBoundary;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.io.File;
-
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class KabasujiPlayerApplication {
 	
 	GameWindow gameWindow;

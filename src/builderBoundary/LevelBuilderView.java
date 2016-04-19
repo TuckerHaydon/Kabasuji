@@ -25,6 +25,11 @@ import builderEntity.Tile;
 import builderEntity.Bank;
 import playerController.LoadGame;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class LevelBuilderView extends JPanel{
 	
 	BullpenView bullpenView;

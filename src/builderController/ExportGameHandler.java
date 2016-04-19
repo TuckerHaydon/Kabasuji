@@ -8,6 +8,11 @@ import javax.swing.JOptionPane;
 
 import builderEntity.BuilderModel;
  
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class ExportGameHandler implements ActionListener{
 	BuilderModel bm;
 

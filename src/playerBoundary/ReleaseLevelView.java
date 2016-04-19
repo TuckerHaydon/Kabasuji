@@ -11,6 +11,11 @@ import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.ReleaseLevel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class ReleaseLevelView extends LevelView{
 	KabasujiPlayerApplication app;
 	JLabel movesLeft;

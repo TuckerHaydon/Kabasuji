@@ -7,6 +7,11 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 import builderEntity.Game;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class CreateGameHandler implements ActionListener {
 	
 	KabasujiBuilderApplication app;

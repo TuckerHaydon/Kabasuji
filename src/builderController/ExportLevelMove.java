@@ -13,6 +13,11 @@ import builderEntity.BuilderModel;
 import builderEntity.Bullpen;
 import builderEntity.Level;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class ExportLevelMove implements IMove {
 
 	BuilderModel model;
