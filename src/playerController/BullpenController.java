@@ -41,7 +41,7 @@ public class BullpenController extends MouseAdapter {
 		double mouseLocationY = app.getGameWindow().getMousePosition().getY();
 		
 		int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
-		int centerLocationY = (int)(mouseLocationY - 3*app.getGameWindow().getDraggedTile().getSquareWidth());
+		int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
 		
 		tv.setLocation(centerLocationX, centerLocationY);
 		app.getGameWindow().displayDraggedTile();
@@ -89,7 +89,7 @@ public class BullpenController extends MouseAdapter {
 		double mouseLocationY = app.getGameWindow().getMousePosition().getY();
 		
 		int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
-		int centerLocationY = (int)(mouseLocationY - 3*app.getGameWindow().getDraggedTile().getSquareWidth());
+		int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
 				
 		app.getGameWindow().getDraggedTile().setLocation(centerLocationX, centerLocationY);
 		app.getGameWindow().displayDraggedTile();
