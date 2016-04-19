@@ -42,9 +42,7 @@ public class BullpenController extends MouseAdapter {
 	
 	@Override
 	public void mouseReleased(MouseEvent me){
-		
-		//release drag tile goes there
-		//gamewindow dragged tile = null
+
 		//pull tile out of that dragged tile 
 		//*got to bullpenview and add argument
 		//add tile to array list
@@ -55,6 +53,7 @@ public class BullpenController extends MouseAdapter {
 		}
 		else
 		{
+			bp.addTile(tile);
 			app.getGameWindow().releaseDraggedTile();
 			app.getGameWindow().revalidate();
 			app.getGameWindow().repaint();
