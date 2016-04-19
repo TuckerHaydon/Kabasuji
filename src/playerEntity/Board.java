@@ -1,13 +1,11 @@
-
 package playerEntity;
 
 import java.util.ArrayList;
 
 /**
- * @author kacper
+ * @author kacper, tuckerhaydon
  *
  */
-
 public class Board {  
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
@@ -59,5 +57,7 @@ public class Board {
 		}
 		return output;
 	}
+	
+	//TODO add getTile(row, col);
 	
 }

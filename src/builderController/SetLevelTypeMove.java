@@ -3,6 +3,11 @@ package builderController;
 import builderBoundary.LevelBuilderView;
 import builderEntity.Level;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class SetLevelTypeMove implements IMove {
 	Level l;
 	String levelType;

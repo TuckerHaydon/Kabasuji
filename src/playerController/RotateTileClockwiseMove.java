@@ -3,6 +3,11 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Tile;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class RotateTileClockwiseMove implements IMove{
 	Tile tile;
 	
@@ -12,14 +17,16 @@ public class RotateTileClockwiseMove implements IMove{
 	
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		tile.rotateRight();
+		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		return true;
 	}
 
 	@Override
 	public boolean isValid(KabasujiPlayerApplication app) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

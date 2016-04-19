@@ -10,6 +10,11 @@ import javax.swing.JFrame;
 import builderController.NavigateGameEditorMenu;
 import builderController.NavigateLevelEditorMenu;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class MainMenu extends JFrame {
 	
 	KabasujiBuilderApplication app;
@@ -41,6 +46,7 @@ public class MainMenu extends JFrame {
 		levelEditorButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
 		gameEditorButton.setBackground(new Color(128, 128, 128));
 		gameEditorButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		
 		// Add the buttons
 		this.add(levelEditorButton);
 		this.add(gameEditorButton);

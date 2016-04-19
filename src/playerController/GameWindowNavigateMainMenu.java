@@ -10,6 +10,11 @@ import javax.sound.sampled.Clip;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class GameWindowNavigateMainMenu implements ActionListener{
 	KabasujiPlayerApplication app;
 	GameModel m;

@@ -11,6 +11,11 @@ import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.ReleaseLevel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class ReleaseLevelView extends LevelView{
 	KabasujiPlayerApplication app;
 	JLabel movesLeft;
@@ -39,7 +44,7 @@ public class ReleaseLevelView extends LevelView{
 		setLayout(null);
 		
 		// Create the scrollPane
-		JScrollPane scrollPane = new JScrollPane(bullpenView, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane = new JScrollPane(bullpenView, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(25, 25, 850, 7*bullpenView.getSquareWidth());
 		add(scrollPane);
 		
@@ -68,6 +73,12 @@ public class ReleaseLevelView extends LevelView{
 		
 		// Init own controllers
 		setMouseAdapter(new LevelController());
+	}
+
+	@Override
+	public JScrollPane getScrollPane() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

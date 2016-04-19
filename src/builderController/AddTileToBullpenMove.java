@@ -6,7 +6,11 @@ package builderController;
 import builderBoundary.*;
 import builderEntity.*;
 
-
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class AddTileToBullpenMove implements IMove {
 	
 	Tile t;

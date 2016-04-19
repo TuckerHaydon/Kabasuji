@@ -1,5 +1,10 @@
 package playerEntity;
 
+/**
+ * 
+ * @author tuckerhaydon, dorothy
+ *
+ */
 public class ReleaseLevel extends Level {
 
 	int numEltLeft;

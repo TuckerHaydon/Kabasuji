@@ -2,6 +2,11 @@ package builderEntity;
 
 import builderEntity.Tile;
 
+/**
+ * 
+ * @author
+ *
+ */
 public class Square {
 
 	int anchorRelX;

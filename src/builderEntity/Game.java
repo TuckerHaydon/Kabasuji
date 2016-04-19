@@ -1,5 +1,10 @@
 package builderEntity;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class Game {
 
 	String name;

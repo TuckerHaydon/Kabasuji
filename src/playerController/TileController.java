@@ -1,14 +1,16 @@
 package playerController;
 
 import java.awt.event.MouseEvent;
-
 import playerBoundary.BoardView;
 import playerBoundary.GameWindow;
 import playerBoundary.KabasujiPlayerApplication;
-import playerBoundary.TileView;
 import playerEntity.GameModel;
 
-
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class TileController extends java.awt.event.MouseAdapter{
 	
 	KabasujiPlayerApplication app;
@@ -26,7 +28,6 @@ public class TileController extends java.awt.event.MouseAdapter{
 	public void mouseDragged(MouseEvent me){
 		
 		//update x,y location of tile
-		
 		app.getGameWindow().getDraggedTile().setLocation(me.getX(), me.getY());
 		app.getGameWindow().displayDraggedTile();
 		

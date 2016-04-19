@@ -5,6 +5,11 @@ import java.util.Hashtable;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ * @author dorothy
+ *
+ */
 public class GameAchievementMonitor {
 	Hashtable<String, Achievement> achievements;
 	int previousLvNum;

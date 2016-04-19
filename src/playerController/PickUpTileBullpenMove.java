@@ -4,6 +4,11 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Bullpen;
 import playerEntity.Tile;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class PickUpTileBullpenMove implements IMove{
 	Tile tile;
 	Bullpen bullpen;

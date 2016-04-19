@@ -9,6 +9,11 @@ import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.LevelParser;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class AddLevelToGameMove implements IMove {
 	
 	BuilderModel m;

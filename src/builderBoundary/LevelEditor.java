@@ -19,6 +19,11 @@ import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class LevelEditor extends JFrame implements KeyListener {
 	
 	KabasujiBuilderApplication app;

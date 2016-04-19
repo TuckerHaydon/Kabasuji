@@ -1,5 +1,10 @@
 package builderEntity;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class UnplayableBoardElt extends BoardElt{
 
 	public UnplayableBoardElt(int row, int col) {

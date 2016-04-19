@@ -5,6 +5,11 @@ import java.awt.event.ActionListener;
 
 import builderEntity.BuilderModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class AddLevelToGameHandler implements ActionListener {
 	
 	int levelIndex;

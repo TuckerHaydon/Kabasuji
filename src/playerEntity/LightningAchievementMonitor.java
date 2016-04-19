@@ -3,9 +3,11 @@ package playerEntity;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
-import playerBoundary.KabasujiPlayerApplication;
-import playerController.IMove;
-
+/**
+ * 
+ * @author dorothy
+ *
+ */
 public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	LightningLevel lv;
 	

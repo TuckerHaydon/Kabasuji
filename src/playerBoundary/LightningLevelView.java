@@ -1,18 +1,17 @@
 package playerBoundary;
 
 import java.awt.Color;
-
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-
 import playerController.LevelController;
-import playerController.NavigateMainMenu;
 import playerEntity.GameModel;
-import playerEntity.Level;
-
 import playerEntity.LightningLevel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class LightningLevelView extends LevelView{
 	KabasujiPlayerApplication app;
 	JLabel timeLeft; 
@@ -42,7 +41,7 @@ public class LightningLevelView extends LevelView{
 		setLayout(null);
 		
 		// Create the scrollPane
-		JScrollPane scrollPane = new JScrollPane(bullpenView, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane = new JScrollPane(bullpenView, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(25, 25, 850, 7*bullpenView.getSquareWidth());
 		add(scrollPane);
 		

@@ -2,10 +2,11 @@ package playerEntity;
 
 import java.util.Hashtable;
 import java.util.LinkedList;
-
-import playerBoundary.KabasujiPlayerApplication;
-import playerController.IMove;
-
+/**
+ * 
+ * @author dorothy
+ *
+ */
 public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	ReleaseLevel lv;
 	

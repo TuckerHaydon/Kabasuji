@@ -5,6 +5,11 @@ import java.util.Hashtable;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Achievement;
 
+/**
+ * 
+ * @author dorothy
+ *
+ */
 public class ResetAchievementMove implements IMove{
 	Hashtable<String, Achievement> achievements;
 	

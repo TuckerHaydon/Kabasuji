@@ -3,6 +3,11 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Tile;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class MirrorTileVerticalMove implements IMove{
 	Tile tile;
 	
@@ -12,14 +17,15 @@ public class MirrorTileVerticalMove implements IMove{
 	
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		return false;
+		tile.flipVertical();
+		app.getGameWindow().getLevelView().getScrollPane().repaint();		
+		return true;
 	}
 
 	@Override
 	public boolean isValid(KabasujiPlayerApplication app) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

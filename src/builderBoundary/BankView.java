@@ -11,6 +11,11 @@ import builderEntity.Bank;
 import builderEntity.Square;
 import builderEntity.Tile;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BankView extends View{
 	
 	Bank bank;

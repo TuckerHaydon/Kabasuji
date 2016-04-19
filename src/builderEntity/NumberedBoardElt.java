@@ -2,6 +2,11 @@ package builderEntity;
 
 import java.awt.Color;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class NumberedBoardElt extends PlayableBoardElt{
 
 	Color c;

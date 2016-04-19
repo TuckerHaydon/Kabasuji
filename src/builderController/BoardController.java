@@ -7,6 +7,11 @@ import builderBoundary.BoardView;
 import builderEntity.Board;
 import builderEntity.BuilderModel;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class BoardController extends MouseAdapter {
 	
 	BoardView bv;
