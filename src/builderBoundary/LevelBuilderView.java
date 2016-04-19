@@ -155,6 +155,9 @@ public class LevelBuilderView extends JPanel{
 			boardEltColorsBox.setVisible(true);
 			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(numberedBoardEltTypes));
 			break;
+		default:
+			System.err.println("Bad input in LevelbuilderView.");
+			break;
 		}
 		
 		// update the UI
