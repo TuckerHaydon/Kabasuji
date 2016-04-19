@@ -11,6 +11,8 @@ public class TileView extends View {
 	int x;
 	int y;
 	
+	int SQUARE_WIDTH = 40;
+	
 	public TileView(Tile t){
 		this.t = t;
 	}
@@ -22,8 +24,11 @@ public class TileView extends View {
 
 	@Override
 	public void initView() {
-		this.setSize(100, 100);
-		
+		this.setSize(6*SQUARE_WIDTH, 6*SQUARE_WIDTH);
+	}
+	
+	public int getSquareWidth(){
+		return SQUARE_WIDTH;
 	}
 	
 
@@ -47,16 +52,14 @@ public class TileView extends View {
 	}
 	
 	public void paintComponent(Graphics g){
-		paintTile(g, t, 0, 0, 100, 100);
+		paintTile(g, t, 0, 0, 6*SQUARE_WIDTH, 6*SQUARE_WIDTH);
 	}
 	
 	void paintTile(Graphics g, Tile t, int upperX, int upperY, int width, int height){
 		Square squares[] = t.getSquares();
 		
-		int SQUARE_WIDTH = 10;
-		
 		for(Square s: squares){
-			g.setColor(Color.GREEN);
+			g.setColor(Color.WHITE);
 			g.fillRect(upperX+s.getRelX()*SQUARE_WIDTH + width/2, upperY+s.getRelY()*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);
 			g.setColor(Color.BLACK);
 			g.drawRect(upperX+s.getRelX()*SQUARE_WIDTH+width/2, upperY+s.getRelY()*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);

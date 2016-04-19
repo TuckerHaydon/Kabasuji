@@ -11,9 +11,6 @@ import playerEntity.NumberBoardElt;
 import playerEntity.PlayableBoardElt;
 import playerEntity.UnplayableBoardElt;
 
-/*
- * Author: Damani
- */
 
 public class BoardView extends View{
 	Board b;
@@ -57,7 +54,7 @@ public class BoardView extends View{
 						squareColor = Color.RED;
 					}
 					else{
-						squareColor = Color.GREEN;
+						squareColor = Color.WHITE;
 					}
 				}
 				else if(elts[row][col] instanceof UnplayableBoardElt){
