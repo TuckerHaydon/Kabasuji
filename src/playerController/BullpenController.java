@@ -26,7 +26,6 @@ public class BullpenController extends MouseAdapter {
 	
 	@Override
 	public void mousePressed(MouseEvent me){
-		System.out.println("Bullpen Pressed");
 		
 		int x = me.getX();
 		int y = me.getY();
@@ -34,48 +33,92 @@ public class BullpenController extends MouseAdapter {
 		int cellNum = x/boxwidth;
 		
 		Tile pressedTile = bp.getTiles().get(cellNum);
-		TileView tv = new TileView(pressedTile);
-		app.getGameWindow().setDraggedTile(tv);
-		bp.removeTile(pressedTile);
-		
-		double mouseLocationX = app.getGameWindow().getMousePosition().getX();
-		double mouseLocationY = app.getGameWindow().getMousePosition().getY();
-		
-		int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
-		int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
-		
-		tv.setLocation(centerLocationX, centerLocationY);
-		app.getGameWindow().displayDraggedTile();
+	
+		if(me.isControlDown()){
+			System.out.println("Control is down.");
+			if (me.getButton() == MouseEvent.BUTTON1){
+				System.out.println("Left click.");
+				RotateTileClockwiseMove move = new RotateTileClockwiseMove(pressedTile);
+				if(move.isValid(app)){
+					move.doMove(app);
+				}
+			}
+			else if (me.getButton() == MouseEvent.BUTTON3)
+			{
+				System.out.println("Right click.");
+				RotateTileCounterClockwiseMove move = new RotateTileCounterClockwiseMove(pressedTile);
+				if(move.isValid(app)){
+					move.doMove(app);
+				}
+			}
+		}
+		else if(me.isShiftDown()){
+			System.out.println("Shift is down.");
+			if (me.getButton() == MouseEvent.BUTTON1){
+				System.out.println("Left click.");
+				MirrorTileHorizontalMove move = new MirrorTileHorizontalMove(pressedTile);
+				if(move.isValid(app)){
+					move.doMove(app);
+				}
+			}
+			else if (me.getButton() == MouseEvent.BUTTON3)
+			{
+				System.out.println("Right click.");
+				MirrorTileVerticalMove move = new MirrorTileVerticalMove(pressedTile);
+				if(move.isValid(app)){
+					move.doMove(app);
+				}
+			}
+		}
+		else{
+			
+			TileView tv = new TileView(pressedTile);
+			app.getGameWindow().setDraggedTile(tv);
+			bp.removeTile(pressedTile);
+			
+			double mouseLocationX = app.getGameWindow().getMousePosition().getX();
+			double mouseLocationY = app.getGameWindow().getMousePosition().getY();
+			
+			int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
+			int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
+			
+			tv.setLocation(centerLocationX, centerLocationY);
+			app.getGameWindow().displayDraggedTile();
+		}
 		
 	}
 	
 	@Override
 	public void mouseReleased(MouseEvent me){
 		
-		Tile tile = app.getGameWindow().getDraggedTile().getTile();
-		if(tile == null){
-			System.err.print("BullpenController::mouseRealeased");
+		if(me.isControlDown()){/* NO OP*/}
+		else if(me.isShiftDown()){/* NO OP*/}
+		else{
+			Tile tile = app.getGameWindow().getDraggedTile().getTile();
+			if(tile == null){
+				System.err.print("BullpenController::mouseRealeased");
+			}
+			else
+			{
+				bp.addTile(tile);
+				app.getGameWindow().releaseDraggedTile();
+				app.getGameWindow().revalidate();
+				app.getGameWindow().repaint();
+			}
+			
+			
+			//LevelAchievementMonitor AM = m.getCurrentAM();
+			IMove move = new TileToBullpenMove(tile, bp);
+	//			if(move.doMove(app)){
+	//				if(AM.updateAchievement_releaseonbullpen()){
+	//					AM.popUpScreen();
+	//				}
+	//			}else{
+	//				if(AM.updateAchievement_wheninvalidmove()){
+	//					AM.popUpScreen();
+	//				}
+	//			}
 		}
-		else
-		{
-			bp.addTile(tile);
-			app.getGameWindow().releaseDraggedTile();
-			app.getGameWindow().revalidate();
-			app.getGameWindow().repaint();
-		}
-		
-		
-		//LevelAchievementMonitor AM = m.getCurrentAM();
-		IMove move = new TileToBullpenMove(tile, bp);
-//			if(move.doMove(app)){
-//				if(AM.updateAchievement_releaseonbullpen()){
-//					AM.popUpScreen();
-//				}
-//			}else{
-//				if(AM.updateAchievement_wheninvalidmove()){
-//					AM.popUpScreen();
-//				}
-//			}
 	}
 	
 	@Override

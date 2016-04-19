@@ -12,14 +12,16 @@ public class RotateTileClockwiseMove implements IMove{
 	
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		tile.rotateRight();
+		app.getGameWindow().updateView();		
+		return true;
 	}
 
 	@Override
 	public boolean isValid(KabasujiPlayerApplication app) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
