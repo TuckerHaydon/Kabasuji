@@ -113,7 +113,7 @@ public class KabasujiPlayerApplication {
 		JFrame splash = new JFrame("Tucker,Dorothy,Kacper,Joey,Nidhi,Damani");
 		splash.setBounds(200, 250, 505, 400);
 		JLabel meow = new JLabel("");
-		meow.setIcon(new ImageIcon("src\\resources\\pictures\\RainbowBunchie.gif"));
+		meow.setIcon(new ImageIcon("src/resources/pictures/RainbowBunchie.gif"));
 //		splash.getContentPane().add(new JLabel("Welcome!\nAuthors: Tucker, Dorothy, Kacper, Nidhi, and Damani", SwingConstants.CENTER));
 		splash.getContentPane().add(meow);
 		
