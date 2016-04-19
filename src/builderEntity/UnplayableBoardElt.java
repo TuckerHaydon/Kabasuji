@@ -17,5 +17,9 @@ public class UnplayableBoardElt extends BoardElt{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public String getType() {
+		return "unplayable";
+	}
 
 }

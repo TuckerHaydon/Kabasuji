@@ -29,6 +29,9 @@ public abstract class BoardElt {
 	@Override
 	public abstract String toString();
 	
+	public String getType() {
+		return null;
+	}
 
 	
 }

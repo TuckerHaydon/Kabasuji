@@ -45,4 +45,7 @@ public class Bullpen {
 		return tiles;
 	}
 	
+	public boolean empty() {
+		return tileReferenceNumbers.size() == 0;
+	}
 }

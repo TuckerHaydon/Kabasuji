@@ -1,9 +1,12 @@
 package builderBoundary;
 
+import java.util.Enumeration;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import builderController.IMove;
 import builderEntity.BuilderModel;
 
 /**
@@ -21,8 +24,9 @@ public class KabasujiBuilderApplication {
 	
 	BuilderModel m;
 	
+	java.util.Stack<IMove> moves = new java.util.Stack<IMove>();
+	
 	public KabasujiBuilderApplication(){
-		
 	}
 	
 	public void init(){
@@ -123,4 +127,32 @@ public class KabasujiBuilderApplication {
 		this.levelEditor.initView();
 	}
 
+	public Enumeration<IMove> getMoves() {
+		return moves.elements();
+	}
+	
+	public IMove popMove() {
+		return this.moves.pop();
+	}
+	
+	public IMove pushMove(IMove m) {
+		return this.moves.push(m);
+	}
+	
+	public boolean undoMove() {
+		IMove m = popMove();
+		
+		if(m == null) {
+			return false;
+		}
+		
+		boolean stat = m.undoMove();
+		if(stat) {
+			refreshLevelEditor();
+		} else{
+			pushMove(m);
+		}
+		
+		return stat;
+	}
 }

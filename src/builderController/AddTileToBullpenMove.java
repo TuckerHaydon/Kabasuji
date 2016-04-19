@@ -22,7 +22,6 @@ public class AddTileToBullpenMove implements IMove {
 		this.bullpenView = bpv;
 	}
 
-	
 	public boolean doMove() {
 		
 		// Add the tile to the bullpen
@@ -42,7 +41,9 @@ public class AddTileToBullpenMove implements IMove {
 	}
 	
 	public boolean undoMove() {
-		return false;
+		if(bullpenView.getBullpen().empty()) return false;
+		bullpenView.getBullpen().remTile(t.getReferenceNumber());
+		return true;
 	}
 
 }
