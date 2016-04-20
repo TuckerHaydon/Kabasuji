@@ -12,7 +12,7 @@ import builderEntity.LevelParser;
 /**
  * 
  * @author tuckerhaydon
- *
+ * @author wilderj
  */
 public class AddLevelToGameMove implements IMove {
 	

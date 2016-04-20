@@ -1,0 +1,21 @@
+BeginLevel
+release
+-1
+BeginHexomino
+1 
+EndHexomino
+BeginElts
+null null null null null null null null null null null null 
+null N2G null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+null null null null null null null null null null null null 
+EndElts
+EndLevel
