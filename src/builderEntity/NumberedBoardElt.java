@@ -25,7 +25,9 @@ public class NumberedBoardElt extends PlayableBoardElt{
 	public Color getColor(){
 		return this.c;
 	}
-	
+	public String getColorString() {
+		return c.toString();
+	}
 	void setNum(int n){
 		this.num = n;
 	}
@@ -33,6 +35,10 @@ public class NumberedBoardElt extends PlayableBoardElt{
 	public int getNum(){
 		return this.num;
 
+	}
+	
+	public String getType() {
+		return "numbered";
 	}
 	
 	@Override

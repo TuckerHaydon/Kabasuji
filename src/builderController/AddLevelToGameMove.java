@@ -61,7 +61,10 @@ public class AddLevelToGameMove implements IMove {
 
 	@Override
 	public boolean undoMove() {
-		return false;
+		
+		m.getGame().setLevel(null, levelIndex);
+		
+		return true;
 	}
 
 }

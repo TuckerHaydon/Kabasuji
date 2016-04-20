@@ -72,7 +72,7 @@ public class ReleaseLevelView extends LevelView{
 		boardView.initControllers();
 		
 		// Init own controllers
-		setMouseAdapter(new LevelController());
+		setMouseAdapter(new LevelController(app, app.getGameWindow().getLevelView()));
 	}
 
 	@Override

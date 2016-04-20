@@ -28,5 +28,9 @@ public class PlayableBoardElt extends BoardElt{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public String getType() {
+		return "playable";
+	}
 
 }

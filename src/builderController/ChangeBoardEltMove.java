@@ -15,11 +15,11 @@ import builderEntity.UnplayableBoardElt;
  */
 public class ChangeBoardEltMove implements IMove {
 	
-	String selectedBoardEltType, selectedColor; 
-	int selectedNumber;
+	String selectedBoardEltType, selectedColor, prevBoardEltType, prevColor; 
+	int selectedNumber, prevNumber;
 	int row, col;
 	Board board;
-	boolean isHint;
+	boolean isHint, prevHint;
 	
 	public ChangeBoardEltMove(BuilderModel model, Board board, int row, int col) {
 		this.board = board;
@@ -29,6 +29,11 @@ public class ChangeBoardEltMove implements IMove {
 		this.selectedColor = model.getSelectedColor();
 		this.selectedNumber = model.getSelectedNumber();
 		isHint = model.isHintSelected();
+		
+		//need previous state for undo
+//		this.prevBoardEltType = board.getBoardElts()[row][col].getType();
+//		this.prevColor = ( (NumberedBoardElt)board.getBoardElts()[row][col]).getColorString();
+//		this.prevHint = ((PlayableBoardElt)board.getBoardElts()[row][col]).isHint();
 	}
 
 	@Override
@@ -52,6 +57,7 @@ public class ChangeBoardEltMove implements IMove {
 			break;
 		default:
 			System.err.println("Something wrong with the board elt type selection in ChangeBoardEltMove");
+			return false;
 		}
 		
 		return true;
