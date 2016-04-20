@@ -54,9 +54,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 	public void initView(){
 		
 		exportGameButton.setBackground(new Color(128, 128, 128));
-		exportGameButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		exportGameButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		goToMenuButton.setBackground(new Color(128, 128, 128));
-		goToMenuButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		goToMenuButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		
 		// Init sub components
 		levelBuilderView.initView();
@@ -76,10 +76,10 @@ public class LevelEditor extends JFrame implements KeyListener {
 		contentPane.setLayout(null);
 		
 		// Add the buttons
-		exportGameButton.setBounds(5, 5, 100, 33);
+		exportGameButton.setBounds(5, 5, 150, 33);
 		contentPane.add(exportGameButton);
 		
-		goToMenuButton.setBounds(135, 5, 100, 33);
+		goToMenuButton.setBounds(170, 5, 150, 33);
 		contentPane.add(goToMenuButton);
 		
 		// Add the level view
