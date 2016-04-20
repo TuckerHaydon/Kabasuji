@@ -1,5 +1,7 @@
 package builderController;
 
+import java.awt.Color;
+
 import builderEntity.BuilderModel;
 
 /**
@@ -11,6 +13,7 @@ public class SetBoardEltColorMove implements IMove {
 
 	BuilderModel model;
 	String color;
+	String prev;
 	
 	SetBoardEltColorMove(BuilderModel m, String color){
 		this.model = m;
@@ -19,14 +22,16 @@ public class SetBoardEltColorMove implements IMove {
 	
 	@Override
 	public boolean doMove() {
+		prev = model.getSelectedColor();
 		model.setSelectedColor(color);
 		return true;
 	}
 
 	@Override
 	public boolean undoMove() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		model.setSelectedColor(prev);
+		return true;
 	}
 
 	@Override

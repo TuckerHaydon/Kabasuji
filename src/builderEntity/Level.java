@@ -13,6 +13,10 @@ public class Level {
 	String levelType;
 	int levelData;
 	
+	public static String PUZZLE = "Puzzle";
+	public static String LIGHTNING = "Lightning";
+	public static String RELEASE = "Release";
+	
 	public Level(Bullpen bp, Board board, int levelNum, String levelType, int levelData){;
 		this.bullpen = bp;
 		this.board = board;
@@ -26,7 +30,7 @@ public class Level {
 		this.board = new Board();
 		this.levelNum = -1;
 		this.levelData = -1;
-		this.levelType = "Puzzle";
+		this.levelType = PUZZLE;
 	}
 	
 	public Bullpen getBullpen(){
@@ -62,7 +66,7 @@ public class Level {
 	}
 	
 	public int getlevelData(){
-		return -1;
+		return this.levelData;
 	}
 	
 	public void setLevelData(int data){

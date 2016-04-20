@@ -11,6 +11,7 @@ public class SetBoardEltNumMove implements IMove{
 	
 	int num;
 	BuilderModel m;
+	int prev;
 	
 	public SetBoardEltNumMove(BuilderModel m, int num) {
 		this.num = num;
@@ -19,14 +20,18 @@ public class SetBoardEltNumMove implements IMove{
 
 	@Override
 	public boolean doMove() {
-		m.setSelectedNumber(num);
+		if(isValid()){
+			prev = m.getSelectedNumber();
+			m.setSelectedNumber(num);
+		} else return false;
+		
 		return true;
 	}
 
 	@Override
 	public boolean undoMove() {
-		// TODO Auto-generated method stub
-		return false;
+		m.setSelectedNumber(prev);
+		return true;
 	}
 
 	@Override

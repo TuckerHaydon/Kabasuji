@@ -12,6 +12,7 @@ public class SetLevelTypeMove implements IMove {
 	Level l;
 	String levelType;
 	LevelBuilderView editorView;
+	String prev;
 	
 	SetLevelTypeMove(Level l, String levelType, LevelBuilderView editorView){
 		this.l = l;
@@ -21,7 +22,7 @@ public class SetLevelTypeMove implements IMove {
 
 	@Override
 	public boolean doMove() {
-		
+		prev = l.getLevelType();
 		l.setLevelType(levelType);
 		editorView.updateView(levelType);
 		
@@ -31,7 +32,9 @@ public class SetLevelTypeMove implements IMove {
 	@Override
 	public boolean undoMove() {
 		// TODO Auto-generated method stub
-		return false;
+		l.setLevelType(prev);
+		editorView.updateView(levelType);
+		return true;
 	}
 
 	@Override
