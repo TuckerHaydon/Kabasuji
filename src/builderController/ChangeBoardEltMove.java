@@ -29,10 +29,11 @@ public class ChangeBoardEltMove implements IMove {
 		this.selectedColor = model.getSelectedColor();
 		this.selectedNumber = model.getSelectedNumber();
 		isHint = model.isHintSelected();
+		
 		//need previous state for undo
-		this.prevBoardEltType = board.getBoardElts()[row][col].getType();
-		this.prevColor = ( (NumberedBoardElt)board.getBoardElts()[row][col]).getColorString();
-		this.prevHint = ((PlayableBoardElt)board.getBoardElts()[row][col]).isHint();
+//		this.prevBoardEltType = board.getBoardElts()[row][col].getType();
+//		this.prevColor = ( (NumberedBoardElt)board.getBoardElts()[row][col]).getColorString();
+//		this.prevHint = ((PlayableBoardElt)board.getBoardElts()[row][col]).isHint();
 	}
 
 	@Override
