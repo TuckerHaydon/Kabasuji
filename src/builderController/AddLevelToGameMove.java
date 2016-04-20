@@ -18,14 +18,12 @@ public class AddLevelToGameMove implements IMove {
 	
 	BuilderModel m;
 	int levelIndex;
+	ArrayList<String> allnames;
+	String levelname;
 	
 	public AddLevelToGameMove(BuilderModel m, int levelIndex) {
 		this.m = m;
 		this.levelIndex = levelIndex;
-	}
-
-	@Override
-	public boolean doMove() {
 		
 		File folder = new File("src/resources/levels/");
 		File[] listOfFiles = folder.listFiles();
@@ -38,21 +36,37 @@ public class AddLevelToGameMove implements IMove {
 		    }
 		}
 		
-		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to add", "Level "+levelIndex,
-		        JOptionPane.QUESTION_MESSAGE, null, levelNames.toArray(), levelNames.get(0));
-
-		return processName(chosenLevelName);
+		allnames = levelNames;
+		
 	}
-	
-	boolean processName (String chosenLevelName) {
 
-		String path = "src/resources/levels/"+chosenLevelName;
+	@Override
+	public boolean doMove() {
+
+		String path = "src/resources/levels/"+levelname;
 		Level lvl = LevelParser.getLevel(path);
 		lvl.setLevelNum(levelIndex);
 		
 		m.getGame().setLevel(lvl, levelIndex);
 		return true;
 	}
+	
+	public boolean requestName(){
+		levelname = (String) JOptionPane.showInputDialog(null, "Choose a level to add", "Level "+levelIndex,
+		        JOptionPane.QUESTION_MESSAGE, null, allnames.toArray(), allnames.get(0));
+
+		return true;
+	}
+	
+//	public boolean processName (String chosenLevelName) {
+//
+//		String path = "src/resources/levels/"+chosenLevelName;
+//		Level lvl = LevelParser.getLevel(path);
+//		lvl.setLevelNum(levelIndex);
+//		
+//		m.getGame().setLevel(lvl, levelIndex);
+//		return true;
+//	}
 
 	@Override
 	public boolean isValid() {
@@ -65,6 +79,10 @@ public class AddLevelToGameMove implements IMove {
 		m.getGame().setLevel(null, levelIndex);
 		
 		return true;
+	}
+	
+	public void setLevelName(String name){
+		this.levelname = name;
 	}
 
 }

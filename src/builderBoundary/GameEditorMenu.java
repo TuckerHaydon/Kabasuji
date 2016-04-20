@@ -19,7 +19,7 @@ import builderEntity.BuilderModel;
 public class GameEditorMenu extends JFrame {
 	
 	KabasujiBuilderApplication app;
-	BuilderModel m;
+	BuilderModel m; 
 	
 	JButton createGameButton;
 	JButton editGameButton;

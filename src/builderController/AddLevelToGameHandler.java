@@ -25,6 +25,7 @@ public class AddLevelToGameHandler implements ActionListener {
 		AddLevelToGameMove move = new AddLevelToGameMove(m, levelIndex);
 		
 		if(move.isValid()){
+			move.requestName();
 			move.doMove();
 		}
 		

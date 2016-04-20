@@ -37,37 +37,7 @@ public class Tile {
 		
 		anchor = new Anchor(0,0, this);
 	}
-	
-	public void rotateRight() {
 
-		int temp;
-		for(Square square : squares) {
-			temp = square.anchorRelX;
-			square.anchorRelX = square.anchorRelY;
-			square.anchorRelY = -temp;
-		}
-	}
-	
-	public void rotateLeft() {
-		int temp;
-		for(Square square : squares) {
-			temp = square.anchorRelX;
-			square.anchorRelX = -square.anchorRelY;
-			square.anchorRelY = temp;
-		}
-	}
-	
-	public void flipVertical() {
-		for(Square square : squares) {
-			square.anchorRelY = -square.anchorRelY;
-		}
-	}
-	
-	public void flipHorizontal() {
-		for(Square square : squares) {
-			square.anchorRelX = -square.anchorRelX;
-		}
-	}
 	
 	public Tile() {
 		squares = new Square[6];
