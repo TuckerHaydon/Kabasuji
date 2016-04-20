@@ -13,7 +13,7 @@ public class Square {
 	int anchorRelY;
 	Tile owner;
 	
-	Square(int anchorRelX, int anchorRelY, Tile tile) {
+	public Square(int anchorRelX, int anchorRelY, Tile tile) {
 		this.anchorRelX = anchorRelX;
 		this.anchorRelY = anchorRelY;
 		this.owner = tile;

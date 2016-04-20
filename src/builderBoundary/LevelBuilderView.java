@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 import builderController.BankController;
 import builderController.BoardController;
+import builderBoundary.BoardView;
 import builderController.BullpenController;
 import builderController.SetBoardEltColorHandler;
 import builderController.SetBoardEltNumHandler;
@@ -181,5 +182,9 @@ public class LevelBuilderView extends JPanel{
 	
 	public BankView getBankView(){
 		return this.bankView;
+	}
+
+	public BoardView getBoardView() {
+		return this.boardView;
 	}
 }
