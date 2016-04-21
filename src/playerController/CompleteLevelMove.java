@@ -33,4 +33,8 @@ public class CompleteLevelMove implements IMove{
 		}
 		return false;
 	}
+	
+	public boolean undo(KabasujiPlayerApplication app) {
+		return false;
+	}
 }

@@ -16,6 +16,13 @@ public class LightningLevel extends Level{
 		this.allowedTime = allowedTime;
 	}
 	
+	int getAllowedTime() {
+		return this.allowedTime;
+	}
+	
+	public int getUsedTime() {
+		return this.usedTime;
+	}
 	void updateTime(int delta){
 		usedTime += delta;
 	}
@@ -34,5 +41,12 @@ public class LightningLevel extends Level{
 	public boolean hasWon() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	/**
+	 * @param i
+	 */
+	public void setUsedTime(int i) {
+		usedTime = i;
 	}
 }

@@ -28,5 +28,10 @@ public class RotateTileClockwiseMove implements IMove{
 		// TODO Auto-generated method stub
 		return true;
 	}
-
+	
+	public boolean undo(KabasujiPlayerApplication app) {
+		tile.rotateLeft();
+		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		return true;
+	}
 }

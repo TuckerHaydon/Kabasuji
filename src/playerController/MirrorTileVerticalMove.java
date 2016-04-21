@@ -27,5 +27,11 @@ public class MirrorTileVerticalMove implements IMove{
 		// TODO Auto-generated method stub
 		return true;
 	}
+	
+	public boolean undo(KabasujiPlayerApplication app) {
+		tile.flipVertical();
+		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		return true;
+	}
 
 }

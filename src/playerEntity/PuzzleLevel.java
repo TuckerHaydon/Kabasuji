@@ -16,6 +16,10 @@ public class PuzzleLevel extends Level {
 		
 	}
 	
+	public int getUsedMoves() {
+		return this.usedMove;
+	}
+	
 	void updateMoves(int delta){
 		usedMove += delta;
 	}
@@ -35,5 +39,12 @@ public class PuzzleLevel extends Level {
 	public boolean hasWon() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	/**
+	 * @param i
+	 */
+	public void setUsedMoves(int i) {
+		usedMove = i;
 	}
 }

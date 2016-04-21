@@ -20,6 +20,9 @@ public class ReleaseLevel extends Level {
 		numEltLeft = 0;		
 	}
 	
+	public int getNumLeft() {
+		return this.numEltLeft;
+	}
 	/*added by Dorothy*/
 	public void decrementNumElt(){
 		this.numEltLeft--;
@@ -33,5 +36,12 @@ public class ReleaseLevel extends Level {
 	public boolean hasWon() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	/**
+	 * @param i
+	 */
+	public void setNumLeft(int i) {
+		this.numEltLeft = i;
 	}
 }

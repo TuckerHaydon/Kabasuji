@@ -12,24 +12,27 @@ import playerEntity.Achievement;
  */
 public class ResetAchievementMove implements IMove{
 	Hashtable<String, Achievement> achievements;
+	boolean[] isReset;
 	
 	public ResetAchievementMove(Hashtable<String, Achievement> achievements){
 		this.achievements=achievements;
+		isReset = new boolean[10];
 	}
 	
 	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
 		if(isValid(app)){
-			this.achievements.get("BabySteps").reset();
-			this.achievements.get("Rebel").reset();
-			this.achievements.get("OverAchiever").reset();
-			this.achievements.get("SlowPoke").reset();
-			this.achievements.get("SpeedyGonzales").reset();
-			this.achievements.get("JustUnderTheWire").reset();
-			this.achievements.get("NoRegrets").reset();
-			this.achievements.get("RageQuit").reset();
-			this.achievements.get("K-komboBreaker").reset();
-			this.achievements.get("VictoryLap").reset();
+			
+			isReset[0] = this.achievements.get("BabySteps").reset();
+			isReset[1] = this.achievements.get("Rebel").reset();
+			isReset[2] = this.achievements.get("OverAchiever").reset();
+			isReset[3] = this.achievements.get("SlowPoke").reset();
+			isReset[4] = this.achievements.get("SpeedyGonzales").reset();
+			isReset[5] = this.achievements.get("JustUnderTheWire").reset();
+			isReset[6] = this.achievements.get("NoRegrets").reset();
+			isReset[7] = this.achievements.get("RageQuit").reset();
+			isReset[8] = this.achievements.get("K-komboBreaker").reset();
+			isReset[9] = this.achievements.get("VictoryLap").reset();
 			System.out.println("ResetAchievementMove::doMove");
 			return true;
 		}
@@ -41,6 +44,11 @@ public class ResetAchievementMove implements IMove{
 		if(!achievements.isEmpty()){
 			return true;
 		}
+		return false;
+	}
+	
+	//whoever wrote this can deal with it
+	public boolean undo(KabasujiPlayerApplication app) {
 		return false;
 	}
 }

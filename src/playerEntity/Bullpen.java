@@ -22,6 +22,13 @@ public class Bullpen {
 		return tiles.add(t);
 	}
 	
+	public boolean addTile(int refNum) {
+		for(Tile t: tiles){
+			if(t.getReferenceNumber() == refNum) return tiles.add(t);
+		}
+		return false;
+	}
+	
 	public boolean removeTile(Tile t) {
 		return tiles.remove(t);
 	}

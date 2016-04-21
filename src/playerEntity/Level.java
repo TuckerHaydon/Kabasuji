@@ -64,4 +64,11 @@ public abstract class Level {
 	}
 	
 	abstract public void reset();
+
+	/**
+	 * @param i
+	 */
+	public void setScore(int i) {
+		this.score = i;
+	}
 }

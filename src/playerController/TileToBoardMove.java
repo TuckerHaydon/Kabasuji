@@ -3,6 +3,7 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Anchor;
 import playerEntity.Board;
+import playerEntity.LightningLevel;
 import playerEntity.PlayableBoardElt;
 import playerEntity.Square;
 import playerEntity.UnplayableBoardElt;
@@ -54,4 +55,13 @@ public class TileToBoardMove implements IMove{
 		return valid;
 	}
 
+	public boolean undo(KabasujiPlayerApplication app) {
+		if(app.getGameModel().getCurrentLevel() instanceof LightningLevel) {
+			return false;
+		}
+		board.removeTile(anchor.getTile());
+		app.getGameModel().getCurrentLevel().getBullpen().addTile(anchor.getTile().getReferenceNumber());
+		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		return true;
+	}
 }

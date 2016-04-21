@@ -38,7 +38,12 @@ public class Achievement {
 		this.isEarned=true;
 	}
 	
-	public void reset(){
-		this.isEarned=false;
+	public boolean reset(){
+		if(isEarned) {
+			this.isEarned=false;
+			return true;
+		}
+		return false;
+		
 	}
 }
