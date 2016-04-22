@@ -10,8 +10,6 @@ public class Board {
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
 
-	Tile boardTile;
-
 	public static int XELTS = 12;
 	public static int YELTS = 12;
 
@@ -33,6 +31,14 @@ public class Board {
 
 	public boolean removeTile(Tile t) {
 		return tiles.remove(t);
+	}
+
+	public boolean empty(){
+		boolean isEmpty = false;
+		if(tiles == null){
+			isEmpty = true;
+		}
+		return isEmpty;
 	}
 
 	public boolean removeAll() {
@@ -61,8 +67,10 @@ public class Board {
 	}
 
 	public Tile getTile(int row, int col){
-		
-		for(int i = 0; i < tiles.size(); i++){		
+
+		Tile boardTile = null;
+
+		for(int i = 0; i < tiles.size(); i++){			
 			if((tiles.get(i).anchor.row == row) && (tiles.get(i).anchor.col == col)){
 				boardTile = tiles.get(i);
 			}
@@ -71,7 +79,7 @@ public class Board {
 				{
 					int square_row = tiles.get(i).squares[j].anchorRelX + tiles.get(i).anchor.row;
 					int square_col = tiles.get(i).squares[j].anchorRelY + tiles.get(i).anchor.col;
-					
+
 					if(square_row == row && square_col == col){
 						boardTile = tiles.get(i);
 					}

@@ -12,11 +12,8 @@ import playerEntity.BoardElt;
 import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
 import playerEntity.LevelAchievementMonitor;
-import playerEntity.NumberBoardElt;
-import playerEntity.PlayableBoardElt;
-import playerEntity.ReleaseLevel;
 import playerEntity.Tile;
-import playerEntity.UnplayableBoardElt;
+import playerEntity.Square;
 
 /**
  * 
@@ -39,7 +36,7 @@ public class BoardController extends MouseAdapter{
 	//activity here depends on what kind of level we have 
 	@Override
 	public void mousePressed(MouseEvent me){
-		
+	
 		GameWindow gw = app.getGameWindow();
 		GameModel m = app.getGameModel();
 		

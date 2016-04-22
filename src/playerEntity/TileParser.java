@@ -37,7 +37,11 @@ public class TileParser {
 		for(int i = 0; i < 6; i++){
 			int relX = fileScanner.nextInt();
 			int relY = fileScanner.nextInt();
-			squares[i] = new Square(relX, relY, t);
+			if(relX == 0 && relY == 0) {
+				squares[i] = new Anchor(0,0,t);
+			} else{
+				squares[i] = new Square(relX, relY, t);
+			}
 		}
 		
 		
