@@ -123,6 +123,14 @@ public class KabasujiBuilderApplication {
 		splash.dispose();
 	}
 	
+	public void hideAll(){
+		mainMenu.setVisible(false);
+		levelEditorMenu.setVisible(false);
+		levelEditor.setVisible(false);
+		gameEditorMenu.setVisible(false);
+		gameEditor.setVisible(false);
+	}
+	
 	public void refreshLevelEditor(){
 		this.levelEditor.initView();
 	}

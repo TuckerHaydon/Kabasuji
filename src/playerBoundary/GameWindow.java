@@ -39,11 +39,6 @@ public class GameWindow extends JFrame {
 		menuButton = new JButton("Main Menu");
 		resetButton = new JButton("Reset Level");
 		
-		// TODO NOT THIS
-		LoadGame lg = new LoadGame(m, app);
-		lg.loadInitialLevel();
-		m.setCurrentLevel(1);
-		
 	}
 	
 	public void initView(){
