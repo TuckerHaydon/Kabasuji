@@ -54,31 +54,17 @@ public class BoardController extends MouseAdapter{
 		int col = x / eltWidth;
 		BoardElt elt = b.getBoardElt(row, col);
 
+		Tile thisTile = b.getTile(row, col);
 
-		if(elt instanceof PlayableBoardElt){
-			PlayableBoardElt pbElt = (PlayableBoardElt) elt;
-			//check if elt is covered and if it is release level
-			if(pbElt.getCovered() && (app.getGameModel().getCurrentLevel() instanceof ReleaseLevel)){
-				System.out.println("PlayableBoardElt");
-				Tile thisTile = b.getTile(row, col);
+		//create new tileview
+		TileView tv = new TileView(thisTile);
+		app.getGameWindow().setDraggedTile(tv);
 
-				//create new tileview
-				TileView tv = new TileView(thisTile);
-				app.getGameWindow().setDraggedTile(tv);
-
-				//set dragged tile view, update coordinates, etc
-				PickUpTileBoardMove pbm = new PickUpTileBoardMove (thisTile, b);
-				if(pbm.isValid(app)){
-					pbm.doMove(app);
-				}
-			}
-			else if (pbElt.getCovered() && !(app.getGameModel().getCurrentLevel() instanceof ReleaseLevel)){
-				return;
-			}
-
-		}			
-		//System.out.println(row + " "+col);
-
+		//set dragged tile view, update coordinates, etc
+		PickUpTileBoardMove pbm = new PickUpTileBoardMove (thisTile, b);
+		if(pbm.isValid(app)){
+			pbm.doMove(app);
+		}
 	}
 
 
@@ -92,17 +78,8 @@ public class BoardController extends MouseAdapter{
 
 		// Determine which BoardElt that is
 		int row = y / eltWidth;
-		int col = x / eltWidth;
+		int col = x / eltWidth;		
 
-		// Find the element at that location
-		//Check if covered
-		//if covered, send tile back to anchor location
-		
-		//if uncovered and 
-
-		//if(elt instanceof PlayableBoardElt)
-		
-		
 		LevelAchievementMonitor AM = m.getCurrentAM();
 		GameAchievementMonitor GAM = m.getGAM();
 		TileView tileview = gw.getDraggedTile();
