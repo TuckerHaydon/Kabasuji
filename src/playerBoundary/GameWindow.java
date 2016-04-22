@@ -88,6 +88,7 @@ public class GameWindow extends JFrame {
 		// Register the button controllers
 		menuButton.addActionListener(new GameWindowNavigateMainMenu(app,m));
 		resetButton.addActionListener(new ResetLevelController(app,m));
+		
 	}
 	
 	public void setDraggedTile(TileView tv){
@@ -102,8 +103,6 @@ public class GameWindow extends JFrame {
 	public TileView getDraggedTile(){
 		return this.draggedTile;
 	}
-	
-
 	
 	public void releaseDraggedTile(){
 		this.remove(draggedTile);
