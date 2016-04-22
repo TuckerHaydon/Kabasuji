@@ -8,15 +8,10 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Board;
-import playerEntity.BoardElt;
 import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
 import playerEntity.LevelAchievementMonitor;
-import playerEntity.NumberBoardElt;
-import playerEntity.PlayableBoardElt;
-import playerEntity.ReleaseLevel;
 import playerEntity.Tile;
-import playerEntity.UnplayableBoardElt;
 
 /**
  * 
@@ -49,10 +44,10 @@ public class BoardController extends MouseAdapter{
 		// Determine which BoardElt that is
 		int row = y / eltWidth;
 		int col = x / eltWidth;
-		BoardElt elt = b.getBoardElt(row, col);
-
+		//BoardElt elt = b.getBoardElt(row, col);
+		System.out.println(row + " " + col);
 		Tile thisTile = b.getTile(row, col);
-
+		
 		//create new tileview
 		TileView tv = new TileView(thisTile);
 		app.getGameWindow().setDraggedTile(tv);
