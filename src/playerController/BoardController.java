@@ -141,7 +141,6 @@ public class BoardController extends MouseAdapter{
 			app.getGameWindow().displayDraggedTile();
 		}
 		
-		
 	}
 
 }
