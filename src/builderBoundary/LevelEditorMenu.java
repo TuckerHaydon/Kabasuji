@@ -27,6 +27,7 @@ public class LevelEditorMenu extends JFrame {
 	JButton editLevelButton;
 	JButton goToMenuButton;
 	
+	
 	public LevelEditorMenu(KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		
