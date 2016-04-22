@@ -62,7 +62,7 @@ public class Board {
 
 	public Tile getTile(int row, int col){
 		
-		for(int i = 0; i < tiles.size(); i++){		
+		for(int i = 0; i < tiles.size(); i++) {		
 			if((tiles.get(i).anchor.row == row) && (tiles.get(i).anchor.col == col)){
 				boardTile = tiles.get(i);
 			}
