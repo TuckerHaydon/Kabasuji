@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import playerController.GameWindowNavigateMainMenu;
-import playerController.LoadGame;
 import playerController.ResetLevelController;
 import playerEntity.GameModel;
 import playerEntity.Level;
@@ -48,7 +47,6 @@ public class GameWindow extends JFrame {
 		
 		// Init sub components
 		currentLevelView.initView();
-		
 		// Set Frame properties
 		setSize(1000, 1000);
 		setTitle("Game Window");
@@ -83,6 +81,7 @@ public class GameWindow extends JFrame {
 		// Register the button controllers
 		menuButton.addActionListener(new GameWindowNavigateMainMenu(app,m));
 		resetButton.addActionListener(new ResetLevelController(app,m));
+		currentLevelView.initControllers();
 		
 	}
 	
