@@ -35,15 +35,12 @@ public class BoardController extends MouseAdapter{
 		this.eltWidth = eltWidth;
 	}
 
-	public void mouseDragged(MouseEvent me){
-
-		//update x,y position of tile
-		app.getGameWindow().getDraggedTile().setLocation(me.getX(), me.getY());
-		app.getGameWindow().displayDraggedTile();
-	}
 
 	//activity here depends on what kind of level we have 
+	@Override
 	public void mousePressed(MouseEvent me){
+		
+		System.out.println("Board pressed.");
 
 		// Get the XY location of mouse event
 		int x = me.getX();
@@ -69,6 +66,8 @@ public class BoardController extends MouseAdapter{
 
 
 	public void mouseReleased(MouseEvent me){
+		
+		System.out.println("Board released.");
 
 		GameWindow gw = app.getGameWindow();
 		GameModel m = app.getGameModel();
@@ -128,6 +127,26 @@ public class BoardController extends MouseAdapter{
 				AM.popUpScreen();
 			}
 		}
+	}
+	
+	@Override
+	public void mouseMoved(MouseEvent me){
+		
+		if(app.getGameWindow().getDraggedTile() == null){
+			return;
+		}
+		else{
+			double mouseLocationX = app.getGameWindow().getMousePosition().getX();
+			double mouseLocationY = app.getGameWindow().getMousePosition().getY();
+			
+			int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
+			int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
+					
+			app.getGameWindow().getDraggedTile().setLocation(centerLocationX, centerLocationY);
+			app.getGameWindow().displayDraggedTile();
+		}
+		
+		
 	}
 
 }
