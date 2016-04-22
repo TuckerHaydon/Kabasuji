@@ -21,7 +21,9 @@ public class LevelController extends MouseAdapter {
 	}	
 	
 	@Override
-	public void mouseReleased(MouseEvent me){
+	public void mousePressed(MouseEvent me){
+		
+		System.out.println("Want to release a tile.");
 		Tile sendBack = app.getGameWindow().getDraggedTile().getTile();
 		Anchor anchor = (Anchor) sendBack.getSquare(0, 0);
 		int[] anchorpos = anchor.getRowCol();
