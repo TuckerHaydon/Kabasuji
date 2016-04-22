@@ -68,6 +68,7 @@ public class PuzzleLevelView extends LevelView{
 	@Override
 	public void initControllers(){		
 		// Init the controllers of the subcomponents
+		System.out.println("initializing puzzle controllers");
 		bullpenView.initControllers();
 		boardView.initControllers();
 		

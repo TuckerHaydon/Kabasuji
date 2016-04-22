@@ -30,7 +30,9 @@ public class TileToBoardMove implements IMove{
 	public boolean doMove(KabasujiPlayerApplication app) {
 		// TODO Auto-generated method stub
 		if(isValid(app)) {
-			if(board.addTile(anchor.getTile(),row, col)) return true;
+			anchor.setRowCol(row, col);
+			board.addTile(anchor.getTile(),row, col);
+			return true;
 		}
 		return false;
 	}
@@ -46,9 +48,11 @@ public class TileToBoardMove implements IMove{
 		for(Square s : anchor.getTile().getSquares()) {
 			if(board.getBoardElt(row + s.getRelX(), col + s.getRelY()) instanceof UnplayableBoardElt == false) {
 				if(((PlayableBoardElt) board.getBoardElt(row + s.getRelX(), col + s.getRelY())).getCovered()){
+					System.err.println("TTBM:isValid(): trying to cover a covered elt.");
 					valid = false;
 				}
 			} else {
+				System.err.println("TTBM:isValid(): trying to cover an unplayable elt.");
 				valid = false;
 			}
 		}
