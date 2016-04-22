@@ -9,17 +9,19 @@ import java.util.ArrayList;
 public class Board {  
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
-	
+
+	Tile boardTile;
+
 	public static int XELTS = 12;
 	public static int YELTS = 12;
-	
+
 	public Board(BoardElt elts[][]) {
 		if(elts.length != XELTS || elts[0].length != YELTS) {
 			throw new RuntimeException("Invalid board made");
 		}
 		this.elts = elts;
 	}
-	
+
 	//adds a tile to the board
 	public boolean addTile(Tile t, int row, int col) {
 		((Anchor) t.getSquare(0,0)).setRowCol(row,col);
@@ -28,7 +30,7 @@ public class Board {
 		}
 		return tiles.add(t);
 	}
-	
+
 	public boolean removeTile(Tile t) {
 		return tiles.remove(t);
 	}
@@ -36,15 +38,15 @@ public class Board {
 	public boolean removeAll() {
 		return tiles.removeAll(tiles);
 	}
-	
+
 	public BoardElt[][] getBoardElts(){
 		return elts;
 	}
-	
+
 	public BoardElt getBoardElt(int row, int col){
 		return elts[row][col];
 	}
-	
+
 	@Override
 	public String toString(){
 		String output = "";
@@ -57,7 +59,27 @@ public class Board {
 		}
 		return output;
 	}
-	
-	//TODO add getTile(row, col);
-	
+
+	public Tile getTile(int row, int col){
+		
+		for(int i = 0; i < tiles.size(); i++){		
+			if((tiles.get(i).anchor.row == row) && (tiles.get(i).anchor.col == col)){
+				boardTile = tiles.get(i);
+			}
+			else{
+				for(int j=0; j<6; j++)
+				{
+					int square_row = tiles.get(i).squares[j].anchorRelX + tiles.get(i).anchor.row;
+					int square_col = tiles.get(i).squares[j].anchorRelY + tiles.get(i).anchor.col;
+					
+					if(square_row == row && square_col == col){
+						boardTile = tiles.get(i);
+					}
+				}
+			}
+		}
+
+		return boardTile;
+	}
+
 }

@@ -54,34 +54,33 @@ public class BoardController extends MouseAdapter{
 		int col = x / eltWidth;
 		BoardElt elt = b.getBoardElt(row, col);
 		
-		//check if elt is covered
-		//if tile exists and it is release level
-		//create new tileview
-		//set dragged tile view, update coordinates, etc
-		
+				
 		if(elt instanceof PlayableBoardElt && elt instanceof NumberBoardElt){
 			NumberBoardElt nbElt = (NumberBoardElt) elt;
+			//check if elt is covered and if it is release level
 			if(nbElt.getCovered() && (app.getGameModel().getCurrentLevel() instanceof ReleaseLevel)){
 				System.out.println("PlayableBoardElt and NumberedBoardElt");
-				//getTile(row, col);
-				//TileView tv = new TileView(Tile);
+				Tile thisTile = b.getTile(row, col);
+				
+				//create new tileview
+				TileView tv = new TileView(thisTile);
+				app.getGameWindow().setDraggedTile(tv);
+				
+				//set dragged tile view, update coordinates, etc
+				PickUpTileBoardMove pbm = new PickUpTileBoardMove (thisTile, b);
+				if(pbm.isValid(app)){
+					pbm.doMove(app);
+				}
 			}
 			else if (nbElt.getCovered() && !(app.getGameModel().getCurrentLevel() instanceof ReleaseLevel)){
 				return;
 			}
 			
-		}
-	
-		
-		//else if(elt instanceof UnplayableBoardElt){
-		//	System.out.println("UnplayableBoardElt");
-		//	}
-		
-			
-		System.out.println(row + " "+col);
+		}			
+		//System.out.println(row + " "+col);
 		
 	}
-	
+
 	
 	public void mouseReleased(MouseEvent me){
 		
@@ -101,6 +100,7 @@ public class BoardController extends MouseAdapter{
 		
 		//Check if covered
 		//if covered, send tile back to anchor location
+		
 		
 		LevelAchievementMonitor AM = m.getCurrentAM();
 		GameAchievementMonitor GAM = m.getGAM();
