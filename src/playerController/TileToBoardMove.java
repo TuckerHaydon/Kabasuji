@@ -28,18 +28,19 @@ public class TileToBoardMove implements IMove{
 	
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		if(isValid(app)) {
-			anchor.setRowCol(row, col);
-			board.addTile(anchor.getTile(),row, col);
-			return true;
+		
+		// Make sure the move is valid
+		if(!this.isValid(app)) {
+			return false;
 		}
-		return false;
+
+		anchor.setRowCol(row, col);
+		board.addTile(anchor.getTile(),row, col);
+		return true;
 	}
 
 	@Override
 	public boolean isValid(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
 		boolean valid = true;
 		
 		//check each board element and determine if it is playable

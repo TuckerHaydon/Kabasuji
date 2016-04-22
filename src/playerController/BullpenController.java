@@ -30,45 +30,48 @@ public class BullpenController extends MouseAdapter {
 	@Override
 	public void mousePressed(MouseEvent me){
 		
-		System.out.println("Bullpen pressed.");
-		
+		// Get the XY location of the mouse event
 		int x = me.getX();
 		int y = me.getY();
 		
+		// Get the relevant mouse data
+		boolean isControlDown = me.isControlDown();
+		boolean isShiftDown = me.isShiftDown();
+		boolean isLeftClick = me.getButton() == MouseEvent.BUTTON1;
+		boolean isRightClick = me.getButton() == MouseEvent.BUTTON3;
+		
+		// Process the move
+		processMousePressed(x, y, isControlDown, isShiftDown, isLeftClick, isRightClick);
+		
+	}
+	
+	void processMousePressed(int x, int y, boolean isControlDown, boolean isShiftDown, boolean isLeftClick, boolean isRightClick){
 		int cellNum = x/boxwidth;
 		
 		Tile pressedTile = bp.getTiles().get(cellNum);
 	
 		// If the control button is pressed, rotate a tile
-		if(me.isControlDown()){
-			if (me.getButton() == MouseEvent.BUTTON1){
+		if(isControlDown){
+			if (isLeftClick){
 				RotateTileClockwiseMove move = new RotateTileClockwiseMove(pressedTile);
-				if(move.isValid(app)){
-					move.doMove(app);
-				}
+				move.doMove(app);
 			}
-			else if (me.getButton() == MouseEvent.BUTTON3)
+			else if (isRightClick)
 			{
 				RotateTileCounterClockwiseMove move = new RotateTileCounterClockwiseMove(pressedTile);
-				if(move.isValid(app)){
-					move.doMove(app);
-				}
+				move.doMove(app);
 			}
 		}
 		// If the shift button is pressed, mirror a tile
-		else if(me.isShiftDown()){
-			if (me.getButton() == MouseEvent.BUTTON1){
+		else if(isShiftDown){
+			if (isLeftClick){
 				MirrorTileHorizontalMove move = new MirrorTileHorizontalMove(pressedTile);
-				if(move.isValid(app)){
-					move.doMove(app);
-				}
+				move.doMove(app);
 			}
-			else if (me.getButton() == MouseEvent.BUTTON3)
+			else if (isRightClick)
 			{
 				MirrorTileVerticalMove move = new MirrorTileVerticalMove(pressedTile);
-				if(move.isValid(app)){
-					move.doMove(app);
-				}
+				move.doMove(app);
 			}
 		}
 		// TODO check whether or not a tile is picked up and move it
@@ -87,62 +90,20 @@ public class BullpenController extends MouseAdapter {
 			tv.setLocation(centerLocationX, centerLocationY);
 			app.getGameWindow().displayDraggedTile();
 		}
-		
-	}
-	
-	@Override
-	public void mouseReleased(MouseEvent me){
-		
-//		System.out.println("Bullpen released.");
-//		
-//		if(me.isControlDown()){/* NO OP*/}
-//		else if(me.isShiftDown()){/* NO OP*/}
-//		else{
-//			Tile tile = app.getGameWindow().getDraggedTile().getTile();
-//			if(tile == null){
-//				System.err.print("BullpenController::mouseRealeased");
-//			}
-//			else
-//			{
-//				bp.addTile(tile);
-//				app.getGameWindow().releaseDraggedTile();
-//				app.getGameWindow().revalidate();
-//				app.getGameWindow().repaint();
-//			}
-			
-			
-			//LevelAchievementMonitor AM = m.getCurrentAM();
-//			IMove move = new TileToBullpenMove(tile, bp);
-	//			if(move.doMove(app)){
-	//				if(AM.updateAchievement_releaseonbullpen()){
-	//					AM.popUpScreen();
-	//				}
-	//			}else{
-	//				if(AM.updateAchievement_wheninvalidmove()){
-	//					AM.popUpScreen();
-	//				}
-	//			}
-//		}
 	}
 	
 	@Override
 	public void mouseMoved(MouseEvent me){
-		
+		processMouseMoved();
+	}
+	
+	void processMouseMoved(){
 		if(app.getGameWindow().getDraggedTile() == null){
 			return;
 		}
 		else{
-			double mouseLocationX = app.getGameWindow().getMousePosition().getX();
-			double mouseLocationY = app.getGameWindow().getMousePosition().getY();
-			
-			int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
-			int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
-					
-			app.getGameWindow().getDraggedTile().setLocation(centerLocationX, centerLocationY);
-			app.getGameWindow().displayDraggedTile();
+			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
+			move.doMove(app);
 		}
-		
-		
-	}
-	
+	}	
 }

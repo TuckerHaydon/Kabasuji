@@ -25,11 +25,15 @@ public class PickUpTileBoardMove implements IMove{
 	
 	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
-		rowcol = ((Anchor) tile.getSquare(0, 0)).getRowCol();
-		if(isValid(app)){
-			board.removeTile(tile);
+		
+		if(!this.isValid(app)){
+			return false;
 		}
-		return false;
+		
+		rowcol = ((Anchor) tile.getSquare(0, 0)).getRowCol();
+		board.removeTile(tile);
+		
+		return true;
 	}
 	
 	public boolean undo(KabasujiPlayerApplication app) {
