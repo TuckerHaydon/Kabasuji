@@ -25,6 +25,7 @@ public class BullpenController extends MouseAdapter {
 		this.bp = bp;
 		this.app = app;
 		this.boxwidth = boxwidth;
+		this.m = m;
 	}
 	
 	@Override
@@ -74,21 +75,22 @@ public class BullpenController extends MouseAdapter {
 				move.doMove(app);
 			}
 		}
-		// TODO check whether or not a tile is picked up and move it
+		// If no tile is picked up, pick one up
+		else if(app.getGameWindow().getDraggedTile() == null){
+			// Pickup a tile
+			PickUpTileBullpenMove move1 = new PickUpTileBullpenMove(pressedTile, bp);
+			move1.doMove(app);
+			
+			// Update the UI
+			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
+			move.doMove(app);
+		}
+		// If a tile is already pick up, return it to the bullpen
 		else{
-			
-			TileView tv = new TileView(pressedTile);
-			app.getGameWindow().setDraggedTile(tv);
-			bp.removeTile(pressedTile);
-			
-			double mouseLocationX = app.getGameWindow().getMousePosition().getX();
-			double mouseLocationY = app.getGameWindow().getMousePosition().getY();
-			
-			int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
-			int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
-			
-			tv.setLocation(centerLocationX, centerLocationY);
-			app.getGameWindow().displayDraggedTile();
+			// Return the tile to the bullpen
+			Tile draggedTile = app.getGameWindow().getDraggedTile().getTile();
+			TileToBullpenMove move = new TileToBullpenMove(draggedTile, m.getCurrentLevel().getBullpen());
+			move.doMove(app);
 		}
 	}
 	
