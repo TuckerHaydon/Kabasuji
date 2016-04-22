@@ -33,14 +33,6 @@ public class Board {
 		return tiles.remove(t);
 	}
 
-	public boolean empty(){
-		boolean isEmpty = false;
-		if(tiles == null){
-			isEmpty = true;
-		}
-		return isEmpty;
-	}
-
 	public boolean removeAll() {
 		return tiles.removeAll(tiles);
 	}
@@ -67,10 +59,12 @@ public class Board {
 	}
 
 	public Tile getTile(int row, int col){
-
+		
 		Tile boardTile = null;
-
-		for(int i = 0; i < tiles.size(); i++){			
+		if(tiles == null) {
+			return boardTile;
+		}
+		for(int i = 0; i < tiles.size(); i++){		
 			if((tiles.get(i).anchor.row == row) && (tiles.get(i).anchor.col == col)){
 				boardTile = tiles.get(i);
 			}
@@ -79,14 +73,14 @@ public class Board {
 				{
 					int square_row = tiles.get(i).squares[j].anchorRelX + tiles.get(i).anchor.row;
 					int square_col = tiles.get(i).squares[j].anchorRelY + tiles.get(i).anchor.col;
-
+					
 					if(square_row == row && square_col == col){
 						boardTile = tiles.get(i);
 					}
 				}
 			}
 		}
-
+		System.out.println("owenfw");
 		return boardTile;
 	}
 
