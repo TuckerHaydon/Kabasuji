@@ -5,6 +5,7 @@ import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.Bullpen;
 import playerEntity.LightningLevel;
+import playerEntity.ReleaseLevel;
 import playerEntity.Tile;
 
 /**
@@ -37,7 +38,7 @@ public class PickUpTileBoardMove implements IMove{
 
 	/*you can always pick it up from board*/
 	public boolean isValid(KabasujiPlayerApplication app) {
-		if(app.getGameModel().getCurrentLevel() instanceof LightningLevel) {
+		if(!(app.getGameModel().getCurrentLevel() instanceof ReleaseLevel)) {
 			return false;
 		}
 		return true;
