@@ -22,10 +22,16 @@ public class KabasujiPlayerApplication {
 	GameModel m;
 	
 	public KabasujiPlayerApplication(){
+		displaySplashScreen();
 		init();
+		displayMainMenu();
 		playThemeSong();
 	}
-
+	
+	public KabasujiPlayerApplication(String path){
+		init();
+		displayGameWindow();
+	}
 	
 	public void init(){
 		initModel();
@@ -52,11 +58,6 @@ public class KabasujiPlayerApplication {
 		levelSelectionMenu.initView();
 		achievementsMenu.initView();
 		
-		// Slash screen stuff
-		displaySplashScreen();
-		
-		// SHow the main menu
-		displayMainMenu();
 	}
 	
 	public void initControllers(){
