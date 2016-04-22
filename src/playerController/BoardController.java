@@ -12,11 +12,8 @@ import playerEntity.BoardElt;
 import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
 import playerEntity.LevelAchievementMonitor;
-import playerEntity.NumberBoardElt;
-import playerEntity.PlayableBoardElt;
-import playerEntity.ReleaseLevel;
 import playerEntity.Tile;
-import playerEntity.UnplayableBoardElt;
+import playerEntity.Square;
 
 /**
  * 
@@ -49,7 +46,7 @@ public class BoardController extends MouseAdapter{
 		// Determine which BoardElt that is
 		int row = y / eltWidth;
 		int col = x / eltWidth;
-		BoardElt elt = b.getBoardElt(row, col);
+		//BoardElt elt = b.getBoardElt(row, col);
 
 		Tile thisTile = b.getTile(row, col);
 

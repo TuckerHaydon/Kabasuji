@@ -10,8 +10,6 @@ public class Board {
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
 
-	Tile boardTile;
-
 	public static int XELTS = 12;
 	public static int YELTS = 12;
 
@@ -61,6 +59,8 @@ public class Board {
 	}
 
 	public Tile getTile(int row, int col){
+		
+		Tile boardTile = null;
 		
 		for(int i = 0; i < tiles.size(); i++){		
 			if((tiles.get(i).anchor.row == row) && (tiles.get(i).anchor.col == col)){
