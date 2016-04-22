@@ -22,7 +22,11 @@ public class TileToBullpenMove implements IMove{
 	
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
+		
+		if(!this.isValid(app)){
+			return false;
+		}
+				
 		boolean v = bullpen.addTile(tile);
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return v;

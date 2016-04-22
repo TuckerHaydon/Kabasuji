@@ -23,6 +23,11 @@ public class ResetLevelMove implements IMove{
 	}
 
 	public boolean doMove(KabasujiPlayerApplication app) {
+		
+		if(!this.isValid(app)){
+			return false;
+		}
+		
 		Level l = m.getCurrentLevel();
 		data[0] = l.getScore();
 		if(l instanceof LightningLevel) {
