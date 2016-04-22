@@ -20,15 +20,7 @@ public class LevelController extends MouseAdapter {
 		this.lv = lv;
 	}	
 	
-	
-	//@Override
-	public void mouseDragged(MouseEvent me) {
-		
-		app.getGameWindow().getDraggedTile().setLocation(me.getX(), me.getY());
-		app.getGameWindow().displayDraggedTile();
-		
-	}
-	
+	@Override
 	public void mouseReleased(MouseEvent me){
 		Tile sendBack = app.getGameWindow().getDraggedTile().getTile();
 		Anchor anchor = (Anchor) sendBack.getSquare(0, 0);
@@ -38,6 +30,26 @@ public class LevelController extends MouseAdapter {
 		if(tbm.isValid(app)){
 			tbm.doMove(app);
 		}
+		
+	}
+	
+	@Override
+	public void mouseMoved(MouseEvent me){
+		
+		if(app.getGameWindow().getDraggedTile() == null){
+			return;
+		}
+		else{
+			double mouseLocationX = app.getGameWindow().getMousePosition().getX();
+			double mouseLocationY = app.getGameWindow().getMousePosition().getY();
+			
+			int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
+			int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
+					
+			app.getGameWindow().getDraggedTile().setLocation(centerLocationX, centerLocationY);
+			app.getGameWindow().displayDraggedTile();
+		}
+		
 		
 	}
 }
