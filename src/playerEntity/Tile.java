@@ -64,4 +64,8 @@ public class Tile {
 		return this.squares;
 	}
 	
+	public String getLocation(){
+		return this.location;
+	}
+	
 }

@@ -69,6 +69,6 @@ public class LightningLevelView extends LevelView{
 		boardView.initControllers();
 		
 		// Init own controllers
-		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView()));
+		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView(),m));
 	}
 }

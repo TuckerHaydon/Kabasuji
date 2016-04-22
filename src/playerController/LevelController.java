@@ -4,8 +4,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import playerEntity.Anchor;
+import playerEntity.GameModel;
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.LevelView;
+import playerBoundary.TileView;
 import playerEntity.Square;
 import playerEntity.Tile;
 
@@ -18,11 +20,13 @@ public class LevelController extends MouseAdapter {
 
 	KabasujiPlayerApplication app;
 	LevelView lv;
+	GameModel m;
 	
-	public LevelController(KabasujiPlayerApplication app, LevelView lv){
+	public LevelController(KabasujiPlayerApplication app, LevelView lv, GameModel m){
 		super();
 		this.app = app;
 		this.lv = lv;
+		this.m = m;
 	}	
 	
 	@Override
@@ -31,13 +35,20 @@ public class LevelController extends MouseAdapter {
 	}
 	
 	void processMousePressed(){
-		Tile sendBack = app.getGameWindow().getDraggedTile().getTile();
-		Square anchor =  sendBack.getSquare(0, 0);
-		int[] anchorpos = ((Anchor) anchor).getRowCol();
-		TileToBoardMove tbm = new TileToBoardMove(app.getGameModel().getCurrentLevel().getBoard(), (Anchor)anchor, anchorpos[0], anchorpos[1]);
-		app.getGameWindow().releaseDraggedTile();
-		tbm.doMove(app);
 		
+		TileView draggedTileView = app.getGameWindow().getDraggedTile();
+		
+		// If no tile is selected, do nothing
+		if(draggedTileView == null){
+			return;
+		}
+		// If a tile is selected, move it to the bullpen
+		else{
+			Tile draggedTile = draggedTileView.getTile();
+			TileToBullpenMove move = new TileToBullpenMove(draggedTile, m.getCurrentLevel().getBullpen());
+			move.doMove(app);
+			lv.repaint();
+		}
 	}
 	
 	@Override

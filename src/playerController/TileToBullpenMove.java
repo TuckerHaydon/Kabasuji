@@ -26,10 +26,17 @@ public class TileToBullpenMove implements IMove{
 		if(!this.isValid(app)){
 			return false;
 		}
-				
-		boolean v = bullpen.addTile(tile);
+		
+		// Add the tile to the bullpen
+		boolean successful = bullpen.addTile(tile);
+		
+		// Release the dragged tile
+		app.getGameWindow().releaseDraggedTile();
+		
+		// Repaint the bullpen
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
-		return v;
+		
+		return successful;
 	}
 
 	@Override
