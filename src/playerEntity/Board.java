@@ -32,6 +32,14 @@ public class Board {
 	public boolean removeTile(Tile t) {
 		return tiles.remove(t);
 	}
+	
+	public boolean empty(){
+		boolean isEmpty = false;
+		if(tiles == null){
+			isEmpty = true;
+		}
+		return isEmpty;
+	}
 
 	public boolean removeAll() {
 		return tiles.removeAll(tiles);
