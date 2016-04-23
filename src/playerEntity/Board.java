@@ -17,16 +17,26 @@ public class Board {
 		if(elts.length != XELTS || elts[0].length != YELTS) {
 			throw new RuntimeException("Invalid board made");
 		}
+		tiles = new ArrayList<>();
 		this.elts = elts;
 	}
 
 	//adds a tile to the board
 	public boolean addTile(Tile t, int row, int col) {
+		
 		((Anchor) t.getSquare(0,0)).setRowCol(row,col);
 		for(Square s : t.getSquares()) {
-			((PlayableBoardElt) elts[row + s.getRelX()][col + s.getRelY()]).setCovered(true);	
+			
+			// Determine the row, col of a square
+			// These are negative because the coordinate systems of the tile and the board are backwards
+			int squareRow = row - s.getRelY();
+			int squareCol = col + s.getRelX();
+			
+			
+			((PlayableBoardElt) elts[squareRow][squareCol]).setCovered(true);	
 		}
 		return tiles.add(t);
+		
 	}
 
 	public boolean removeTile(Tile t) {

@@ -58,6 +58,10 @@ public class BoardView extends View{
 					else if(elts[row][col] instanceof NumberBoardElt){
 						squareColor = Color.RED;
 					}
+					else if(((PlayableBoardElt)elts[row][col]).getCovered())
+					{
+						squareColor = Color.GREEN;
+					}
 					else{
 						squareColor = Color.WHITE;
 					}

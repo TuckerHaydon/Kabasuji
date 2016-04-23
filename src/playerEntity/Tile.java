@@ -68,4 +68,11 @@ public class Tile {
 		return this.location;
 	}
 	
+	public Anchor getAnchor(){
+		return this.anchor;
+	}
+	
+	public void setAnchor(Anchor anchor){
+		this.anchor = anchor;
+	}
 }

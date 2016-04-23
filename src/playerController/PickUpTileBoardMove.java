@@ -1,6 +1,7 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.Bullpen;
@@ -32,6 +33,13 @@ public class PickUpTileBoardMove implements IMove{
 		
 		rowcol = ((Anchor) tile.getSquare(0, 0)).getRowCol();
 		board.removeTile(tile);
+		
+		// Update the dragged tile view
+		TileView tv = new TileView(tile);
+		app.getGameWindow().setDraggedTile(tv);
+		
+		// Repaint the board
+		app.getGameWindow().getLevelView().getBoardView().repaint();
 		
 		return true;
 	}
