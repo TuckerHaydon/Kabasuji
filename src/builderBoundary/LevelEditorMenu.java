@@ -11,6 +11,7 @@ import javax.swing.JScrollPane;
 
 
 import builderController.CreateLevelHandler;
+import builderController.EditLevelHandler;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
@@ -75,6 +76,7 @@ public class LevelEditorMenu extends JFrame {
 		createLevelButton.addActionListener(new CreateLevelHandler(app, m));
 		// TODO set the editLevel controller
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
+		editLevelButton.addActionListener(new EditLevelHandler(app, m));
 	}
 
 }
