@@ -49,4 +49,9 @@ public class LightningLevel extends Level{
 	public void setUsedTime(int i) {
 		usedTime = i;
 	}
+	
+	@Override
+	public String toString(){
+		return "Lightning";
+	}
 }

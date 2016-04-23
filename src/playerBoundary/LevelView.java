@@ -23,4 +23,12 @@ public abstract class LevelView extends View {
 		return scrollPane;
 	}
 	
+	public BoardView getBoardView(){
+		return boardView;
+	}
+	
+	public BullpenView getBullpenView(){
+		return bullpenView;
+	}
+	
 }

@@ -1,16 +1,18 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.Bullpen;
 import playerEntity.LightningLevel;
+import playerEntity.PuzzleLevel;
 import playerEntity.ReleaseLevel;
 import playerEntity.Tile;
 
 /**
  * 
- * @author 
+ * @author tuckerhaydon
  *
  */
 public class PickUpTileBoardMove implements IMove{
@@ -33,6 +35,17 @@ public class PickUpTileBoardMove implements IMove{
 		rowcol = ((Anchor) tile.getSquare(0, 0)).getRowCol();
 		board.removeTile(tile);
 		
+		// Update the dragged tile view
+		TileView tv = new TileView(tile);
+		app.getGameWindow().setDraggedTile(tv);
+		
+		// Update the GUI to show the picked up tile
+		UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
+		move.doMove(app);
+		
+		// Repaint the board
+		app.getGameWindow().getLevelView().getBoardView().repaint();
+		
 		return true;
 	}
 	
@@ -42,7 +55,7 @@ public class PickUpTileBoardMove implements IMove{
 
 	/*you can always pick it up from board*/
 	public boolean isValid(KabasujiPlayerApplication app) {
-		if(!(app.getGameModel().getCurrentLevel() instanceof ReleaseLevel)) {
+		if(app.getGameModel().getCurrentLevel() instanceof ReleaseLevel) {
 			return false;
 		}
 		return true;

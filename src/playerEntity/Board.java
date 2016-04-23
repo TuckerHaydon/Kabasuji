@@ -17,16 +17,26 @@ public class Board {
 		if(elts.length != XELTS || elts[0].length != YELTS) {
 			throw new RuntimeException("Invalid board made");
 		}
+		tiles = new ArrayList<>();
 		this.elts = elts;
 	}
 
 	//adds a tile to the board
 	public boolean addTile(Tile t, int row, int col) {
+		
 		((Anchor) t.getSquare(0,0)).setRowCol(row,col);
 		for(Square s : t.getSquares()) {
-			((PlayableBoardElt) elts[row + s.getRelX()][col + s.getRelY()]).setCovered(true);	
+			
+			// Determine the row, col of a square
+			// These are negative because the coordinate systems of the tile and the board are backwards
+			int squareRow = row - s.getRelY();
+			int squareCol = col + s.getRelX();
+			
+			
+			((PlayableBoardElt) elts[squareRow][squareCol]).setCovered(true);	
 		}
 		return tiles.add(t);
+		
 	}
 
 	public boolean removeTile(Tile t) {
@@ -61,26 +71,23 @@ public class Board {
 	public Tile getTile(int row, int col){
 		
 		Tile boardTile = null;
-		if(tiles == null) {
-			return boardTile;
-		}
+		
+		// Iterate through all the tiles on the board
 		for(int i = 0; i < tiles.size(); i++){		
-			if((tiles.get(i).anchor.row == row) && (tiles.get(i).anchor.col == col)){
-				boardTile = tiles.get(i);
-			}
-			else{
-				for(int j=0; j<6; j++)
-				{
-					int square_row = tiles.get(i).squares[j].anchorRelX + tiles.get(i).anchor.row;
-					int square_col = tiles.get(i).squares[j].anchorRelY + tiles.get(i).anchor.col;
-					
-					if(square_row == row && square_col == col){
-						boardTile = tiles.get(i);
-					}
+			
+			// Iterate through all the squares in each tile
+			for(int j=0; j<6; j++)
+			{
+				// Find the row,col of each square
+				int square_row = tiles.get(i).squares[j].anchorRelY + tiles.get(i).anchor.row;
+				int square_col = tiles.get(i).squares[j].anchorRelX + tiles.get(i).anchor.col;
+							
+				// Determine is the row, col of the mouse matches the row,col of the square
+				if(square_row == row && square_col == col){
+					boardTile = tiles.get(i);
 				}
 			}
 		}
-		System.out.println("owenfw");
 		return boardTile;
 	}
 

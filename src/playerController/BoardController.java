@@ -51,57 +51,59 @@ public class BoardController extends MouseAdapter{
 		int row = y / eltWidth;
 		int col = x / eltWidth;	
 		
+		// If no tile is currently picked up
 		if(app.getGameWindow().getDraggedTile() == null){
 			
 			//BoardElt elt = b.getBoardElt(row, col);
-			System.out.println(row + " " + col);
-			Tile thisTile = b.getTile(row, col);
+//			System.out.println(row + " " + col);
 			
-			//create new tileview
-			TileView tv = new TileView(thisTile);
-			app.getGameWindow().setDraggedTile(tv);
-
-			//set dragged tile view, update coordinates, etc
-			PickUpTileBoardMove pbm = new PickUpTileBoardMove (thisTile, b);
-			pbm.doMove(app);
+			// Determine if there is a tile at the location of the mouse click
+			Tile selectedTile = b.getTile(row, col);
+			
+			// If there is no tile at the location of the mouse press, do nothing
+			if(selectedTile == null){
+				System.out.println("No tile here.");
+			}
+			// If there is a tile at this location, pick it up
+			else
+			{
+//				System.out.println("Tile picked up.");
+				PickUpTileBoardMove pbm = new PickUpTileBoardMove (selectedTile, b);
+				pbm.doMove(app);
+			}
 			
 		}
+		// If a tile is picked up, try and place it on the board
 		else{
 
+			// Achievement monitor stuff
 			LevelAchievementMonitor AM = m.getCurrentAM();
 			GameAchievementMonitor GAM = m.getGAM();
+			
+			// Get the TileView and Tile
 			TileView tileview = gw.getDraggedTile();
-			if(tileview == null){
-				System.err.println("Null TileView::BoardController::mouseReleased");
-				gw.releaseDraggedTile();
-				return;
-			}
-
-			Tile tile = tileview.getTile();
-			if(tile==null){
+			Tile selectedTile = tileview.getTile();
+			
+			// Validate the tile in the TileView
+			if(selectedTile==null){
 				System.err.println("Null Tile::BoardController::mouseReleased");
 				gw.releaseDraggedTile();
 				return;
 			}
-			gw.releaseDraggedTile();
+//			gw.releaseDraggedTile();
 
 			// TODO consolidate this stuff in the completeLevelMove
 			//achievement stuff goes here!
 			CompleteLevelMove move = new CompleteLevelMove(m);
 			if(move.isValid(app)){
 				move.doMove(app);	
-				app.displayLevelSelectionMenu();
-				app.getGameWindow().updateView();
 				if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
 					GAM.pop();
 				}
 			}
 
 
-			//This Anchor is just there for console reason
-			Anchor a = new Anchor(row,col,tile);
-
-			TileToBoardMove move2 = new TileToBoardMove(b,a,row,col);
+			TileToBoardMove move2 = new TileToBoardMove(b,selectedTile,row,col);
 			move2.doMove(app);
 
 			//TODO move and app change stuff go there

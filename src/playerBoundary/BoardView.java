@@ -52,11 +52,15 @@ public class BoardView extends View{
 				Color squareColor = Color.BLACK;
 				
 				if(elts[row][col] instanceof PlayableBoardElt){
-					if(((PlayableBoardElt)elts[row][col]).isHint()){
-						squareColor = Color.YELLOW;
+					if(((PlayableBoardElt)elts[row][col]).getCovered()){
+						squareColor = Color.GREEN;
 					}
 					else if(elts[row][col] instanceof NumberBoardElt){
 						squareColor = Color.RED;
+					}
+					else if(((PlayableBoardElt)elts[row][col]).isHint())
+					{
+						squareColor = Color.YELLOW;
 					}
 					else{
 						squareColor = Color.WHITE;

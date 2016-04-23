@@ -30,7 +30,7 @@ public class TileView extends View {
 
 	@Override
 	public void initView() {
-		this.setSize(6*SQUARE_WIDTH, 6*SQUARE_WIDTH);
+		this.setSize(7*SQUARE_WIDTH, 7*SQUARE_WIDTH);
 	}
 	
 	public int getSquareWidth(){

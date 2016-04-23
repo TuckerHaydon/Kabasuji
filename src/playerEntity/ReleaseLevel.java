@@ -44,4 +44,9 @@ public class ReleaseLevel extends Level {
 	public void setNumLeft(int i) {
 		this.numEltLeft = i;
 	}
+	
+	@Override
+	public String toString(){
+		return "Release";
+	}
 }
