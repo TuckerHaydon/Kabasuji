@@ -49,7 +49,14 @@ public class BullpenController extends MouseAdapter {
 	void processMousePressed(int x, int y, boolean isControlDown, boolean isShiftDown, boolean isLeftClick, boolean isRightClick){
 		int cellNum = x/boxwidth;
 		
-		Tile pressedTile = bp.getTiles().get(cellNum);
+		Tile pressedTile = null;
+		
+		try{
+			pressedTile = bp.getTiles().get(cellNum);
+		}
+		catch(IndexOutOfBoundsException e){
+			return;
+		}
 	
 		// If the control button is pressed, rotate a tile
 		if(isControlDown){

@@ -67,6 +67,7 @@ public class BoardController extends MouseAdapter{
 			// If there is a tile at this location, pick it up
 			else
 			{
+//				System.out.println("Tile picked up.");
 				PickUpTileBoardMove pbm = new PickUpTileBoardMove (selectedTile, b);
 				pbm.doMove(app);
 			}

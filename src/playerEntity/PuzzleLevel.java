@@ -47,4 +47,9 @@ public class PuzzleLevel extends Level {
 	public void setUsedMoves(int i) {
 		usedMove = i;
 	}
+	
+	@Override
+	public String toString(){
+		return "Puzzle";
+	}
 }
