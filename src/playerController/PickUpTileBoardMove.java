@@ -39,9 +39,6 @@ public class PickUpTileBoardMove implements IMove{
 		TileView tv = new TileView(tile);
 		app.getGameWindow().setDraggedTile(tv);
 		
-//		System.out.println(tile);
-//		System.out.println(app.getGameWindow().getDraggedTile().getTile());
-		
 		// Update the GUI to show the picked up tile
 		UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
 		move.doMove(app);
