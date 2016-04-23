@@ -2,6 +2,11 @@ package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
 
+/**
+ * 
+ * @author tuckerhaydon
+ *
+ */
 public class UpdateDraggedTileLocationMove implements IMove {
 
 	@Override
