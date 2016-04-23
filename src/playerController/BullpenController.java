@@ -98,6 +98,7 @@ public class BullpenController extends MouseAdapter {
 			Tile draggedTile = app.getGameWindow().getDraggedTile().getTile();
 			TileToBullpenMove move = new TileToBullpenMove(draggedTile, m.getCurrentLevel().getBullpen());
 			move.doMove(app);
+			
 		}
 	}
 	

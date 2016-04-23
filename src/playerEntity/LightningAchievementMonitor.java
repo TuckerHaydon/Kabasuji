@@ -26,16 +26,13 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	
 	@Override
 	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkSlowPoke()||this.checkVictoryLap()){
+		if(this.checkSlowPoke()||this.checkVictoryLap()||this.checkSpeedyGonzales()){
 			return true;
 		}
 		return false;
 	}
 	@Override
 	public boolean updateAchievement_releaseonbullpen(){
-		if(this.checkBabySteps()){
-			return true;
-		}
 		return false;
 	}
 	@Override
@@ -67,6 +64,15 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && !(lv.hasWon())){
 			achievements.get("SlowPoke").setEarned();
 			popingUp.push("SlowPoke");
+			return true;
+		}
+		return false;
+	}
+	
+	private boolean checkSpeedyGonzales(){
+		if(this.notEarnSpeedyGonzales() && (lv.getUsedTime()<=(lv.getAllowedTime()*0.5)) && lv.hasWon()){
+			achievements.get("SpeedyGonzales").setEarned();
+			popingUp.push("SpeedyGonzales");
 			return true;
 		}
 		return false;

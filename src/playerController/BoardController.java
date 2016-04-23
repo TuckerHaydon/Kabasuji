@@ -8,7 +8,6 @@ import playerBoundary.TileView;
 import playerEntity.Board;
 import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
-import playerEntity.LevelAchievementMonitor;
 import playerEntity.Tile;
 
 /**
@@ -73,9 +72,8 @@ public class BoardController extends MouseAdapter{
 		// If a tile is picked up, try and place it on the board
 		else{
 
-			// Achievement monitor stuff
-			LevelAchievementMonitor AM = m.getCurrentAM();
-			GameAchievementMonitor GAM = m.getGAM();
+			
+			
 			
 			// Get the TileView and Tile
 			TileView tileview = gw.getDraggedTile();
@@ -91,27 +89,21 @@ public class BoardController extends MouseAdapter{
 			// TODO consolidate this stuff in the completeLevelMove
 			//achievement stuff goes here!
 			CompleteLevelMove move = new CompleteLevelMove(m);
-			if(move.isValid(app)){
-				move.doMove(app);	
-				if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
-					GAM.pop();
-				}
+			move.doMove(app);	
+			//TODO GAM need to know if the CompleteLevelMove is valid
+			//but IDK if we should put it into the move class
+			GameAchievementMonitor GAM = m.getGAM();
+			if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
+				GAM.pop();
 			}
 
 
 			TileToBoardMove move2 = new TileToBoardMove(b,selectedTile,row,col);
 			move2.doMove(app);
-
-			//TODO move and app change stuff go there
-			if(AM.updateAchievement_releaseonboard()){
-				AM.popUpScreen();
-			}
-			else{
-				if(AM.updateAchievement_wheninvalidmove()){
-					AM.popUpScreen();
-				}
-			}
+			
+			
 		}
+		
 	}
 	
 	@Override

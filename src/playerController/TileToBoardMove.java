@@ -4,6 +4,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.BoardElt;
+import playerEntity.LevelAchievementMonitor;
 import playerEntity.LightningLevel;
 import playerEntity.PlayableBoardElt;
 import playerEntity.Square;
@@ -31,8 +32,13 @@ public class TileToBoardMove implements IMove{
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
 		
+		LevelAchievementMonitor AM = app.getGameModel().getCurrentAM();
+
 		// Validate the move
 		if(!this.isValid(app)) {
+			if(AM.updateAchievement_wheninvalidmove()){
+				AM.popUpScreen();
+			}
 			return false;
 		}
 
@@ -47,6 +53,10 @@ public class TileToBoardMove implements IMove{
 		
 		// Update the GUI
 		app.getGameWindow().getLevelView().getBoardView().repaint();
+		
+		if(AM.updateAchievement_releaseonboard()){
+			AM.popUpScreen();
+		}
 		
 		return true;
 	}
