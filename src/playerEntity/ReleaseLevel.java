@@ -49,4 +49,9 @@ public class ReleaseLevel extends Level {
 	public String toString(){
 		return "Release";
 	}
+
+	@Override
+	public int getLevelData() {
+		return this.getNumLeft();
+	}
 }

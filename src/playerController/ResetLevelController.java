@@ -8,7 +8,7 @@ import playerEntity.GameModel;
 
 /**
  * 
- * @author 
+ * @author tuckerhaydon
  *
  */
 public class ResetLevelController implements ActionListener{
@@ -22,11 +22,8 @@ public class ResetLevelController implements ActionListener{
 	
 	/*Finished*/
 	public void actionPerformed(ActionEvent e) {
-		IMove move = new ResetLevelMove(app,m);
-		if(move.doMove(app)){
-			app.getGameWindow().updateView();
-			System.out.println("ResetLevelController::actionPerformed");
-		}
+		ResetLevelMove move = new ResetLevelMove(app,m);
+		move.doMove(app);
 	}
 	
 }

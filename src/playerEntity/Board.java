@@ -90,5 +90,26 @@ public class Board {
 		}
 		return boardTile;
 	}
+	
+	public ArrayList<Tile> getTiles(){
+		return this.tiles;
+	}
+	
+	public void reset(){
+		
+		// Clear all of the tiles off of the board
+		tiles = new ArrayList<>();
+		
+		// Make sure all of the elements are uncovered
+		for(int row = 0; row < YELTS; row++){
+			for(int col = 0; col < XELTS; col++){
+				try{
+					PlayableBoardElt elt = ((PlayableBoardElt)elts[row][col]);
+					elt.setCovered(false);
+				}
+				catch(Exception e){}
+			}
+		}
+	}
 
 }
