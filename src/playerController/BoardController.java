@@ -103,15 +103,14 @@ public class BoardController extends MouseAdapter{
 			move2.doMove(app);
 
 			//TODO move and app change stuff go there
-
-//			if(AM.updateAchievement_releaseonboard()){
-//				AM.popUpScreen();
-//			}
-//			else{
-//				if(AM.updateAchievement_wheninvalidmove()){
-//					AM.popUpScreen();
-//				}
-//			}
+			if(AM.updateAchievement_releaseonboard()){
+				AM.popUpScreen();
+			}
+			else{
+				if(AM.updateAchievement_wheninvalidmove()){
+					AM.popUpScreen();
+				}
+			}
 		}
 	}
 	

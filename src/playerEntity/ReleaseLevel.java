@@ -1,5 +1,7 @@
 package playerEntity;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author tuckerhaydon, dorothy
@@ -15,9 +17,20 @@ public class ReleaseLevel extends Level {
 	}
 	
 	public void reset(){
-		System.out.println("release level reset");
+		// Set the score to 0
 		score = 0;
-		numEltLeft = 0;		
+		
+		// Set the number of covered elts left to 0
+		numEltLeft = 0;
+		
+		// Return all the tiles to the bullpen
+		ArrayList<Tile> tiles = this.board.getTiles();
+		for(Tile t: tiles){
+			bullpen.addTile(t);
+		}
+		
+		// Reset the board
+		this.board.reset();	
 	}
 	
 	public int getNumLeft() {
@@ -53,5 +66,10 @@ public class ReleaseLevel extends Level {
 	@Override
 	public int getLevelData() {
 		return this.getNumLeft();
+	}
+
+	@Override
+	public void setLevelData(int levelData) {
+		this.numEltLeft = levelData;
 	}
 }

@@ -27,7 +27,6 @@ public class PuzzleLevel extends Level {
 	}
 
 	public void reset(){
-		System.out.println("puzzle level reset");
 		
 		// Set the score to 0
 		score = 0;
@@ -71,5 +70,10 @@ public class PuzzleLevel extends Level {
 	@Override
 	public int getLevelData() {
 		return this.usedMove;
+	}
+
+	@Override
+	public void setLevelData(int levelData) {
+		this.usedMove = levelData;
 	}
 }

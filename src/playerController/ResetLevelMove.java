@@ -50,22 +50,22 @@ public class ResetLevelMove implements IMove{
 	}
 	
 	public boolean isValid(KabasujiPlayerApplication app) {
+		// Can always reset
 		return true;
 	}
 	
 	public boolean undo(KabasujiPlayerApplication app) {
+		
+		// Get the current level
 		Level l = m.getCurrentLevel();
+		
+		// Set the score back
 		l.setScore(data[0]);
-		if(l instanceof LightningLevel) {
-			((LightningLevel) l).setUsedTime(data[1]);
-			return true;
-		} else if(l instanceof ReleaseLevel) {
-			((ReleaseLevel) l).setNumLeft(data[1]);
-			return true;
-		} else {
-			((PuzzleLevel) l).setUsedMoves(data[1]);
-			return true;
-		} 
+		
+		// Set the level-specific data back
+		l.setLevelData(data[1]);
+		
+		return true;
 	}
 
 }

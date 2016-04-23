@@ -132,6 +132,7 @@ public class GameWindow extends JFrame {
 		
 		// Initialize it and set proper bounds
 		currentLevelView.initView();
+		
 		// TODO fix this. Find where the controllers should be initialized. 
 		currentLevelView.initControllers();
 		currentLevelView.setBounds(50, 50, 900, 900);

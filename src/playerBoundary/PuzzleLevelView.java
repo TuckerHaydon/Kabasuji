@@ -15,7 +15,7 @@ import playerEntity.PuzzleLevel;
  *
  */
 public class PuzzleLevelView extends LevelView{
-	KabasujiPlayerApplication app;
+	
 	JLabel movesLeft;
 	GameModel m;
 	
@@ -48,7 +48,6 @@ public class PuzzleLevelView extends LevelView{
 		scrollPane.setBounds(25, 25, 850, 7*bullpenView.getSquareWidth());
 		add(scrollPane);
 		
-		
 		// Add the boardView
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
@@ -66,9 +65,9 @@ public class PuzzleLevelView extends LevelView{
 	}
 	
 	@Override
-	public void initControllers(){		
+	public void initControllers(){
+		
 		// Init the controllers of the subcomponents
-		System.out.println("initializing puzzle controllers");
 		bullpenView.initControllers();
 		boardView.initControllers();
 		

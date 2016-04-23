@@ -1,5 +1,7 @@
 package playerEntity;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author tuckerhaydon
@@ -28,9 +30,21 @@ public class LightningLevel extends Level{
 	}
 	
 	public void reset(){
-		System.out.println("Lighting level reset");
+		// Set the score to 0
 		score = 0;
+		
+		// Set the usedTime to 0
 		usedTime = 0;
+		
+		// Return all the tiles to the bullpen
+		ArrayList<Tile> tiles = this.board.getTiles();
+		for(Tile t: tiles){
+			bullpen.addTile(t);
+		}
+		
+		// Reset the board
+		this.board.reset();
+		
 	}
 
 	public boolean isTimeUsedUp(){
@@ -58,5 +72,10 @@ public class LightningLevel extends Level{
 	@Override
 	public int getLevelData() {
 		return this.usedTime;
+	}
+
+	@Override
+	public void setLevelData(int levelData) {
+		this.usedTime = levelData;
 	}
 }
