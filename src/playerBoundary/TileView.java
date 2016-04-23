@@ -21,6 +21,7 @@ public class TileView extends View {
 	public TileView(Tile t){
 		super();
 		this.t = t;
+		this.setSize(8*SQUARE_WIDTH, 8*SQUARE_WIDTH);
 	}
 	
 	public void setLocation (int x, int y){
@@ -30,7 +31,7 @@ public class TileView extends View {
 
 	@Override
 	public void initView() {
-		this.setSize(7*SQUARE_WIDTH, 7*SQUARE_WIDTH);
+		this.setSize(8*SQUARE_WIDTH, 8*SQUARE_WIDTH);
 	}
 	
 	public int getSquareWidth(){
@@ -66,9 +67,9 @@ public class TileView extends View {
 		
 		for(Square s: squares){
 			g.setColor(Color.ORANGE);
-			g.fillRect(upperX+s.getRelX()*SQUARE_WIDTH + width/2, upperY-s.getRelY()*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);
+			g.fillRect(upperX+s.getRelX()*SQUARE_WIDTH + width/2, upperY-(s.getRelY() + 1)*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);
 			g.setColor(Color.BLACK);
-			g.drawRect(upperX+s.getRelX()*SQUARE_WIDTH+width/2, upperY-s.getRelY()*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);
+			g.drawRect(upperX+s.getRelX()*SQUARE_WIDTH+width/2, upperY-(s.getRelY() + 1)*SQUARE_WIDTH+height/2, SQUARE_WIDTH, SQUARE_WIDTH);
 		}
 	}
 }
