@@ -6,8 +6,10 @@ import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.Bullpen;
 import playerEntity.LightningLevel;
+import playerEntity.PlayableBoardElt;
 import playerEntity.PuzzleLevel;
 import playerEntity.ReleaseLevel;
+import playerEntity.Square;
 import playerEntity.Tile;
 
 /**
@@ -32,8 +34,22 @@ public class PickUpTileBoardMove implements IMove{
 			return false;
 		}
 		
+		// rowcol of anchor for undo purposes
 		rowcol = ((Anchor) tile.getSquare(0, 0)).getRowCol();
+		
+		// Remove the tile from the board
 		board.removeTile(tile);
+		
+		// Set all of the covered elts to uncovered
+		for(Square s: tile.getSquares()){
+			
+			int row = tile.getAnchor().getRowCol()[0] - s.getRelY();
+			int col = tile.getAnchor().getRowCol()[1] + s.getRelX();
+			
+			PlayableBoardElt elt = (PlayableBoardElt)board.getBoardElt(row, col);
+			
+			elt.setCovered(false);
+		}
 		
 		// Update the dragged tile view
 		TileView tv = new TileView(tile);
