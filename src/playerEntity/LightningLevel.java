@@ -25,6 +25,11 @@ public class LightningLevel extends Level{
 	public int getUsedTime() {
 		return this.usedTime;
 	}
+	
+	public int getRemainingTime(){
+		return (this.allowedTime - this.usedTime);
+	}
+	
 	void updateTime(int delta){
 		usedTime += delta;
 	}

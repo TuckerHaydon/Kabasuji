@@ -18,6 +18,7 @@ public class PuzzleLevelView extends LevelView{
 	
 	JLabel movesLeft;
 	GameModel m;
+	PuzzleLevel level;
 	
 	public PuzzleLevelView(PuzzleLevel puzzleLvl, GameModel m, KabasujiPlayerApplication app) {
 		super();
@@ -52,7 +53,11 @@ public class PuzzleLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		JLabel lblNumMovesLeft = new JLabel("Num Moves Left");
+		
+		String a = new String ("Num Moves Left");
+		a.concat(Integer.toString(level.getMovesRemaining()));
+		
+		JLabel lblNumMovesLeft = new JLabel(a);
 		lblNumMovesLeft.setBounds(770, 770, 60, 15);
 		add(lblNumMovesLeft);
 		

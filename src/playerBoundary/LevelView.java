@@ -16,7 +16,7 @@ public abstract class LevelView extends View {
 	BullpenView bullpenView;
 	BoardView boardView;
 	JLabel score;
-	Level level;
+	//Level level;
 	JScrollPane scrollPane;
 	
 	public JScrollPane getScrollPane(){

@@ -19,6 +19,7 @@ import playerEntity.ReleaseLevel;
 public class ReleaseLevelView extends LevelView{
 	
 	GameModel m;
+	ReleaseLevel level;
 	
 	public ReleaseLevelView(ReleaseLevel releaseLevel, GameModel m, KabasujiPlayerApplication app) {
 		super();

@@ -22,6 +22,10 @@ public class PuzzleLevel extends Level {
 		return this.usedMove;
 	}
 	
+	public int getMovesRemaining() {
+		return (this.allowedMoves - this.usedMove);
+	}
+	
 	void updateMoves(int delta){
 		usedMove += delta;
 	}

@@ -16,6 +16,7 @@ public class LightningLevelView extends LevelView{
 	KabasujiPlayerApplication app;
 	JLabel timeLeft; 
 	GameModel m;
+	LightningLevel level;
 	
 	public LightningLevelView(LightningLevel lightningLvl, GameModel m, KabasujiPlayerApplication app) {
 		super();
@@ -50,9 +51,12 @@ public class LightningLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		JLabel lblNumMovesLeft = new JLabel("Not sure about this stuff");
-		lblNumMovesLeft.setBounds(770, 770, 60, 15);
-		add(lblNumMovesLeft);
+		String a = new String ("Time Remaining: ");
+		a.concat(Integer.toString(level.getRemainingTime()));
+		
+		JLabel lblTimeLeft = new JLabel(a);
+		lblTimeLeft.setBounds(770, 770, 60, 15);
+		add(lblTimeLeft);
 		
 		JLabel lblScoreNStuff = new JLabel("Score n stuff");
 		lblScoreNStuff.setBounds(770, 850, 60, 15);
