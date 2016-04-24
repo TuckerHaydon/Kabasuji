@@ -4,8 +4,11 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import playerController.LevelController;
+import playerController.LightningLevelTimer;
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
+import javax.swing.Timer;
+
 
 /**
  * 
@@ -17,6 +20,8 @@ public class LightningLevelView extends LevelView{
 	JLabel timeLeft; 
 	GameModel m;
 	LightningLevel level;
+	//javax.swing.Timer timer;
+	//public final static int ONE_SECOND = 1000;
 	
 	public LightningLevelView(LightningLevel lightningLvl, GameModel m, KabasujiPlayerApplication app) {
 		super();
@@ -75,6 +80,8 @@ public class LightningLevelView extends LevelView{
 		// Init the controllers of the subcomponents
 		bullpenView.initControllers();
 		boardView.initControllers();
+		
+		//timer = new Timer(ONE_SECOND, new LightningLevelTimer(level));
 		
 		// Init own controllers
 		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView(),m));
