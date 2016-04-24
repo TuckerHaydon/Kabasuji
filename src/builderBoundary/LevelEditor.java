@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import builderController.ExportLevelHandler;
+import builderController.LauchLevel;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
@@ -28,10 +29,10 @@ public class LevelEditor extends JFrame implements KeyListener {
 	
 	KabasujiBuilderApplication app;
 	BuilderModel m;
-	JButton exportGameButton, goToMenuButton;
+	JButton exportGameButton, goToMenuButton,testLevelButton;
 	LevelBuilderView levelBuilderView;
 	JPanel contentPane;
-
+	
 	
 	public LevelEditor(KabasujiBuilderApplication app){
 		super();
@@ -45,7 +46,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		// Create all of the components
 		exportGameButton = new JButton("Export");
 		goToMenuButton = new JButton("Main Menu");
-
+		testLevelButton = new JButton("Test Level");
 		
 		// TODO implement all the other shit.
 		
@@ -57,6 +58,8 @@ public class LevelEditor extends JFrame implements KeyListener {
 		exportGameButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		goToMenuButton.setBackground(new Color(128, 128, 128));
 		goToMenuButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+		testLevelButton.setBackground(new Color(128, 128, 128));
+		testLevelButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		
 		// Init sub components
 		levelBuilderView.initView();
@@ -82,6 +85,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 		goToMenuButton.setBounds(170, 5, 150, 33);
 		contentPane.add(goToMenuButton);
 		
+		testLevelButton.setBounds(335, 5, 150, 33);
+		contentPane.add(testLevelButton);
+		
 		// Add the level view
 		levelBuilderView.setBounds(50, 50, 900, 900);
 		contentPane.add(levelBuilderView);
@@ -94,7 +100,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		levelBuilderView.initControllers();
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 		exportGameButton.addActionListener(new ExportLevelHandler(m));
-		
+		testLevelButton.addActionListener(new LauchLevel(app));
 	}
 
 	@Override

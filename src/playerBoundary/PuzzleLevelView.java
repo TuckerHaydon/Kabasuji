@@ -15,9 +15,10 @@ import playerEntity.PuzzleLevel;
  *
  */
 public class PuzzleLevelView extends LevelView{
-	KabasujiPlayerApplication app;
+	
 	JLabel movesLeft;
 	GameModel m;
+	PuzzleLevel level;
 	
 	public PuzzleLevelView(PuzzleLevel puzzleLvl, GameModel m, KabasujiPlayerApplication app) {
 		super();
@@ -48,12 +49,18 @@ public class PuzzleLevelView extends LevelView{
 		scrollPane.setBounds(25, 25, 850, 7*bullpenView.getSquareWidth());
 		add(scrollPane);
 		
-		
 		// Add the boardView
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		JLabel lblNumMovesLeft = new JLabel("Num Moves Left");
+		/*
+		String numMovesLeft = new String (Integer.toString(level.getMovesRemaining()));
+		JLabel lblNumMovesLeft = new JLabel("<html>" + "Moves Remaining: " + numMovesLeft + " " + "</html>");
+		lblNumMovesLeft.setBounds(770, 400, 60, 300);
+		add(lblNumMovesLeft);
+		*/
+		
+		JLabel lblNumMovesLeft = new JLabel("Num Moves Left: ");
 		lblNumMovesLeft.setBounds(770, 770, 60, 15);
 		add(lblNumMovesLeft);
 		
@@ -66,14 +73,14 @@ public class PuzzleLevelView extends LevelView{
 	}
 	
 	@Override
-	public void initControllers(){		
+	public void initControllers(){
+		
 		// Init the controllers of the subcomponents
-		System.out.println("initializing puzzle controllers");
 		bullpenView.initControllers();
 		boardView.initControllers();
 		
 		// Init own controllers
-		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView()));
+		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView(), m));
 
 	}
 

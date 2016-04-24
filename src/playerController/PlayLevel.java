@@ -40,6 +40,7 @@ public class PlayLevel implements ActionListener {
 		{	
 			// Update the current level
 			m.setCurrentLevel(levelNum);
+			
 			//before play the level reset the level first
 			m.getCurrentLevel().reset();
 			

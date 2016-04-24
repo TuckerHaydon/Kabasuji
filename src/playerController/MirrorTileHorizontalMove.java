@@ -17,12 +17,13 @@ public class MirrorTileHorizontalMove implements IMove{
 	
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		if(isValid(app)){
-			tile.flipHorizontal();
-			app.getGameWindow().getLevelView().getScrollPane().repaint();
-			return true;
+		if(!this.isValid(app)){
+			return false;
 		}
-		return false;
+				
+		tile.flipHorizontal();
+		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		return true;
 	}
 
 	@Override

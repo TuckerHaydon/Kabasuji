@@ -40,6 +40,9 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	public boolean updateAchievement_releaseonbullpen(){
 		this.moveCounter++;
 		this.toBullpenMove++;
+		if(this.checkBabySteps()){
+			return true;
+		}
 		return false;
 	}
 	//should goes to move class //
@@ -54,7 +57,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	@Override
 	public boolean updateAchievement_releaseonboard(){
 		this.moveCounter++;
-		if(this.checkRebel()||this.checkBabySteps()){
+		if(this.checkBabySteps()){
 			return true;
 		}
 		return false;

@@ -1,6 +1,7 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Bullpen;
 import playerEntity.Tile;
@@ -21,10 +22,22 @@ public class PickUpTileBullpenMove implements IMove{
 	
 	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
-		if(isValid(app)){
-			return bullpen.removeTile(tile);
+		
+		if(!this.isValid(app)){
+			return false;
 		}
-		return false;
+		
+		// Remove the tile from the bullpen
+		bullpen.removeTile(tile);
+		
+		// Update the dragged tile view
+		TileView tv = new TileView(tile);
+		app.getGameWindow().setDraggedTile(tv);
+		
+		// Repaint the bullpen
+		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		
+		return true;
 	}
 
 	

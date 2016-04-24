@@ -2,18 +2,13 @@ package playerController;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import playerBoundary.GameWindow;
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
-import playerEntity.Anchor;
 import playerEntity.Board;
-import playerEntity.BoardElt;
 import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
-import playerEntity.LevelAchievementMonitor;
 import playerEntity.Tile;
-import playerEntity.Square;
 
 /**
  * 
@@ -32,115 +27,100 @@ public class BoardController extends MouseAdapter{
 		this.eltWidth = eltWidth;
 	}
 
-
 	//activity here depends on what kind of level we have 
 	@Override
 	public void mousePressed(MouseEvent me){
-	
-		GameWindow gw = app.getGameWindow();
-		GameModel m = app.getGameModel();
-		
-		// Get the XY location of the mouse event
+				
+		// Get the XY location of mouse event
 		int x = me.getX();
 		int y = me.getY();
 		
-		// If nothing is picked up, will either try and return a tile to the bullpen or translate the tile
+		// Process the action
+		processMousePressed(x, y);	
+	}
+	
+	void processMousePressed(int x, int y){
+		
+		GameWindow gw = app.getGameWindow();
+		GameModel m = app.getGameModel();
+		
+		// Determine the row/col of the mouse press
+		int row = y / eltWidth;
+		int col = x / eltWidth;	
+		
+		// If no tile is currently picked up
 		if(app.getGameWindow().getDraggedTile() == null){
 			
-			System.out.println("Want to translate a tile.");
-		
-	
-			// Determine which BoardElt that is
-			int row = y / eltWidth;
-			int col = x / eltWidth;
-			BoardElt elt = b.getBoardElt(row, col);
-	
-			Tile thisTile = b.getTile(row, col);
-	
-			//create new tileview
-			TileView tv = new TileView(thisTile);
-			app.getGameWindow().setDraggedTile(tv);
-	
-			//set dragged tile view, update coordinates, etc
-			PickUpTileBoardMove pbm = new PickUpTileBoardMove (thisTile, b);
-			if(pbm.isValid(app)){
+			//BoardElt elt = b.getBoardElt(row, col);
+//			System.out.println(row + " " + col);
+			
+			// Determine if there is a tile at the location of the mouse click
+			Tile selectedTile = b.getTile(row, col);
+			
+			// If there is no tile at the location of the mouse press, do nothing
+			if(selectedTile == null){
+				System.out.println("No tile here.");
+			}
+			// If there is a tile at this location, pick it up
+			else
+			{
+				PickUpTileBoardMove pbm = new PickUpTileBoardMove (selectedTile, b);
 				pbm.doMove(app);
 			}
+			
 		}
-		// Going to place a tile on the board
+		// If a tile is picked up, try and place it on the board
 		else{
+
 			
-			System.out.println("Want to place a tile.");
-
-			// Determine which BoardElt that is
-			int row = y / eltWidth;
-			int col = x / eltWidth;		
-
-			LevelAchievementMonitor AM = m.getCurrentAM();
-			GameAchievementMonitor GAM = m.getGAM();
+			
+			
+			// Get the TileView and Tile
 			TileView tileview = gw.getDraggedTile();
+			Tile selectedTile = tileview.getTile();
 			
-			if(tileview==null){
-				System.err.println("Null TileView::BoardController::mouseReleased");
+			// Validate the tile in the TileView
+			if(selectedTile==null){
+				System.err.println("Null Tile::BoardController::mouseReleased");
 				gw.releaseDraggedTile();
 				return;
 			}
 
-			Tile tile = tileview.getTile();
-			gw.releaseDraggedTile();
-
+			// TODO consolidate this stuff in the completeLevelMove
 			//achievement stuff goes here!
-
-			IMove move = new CompleteLevelMove(m);
-			if(move.isValid(app)){
-				move.doMove(app);	
-				app.displayLevelSelectionMenu();
-				app.getGameWindow().updateView();
-				if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
-					GAM.pop();
-				}
+			CompleteLevelMove move = new CompleteLevelMove(m);
+			move.doMove(app);	
+			//TODO GAM need to know if the CompleteLevelMove is valid
+			//but IDK if we should put it into the move class
+			GameAchievementMonitor GAM = m.getGAM();
+			if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
+				GAM.pop();
 			}
 
 
-			//This Anchor is just there for console reason
-			Anchor a = new Anchor(row,col,tile);
-
-			IMove move2 = new TileToBoardMove(b,a,row,col);
-			if(move2.isValid(app)){
-				move2.doMove(app);
-			}
-
-			//TODO move and app change stuff go there
-
-			//			if(AM.updateAchievement_releaseonboard()){
-			//				AM.popUpScreen();
-			//			}
-			else{
-				if(AM.updateAchievement_wheninvalidmove()){
-					AM.popUpScreen();
-				}
-			}
+			TileToBoardMove move2 = new TileToBoardMove(b,selectedTile,row,col);
+			move2.doMove(app);
+			
+			
 		}
+		
 	}
 	
 	@Override
 	public void mouseMoved(MouseEvent me){
+		processMouseMoved();
+	}
+	
+	void processMouseMoved(){
 		
+		// If there is not tile selected, do nothing
 		if(app.getGameWindow().getDraggedTile() == null){
 			return;
 		}
+		// If there is a tile selected, move it to the mouse location
 		else{
-			double mouseLocationX = app.getGameWindow().getMousePosition().getX();
-			double mouseLocationY = app.getGameWindow().getMousePosition().getY();
-			
-			int centerLocationX = (int)(mouseLocationX - 3.5*app.getGameWindow().getDraggedTile().getSquareWidth());
-			int centerLocationY = (int)(mouseLocationY - 4*app.getGameWindow().getDraggedTile().getSquareWidth());
-					
-			app.getGameWindow().getDraggedTile().setLocation(centerLocationX, centerLocationY);
-			app.getGameWindow().displayDraggedTile();
+			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
+			move.doMove(app);
 		}
-		
-		
 	}
-
 }

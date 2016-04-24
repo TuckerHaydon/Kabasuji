@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import playerController.GameWindowNavigateMainMenu;
-import playerController.LoadGame;
 import playerController.ResetLevelController;
 import playerEntity.GameModel;
 import playerEntity.Level;
@@ -39,11 +38,6 @@ public class GameWindow extends JFrame {
 		menuButton = new JButton("Main Menu");
 		resetButton = new JButton("Reset Level");
 		
-		// TODO NOT THIS
-		LoadGame lg = new LoadGame(m, app);
-		lg.loadInitialLevel();
-		m.setCurrentLevel(1);
-		
 	}
 	
 	public void initView(){
@@ -53,7 +47,6 @@ public class GameWindow extends JFrame {
 		
 		// Init sub components
 		currentLevelView.initView();
-		
 		// Set Frame properties
 		setSize(1000, 1000);
 		setTitle("Game Window");
@@ -88,6 +81,7 @@ public class GameWindow extends JFrame {
 		// Register the button controllers
 		menuButton.addActionListener(new GameWindowNavigateMainMenu(app,m));
 		resetButton.addActionListener(new ResetLevelController(app,m));
+		currentLevelView.initControllers();
 		
 	}
 	
@@ -138,6 +132,7 @@ public class GameWindow extends JFrame {
 		
 		// Initialize it and set proper bounds
 		currentLevelView.initView();
+		
 		// TODO fix this. Find where the controllers should be initialized. 
 		currentLevelView.initControllers();
 		currentLevelView.setBounds(50, 50, 900, 900);

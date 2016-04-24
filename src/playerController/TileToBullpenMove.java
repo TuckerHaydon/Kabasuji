@@ -3,6 +3,7 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Anchor;
 import playerEntity.Bullpen;
+import playerEntity.LevelAchievementMonitor;
 import playerEntity.LightningLevel;
 import playerEntity.Tile;
 
@@ -22,10 +23,30 @@ public class TileToBullpenMove implements IMove{
 	
 	@Override
 	public boolean doMove(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		boolean v = bullpen.addTile(tile);
+
+		LevelAchievementMonitor AM = app.getGameModel().getCurrentAM();
+		
+		if(!this.isValid(app)){
+			if(AM.updateAchievement_wheninvalidmove()){
+				AM.popUpScreen();
+			}
+			return false;
+		}
+		
+		// Add the tile to the bullpen
+		boolean successful = bullpen.addTile(tile);
+		
+		// Release the dragged tile
+		app.getGameWindow().releaseDraggedTile();
+		
+		// Repaint the bullpen
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
-		return v;
+		
+		if(AM.updateAchievement_releaseonbullpen()){
+			AM.popUpScreen();
+		}
+		
+		return successful;
 	}
 
 	@Override

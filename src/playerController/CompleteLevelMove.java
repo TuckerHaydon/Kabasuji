@@ -17,13 +17,20 @@ public class CompleteLevelMove implements IMove{
 	
 	/*Finished*/
 	public boolean doMove(KabasujiPlayerApplication app) {
-		if(isValid(app)){
-			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
-				m.getCurrentAM().popUpScreen();
-			}
-			return true;
+		
+		// Validate the move
+		if(!this.isValid(app)){
+			return false;
 		}
-		return false;
+		
+		if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
+			m.getCurrentAM().popUpScreen();
+		}
+		
+		app.displayLevelSelectionMenu();
+		app.getGameWindow().updateView();
+		return true;
+
 	}
 
 	/*Finished*/

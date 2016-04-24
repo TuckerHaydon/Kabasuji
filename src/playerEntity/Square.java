@@ -38,4 +38,8 @@ public class Square {
 	public int getRelY(){
 		return anchorRelY;
 	}
+	
+	public String toString(){
+		return anchorRelX + ", " + anchorRelY;
+	}
 }

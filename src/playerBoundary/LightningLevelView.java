@@ -4,8 +4,11 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import playerController.LevelController;
+import playerController.LightningLevelTimer;
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
+import javax.swing.Timer;
+
 
 /**
  * 
@@ -16,6 +19,9 @@ public class LightningLevelView extends LevelView{
 	KabasujiPlayerApplication app;
 	JLabel timeLeft; 
 	GameModel m;
+	LightningLevel level;
+	//javax.swing.Timer timer;
+	//public final static int ONE_SECOND = 1000;
 	
 	public LightningLevelView(LightningLevel lightningLvl, GameModel m, KabasujiPlayerApplication app) {
 		super();
@@ -50,9 +56,16 @@ public class LightningLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		JLabel lblNumMovesLeft = new JLabel("Not sure about this stuff");
-		lblNumMovesLeft.setBounds(770, 770, 60, 15);
-		add(lblNumMovesLeft);
+		/*
+		String remTime = new String (Integer.toString(level.getRemainingTime()));
+		JLabel lblTimeLeft = new JLabel("<html>" + "Time Remaining: " + remTime + " " + "</html>");
+		lblTimeLeft.setBounds(770, 400, 60, 300);
+		add(lblTimeLeft);
+		*/
+		
+		JLabel lblTimeLeft = new JLabel("Time Allowed");
+		lblTimeLeft.setBounds(770, 770, 60, 15);
+		add(lblTimeLeft);
 		
 		JLabel lblScoreNStuff = new JLabel("Score n stuff");
 		lblScoreNStuff.setBounds(770, 850, 60, 15);
@@ -68,7 +81,9 @@ public class LightningLevelView extends LevelView{
 		bullpenView.initControllers();
 		boardView.initControllers();
 		
+		//timer = new Timer(ONE_SECOND, new LightningLevelTimer(level));
+		
 		// Init own controllers
-		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView()));
+		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView(),m));
 	}
 }
