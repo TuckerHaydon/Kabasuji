@@ -51,10 +51,14 @@ public class LightningLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		String a = new String ("Time Remaining: ");
-		a.concat(Integer.toString(level.getRemainingTime()));
+		/*
+		String remTime = new String (Integer.toString(level.getRemainingTime()));
+		JLabel lblTimeLeft = new JLabel("<html>" + "Time Remaining: " + remTime + " " + "</html>");
+		lblTimeLeft.setBounds(770, 400, 60, 300);
+		add(lblTimeLeft);
+		*/
 		
-		JLabel lblTimeLeft = new JLabel(a);
+		JLabel lblTimeLeft = new JLabel("Time Allowed");
 		lblTimeLeft.setBounds(770, 770, 60, 15);
 		add(lblTimeLeft);
 		
