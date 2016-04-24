@@ -17,7 +17,7 @@ import playerEntity.Square;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, ndiwakar
  *
  */
 public class BoardController extends MouseAdapter{
