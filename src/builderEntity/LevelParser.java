@@ -106,6 +106,7 @@ public class LevelParser {
 		// Create the board
 		Board board = new Board(elts);
 		
+		
 		// Create the level
 		parsedLevel = new Level(bullpen, board, -1, levelType, levelData);
 		

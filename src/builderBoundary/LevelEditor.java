@@ -40,7 +40,6 @@ public class LevelEditor extends JFrame implements KeyListener {
 		this.app = app;
 		m = new BuilderModel();
 
-		
 		levelBuilderView = new LevelBuilderView(m.getLevel(), app, m); 
 		
 		// Create all of the components
@@ -102,6 +101,8 @@ public class LevelEditor extends JFrame implements KeyListener {
 		exportGameButton.addActionListener(new ExportLevelHandler(m));
 		testLevelButton.addActionListener(new LauchLevel(app));
 	}
+	
+
 
 	@Override
 	public void keyTyped(KeyEvent e) {

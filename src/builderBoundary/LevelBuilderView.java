@@ -29,6 +29,7 @@ import playerController.LoadGame;
 /**
  * 
  * @author tuckerhaydon
+ * @author jwilder
  *
  */
 public class LevelBuilderView extends JPanel{
@@ -171,20 +172,38 @@ public class LevelBuilderView extends JPanel{
 		this.repaint();
 		
 	}
+	
+	
 
 	public Level getLevel(){
 		return this.lvl;
+	}
+	
+	public void setLevel(Level lev){
+		this.lvl = lev;
 	}
 	
 	public BullpenView getBullpenView(){
 		return this.bullpenView;
 	}
 	
+	public void setBullpenView(BullpenView bpv){
+		this.bullpenView = bpv;
+	}
+	
 	public BankView getBankView(){
 		return this.bankView;
+	}
+	
+	public void setBankView(BankView bkv){
+		this.bankView = bkv;
 	}
 
 	public BoardView getBoardView() {
 		return this.boardView;
+	}
+	
+	public void setBoardView(BoardView bv){
+		this.boardView = bv;
 	}
 }
