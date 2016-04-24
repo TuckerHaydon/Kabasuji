@@ -7,7 +7,7 @@ import playerController.BoardController;
 import playerEntity.Board;
 import playerEntity.BoardElt;
 import playerEntity.GameModel;
-import playerEntity.NumberBoardElt;
+import playerEntity.NumberedBoardElt;
 import playerEntity.PlayableBoardElt;
 import playerEntity.UnplayableBoardElt;
 
@@ -55,7 +55,7 @@ public class BoardView extends View{
 					if(((PlayableBoardElt)elts[row][col]).getCovered()){
 						squareColor = Color.GREEN;
 					}
-					else if(elts[row][col] instanceof NumberBoardElt){
+					else if(elts[row][col] instanceof NumberedBoardElt){
 						squareColor = Color.RED;
 					}
 					else if(((PlayableBoardElt)elts[row][col]).isHint())

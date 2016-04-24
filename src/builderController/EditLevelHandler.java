@@ -65,13 +65,7 @@ public class EditLevelHandler implements ActionListener {
 		BullpenView bpv = new BullpenView(editLevel.getBullpen());
 		lbv.setBoardView(bv);
 		lbv.setBullpenView(bpv);
-		
-		
-		
-		
-	
-		lbv.repaint();
-		app.getLevelEditor().getLevelBuilderView().getBoardView().repaint();	
+		le.refresh();
 		app.displayLevelEditor();
 	
 	}

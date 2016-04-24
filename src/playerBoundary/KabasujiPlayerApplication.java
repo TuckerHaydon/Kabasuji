@@ -6,8 +6,6 @@ import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import playerController.LoadGame;
 import playerEntity.GameModel;
 
 /**
@@ -28,8 +26,8 @@ public class KabasujiPlayerApplication {
 		playThemeSong();
 	}
 	
-	public KabasujiPlayerApplication(String path){
-		initBuilderModel(path);
+	public KabasujiPlayerApplication(String levelPath){
+		initBuilderModel(levelPath);
 		initView();
 		initControllers();
 		displayGameWindow();
@@ -46,14 +44,14 @@ public class KabasujiPlayerApplication {
 	public void initModel(){
 		m = new GameModel();
 		m.loadLevel("src/resources/games/ExampleGame1");
-		m.setCurrentLevel(1);
+		m.setCurrentLevel(0);
 		m.initModel();
 	}
 	
-	void initBuilderModel(String path){
+	void initBuilderModel(String levelPath){
 		m = new GameModel();
-		m.loadLevel(path);
-		m.setCurrentLevel(1);
+		m.loadLevel(levelPath);
+		m.setCurrentLevel(0);
 		m.initModel();
 	}
 	

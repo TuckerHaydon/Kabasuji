@@ -111,15 +111,25 @@ public class GameWindow extends JFrame {
 		
 		Level currLev = m.getCurrentLevel();
 		int currLevNum = currLev.getLevelNum();
-		if(currLevNum % 3 == 1){
+		
+		// Holy shit this is so bad. I feel so dirty. Don't change this though. Need this for the level tester
+		try{
 			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev, m, app);
+			return;
 		}
-		else if(currLevNum % 3 == 2){
+		catch(Exception e){}
+		
+		try{
 			currentLevelView = new LightningLevelView((LightningLevel)currLev, m, app);
+			return;
 		}
-		else if(currLevNum % 3 == 0){
+		catch(Exception e){}
+		
+		try{
 			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev, m, app);
+			return;
 		}
+		catch(Exception e){}
 	}
 	
 	public void updateView() {

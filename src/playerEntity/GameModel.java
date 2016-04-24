@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 
+import playerEntity.LevelParser;
+
 /**
  * 
  * @author tuckerhaydon, dorothy
@@ -21,7 +23,8 @@ public class GameModel {
 	int currentAMNum;
 	
 	public GameModel(){
-
+		levels = new Level[15];
+		currentLevel = null;
 	}
 	
 	public void initModel(){
@@ -117,6 +120,8 @@ public class GameModel {
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
+		
+		// this.levels[0] = LevelParser.getLevel(path);
 	}
 	
 	public void parseFile(Scanner fileScanner){
@@ -214,8 +219,8 @@ public class GameModel {
 								break;
 						}
 						// Check if hint
-						if(input.length() == 4){	elt = new NumberBoardElt(row, col, true, color, num);}
-						else{						elt = new NumberBoardElt(row, col, false, color, num);}
+						if(input.length() == 4){	elt = new NumberedBoardElt(row, col, true, color, num);}
+						else{						elt = new NumberedBoardElt(row, col, false, color, num);}
 						break;
 					default:
 						System.out.println(input);
@@ -238,13 +243,11 @@ public class GameModel {
 		String next = fileScanner.next();
 		next = fileScanner.next();
 
-		do
+		while(!next.equals("EndHexomino"))
 		{
 			hexominoes.add(Integer.parseInt(next));
-			next = fileScanner.next();
-			
+			next = fileScanner.next();	
 		}
-		while(!next.equals("EndHexomino"));
 		
 		return hexominoes;
 	}
