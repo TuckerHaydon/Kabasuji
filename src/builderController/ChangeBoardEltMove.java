@@ -89,7 +89,6 @@ public class ChangeBoardEltMove implements IMove {
 			board.getBoardElts()[row][col] = new UnplayableBoardElt(row, col);
 			break;
 		case "numbered":
-			
 			board.getBoardElts()[row][col] = new NumberedBoardElt(row, col, isHint, prevColor, selectedNumber); 
 			break;
 		default:

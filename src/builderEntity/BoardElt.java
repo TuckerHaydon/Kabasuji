@@ -32,6 +32,7 @@ public abstract class BoardElt {
 	public String getType() {
 		return null;
 	}
+	
 
 	
 }

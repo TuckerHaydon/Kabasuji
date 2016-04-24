@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import builderController.ExportLevelHandler;
-import builderController.LauchLevel;
+import builderController.TestLevelHandler;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
@@ -31,17 +31,15 @@ public class LevelEditor extends JFrame implements KeyListener {
 	BuilderModel m;
 	JButton exportGameButton, goToMenuButton,testLevelButton;
 	LevelBuilderView levelBuilderView;
-	JPanel contentPane;
+	JPanel contentPane;	
 	
-	
-	public LevelEditor(KabasujiBuilderApplication app){
+	public LevelEditor(KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		
 		this.app = app;
-		m = new BuilderModel();
-
+		this.m = m;
 		
-		levelBuilderView = new LevelBuilderView(m.getLevel(), app, m); 
+		levelBuilderView = new LevelBuilderView(this.m.getLevel(), this.app, this.m); 
 		
 		// Create all of the components
 		exportGameButton = new JButton("Export");
@@ -100,7 +98,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		levelBuilderView.initControllers();
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 		exportGameButton.addActionListener(new ExportLevelHandler(m));
-		testLevelButton.addActionListener(new LauchLevel(app));
+		testLevelButton.addActionListener(new TestLevelHandler(app, m));
 	}
 
 	@Override
@@ -125,6 +123,15 @@ public class LevelEditor extends JFrame implements KeyListener {
 	
 	public LevelBuilderView getLevelBuilderView(){
 		return this.levelBuilderView;
+	}
+	
+	public void refresh(){
+		contentPane.remove(levelBuilderView);
+		levelBuilderView = new LevelBuilderView(m.getLevel(), app, m); 
+		levelBuilderView.initView();
+		levelBuilderView.setBounds(50, 50, 900, 900);
+		levelBuilderView.initControllers();
+		contentPane.add(levelBuilderView);
 	}
 	
 

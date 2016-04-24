@@ -21,9 +21,7 @@ public class KabasujiBuilderApplication {
 	LevelEditor levelEditor;
 	GameEditorMenu gameEditorMenu;
 	GameEditor gameEditor;
-	
 	BuilderModel m;
-	
 	java.util.Stack<IMove> moves = new java.util.Stack<IMove>();
 	
 	public KabasujiBuilderApplication(){
@@ -36,7 +34,7 @@ public class KabasujiBuilderApplication {
 	}
 	
 	public void initModel(){
-		m = new BuilderModel();	
+		this.m = new BuilderModel();	
 	}
 	
 	public void initView(){
@@ -44,7 +42,7 @@ public class KabasujiBuilderApplication {
 		// Create the various frames
 		mainMenu = new MainMenu(this);
 		levelEditorMenu = new LevelEditorMenu(this, m);
-		levelEditor = new LevelEditor(this);
+		levelEditor = new LevelEditor(this, m);
 		gameEditorMenu = new GameEditorMenu(this, m);
 		gameEditor = new GameEditor(this, m);
 		
@@ -54,9 +52,6 @@ public class KabasujiBuilderApplication {
 		levelEditor.initView();
 		gameEditorMenu.initView();
 		gameEditor.initView();
-		
-		// Display Splash screen
-//		displaySplashScreen();
 		
 		// Display the main menu
 		displayMainMenu();
@@ -132,7 +127,7 @@ public class KabasujiBuilderApplication {
 	}
 	
 	public void refreshLevelEditor(){
-		this.levelEditor.initView();
+		this.levelEditor.refresh();
 	}
 
 	public LevelEditor getLevelEditor(){

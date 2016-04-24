@@ -21,22 +21,29 @@ import builderEntity.Level;
 public class ExportLevelMove implements IMove {
 
 	BuilderModel model;
-	String filePath;
-	boolean overwrite = true;
+	String fileName;
+	boolean isTestLevel;
 	
-	public ExportLevelMove(BuilderModel m, String filePath){
+	public ExportLevelMove(BuilderModel m, String fileName){
 		this.model = m;
-		this.filePath = filePath;
+		this.fileName = fileName;
+		this.isTestLevel = false;
 	}
 	
-	public ExportLevelMove(BuilderModel m, String filePath, boolean overwrite){
+	public ExportLevelMove(BuilderModel m, String fileName, boolean isTestLevel){
 		this.model = m;
-		this.filePath = filePath;
-		this.overwrite = overwrite;
+		this.fileName = fileName;
+		this.isTestLevel = isTestLevel;
 	}
 	
 	@Override
 	public boolean doMove() {
+		
+		// Validate the move
+		if(!this.isValid()){
+			return false;
+		}
+		
 		this.writeFile();
 		return true;
 	}
@@ -62,14 +69,16 @@ public class ExportLevelMove implements IMove {
 		String type = lvl.getLevelType();
 		int data = lvl.getlevelData();
 		
+		String filePath = this.getFilePath(type);
+		
 		try {
-			File file = new File("src/resources/levels/"+filePath);
+			File file = new File(filePath);
 
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();
 			}
-			else if(overwrite == true){
+			else {
 				// TODO maybe check to make sure they want to overwrite
 				file.delete();
 				file.createNewFile();
@@ -99,7 +108,7 @@ public class ExportLevelMove implements IMove {
 				bw.newLine();
 			}
 			bw.write("EndElts");		bw.newLine();
-			bw.write("EndLevel"); 	bw.newLine();
+			bw.write("EndLevel"); 		bw.newLine();
 			
 			bw.close();
 			
@@ -107,6 +116,27 @@ public class ExportLevelMove implements IMove {
 
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	String getFilePath(String levelType) {
+		
+		// If it is a test level, export to the test directory
+		if(this.isTestLevel){
+			return "src/resources/levels/test/"+fileName;
+		}
+		
+		// If it is not a test level, determine which directory to export the file to
+		switch(levelType.toLowerCase()){
+		case "puzzle":
+			return "src/resources/levels/puzzle/"+fileName;
+		case "release":
+			return "src/resources/levels/release/"+fileName;
+		case "lightning":
+			return "src/resources/levels/lightning/"+fileName;
+		default:
+			System.err.println("Wrong level type in ExportLevelMove: "+levelType);
+			return null;
 		}
 	}
 

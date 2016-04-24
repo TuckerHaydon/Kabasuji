@@ -38,7 +38,7 @@ public class BuilderModel {
 		this.game = g;
 	}
 	
-		public Game getGame(){
+	public Game getGame(){
 		return this.game;
 	}
 		

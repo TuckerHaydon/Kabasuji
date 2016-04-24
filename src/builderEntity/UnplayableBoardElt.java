@@ -9,13 +9,11 @@ public class UnplayableBoardElt extends BoardElt{
 
 	public UnplayableBoardElt(int row, int col) {
 		super(row, col);
-		
 	}
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+	public String toString(){
+		return "U";
 	}
 	
 	public String getType() {

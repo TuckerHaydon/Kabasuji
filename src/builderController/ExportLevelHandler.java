@@ -15,6 +15,7 @@ import builderEntity.BuilderModel;
 public class ExportLevelHandler implements ActionListener {
 	
 	BuilderModel m;
+	String fileName;
 	
 	public ExportLevelHandler(BuilderModel m) {
 		this.m = m;
@@ -23,17 +24,19 @@ public class ExportLevelHandler implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		// Create the filepath
-		String path = JOptionPane.showInputDialog("Name the level.");
+		parseInput();
+		processAction();
+	}
+	
+	void parseInput(){
+		fileName = JOptionPane.showInputDialog("Name the level.");
+	}
+	
+	void processAction(){
 		
 		// Create an export move and do it
-		ExportLevelMove move = new ExportLevelMove(m, path);
-		
-		if(move.isValid()){
-			move.doMove();
-		}
-		
-		
+		ExportLevelMove move = new ExportLevelMove(m, fileName, false);
+		move.doMove();
 	}
 
 }

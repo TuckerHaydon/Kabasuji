@@ -25,7 +25,7 @@ public class CreateLevelHandler implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		m.setLevel(new Level());
-		// app.refreshLevelEditor();
+		app.refreshLevelEditor();
 		app.displayLevelEditor();
 
 		
