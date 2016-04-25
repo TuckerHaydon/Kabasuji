@@ -11,7 +11,10 @@ import builderEntity.Level;
 import builderEntity.LevelParser;
 
 /**
- * 
+ * Adds a level to a game in the Game Editor. This class is used by
+ * the corresponding handler to add made levels to a game being constructed.
+ * @see AddLevelToGameHandler
+ * @see GameEditor
  * @author tuckerhaydon
  * @author wilderj
  */
