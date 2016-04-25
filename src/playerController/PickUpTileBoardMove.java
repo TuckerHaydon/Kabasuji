@@ -5,6 +5,7 @@ import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.GameModel;
+import playerEntity.LightningLevel;
 import playerEntity.PlayableBoardElt;
 import playerEntity.ReleaseLevel;
 import playerEntity.Square;
@@ -68,7 +69,7 @@ public class PickUpTileBoardMove extends Move{
 
 	@Override
 	boolean isValid() {
-		if(m.getCurrentLevel() instanceof ReleaseLevel) {
+		if(m.getCurrentLevel() instanceof LightningLevel) {
 			return false;
 		}
 		return true;
