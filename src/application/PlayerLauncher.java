@@ -1,6 +1,7 @@
 package application;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.GameModel;
 
 /**
  * 
@@ -12,7 +13,7 @@ public class PlayerLauncher {
 	public static void main(String args[])
 	{
 		System.out.println("Player Application launched.");
-		
-		KabasujiPlayerApplication app = new KabasujiPlayerApplication();
+		GameModel m = new GameModel();
+		KabasujiPlayerApplication app = new KabasujiPlayerApplication(m);
 	}	
 }

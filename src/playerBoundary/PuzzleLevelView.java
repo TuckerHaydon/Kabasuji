@@ -17,18 +17,15 @@ import playerEntity.PuzzleLevel;
 public class PuzzleLevelView extends LevelView{
 	
 	JLabel movesLeft;
-	GameModel m;
 	PuzzleLevel level;
 	
-	public PuzzleLevelView(PuzzleLevel puzzleLvl, GameModel m, KabasujiPlayerApplication app) {
-		super();
+	public PuzzleLevelView(KabasujiPlayerApplication app, GameModel m, PuzzleLevel puzzleLvl) {
+		super(app, m);
 		this.level = puzzleLvl;
-		this.m=m;
-		this.app = app;
 		
 		// Initialize the sub-view components
-		bullpenView = new BullpenView(app, level.getBullpen());
-		boardView = new BoardView(level.getBoard(), app, m);
+		bullpenView = new BullpenView(app, m, level.getBullpen());
+		boardView = new BoardView(app, m, level.getBoard());
 	}
 
 	@Override
@@ -80,7 +77,8 @@ public class PuzzleLevelView extends LevelView{
 		boardView.initControllers();
 		
 		// Init own controllers
-		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView(), m));
+		System.out.println(app == null);
+		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
 
 	}
 

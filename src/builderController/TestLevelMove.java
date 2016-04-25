@@ -3,6 +3,7 @@ package builderController;
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.GameModel;
 
 public class TestLevelMove implements IMove{
 	
@@ -29,7 +30,8 @@ public class TestLevelMove implements IMove{
 		move.doMove();
 		
 		// Launch the player application 
-		KabasujiPlayerApplication playerApp = new KabasujiPlayerApplication("src/resources/levels/test/test_level");
+		GameModel gameModel = new GameModel();
+		KabasujiPlayerApplication playerApp = new KabasujiPlayerApplication(gameModel, "src/resources/levels/test/test_level");
 
 		return false;
 	}

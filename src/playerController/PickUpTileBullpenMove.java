@@ -4,6 +4,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Bullpen;
+import playerEntity.GameModel;
 import playerEntity.Tile;
 
 /**
@@ -11,27 +12,24 @@ import playerEntity.Tile;
  * @author 
  *
  */
-public class PickUpTileBullpenMove implements IMove{
+public class PickUpTileBullpenMove extends Move{
 	Tile tile;
 	Bullpen bullpen;
 	
-	public PickUpTileBullpenMove(Tile tile, Bullpen bullpen){
+	public PickUpTileBullpenMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Bullpen bullpen){
+		super(app, m);
 		this.tile=tile;
 		this.bullpen=bullpen;
 	}
 	
-	/*Finished*/
-	public boolean doMove(KabasujiPlayerApplication app) {
-		
-		if(!this.isValid(app)){
-			return false;
-		}
+	@Override
+	boolean doMove() {
 		
 		// Remove the tile from the bullpen
 		bullpen.removeTile(tile);
 		
 		// Update the dragged tile view
-		TileView tv = new TileView(tile);
+		TileView tv = new TileView(app, m, tile);
 		app.getGameWindow().setDraggedTile(tv);
 		
 		// Repaint the bullpen
@@ -40,12 +38,13 @@ public class PickUpTileBullpenMove implements IMove{
 		return true;
 	}
 
-	
-	public boolean isValid(KabasujiPlayerApplication app) {
+	@Override
+	boolean isValid() {
 		return true;
 	}
 	
-	public boolean undo(KabasujiPlayerApplication app) {
+	@Override
+	public boolean undo() {
 		return bullpen.addTile(tile.getReferenceNumber());
 	}
 

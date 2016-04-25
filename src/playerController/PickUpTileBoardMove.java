@@ -4,6 +4,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Board;
+import playerEntity.GameModel;
 import playerEntity.PlayableBoardElt;
 import playerEntity.ReleaseLevel;
 import playerEntity.Square;
@@ -14,22 +15,20 @@ import playerEntity.Tile;
  * @author tuckerhaydon
  *
  */
-public class PickUpTileBoardMove implements IMove{
+public class PickUpTileBoardMove extends Move{
+	
 	Tile tile;
 	Board board;
 	int[] rowcol;
 	
-	public PickUpTileBoardMove(Tile tile, Board board){
+	public PickUpTileBoardMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Board board){
+		super(app, m);
 		this.tile=tile;
 		this.board=board;
 	}
 	
-	/*Finished*/
-	public boolean doMove(KabasujiPlayerApplication app) {
-		
-		if(!this.isValid(app)){
-			return false;
-		}
+	@Override
+	boolean doMove() {
 		
 		// rowcol of anchor for undo purposes
 		rowcol = ((Anchor) tile.getSquare(0, 0)).getRowCol();
@@ -49,12 +48,12 @@ public class PickUpTileBoardMove implements IMove{
 		}
 		
 		// Update the dragged tile view
-		TileView tv = new TileView(tile);
+		TileView tv = new TileView(app, m, tile);
 		app.getGameWindow().setDraggedTile(tv);
 		
 		// Update the GUI to show the picked up tile
-		UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
-		move.doMove(app);
+		UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove(app, m);
+		move.execute();
 		
 		// Repaint the board
 		app.getGameWindow().getLevelView().getBoardView().repaint();
@@ -62,13 +61,14 @@ public class PickUpTileBoardMove implements IMove{
 		return true;
 	}
 	
-	public boolean undo(KabasujiPlayerApplication app) {
+	@Override
+	public boolean undo() {
 		return board.addTile(tile, rowcol[0], rowcol[1]);
 	}
 
-	/*you can always pick it up from board*/
-	public boolean isValid(KabasujiPlayerApplication app) {
-		if(app.getGameModel().getCurrentLevel() instanceof ReleaseLevel) {
+	@Override
+	boolean isValid() {
+		if(m.getCurrentLevel() instanceof ReleaseLevel) {
 			return false;
 		}
 		return true;

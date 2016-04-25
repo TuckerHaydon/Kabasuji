@@ -16,13 +16,15 @@ import playerEntity.Tile;
  *
  */
 public class BoardController extends MouseAdapter{
-	Board b;
 	KabasujiPlayerApplication app;
+	GameModel m;
+	Board b;
 	int eltWidth;
 
-	public BoardController(Board b, KabasujiPlayerApplication app, int eltWidth){
+	public BoardController(KabasujiPlayerApplication app, GameModel m, Board b, int eltWidth){
 		super();
 		this.app=app;
+		this.m=m;
 		this.b=b;
 		this.eltWidth = eltWidth;
 	}
@@ -42,7 +44,6 @@ public class BoardController extends MouseAdapter{
 	void processMousePressed(int x, int y){
 		
 		GameWindow gw = app.getGameWindow();
-		GameModel m = app.getGameModel();
 		
 		// Determine the row/col of the mouse press
 		int row = y / eltWidth;
@@ -64,8 +65,8 @@ public class BoardController extends MouseAdapter{
 			// If there is a tile at this location, pick it up
 			else
 			{
-				PickUpTileBoardMove pbm = new PickUpTileBoardMove (selectedTile, b);
-				pbm.doMove(app);
+				PickUpTileBoardMove pbm = new PickUpTileBoardMove (app, m, selectedTile, b);
+				pbm.execute();
 			}
 			
 		}
@@ -88,8 +89,9 @@ public class BoardController extends MouseAdapter{
 
 			// TODO consolidate this stuff in the completeLevelMove
 			//achievement stuff goes here!
-			CompleteLevelMove move = new CompleteLevelMove(m);
-			move.doMove(app);	
+			CompleteLevelMove move = new CompleteLevelMove(app, m);
+			move.execute();	
+			
 			//TODO GAM need to know if the CompleteLevelMove is valid
 			//but IDK if we should put it into the move class
 			GameAchievementMonitor GAM = m.getGAM();
@@ -98,8 +100,8 @@ public class BoardController extends MouseAdapter{
 			}
 
 
-			TileToBoardMove move2 = new TileToBoardMove(b,selectedTile,row,col);
-			move2.doMove(app);
+			TileToBoardMove move2 = new TileToBoardMove(app, m, b,selectedTile,row,col);
+			move2.execute();
 			
 			
 		}
@@ -119,8 +121,8 @@ public class BoardController extends MouseAdapter{
 		}
 		// If there is a tile selected, move it to the mouse location
 		else{
-			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
-			move.doMove(app);
+			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove(app, m);
+			move.execute();
 		}
 	}
 }

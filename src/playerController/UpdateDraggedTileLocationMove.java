@@ -1,20 +1,21 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.GameModel;
 
 /**
  * 
  * @author tuckerhaydon
  *
  */
-public class UpdateDraggedTileLocationMove implements IMove {
+public class UpdateDraggedTileLocationMove extends Move {
+	
+	public UpdateDraggedTileLocationMove(KabasujiPlayerApplication app, GameModel m) {
+		super(app, m);
+	}
 
 	@Override
-	public boolean doMove(KabasujiPlayerApplication app) {
-		
-		if(!this.isValid(app)){
-			return false;
-		}
+	boolean doMove() {
 		
 		double mouseLocationX = app.getGameWindow().getMousePosition().getX();
 		double mouseLocationY = app.getGameWindow().getMousePosition().getY();
@@ -28,13 +29,13 @@ public class UpdateDraggedTileLocationMove implements IMove {
 	}
 
 	@Override
-	public boolean isValid(KabasujiPlayerApplication app) {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
-	public boolean undo(KabasujiPlayerApplication app) {
+	public boolean undo() {
 		// Not an undoable move
 		return false;
 	}

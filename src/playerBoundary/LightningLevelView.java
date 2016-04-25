@@ -16,21 +16,18 @@ import javax.swing.Timer;
  *
  */
 public class LightningLevelView extends LevelView{
-	KabasujiPlayerApplication app;
 	JLabel timeLeft; 
-	GameModel m;
 	LightningLevel level;
+	
 	//javax.swing.Timer timer;
 	//public final static int ONE_SECOND = 1000;
 	
-	public LightningLevelView(LightningLevel lightningLvl, GameModel m, KabasujiPlayerApplication app) {
-		super();
+	public LightningLevelView(KabasujiPlayerApplication app, GameModel m, LightningLevel lightningLvl) {
+		super(app, m);
 		this.level = lightningLvl;
-		this.m=m;
-		this.app = app;
 		
-		bullpenView = new BullpenView(app, level.getBullpen());
-		boardView = new BoardView(level.getBoard(),app,m);
+		bullpenView = new BullpenView(app, m, level.getBullpen());
+		boardView = new BoardView(app, m, level.getBoard());
 
 	}
 
@@ -84,6 +81,6 @@ public class LightningLevelView extends LevelView{
 		//timer = new Timer(ONE_SECOND, new LightningLevelTimer(level));
 		
 		// Init own controllers
-		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView(),m));
+		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
 	}
 }

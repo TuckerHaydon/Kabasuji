@@ -1,6 +1,7 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.GameModel;
 import playerEntity.Tile;
 
 /**
@@ -8,32 +9,29 @@ import playerEntity.Tile;
  * @author tuckerhaydon
  *
  */
-public class RotateTileClockwiseMove implements IMove{
+public class RotateTileClockwiseMove extends Move{
 	Tile tile;
 	
-	public RotateTileClockwiseMove(Tile tile){
+	public RotateTileClockwiseMove(KabasujiPlayerApplication app, GameModel m, Tile tile){
+		super(app, m);
 		this.tile=tile;
 	}
 	
 	@Override
-	public boolean doMove(KabasujiPlayerApplication app) {
-		
-		if(!this.isValid(app)){
-			return false;
-		}
-		
+	boolean doMove() {
 		tile.rotateRight();
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;
 	}
 
 	@Override
-	public boolean isValid(KabasujiPlayerApplication app) {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}
 	
-	public boolean undo(KabasujiPlayerApplication app) {
+	@Override
+	public boolean undo() {
 		tile.rotateLeft();
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;

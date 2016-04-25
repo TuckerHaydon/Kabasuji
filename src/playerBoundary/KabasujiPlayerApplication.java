@@ -21,35 +21,41 @@ public class KabasujiPlayerApplication {
 	AchievementsMenu achievementsMenu;
 	GameModel m;
 	
-	public KabasujiPlayerApplication(){
+	public KabasujiPlayerApplication(GameModel m){
+		this.m = m;
 		init();
 	}
 	
-	public KabasujiPlayerApplication(String levelPath){
-		initBuilderModel(levelPath);
-		initView();
-		initControllers();
-		displayGameWindow();
+	public KabasujiPlayerApplication(GameModel m, String levelPath){
+		this.m = m;
+		init(levelPath);
 	}
 	
 	public void init(){
 		initModel();
 		initView();
 		initControllers();
-		displayMainMenu();
+		
 		playThemeSong();
 		displaySplashScreen();
+		displayMainMenu();
+	}
+	
+	public void init(String levelPath){
+		initModel(levelPath);
+		initView();
+		initControllers();
+		
+		displayGameWindow();
 	}
 	
 	public void initModel(){
-		m = new GameModel();
 		m.loadGame("src/resources/games/ExampleGame1");
 		m.setCurrentLevel(0);
 		m.initModel();
 	}
 	
-	void initBuilderModel(String levelPath){
-		m = new GameModel();
+	void initModel(String levelPath){
 		m.loadLevel(levelPath);
 		m.setCurrentLevel(0);
 		m.initModel();
@@ -110,10 +116,6 @@ public class KabasujiPlayerApplication {
 	public GameWindow getGameWindow(){
 		return gameWindow;
 
-	}
-	
-	public GameModel getGameModel(){
-		return m;
 	}
 	
 	public AchievementsMenu getAchievementsMenu(){

@@ -3,6 +3,7 @@ package playerBoundary;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import playerEntity.GameModel;
 import playerEntity.Square;
 import playerEntity.Tile;
 
@@ -18,8 +19,8 @@ public class TileView extends View {
 	
 	int SQUARE_WIDTH = 40;
 	
-	public TileView(Tile t){
-		super();
+	public TileView(KabasujiPlayerApplication app, GameModel m, Tile t){
+		super(app, m);
 		this.t = t;
 		this.setSize(8*SQUARE_WIDTH, 8*SQUARE_WIDTH);
 	}

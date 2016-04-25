@@ -4,27 +4,26 @@ import java.util.Hashtable;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Achievement;
+import playerEntity.GameModel;
 
 /**
  * 
  * @author dorothy
  *
  */
-public class ResetAchievementMove implements IMove{
+public class ResetAchievementMove extends Move{
 	Hashtable<String, Achievement> achievements;
 	boolean[] isReset;
 	
-	public ResetAchievementMove(Hashtable<String, Achievement> achievements){
+	public ResetAchievementMove(KabasujiPlayerApplication app, GameModel m, Hashtable<String, Achievement> achievements){
+		super(app, m);
 		this.achievements=achievements;
 		isReset = new boolean[10];
 	}
 	
 	/*Finished*/
-	public boolean doMove(KabasujiPlayerApplication app) {
-		
-		if(!this.isValid(app)){
-			return false;
-		}
+	@Override
+	boolean doMove() {
 		
 		isReset[0] = this.achievements.get("BabySteps").reset();
 		isReset[1] = this.achievements.get("Rebel").reset();
@@ -41,7 +40,8 @@ public class ResetAchievementMove implements IMove{
 	}
 	
 	/*Finished*/
-	public boolean isValid(KabasujiPlayerApplication app) {
+	@Override
+	boolean isValid() {
 		if(!achievements.isEmpty()){
 			return true;
 		}
@@ -49,7 +49,8 @@ public class ResetAchievementMove implements IMove{
 	}
 	
 	//whoever wrote this can deal with it
-	public boolean undo(KabasujiPlayerApplication app) {
+	@Override
+	public boolean undo() {
 		return false;
 	}
 }

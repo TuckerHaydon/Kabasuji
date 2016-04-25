@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import playerController.BullpenController;
 import playerEntity.Bullpen;
+import playerEntity.GameModel;
 import playerEntity.Square;
 import playerEntity.Tile;
 
@@ -17,17 +18,15 @@ import playerEntity.Tile;
  */
 public class BullpenView extends View {
 	Bullpen bp;
-	KabasujiPlayerApplication app;
 	boolean controlKeyPressed;
 	boolean shiftKeyPressed;
 	
 	static int SQUARE_WIDTH = 40;
 	static int CELL_WIDTH = 7*SQUARE_WIDTH;
 	
-	public BullpenView(KabasujiPlayerApplication app, Bullpen bp){
-		super();
+	public BullpenView(KabasujiPlayerApplication app, GameModel m, Bullpen bp){
+		super(app, m);
 		this.bp = bp;
-		this.app=app;
 	}
 	
 	public int getSquareWidth(){
@@ -40,7 +39,7 @@ public class BullpenView extends View {
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BullpenController(app, app.getGameModel(), bp, CELL_WIDTH));
+		setMouseAdapter(new BullpenController(app, m, bp, CELL_WIDTH));
 	}
 	
 	@Override

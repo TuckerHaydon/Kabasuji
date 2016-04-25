@@ -4,6 +4,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.BoardElt;
+import playerEntity.GameModel;
 import playerEntity.LevelAchievementMonitor;
 import playerEntity.LightningLevel;
 import playerEntity.PlayableBoardElt;
@@ -16,13 +17,15 @@ import playerEntity.UnplayableBoardElt;
  * @author tuckerhaydon
  *
  */
-public class TileToBoardMove implements IMove{
+public class TileToBoardMove extends Move{
 	int row;
 	int col;
 	Board board;
 	Tile tile;
+	LevelAchievementMonitor AM;
 	
-	public TileToBoardMove(Board b, Tile tile, int row, int col){
+	public TileToBoardMove(KabasujiPlayerApplication app, GameModel m, Board b, Tile tile, int row, int col){
+		super(app, m);
 		this.row=row;
 		this.col=col;
 		this.tile = tile;
@@ -30,18 +33,25 @@ public class TileToBoardMove implements IMove{
 	}
 	
 	@Override
-	public boolean doMove(KabasujiPlayerApplication app) {
+	public boolean execute(){
 		
-		LevelAchievementMonitor AM = app.getGameModel().getCurrentAM();
-
+		AM = m.getCurrentAM();
+		
 		// Validate the move
-		if(!this.isValid(app)) {
+		if(!this.isValid()) {
 			if(AM.updateAchievement_wheninvalidmove()){
 				AM.popUpScreen();
 			}
 			return false;
 		}
-
+		
+		return this.doMove();
+		
+	}
+	
+	@Override
+	public boolean doMove() {
+		
 		// Set the location of the anchor
 		tile.getAnchor().setRowCol(row, col);
 		
@@ -54,6 +64,8 @@ public class TileToBoardMove implements IMove{
 		// Update the GUI
 		app.getGameWindow().getLevelView().getBoardView().repaint();
 		
+		
+		LevelAchievementMonitor AM = m.getCurrentAM();
 		if(AM.updateAchievement_releaseonboard()){
 			AM.popUpScreen();
 		}
@@ -62,7 +74,7 @@ public class TileToBoardMove implements IMove{
 	}
 
 	@Override
-	public boolean isValid(KabasujiPlayerApplication app) {
+	boolean isValid() {
 		
 		//check each board element and determine if it is playable
 		//if it is, determine if it is covered.
@@ -73,6 +85,11 @@ public class TileToBoardMove implements IMove{
 			// These are negative because the coordinate systems of the tile and the board are backwards
 			int squareRow = row - s.getRelY();
 			int squareCol = col + s.getRelX();
+			
+			// Make sure within bounds
+			if(squareCol >=12 || squareRow >= 12 || squareCol < 0 || squareRow < 0){
+				return false;
+			}
 			
 			BoardElt elt = board.getBoardElt(squareRow, squareCol);
 			
@@ -97,13 +114,16 @@ public class TileToBoardMove implements IMove{
 		return true;
 	}
 
-	public boolean undo(KabasujiPlayerApplication app) {
-		if(app.getGameModel().getCurrentLevel() instanceof LightningLevel) {
+	@Override
+	public boolean undo() {
+		if(m.getCurrentLevel() instanceof LightningLevel) {
 			return false;
 		}
+		
 		board.removeTile(tile);
-		app.getGameModel().getCurrentLevel().getBullpen().addTile(tile.getReferenceNumber());
+		m.getCurrentLevel().getBullpen().addTile(tile.getReferenceNumber());
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;
 	}
+
 }

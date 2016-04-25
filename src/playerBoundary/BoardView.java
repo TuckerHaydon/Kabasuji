@@ -18,15 +18,11 @@ import playerEntity.UnplayableBoardElt;
  */
 public class BoardView extends View{
 	Board b;
-	KabasujiPlayerApplication app;
-	GameModel m;
 	private static int SQUARE_WIDTH = 40;
 	
-	public BoardView(Board b, KabasujiPlayerApplication app, GameModel m){
-		super();
+	public BoardView(KabasujiPlayerApplication app, GameModel m, Board b){
+		super(app, m);
 		this.b = b;
-		this.app=app;
-		this.m=m;
 	}
 	
 	public void initView(){
@@ -38,7 +34,7 @@ public class BoardView extends View{
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BoardController(b, app, SQUARE_WIDTH));
+		setMouseAdapter(new BoardController(app, m, b, SQUARE_WIDTH));
 	}
 	
 	@Override

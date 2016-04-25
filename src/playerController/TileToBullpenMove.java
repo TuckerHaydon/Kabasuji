@@ -3,6 +3,7 @@ package playerController;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.Anchor;
 import playerEntity.Bullpen;
+import playerEntity.GameModel;
 import playerEntity.LevelAchievementMonitor;
 import playerEntity.LightningLevel;
 import playerEntity.Tile;
@@ -12,26 +13,34 @@ import playerEntity.Tile;
  * @author tuckerhaydon
  *
  */
-public class TileToBullpenMove implements IMove{
+public class TileToBullpenMove extends Move{
 	Tile tile;
 	Bullpen bullpen;
+	LevelAchievementMonitor AM;
 	
-	public TileToBullpenMove(Tile tile, Bullpen bullpen){
+	public TileToBullpenMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Bullpen bullpen){
+		super(app, m);
 		this.tile=tile;
 		this.bullpen=bullpen;
 	}
 	
-	@Override
-	public boolean doMove(KabasujiPlayerApplication app) {
-
-		LevelAchievementMonitor AM = app.getGameModel().getCurrentAM();
+	@Override 
+	public boolean execute(){
 		
-		if(!this.isValid(app)){
+		AM = m.getCurrentAM();
+		
+		if(!this.isValid()){
 			if(AM.updateAchievement_wheninvalidmove()){
 				AM.popUpScreen();
 			}
 			return false;
 		}
+		
+		return this.doMove();
+	}
+	
+	@Override
+	boolean doMove() {
 		
 		// Add the tile to the bullpen
 		boolean successful = bullpen.addTile(tile);
@@ -50,17 +59,16 @@ public class TileToBullpenMove implements IMove{
 	}
 
 	@Override
-	public boolean isValid(KabasujiPlayerApplication app) {
-		// TODO Auto-generated method stub
-		if(app.getGameModel().getCurrentLevel() instanceof LightningLevel) {
+	boolean isValid() {
+		if(m.getCurrentLevel() instanceof LightningLevel) {
 			return false;
 		}
 		return true;
 	}
 	
-	public boolean undo(KabasujiPlayerApplication app) {
+	public boolean undo() {
 		bullpen.removeTile(tile);
-		app.getGameModel().getCurrentLevel().getBoard().addTile(tile,
+		m.getCurrentLevel().getBoard().addTile(tile,
 				((Anchor)tile.getSquare(0,0)).getRowCol()[0],((Anchor)tile.getSquare(0,0)).getRowCol()[1]);
 		return true;
 	}

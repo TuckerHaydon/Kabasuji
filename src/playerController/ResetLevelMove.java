@@ -12,23 +12,16 @@ import playerEntity.ReleaseLevel;
  * @author 
  *
  */
-public class ResetLevelMove implements IMove{
-	KabasujiPlayerApplication app;
-	GameModel m;
+public class ResetLevelMove extends Move{
 	int[] data;
 	
 	public ResetLevelMove(KabasujiPlayerApplication app, GameModel m){
-		this.app=app;
-		this.m=m;
-		data = new int[2]; // Containts the score and the level-specific data
+		super(app, m);
+		data = new int[2]; // Contains the score and the level-specific data
 	}
 
-	public boolean doMove(KabasujiPlayerApplication app) {
-		
-		// Validate the move
-		if(!this.isValid(app)){
-			return false;
-		}
+	@Override
+	boolean doMove() {
 		
 		// Get the current level
 		Level l = m.getCurrentLevel();
@@ -49,12 +42,14 @@ public class ResetLevelMove implements IMove{
 		return true;
 	}
 	
-	public boolean isValid(KabasujiPlayerApplication app) {
+	@Override
+	boolean isValid() {
 		// Can always reset
 		return true;
 	}
 	
-	public boolean undo(KabasujiPlayerApplication app) {
+	@Override
+	public boolean undo() {
 		
 		// Get the current level
 		Level l = m.getCurrentLevel();

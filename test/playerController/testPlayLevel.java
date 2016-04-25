@@ -11,8 +11,9 @@ public class testPlayLevel {
 
 	@Test
 	public void test() {
-		KabasujiPlayerApplication player = new KabasujiPlayerApplication();
-		GameModel gm = player.getGameModel();
+		GameModel gm = new GameModel();
+		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
+		
 		player.init();
 		
 		NavigateLevelSelectionMenu nlsm = new NavigateLevelSelectionMenu(player);
