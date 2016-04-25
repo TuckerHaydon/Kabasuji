@@ -2,6 +2,8 @@ package playerEntity;
 
 import java.util.ArrayList;
 
+import builderController.UndoManager;
+
 /**
  * @author kacper, tuckerhaydon
  *
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 public class Board {  
 	ArrayList<Tile> tiles;
 	BoardElt[][] elts;
-
+	
 	public static int XELTS = 12;
 	public static int YELTS = 12;
 
@@ -23,7 +25,6 @@ public class Board {
 
 	//adds a tile to the board
 	public boolean addTile(Tile t, int row, int col) {
-		
 		((Anchor) t.getSquare(0,0)).setRowCol(row,col);
 		for(Square s : t.getSquares()) {
 			
