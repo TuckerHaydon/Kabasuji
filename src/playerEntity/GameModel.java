@@ -114,14 +114,15 @@ public class GameModel {
 	}
 	
 	public void loadLevel(String path){
-		
+		 this.levels[0] = LevelParser.getLevel(path);
+	}
+	
+	public void loadGame(String path){
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			parseFile(fileScanner);
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
-		
-		// this.levels[0] = LevelParser.getLevel(path);
 	}
 	
 	public void parseFile(Scanner fileScanner){

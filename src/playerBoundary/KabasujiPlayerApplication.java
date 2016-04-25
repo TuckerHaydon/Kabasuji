@@ -23,7 +23,6 @@ public class KabasujiPlayerApplication {
 	
 	public KabasujiPlayerApplication(){
 		init();
-		playThemeSong();
 	}
 	
 	public KabasujiPlayerApplication(String levelPath){
@@ -34,16 +33,17 @@ public class KabasujiPlayerApplication {
 	}
 	
 	public void init(){
-		displaySplashScreen();
 		initModel();
 		initView();
 		initControllers();
 		displayMainMenu();
+		playThemeSong();
+		displaySplashScreen();
 	}
 	
 	public void initModel(){
 		m = new GameModel();
-		m.loadLevel("src/resources/games/ExampleGame1");
+		m.loadGame("src/resources/games/ExampleGame1");
 		m.setCurrentLevel(0);
 		m.initModel();
 	}
