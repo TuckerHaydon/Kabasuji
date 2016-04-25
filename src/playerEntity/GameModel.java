@@ -22,7 +22,18 @@ public class GameModel {
 	LevelAchievementMonitor lightningAM, puzzleAM, releaseAM;
 	int currentAMNum;
 	
-	public GameModel(){
+	static GameModel model = null;
+	
+	public static GameModel instance(){
+		
+		if(model == null){
+			model = new GameModel();
+		}
+		
+		return model;
+	}
+	
+	GameModel(){
 		levels = new Level[15];
 		currentLevel = null;
 	}

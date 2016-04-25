@@ -13,7 +13,7 @@ public class PlayerLauncher {
 	public static void main(String args[])
 	{
 		System.out.println("Player Application launched.");
-		GameModel m = new GameModel();
+		GameModel m = GameModel.instance();
 		KabasujiPlayerApplication app = new KabasujiPlayerApplication(m);
 	}	
 }

@@ -14,7 +14,7 @@ public class BuilderLauncher {
 	{
 		System.out.println("Builder Application launched.");
 		
-		BuilderModel m = new BuilderModel();
+		BuilderModel m = BuilderModel.instance();
 		KabasujiBuilderApplication app = new KabasujiBuilderApplication(m);
 	}
 }
