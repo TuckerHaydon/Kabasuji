@@ -11,7 +11,7 @@ public class testPlayLevel {
 
 	@Test
 	public void test() {
-		GameModel gm = new GameModel();
+		GameModel gm = GameModel.instance();
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		player.init();

@@ -34,18 +34,20 @@ public class PlayLevel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		processAction();
+	}
 	
+	void processAction(){
 		// Check to make sure the level you clicked on is unlocked
-		if(m.getLevels()[levelNum].getIsUnlocked())
-		{	
+		if(m.getLevels()[levelNum].getIsUnlocked()){	
 			// Update the current level
 			m.setCurrentLevel(levelNum);
 			
-			//before play the level reset the level first
-			m.getCurrentLevel().reset();
-			
 			// Update the level view panel in the game window
 			app.getGameWindow().updateView();
+			
+			//before play the level reset the level first
+			m.getCurrentLevel().reset();
 			
 			// Display the game window
 			app.displayGameWindow();
@@ -56,13 +58,9 @@ public class PlayLevel implements ActionListener {
 			 
 
 		}
-		else
-		{
+		else{
 			System.err.println("Level not unlocked.");
 		}
-		
-		
-		
 	}
 
 }

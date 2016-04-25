@@ -19,7 +19,7 @@ public class TestLevelMove extends Move{
 		move.doMove();
 		
 		// Launch the player application 
-		GameModel gameModel = new GameModel();
+		GameModel gameModel =  GameModel.instance();
 		KabasujiPlayerApplication playerApp = new KabasujiPlayerApplication(gameModel, "src/resources/levels/test/test_level");
 
 		return false;

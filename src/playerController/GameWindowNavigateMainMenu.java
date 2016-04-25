@@ -9,6 +9,7 @@ import javax.sound.sampled.Clip;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
+import playerEntity.LightningLevel;
 
 /**
  * 
@@ -26,13 +27,29 @@ public class GameWindowNavigateMainMenu implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		processAction();
+	}
+	
+	void processAction(){
+		
+		// Release any dragged tiles
+		try{
+		app.getGameWindow().releaseDraggedTile();}
+		catch(NullPointerException e){} // noop
+		
+		// Stop any timers
+		try{
+			((LightningLevel)(m.getCurrentLevel())).stopTimer();
+		}
+		catch(Exception e){} // Noop
+		
 		playCatScreech();
 		if(m.getCurrentAM().updateAchievement_whenquit()){
 			m.getCurrentAM().popUpScreen();
 		}
 		m.getGAM().reset();
 		
-		System.out.println("AM is checking stuff");
+//		System.out.println("AM is checking stuff");
 		app.displayMainMenu();
 	}
 	

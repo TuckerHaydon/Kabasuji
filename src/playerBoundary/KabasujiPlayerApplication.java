@@ -36,7 +36,7 @@ public class KabasujiPlayerApplication {
 		initView();
 		initControllers();
 		
-		playThemeSong();
+//		playThemeSong();
 		displaySplashScreen();
 		displayMainMenu();
 	}
@@ -46,6 +46,7 @@ public class KabasujiPlayerApplication {
 		initView();
 		initControllers();
 		
+		m.selectCurrentAM(2);
 		displayGameWindow();
 	}
 	

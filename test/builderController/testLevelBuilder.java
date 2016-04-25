@@ -38,7 +38,7 @@ public class testLevelBuilder {
 	public void testCreateLevel() {
 		
 		//initialize the builder
-		BuilderModel m = new BuilderModel();
+		BuilderModel m = BuilderModel.instance();
 		KabasujiBuilderApplication builder = new KabasujiBuilderApplication(m);
 		builder.displaySplashScreen();
 		builder.displayLevelEditor();
@@ -151,7 +151,7 @@ public class testLevelBuilder {
 
 	@Test
 	public void testCreateGame(){
-		BuilderModel m = new BuilderModel();
+		BuilderModel m = BuilderModel.instance();
 		KabasujiBuilderApplication builder = new KabasujiBuilderApplication(m);
 		builder.init();
 		builder.displayLevelEditor();

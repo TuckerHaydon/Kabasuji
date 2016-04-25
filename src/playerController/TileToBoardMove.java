@@ -65,7 +65,6 @@ public class TileToBoardMove extends Move{
 		app.getGameWindow().getLevelView().getBoardView().repaint();
 		
 		
-		LevelAchievementMonitor AM = m.getCurrentAM();
 		if(AM.updateAchievement_releaseonboard()){
 			AM.popUpScreen();
 		}

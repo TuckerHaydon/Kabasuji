@@ -15,7 +15,17 @@ public class BuilderModel {
 	boolean isHint;
 	Bank tb;
 	
-	public BuilderModel(){
+	static BuilderModel model = null;
+	
+	public static BuilderModel instance(){
+		if(model == null){
+			model = new BuilderModel();
+		}
+		
+		return model;
+	}
+	
+	BuilderModel(){
 		this.level = new Level();
 		this.game = null;
 		this.selectedBoardEltType = "playable";

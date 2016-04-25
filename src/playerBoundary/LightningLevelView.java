@@ -4,7 +4,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import playerController.LevelController;
-import playerController.LightningLevelTimer;
+import playerController.TimerHandler;
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
 import javax.swing.Timer;
@@ -16,10 +16,9 @@ import javax.swing.Timer;
  *
  */
 public class LightningLevelView extends LevelView{
-	JLabel timeLeft; 
+	JLabel timeLabel; 
 	LightningLevel level;
 	
-	javax.swing.Timer timer;
 	public final static int ONE_SECOND = 1000;
 	
 	public LightningLevelView(KabasujiPlayerApplication app, GameModel m, LightningLevel lightningLvl) {
@@ -53,13 +52,13 @@ public class LightningLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		timeLeft = new JLabel("<html>" + "Time Remaining: " + (Integer.toString(level.getRemainingTime())) + " " + "</html>");
-		timeLeft.setBounds(770, 400, 60, 300);
-		add(timeLeft);
+		timeLabel = new JLabel("<html>" + "Time Remaining: " + (Integer.toString(level.getRemainingTime())) + " " + "</html>");
+		timeLabel.setBounds(650, 400, 150, 300);
+		add(timeLabel);
 		
-		//JLabel lblTimeLeft = new JLabel("Time Allowed");
-		//lblTimeLeft.setBounds(770, 770, 60, 15);
-		//add(lblTimeLeft);
+		//JLabel lbltimeLabel = new JLabel("Time Allowed");
+		//lbltimeLabel.setBounds(770, 770, 60, 15);
+		//add(lbltimeLabel);
 		
 		JLabel lblScoreNStuff = new JLabel("Score n stuff");
 		lblScoreNStuff.setBounds(770, 850, 60, 15);
@@ -69,23 +68,28 @@ public class LightningLevelView extends LevelView{
 		
 	}
 	
-	public Timer getTimer(){
-		return timer;
-	}
-	
 	@Override
 	public void initControllers(){
 		// Init the controllers of the subcomponents
 		bullpenView.initControllers();
 		boardView.initControllers();
 		
-		timer = new Timer(ONE_SECOND, new LightningLevelTimer(level, app));
+		level.setTimer(new Timer(ONE_SECOND, new TimerHandler(level, app)));
 		
 		// Init own controllers
 		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
 	}
 	
 	public JLabel getJLabel(){
-		return timeLeft;
+		return timeLabel;
+	}
+	
+	public void refreshTimeLabel(){
+		this.remove(timeLabel);
+		timeLabel = new JLabel("<html>" + "Time Remaining: " + (Integer.toString(level.getRemainingTime())) + " " + "</html>");
+		timeLabel.setBounds(650, 400, 150, 300);
+		this.add(timeLabel, 0);
+		this.getParent().revalidate();
+		this.getParent().repaint();
 	}
 }
