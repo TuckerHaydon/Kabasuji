@@ -102,7 +102,7 @@ public class KabasujiBuilderApplication {
 	}
 	
 	/**
-	 * Sets only the level editor to be visible
+	 * Sets only the level editor to be visible. Sets the levelEditor to be in focus to enable the keyListener.
 	 */
 	public void displayLevelEditor(){
 		mainMenu.setVisible(false);
@@ -110,6 +110,9 @@ public class KabasujiBuilderApplication {
 		levelEditor.setVisible(true);
 		gameEditorMenu.setVisible(false);
 		gameEditor.setVisible(false);
+		
+		levelEditor.toFront();
+		levelEditor.requestFocus();
 	}
 	
 	/**

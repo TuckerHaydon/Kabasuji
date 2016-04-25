@@ -2,23 +2,20 @@ package builderBoundary;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
 import builderController.ExportLevelHandler;
 import builderController.TestLevelHandler;
+import builderController.UndoManager;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
-import builderEntity.Level;
 
 /**
  * 
@@ -32,14 +29,16 @@ public class LevelEditor extends JFrame implements KeyListener {
 	JButton exportGameButton, goToMenuButton,testLevelButton;
 	LevelBuilderView levelBuilderView;
 	JPanel contentPane;	
+	boolean isControlPressed = false;
 	
 	public LevelEditor(KabasujiBuilderApplication app, BuilderModel m){
 		super();
-		
+		this.setFocusable(true);
+		this.addKeyListener(this);
 		this.app = app;
 		this.m = m;
 		
-	levelBuilderView = new LevelBuilderView(this.m.getLevel(), this.app, this.m); 
+		levelBuilderView = new LevelBuilderView(this.m.getLevel(), this.app, this.m); 
 		
 		// Create all of the components
 		exportGameButton = new JButton("Export");
@@ -94,7 +93,6 @@ public class LevelEditor extends JFrame implements KeyListener {
 	}
 	
 	public void initControllers(){
-		// TODO add all the controllers
 		levelBuilderView.initControllers();
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 		exportGameButton.addActionListener(new ExportLevelHandler(m));
@@ -104,22 +102,29 @@ public class LevelEditor extends JFrame implements KeyListener {
 
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyTyped(KeyEvent e) {} // NOOP
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.isControlDown() && e.getKeyCode() == 'z'){
-			
+		
+		if(e.isControlDown()){
+			isControlPressed = true;
+		}
+		
+		if(e.getKeyCode() == 90 && isControlPressed){
+			try{
+				UndoManager.popMove().undoMove();
+			}
+			catch(EmptyStackException ex){} // NOOP
 		}
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+		if(!e.isControlDown()){
+			isControlPressed = false;
+		}
 		
 	}
 	
