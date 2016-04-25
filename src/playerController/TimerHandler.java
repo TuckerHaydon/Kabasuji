@@ -9,21 +9,22 @@ import playerBoundary.LightningLevelView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LightningLevelTimer implements ActionListener{
+public class TimerHandler implements ActionListener{
 	LightningLevel level;
 	KabasujiPlayerApplication app;
 	
-	public LightningLevelTimer(LightningLevel level, KabasujiPlayerApplication app){
+	public TimerHandler(LightningLevel level, KabasujiPlayerApplication app){
 		this.level = level;
 		this.app = app;
 	}
 	
 	public void actionPerformed(ActionEvent evt) {
+		System.out.println("running...");
     	this.level.updateTime(+1);
-    	((LightningLevelView) app.getGameWindow().getLevelView()).getJLabel().repaint();
+    	((LightningLevelView) app.getGameWindow().getLevelView()).refreshTimeLabel();
 
         if (level.hasWon() || level.isTimeUsedUp()) {
-        	((LightningLevelView) app.getGameWindow().getLevelView()).getTimer().stop();
+        	level.stopTimer();
         }
     }    
 

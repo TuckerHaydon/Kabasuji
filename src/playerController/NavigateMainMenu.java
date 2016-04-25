@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
+import playerEntity.LightningLevel;
 
 /**
  * 
@@ -22,7 +23,11 @@ public class NavigateMainMenu implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		app.getGameWindow().releaseDraggedTile();
+		processAction();
+	}
+	
+	void processAction(){		
+		// Display the main menu
 		app.displayMainMenu();
 	}
 

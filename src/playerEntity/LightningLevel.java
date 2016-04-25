@@ -2,6 +2,8 @@ package playerEntity;
 
 import java.util.ArrayList;
 
+import javax.swing.Timer;
+
 /**
  * 
  * @author tuckerhaydon
@@ -11,7 +13,7 @@ public class LightningLevel extends Level{
 
 	int allowedTime;
 	int usedTime;
-	javax.swing.Timer timer;
+	Timer timer;
 	
 	public LightningLevel(int levelNum, int allowedTime, Board b, Bullpen bp) {
 		super(levelNum, b, bp);
@@ -46,6 +48,8 @@ public class LightningLevel extends Level{
 		for(Tile t: tiles){
 			bullpen.addTile(t);
 		}
+		
+		timer.start();
 		
 		// Reset the board
 		this.board.reset();
@@ -82,5 +86,17 @@ public class LightningLevel extends Level{
 	@Override
 	public void setLevelData(int levelData) {
 		this.usedTime = levelData;
+	}
+	
+	public void setTimer(Timer t){
+		this.timer = t;
+	}
+	
+	public void startTimer(){
+		timer.start();
+	}
+	
+	public void stopTimer(){
+		timer.stop();
 	}
 }

@@ -94,20 +94,20 @@ public class GameModel {
 			this.currentAMNum=1;
 			this.puzzleAM.reset();
 			this.puzzleAM.setLevel(levels[levelNum]);
-			System.out.println("SelectingAM:puzzle:lv num:"+levelNum);
+//			System.out.println("SelectingAM:puzzle:lv num:"+levelNum);
 		}
 		if(levelNum%3==1){
 			this.currentAMNum=2;
 			this.lightningAM.reset();
 			this.lightningAM.setLevel(levels[levelNum]);
-			System.out.println("SelectingAM:lightning:lv num:"+levelNum);
+//			System.out.println("SelectingAM:lightning:lv num:"+levelNum);
 		}
 		if(levelNum%3==2){
 
 			this.currentAMNum=3;
 			this.releaseAM.reset();
 			this.releaseAM.setLevel(levels[levelNum]);
-			System.out.println("SelectingAM:release:lv num:"+levelNum);
+//			System.out.println("SelectingAM:release:lv num:"+levelNum);
 		}
 	}
 	
