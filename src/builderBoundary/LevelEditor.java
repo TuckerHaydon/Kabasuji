@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 import javax.swing.JButton;
@@ -107,6 +106,8 @@ public class LevelEditor extends JFrame implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		
+		System.out.println(e.getKeyCode());
+		
 		if(e.isControlDown()){
 			isControlPressed = true;
 		}
@@ -139,6 +140,10 @@ public class LevelEditor extends JFrame implements KeyListener {
 		levelBuilderView.setBounds(50, 50, 900, 900);
 		levelBuilderView.initControllers();
 		contentPane.add(levelBuilderView);
+		contentPane.revalidate();
+		contentPane.repaint();
+		this.toFront();
+		this.requestFocus();
 	}
 	
 

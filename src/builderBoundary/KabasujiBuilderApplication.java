@@ -111,6 +111,7 @@ public class KabasujiBuilderApplication {
 		gameEditorMenu.setVisible(false);
 		gameEditor.setVisible(false);
 		
+		// Bring to focus
 		levelEditor.toFront();
 		levelEditor.requestFocus();
 	}

@@ -67,10 +67,10 @@ public class LevelBuilderView extends JPanel{
 		hintBox = new JCheckBox("Hint");
 		
 		// Set the combo boxes to a default selected value
-		boardEltNumBox.setSelectedIndex(0);
-		levelTypeBox.setSelectedIndex(1);
-		boardEltColorsBox.setSelectedIndex(0);
-		boardEltTypeBox.setSelectedIndex(0);
+		boardEltNumBox.setSelectedItem(m.getSelectedNumber());
+		levelTypeBox.setSelectedItem(lvl.getLevelType());
+		boardEltColorsBox.setSelectedItem(m.getSelectedColor());
+		boardEltTypeBox.setSelectedItem(m.getSelectedBoardEltType());
 	}
 	
 	public void initView(){
@@ -139,7 +139,7 @@ public class LevelBuilderView extends JPanel{
 		// Action listeners for the various 
 		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(m, boardEltNumBox));
 		levelTypeBox.addActionListener(new SetLevelTypeHandler(m, lvl, levelTypeBox, this));
-		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(m, boardEltTypeBox));
+		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(app, m, boardEltTypeBox));
 		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(m, boardEltColorsBox));
 		hintBox.addActionListener(new SetHintHandler(m, hintBox));
 	}
