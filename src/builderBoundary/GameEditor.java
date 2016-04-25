@@ -13,9 +13,8 @@ import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * A Window that for the game editor. Contains an export game button, menu navigation button, and 15 buttons corresponding to each of the 15 levels in a game.
  * @author tuckerhaydon
- *
  */
 public class GameEditor extends JFrame {
 	
@@ -25,8 +24,17 @@ public class GameEditor extends JFrame {
 	JButton goToMenuButton;
 	BuilderModel m;
 	
+	/**
+	 * Constructor for the GameEditor. Initializes the various buttons and ensures that the parameters are non-null.
+	 * @param app The top-level KabasujiBuilderApplication
+	 * @param m The top-level BuilderModel
+	 */
 	public GameEditor(KabasujiBuilderApplication app, BuilderModel m){
 		super();
+		
+		if(app == null || m == null){
+			throw new RuntimeException();
+		}
 		
 		this.app = app;
 		this.m = m;
@@ -42,6 +50,9 @@ public class GameEditor extends JFrame {
 		}
 	}
 	
+	/**
+	 * Sets the various properties of the frame and adds the buttons into the window.
+	 */
 	public void initView(){
 		
 		// Set the properties of the frame
@@ -69,8 +80,10 @@ public class GameEditor extends JFrame {
 			
 	}
 	
+	/**
+	 * Initializes the controllers for all of the buttons in the window.
+	 */
 	public void initControllers(){
-		// TODO exportGame controller
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 		exportGameButton.addActionListener(new ExportGameHandler(m));
 		
