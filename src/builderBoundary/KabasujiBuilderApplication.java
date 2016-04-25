@@ -26,7 +26,6 @@ public class KabasujiBuilderApplication {
 	
 	public KabasujiBuilderApplication(BuilderModel m){
 		this.m = m;
-		init();
 	}
 	
 	public void init(){
