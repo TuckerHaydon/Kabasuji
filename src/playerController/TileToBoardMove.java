@@ -64,6 +64,15 @@ public class TileToBoardMove implements IMove{
 	@Override
 	public boolean isValid(KabasujiPlayerApplication app) {
 		
+		
+		//times when this move is valid:
+		
+		//bullpen -> board: any level
+		//board -> board: puzzle
+		//board-> bullpen: puzzle, release
+		//there are moves left: puzzle
+		
+		
 		//check each board element and determine if it is playable
 		//if it is, determine if it is covered.
 		//return true if all elements are playable and uncovered
