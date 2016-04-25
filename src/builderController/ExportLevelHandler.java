@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
@@ -36,7 +37,7 @@ public class ExportLevelHandler implements ActionListener {
 		
 		// Create an export move and do it
 		ExportLevelMove move = new ExportLevelMove(m, fileName, false);
-		move.doMove();
+		move.execute();
 	}
 
 }

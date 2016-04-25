@@ -7,34 +7,33 @@ import builderEntity.BuilderModel;
  * @author tuckerhaydon
  *
  */
-public class SetBoardEltTypeMove implements IMove{
+public class SetBoardEltTypeMove extends Move{
 	
-	BuilderModel model;
 	String boardEltType, prev;
 	
 	SetBoardEltTypeMove(BuilderModel m, String bet){
-		this.model = m;
+		super(m);
 		this.boardEltType = bet;
 		
 	}
 
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 		
-		prev = model.getSelectedBoardEltType();
-		model.setSelectedBoardEltType(boardEltType);
+		prev = m.getSelectedBoardEltType();
+		m.setSelectedBoardEltType(boardEltType);
 		return true;
 	}
 
 	@Override
 	public boolean undoMove() {
 		
-		model.setSelectedBoardEltType(prev);
+		m.setSelectedBoardEltType(prev);
 		return false;
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}

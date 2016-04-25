@@ -5,25 +5,14 @@ import builderEntity.BuilderModel;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
-public class TestLevelMove implements IMove{
+public class TestLevelMove extends Move{
 	
-	KabasujiBuilderApplication app;
-	BuilderModel m;
-	
-	public TestLevelMove(KabasujiBuilderApplication app, BuilderModel m) {
-		this.app = app;
-		this.m = m;
+	public TestLevelMove(BuilderModel m) {
+		super(m);
 	}
 
 	@Override
-	public boolean doMove() {
-		
-		// Validate the move
-		if(!this.isValid()){
-			return false;
-		}
-		
-		System.out.println(m.getLevel().getBoard());
+	boolean doMove() {
 		
 		// Export the current level to a test file
 		ExportLevelMove move = new ExportLevelMove(m, "test_level", true);
@@ -37,7 +26,7 @@ public class TestLevelMove implements IMove{
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// Can always test a level
 		return true;
 	}

@@ -9,13 +9,14 @@ import builderEntity.BuilderModel;
  * @author tuckerhaydon
  *
  */
-public class SetBoardEltColorMove implements IMove {
+public class SetBoardEltColorMove extends Move {
 
 	BuilderModel model;
 	String color;
 	String prev;
 	
 	SetBoardEltColorMove(BuilderModel m, String color){
+		super(m);
 		this.model = m;
 		this.color = color;
 	}

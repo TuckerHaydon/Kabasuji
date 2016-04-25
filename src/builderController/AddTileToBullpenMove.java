@@ -11,18 +11,19 @@ import builderEntity.*;
  * @author tuckerhaydon
  *
  */
-public class AddTileToBullpenMove implements IMove {
+public class AddTileToBullpenMove extends Move {
 	
 	Tile t;
 	BullpenView bullpenView;
-
 	
-	AddTileToBullpenMove(Tile t, BullpenView bpv) {
+	AddTileToBullpenMove(BuilderModel m, Tile t, BullpenView bpv) {
+		super(m);
 		this.t = t;
 		this.bullpenView = bpv;
 	}
 
-	public boolean doMove() {
+	@Override
+	boolean doMove() {
 		
 		// Add the tile to the bullpen
 		Bullpen bullpen = bullpenView.getBullpen();
@@ -33,13 +34,13 @@ public class AddTileToBullpenMove implements IMove {
 		return true;
 	}
 
-
-	
-	public boolean isValid() {
+	@Override
+	boolean isValid() {
 		// TODO fix this.
 		return true; 
 	}
 	
+	@Override
 	public boolean undoMove() {
 		if(bullpenView.getBullpen().empty()) return false;
 		bullpenView.getBullpen().remTile(t.getReferenceNumber());

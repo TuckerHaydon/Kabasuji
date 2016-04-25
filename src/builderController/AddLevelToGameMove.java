@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.LevelParser;
@@ -14,15 +15,15 @@ import builderEntity.LevelParser;
  * @author tuckerhaydon
  * @author wilderj
  */
-public class AddLevelToGameMove implements IMove {
+public class AddLevelToGameMove extends Move {
 	
-	BuilderModel m;
 	int levelIndex;
 	ArrayList<String> allnames;
 	String levelname;
 	
 	public AddLevelToGameMove(BuilderModel m, int levelIndex) {
-		this.m = m;
+		super(m);
+		
 		this.levelIndex = levelIndex;
 		
 		File folder = new File("src/resources/levels/");
@@ -39,9 +40,20 @@ public class AddLevelToGameMove implements IMove {
 		allnames = levelNames;
 		
 	}
+	
+	@Override
+	public boolean execute(){
+		
+		if(!this.isValid()){
+			return false;
+		}
+		
+		this.requestName();
+		return this.doMove();
+	}
 
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 
 		String path = "src/resources/levels/"+levelname;
 		Level lvl = LevelParser.getLevel(path);

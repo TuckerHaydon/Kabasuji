@@ -7,11 +7,10 @@ import builderEntity.BuilderModel;
 import playerBoundary.KabasujiPlayerApplication;
 
 public class TestLevelHandler implements ActionListener{
-	KabasujiBuilderApplication app;
+
 	BuilderModel m;
 	
-	public TestLevelHandler(KabasujiBuilderApplication app, BuilderModel m) {
-		this.app=app;
+	public TestLevelHandler(BuilderModel m) {
 		this.m = m;
 	}
 
@@ -22,7 +21,7 @@ public class TestLevelHandler implements ActionListener{
 	}
 	
 	void processAction(){
-		TestLevelMove move = new TestLevelMove(app, m);
+		TestLevelMove move = new TestLevelMove(m);
 		move.doMove();
 	}
 

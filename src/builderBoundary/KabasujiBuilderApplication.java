@@ -5,8 +5,7 @@ import java.util.Enumeration;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-
-import builderController.IMove;
+import builderController.Move;
 import builderEntity.BuilderModel;
 
 /**
@@ -23,9 +22,11 @@ public class KabasujiBuilderApplication {
 	GameEditorMenu gameEditorMenu;
 	GameEditor gameEditor;
 	BuilderModel m;
-	java.util.Stack<IMove> moves = new java.util.Stack<IMove>();
+	java.util.Stack<Move> moves = new java.util.Stack<Move>();
 	
-	public KabasujiBuilderApplication(){
+	public KabasujiBuilderApplication(BuilderModel m){
+		this.m = m;
+		init();
 	}
 	
 	public void init(){
@@ -35,7 +36,7 @@ public class KabasujiBuilderApplication {
 	}
 	
 	public void initModel(){
-		this.m = new BuilderModel();	
+	
 	}
 	
 	public void initView(){
@@ -149,26 +150,21 @@ public class KabasujiBuilderApplication {
 	public MainMenu getMainMenu(){
 		return this.mainMenu;
 	}
-	
-	
-	public BuilderModel getBuilderModel(){
-		return this.m;
-	}
 
-	public Enumeration<IMove> getMoves() {
+	public Enumeration<Move> getMoves() {
 		return moves.elements();
 	}
 	
-	public IMove popMove() {
+	public Move popMove() {
 		return this.moves.pop();
 	}
 	
-	public IMove pushMove(IMove m) {
+	public Move pushMove(Move m) {
 		return this.moves.push(m);
 	}
 	
 	public boolean undoMove() {
-		IMove m = popMove();
+		Move m = popMove();
 		
 		if(m == null) {
 			return false;

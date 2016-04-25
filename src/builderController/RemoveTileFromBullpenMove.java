@@ -1,21 +1,24 @@
 package builderController;
 
 import builderBoundary.BullpenView;
+import builderBoundary.KabasujiBuilderApplication;
+import builderEntity.BuilderModel;
 import builderEntity.Bullpen;
 import builderEntity.Tile;
 
-public class RemoveTileFromBullpenMove implements IMove{
+public class RemoveTileFromBullpenMove extends Move{
 
 	Tile t;
 	BullpenView bullpenView;
 	
-	RemoveTileFromBullpenMove(Tile t, BullpenView bpv){
+	RemoveTileFromBullpenMove(BuilderModel m, Tile t, BullpenView bpv){
+		super(m);
 		this.t = t;
 		this.bullpenView = bpv;
 	}
 	
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 		
 		Bullpen bullpen = bullpenView.getBullpen();
 		
@@ -37,7 +40,7 @@ public class RemoveTileFromBullpenMove implements IMove{
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		boolean valid = false;
 		for(int i:bullpenView.getBullpen().getTileReferenceNumbers()) {

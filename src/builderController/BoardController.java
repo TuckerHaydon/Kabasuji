@@ -14,10 +14,10 @@ import builderEntity.BuilderModel;
  */
 public class BoardController extends MouseAdapter {
 	
-	BoardView bv;
 	BuilderModel model;
+	BoardView bv;
 	
-	public BoardController(BoardView bv, BuilderModel model){
+	public BoardController(BuilderModel model, BoardView bv){
 		super();
 		this.model = model;
 		this.bv = bv;
@@ -29,6 +29,11 @@ public class BoardController extends MouseAdapter {
 		// Determine the XY location where the mouse was clicked. 
 		int x = me.getX();
 		int y = me.getY();
+		
+		processMousePressed(x, y);
+	}
+	
+	void processMousePressed(int x, int y){
 
 		// Determine the row/col where the mouse was clicked.
 		int col = x/bv.getSquareWidth();
@@ -37,14 +42,10 @@ public class BoardController extends MouseAdapter {
 		Board b = bv.getBoard();
 		
 		ChangeBoardEltMove move = new ChangeBoardEltMove(model, b, row, col);
-		
-		if(move.isValid()){
-			move.doMove();
-		}
+		move.execute();
 
 		// Repaint the board
 		bv.repaint();
-		
 	}
 	
 	@Override

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
  
 /**
@@ -14,6 +15,7 @@ import builderEntity.BuilderModel;
  *
  */
 public class ExportGameHandler implements ActionListener{
+	
 	BuilderModel bm;
 
 	public ExportGameHandler(BuilderModel bm){

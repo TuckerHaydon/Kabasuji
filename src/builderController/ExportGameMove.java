@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
@@ -15,18 +16,17 @@ import builderEntity.Level;
  * @author tuckerhaydon
  *
  */
-public class ExportGameMove implements IMove{
+public class ExportGameMove extends Move{
 	
-	BuilderModel gm;
 	String filePath;
 	
 	public ExportGameMove(BuilderModel gm, String filePath){
-		this.gm = gm;
+		super(gm);
 		this.filePath = filePath;
 	}
 	
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 		this.writeToFile();
 		return true;
 	}
@@ -38,15 +38,15 @@ public class ExportGameMove implements IMove{
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO to be edited
 		return true;
 	}
 	
-	public void writeToFile(){
+	void writeToFile(){
 		
 		// Extract the levels
-		Level[] levels = gm.getGame().getLevels();
+		Level[] levels = m.getGame().getLevels();
 		
 		try {
 			File file = new File(filePath);
@@ -97,7 +97,7 @@ public class ExportGameMove implements IMove{
 		
 	}
 	
-	public void writeFile (Level lvl, BufferedWriter bw) throws IOException{
+	void writeFile (Level lvl, BufferedWriter bw) throws IOException{
 			
 		// Extract the data
 		BoardElt elts[][] = lvl.getBoard().getBoardElts();

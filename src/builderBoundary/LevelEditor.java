@@ -98,7 +98,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		levelBuilderView.initControllers();
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 		exportGameButton.addActionListener(new ExportLevelHandler(m));
-		testLevelButton.addActionListener(new TestLevelHandler(app, m));
+		testLevelButton.addActionListener(new TestLevelHandler(m));
 	}
 	
 

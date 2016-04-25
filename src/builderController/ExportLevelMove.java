@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import builderController.IMove;
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.Board;
 import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
@@ -18,32 +18,25 @@ import builderEntity.Level;
  * @author tuckerhaydon
  *
  */
-public class ExportLevelMove implements IMove {
+public class ExportLevelMove extends Move {
 
-	BuilderModel model;
 	String fileName;
 	boolean isTestLevel;
 	
 	public ExportLevelMove(BuilderModel m, String fileName){
-		this.model = m;
+		super(m);
 		this.fileName = fileName;
 		this.isTestLevel = false;
 	}
 	
 	public ExportLevelMove(BuilderModel m, String fileName, boolean isTestLevel){
-		this.model = m;
+		super(m);
 		this.fileName = fileName;
 		this.isTestLevel = isTestLevel;
 	}
 	
 	@Override
-	public boolean doMove() {
-		
-		// Validate the move
-		if(!this.isValid()){
-			return false;
-		}
-		
+	boolean doMove() {
 		this.writeFile();
 		return true;
 	}
@@ -55,7 +48,7 @@ public class ExportLevelMove implements IMove {
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO this is not always true
 		return true;
 	}
@@ -63,7 +56,7 @@ public class ExportLevelMove implements IMove {
 	void writeFile(){
 		
 		// Extract the data that will be written
-		Level lvl = model.getLevel();
+		Level lvl = m.getLevel();
 		BoardElt elts[][] = lvl.getBoard().getBoardElts();
 		ArrayList<Integer> tileReferenceNumbers =  lvl.getBullpen().getTileReferenceNumbers();
 		String type = lvl.getLevelType();
