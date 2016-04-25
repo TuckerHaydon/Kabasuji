@@ -14,7 +14,6 @@ import builderEntity.BuilderModel;
  * @see GameEditor
  * @see AddLevelToGameMove
  * @author tuckerhaydon
- *
  */
 public class AddLevelToGameHandler implements ActionListener {
 	
@@ -22,15 +21,29 @@ public class AddLevelToGameHandler implements ActionListener {
 	int levelIndex;
 	
 	/**
+<<<<<<< HEAD
 	 * Default Constructor
 	 * @param m the Builder Model
 	 * @param levelIndex the index of the level being added
+=======
+	 * Constructor. Validates that the parameters are non-null and that levelIndex is contained within [0,14]
+	 * @param m  The top-level builder model
+	 * @param levelIndex The index where the level is to be added
+>>>>>>> branch 'master' of https://github.com/TuckerHaydon/Kabasuji-Cebriones
 	 */
 	public AddLevelToGameHandler(BuilderModel m, int levelIndex) {
+		
+		if(m == null || (levelIndex < 0 || levelIndex > 14)){
+			throw new RuntimeException();
+		}
+		
 		this.m = m;
 		this.levelIndex = levelIndex;
 	}
 
+	/**
+	 * Creates and executes a move to add the level to the game
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		processAction();

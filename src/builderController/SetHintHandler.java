@@ -23,13 +23,7 @@ public class SetHintHandler implements ActionListener {
 		boolean isHint = hintBox.isSelected();
 		
 		SetHintMove move = new SetHintMove(model, isHint);
-		
-		if(move.isValid()){
-			move.doMove();
-		}
-		
-		
-		
+		move.execute();
 	}
 
 }

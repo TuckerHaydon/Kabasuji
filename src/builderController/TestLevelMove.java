@@ -16,7 +16,7 @@ public class TestLevelMove extends Move{
 		
 		// Export the current level to a test file
 		ExportLevelMove move = new ExportLevelMove(m, "test_level", true);
-		move.doMove();
+		move.execute();
 		
 		// Launch the player application 
 		GameModel gameModel =  GameModel.instance();
