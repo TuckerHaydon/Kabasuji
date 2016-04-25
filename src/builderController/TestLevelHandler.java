@@ -22,7 +22,7 @@ public class TestLevelHandler implements ActionListener{
 	
 	void processAction(){
 		TestLevelMove move = new TestLevelMove(m);
-		move.doMove();
+		move.execute();
 	}
 
 }

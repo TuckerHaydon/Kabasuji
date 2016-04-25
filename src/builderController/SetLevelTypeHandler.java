@@ -34,11 +34,7 @@ public class SetLevelTypeHandler implements ActionListener {
 		String selection = (String) box.getSelectedItem();
 		
 		SetLevelTypeMove move = new SetLevelTypeMove(m, l, selection, editorView);
-		
-		if(move.isValid()){
-			move.doMove();
-		}
-
+		move.execute();
 	}
 
 }

@@ -1,23 +1,16 @@
 package builderController;
 
 
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
 import builderBoundary.BoardView;
 import builderBoundary.BullpenView;
 import builderBoundary.KabasujiBuilderApplication;
 import builderBoundary.LevelBuilderView;
 import builderBoundary.LevelEditor;
-import builderEntity.Board;
-import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.LevelParser;

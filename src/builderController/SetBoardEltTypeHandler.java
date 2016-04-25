@@ -28,10 +28,7 @@ public class SetBoardEltTypeHandler implements ActionListener {
 		String selection = (String)box.getSelectedItem();
 		
 		SetBoardEltTypeMove move = new SetBoardEltTypeMove(m, selection);
-		
-		if(move.isValid()){
-			move.doMove();
-		}
+		move.execute();
 		
 	}
 

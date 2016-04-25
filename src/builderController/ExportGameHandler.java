@@ -32,9 +32,6 @@ public class ExportGameHandler implements ActionListener{
 				
 		// Create an export move and do it
 		ExportGameMove move = new ExportGameMove(bm, path);
-				
-		if(move.isValid()){
-			move.doMove();
-		}
+		move.execute();
 	}
 }

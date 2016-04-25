@@ -22,7 +22,7 @@ public class SetBoardEltColorMove extends Move {
 	}
 	
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 		prev = model.getSelectedColor();
 		model.setSelectedColor(color);
 		return true;
@@ -36,7 +36,7 @@ public class SetBoardEltColorMove extends Move {
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}
