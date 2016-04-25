@@ -79,7 +79,7 @@ public class Board {
 			for(int j=0; j<6; j++)
 			{
 				// Find the row,col of each square
-				int square_row = tiles.get(i).squares[j].anchorRelY + tiles.get(i).anchor.row;
+				int square_row = -tiles.get(i).squares[j].anchorRelY + tiles.get(i).anchor.row;
 				int square_col = tiles.get(i).squares[j].anchorRelX + tiles.get(i).anchor.col;
 							
 				// Determine is the row, col of the mouse matches the row,col of the square

@@ -1,19 +1,19 @@
 BeginLevel
-release
+puzzle
 -1
 BeginHexomino
-1 1 
+1 2 
 EndHexomino
 BeginElts
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
-P P N1R N1R N1R P P P P P P P 
-N1R N1R P P P P P N1R N1R P P P 
-N1R P P P P P P N1R P P P P 
-N1R P P P P P N1R N1R P P P P 
-N1R N1R P N1R N1R N1R P P P P P P 
-P N1R N1R P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
