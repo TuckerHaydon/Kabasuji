@@ -3,6 +3,7 @@
  */
 package builderController;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
@@ -12,9 +13,11 @@ import builderEntity.BuilderModel;
  */
 public abstract class Move {
 	
+	KabasujiBuilderApplication app;
 	BuilderModel m;
 	
-	public Move(BuilderModel m){
+	public Move(KabasujiBuilderApplication app, BuilderModel m){
+		this.app = app;
 		this.m = m;
 	}
 
@@ -27,13 +30,21 @@ public abstract class Move {
 		if(this.doMove()){
 			UndoManager.pushMove(this);
 			RedoManager.clear();
+			app.refreshLevelEditor();
 			return true;
 		}
 		
 		return false;
 	}
 	
+	public boolean executeUndo(){
+		boolean wasSuccessful = this.undoMove();
+		app.refreshLevelEditor();
+		
+		return wasSuccessful;
+	}
+	
 	abstract boolean doMove();
 	abstract boolean isValid();
-	public abstract boolean undoMove();
+	abstract boolean undoMove();
 }

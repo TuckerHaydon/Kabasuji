@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import builderBoundary.BoardView;
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.Board;
 import builderEntity.BuilderModel;
 
@@ -14,11 +15,13 @@ import builderEntity.BuilderModel;
  */
 public class BoardController extends MouseAdapter {
 	
+	KabasujiBuilderApplication app;
 	BuilderModel model;
 	BoardView bv;
 	
-	public BoardController(BuilderModel model, BoardView bv){
+	public BoardController(KabasujiBuilderApplication app, BuilderModel model, BoardView bv){
 		super();
+		this.app = app;
 		this.model = model;
 		this.bv = bv;
 	}
@@ -41,7 +44,7 @@ public class BoardController extends MouseAdapter {
 
 		Board b = bv.getBoard();
 		
-		ChangeBoardEltMove move = new ChangeBoardEltMove(model, b, row, col);
+		ChangeBoardEltMove move = new ChangeBoardEltMove(app, model, b, row, col);
 		move.execute();
 
 		// Repaint the board

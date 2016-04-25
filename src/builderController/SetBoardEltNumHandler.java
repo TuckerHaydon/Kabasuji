@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
@@ -15,6 +16,7 @@ import builderEntity.BuilderModel;
 public class SetBoardEltNumHandler implements ActionListener {
 	
 	JComboBox<String> box;
+	KabasujiBuilderApplication app;
 	BuilderModel m;
 	
 	/**
@@ -22,12 +24,13 @@ public class SetBoardEltNumHandler implements ActionListener {
 	 * @param m BuilderModel The top-level builder model
 	 * @param box JComboBox The combo box containing the various element numbers
 	 */
-	public SetBoardEltNumHandler(BuilderModel m, JComboBox<String> box) {
+	public SetBoardEltNumHandler(KabasujiBuilderApplication app, BuilderModel m, JComboBox<String> box) {
 		
-		if(m == null || box == null){
+		if(app == null || m == null || box == null){
 			throw new RuntimeException();
 		}
 		
+		this.app = app;
 		this.box = box;
 		this.m = m;
 	}
@@ -43,7 +46,7 @@ public class SetBoardEltNumHandler implements ActionListener {
 	void processAction(){
 		int selection = Integer.parseInt((String) box.getSelectedItem());
 		
-		SetBoardEltNumMove move = new SetBoardEltNumMove(m, selection);
+		SetBoardEltNumMove move = new SetBoardEltNumMove(app, m, selection);
 		move.execute();
 	}
 

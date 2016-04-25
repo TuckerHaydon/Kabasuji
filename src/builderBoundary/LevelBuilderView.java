@@ -132,16 +132,16 @@ public class LevelBuilderView extends JPanel{
 	public void initControllers(){
 		
 		// Allow mouse functionality for board, bullpen, and bank.
-		boardView.addMouseAdapter(new BoardController(m, boardView));
-		bullpenView.addMouseAdapter(new BullpenController(m, bullpenView, bankView));
-		bankView.addMouseAdapter(new BankController(m, bankView, bullpenView));
+		boardView.addMouseAdapter(new BoardController(app, m, boardView));
+		bullpenView.addMouseAdapter(new BullpenController(app, m, bullpenView, bankView));
+		bankView.addMouseAdapter(new BankController(app, m, bankView, bullpenView));
 		
 		// Action listeners for the various 
-		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(m, boardEltNumBox));
-		levelTypeBox.addActionListener(new SetLevelTypeHandler(m, lvl, levelTypeBox, this));
+		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(app, m, boardEltNumBox));
+		levelTypeBox.addActionListener(new SetLevelTypeHandler(app, m, lvl, levelTypeBox, this));
 		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(app, m, boardEltTypeBox));
-		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(m, boardEltColorsBox));
-		hintBox.addActionListener(new SetHintHandler(m, hintBox));
+		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(app, m, boardEltColorsBox));
+		hintBox.addActionListener(new SetHintHandler(app, m, hintBox));
 	}
 	
 	public void updateView(String levelType){

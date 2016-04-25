@@ -1,13 +1,14 @@
 package builderController;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 public class SetHintMove extends Move {
 	
 	boolean isHint;
 	
-	public SetHintMove(BuilderModel model, boolean isHint) {
-		super(model);
+	public SetHintMove(KabasujiBuilderApplication app, BuilderModel model, boolean isHint) {
+		super(app, model);
 		this.isHint = isHint;
 	}
 	

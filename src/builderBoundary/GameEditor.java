@@ -85,10 +85,10 @@ public class GameEditor extends JFrame {
 	 */
 	public void initControllers(){
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
-		exportGameButton.addActionListener(new ExportGameHandler(m));
+		exportGameButton.addActionListener(new ExportGameHandler(app, m));
 		
 		for(int i = 0; i < levelButtons.length; i++){
-			levelButtons[i].addActionListener(new AddLevelToGameHandler(m, i));
+			levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
 		}
 	}
 

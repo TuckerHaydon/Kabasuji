@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
@@ -13,6 +14,7 @@ import builderEntity.BuilderModel;
  */
 public class SetBoardEltColorHandler implements ActionListener {
 
+	KabasujiBuilderApplication app;
 	BuilderModel m;
 	JComboBox<String> box;
 	
@@ -21,12 +23,13 @@ public class SetBoardEltColorHandler implements ActionListener {
 	 * @param m
 	 * @param box
 	 */
-	public SetBoardEltColorHandler(BuilderModel m, JComboBox<String> box) {
+	public SetBoardEltColorHandler(KabasujiBuilderApplication app, BuilderModel m, JComboBox<String> box) {
 		
-		if(m == null || box == null){
+		if(app == null || m == null || box == null){
 			throw new RuntimeException();
 		}
 		
+		this.app = app;
 		this.m = m;
 		this.box = box;
 	}
@@ -42,7 +45,7 @@ public class SetBoardEltColorHandler implements ActionListener {
 	void processAction(){
 		
 		String selection = (String) box.getSelectedItem();
-		SetBoardEltColorMove move = new SetBoardEltColorMove(m, selection);
+		SetBoardEltColorMove move = new SetBoardEltColorMove(app, m, selection);
 		move.execute();
 	}
 

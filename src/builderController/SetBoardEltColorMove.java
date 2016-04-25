@@ -2,6 +2,7 @@ package builderController;
 
 import java.awt.Color;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
@@ -11,27 +12,25 @@ import builderEntity.BuilderModel;
  */
 public class SetBoardEltColorMove extends Move {
 
-	BuilderModel model;
 	String color;
 	String prev;
 	
-	SetBoardEltColorMove(BuilderModel m, String color){
-		super(m);
-		this.model = m;
+	SetBoardEltColorMove(KabasujiBuilderApplication app, BuilderModel m, String color){
+		super(app, m);
 		this.color = color;
 	}
 	
 	@Override
 	boolean doMove() {
-		prev = model.getSelectedColor();
-		model.setSelectedColor(color);
+		prev = m.getSelectedColor();
+		m.setSelectedColor(color);
 		return true;
 	}
 
 	@Override
 	public boolean undoMove() {
 		
-		model.setSelectedColor(prev);
+		m.setSelectedColor(prev);
 		return true;
 	}
 

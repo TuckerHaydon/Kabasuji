@@ -20,8 +20,8 @@ public class ExportGameMove extends Move{
 	
 	String filePath;
 	
-	public ExportGameMove(BuilderModel gm, String filePath){
-		super(gm);
+	public ExportGameMove(KabasujiBuilderApplication app, BuilderModel gm, String filePath){
+		super(app, gm);
 		this.filePath = filePath;
 	}
 	

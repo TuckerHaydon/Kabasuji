@@ -17,8 +17,10 @@ import builderEntity.BuilderModel;
 public class ExportGameHandler implements ActionListener{
 	
 	BuilderModel bm;
+	KabasujiBuilderApplication app;
 
-	public ExportGameHandler(BuilderModel bm){
+	public ExportGameHandler(KabasujiBuilderApplication app, BuilderModel bm){
+		this.app = app;
 		this.bm = bm;
 	}
 
@@ -31,7 +33,7 @@ public class ExportGameHandler implements ActionListener{
 		String path = "src/resources/games/"+name;
 				
 		// Create an export move and do it
-		ExportGameMove move = new ExportGameMove(bm, path);
+		ExportGameMove move = new ExportGameMove(app, bm, path);
 		move.execute();
 	}
 }

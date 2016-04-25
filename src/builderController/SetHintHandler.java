@@ -5,16 +5,19 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBox;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 public class SetHintHandler implements ActionListener {
 
 	BuilderModel model;
 	JCheckBox hintBox;
+	KabasujiBuilderApplication app;
 	
-	public SetHintHandler(BuilderModel model, JCheckBox hintBox) {
+	public SetHintHandler(KabasujiBuilderApplication app, BuilderModel model, JCheckBox hintBox) {
 		this.model = model;
 		this.hintBox = hintBox;
+		this.app = app;
 	}
 	
 	@Override
@@ -22,7 +25,7 @@ public class SetHintHandler implements ActionListener {
 		
 		boolean isHint = hintBox.isSelected();
 		
-		SetHintMove move = new SetHintMove(model, isHint);
+		SetHintMove move = new SetHintMove(app, model, isHint);
 		move.execute();
 	}
 

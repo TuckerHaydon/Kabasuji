@@ -24,8 +24,8 @@ public class AddLevelToGameMove extends Move {
 	ArrayList<String> allnames;
 	String levelname;
 	
-	public AddLevelToGameMove(BuilderModel m, int levelIndex) {
-		super(m);
+	public AddLevelToGameMove(KabasujiBuilderApplication app, BuilderModel m, int levelIndex) {
+		super(app, m);
 		
 		this.levelIndex = levelIndex;
 		

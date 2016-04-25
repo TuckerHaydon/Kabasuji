@@ -11,8 +11,8 @@ public class RemoveTileFromBullpenMove extends Move{
 	Tile t;
 	BullpenView bullpenView;
 	
-	RemoveTileFromBullpenMove(BuilderModel m, Tile t, BullpenView bpv){
-		super(m);
+	RemoveTileFromBullpenMove(KabasujiBuilderApplication app, BuilderModel m, Tile t, BullpenView bpv){
+		super(app, m);
 		this.t = t;
 		this.bullpenView = bpv;
 	}

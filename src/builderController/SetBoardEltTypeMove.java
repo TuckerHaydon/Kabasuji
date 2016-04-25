@@ -10,12 +10,10 @@ import builderEntity.BuilderModel;
  */
 public class SetBoardEltTypeMove extends Move{
 	
-	KabasujiBuilderApplication app;
 	String boardEltType, prev;
 	
 	SetBoardEltTypeMove(KabasujiBuilderApplication app, BuilderModel m, String bet){
-		super(m);
-		this.app = app;
+		super(app, m);
 		this.boardEltType = bet;
 		
 	}

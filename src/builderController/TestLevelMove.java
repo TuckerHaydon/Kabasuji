@@ -7,15 +7,15 @@ import playerEntity.GameModel;
 
 public class TestLevelMove extends Move{
 	
-	public TestLevelMove(BuilderModel m) {
-		super(m);
+	public TestLevelMove(KabasujiBuilderApplication app, BuilderModel m) {
+		super(app, m);
 	}
 
 	@Override
 	boolean doMove() {
 		
 		// Export the current level to a test file
-		ExportLevelMove move = new ExportLevelMove(m, "test_level", true);
+		ExportLevelMove move = new ExportLevelMove(app, m, "test_level", true);
 		move.execute();
 		
 		// Launch the player application 

@@ -94,8 +94,8 @@ public class LevelEditor extends JFrame implements KeyListener {
 	public void initControllers(){
 		levelBuilderView.initControllers();
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
-		exportGameButton.addActionListener(new ExportLevelHandler(m));
-		testLevelButton.addActionListener(new TestLevelHandler(m));
+		exportGameButton.addActionListener(new ExportLevelHandler(app, m));
+		testLevelButton.addActionListener(new TestLevelHandler(app, m));
 	}
 	
 
@@ -105,16 +105,14 @@ public class LevelEditor extends JFrame implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
-		System.out.println(e.getKeyCode());
-		
+				
 		if(e.isControlDown()){
 			isControlPressed = true;
 		}
 		
 		if(e.getKeyCode() == 90 && isControlPressed){
 			try{
-				UndoManager.popMove().undoMove();
+				UndoManager.popMove().executeUndo();
 			}
 			catch(EmptyStackException ex){} // NOOP
 		}

@@ -1,5 +1,6 @@
 package builderController;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderBoundary.LevelBuilderView;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
@@ -15,8 +16,8 @@ public class SetLevelTypeMove extends Move {
 	LevelBuilderView editorView;
 	String prev;
 	
-	SetLevelTypeMove(BuilderModel m, Level l, String levelType, LevelBuilderView editorView){
-		super(m);
+	SetLevelTypeMove(KabasujiBuilderApplication app, BuilderModel m, Level l, String levelType, LevelBuilderView editorView){
+		super(app, m);
 		this.l = l;
 		this.levelType = levelType;
 		this.editorView = editorView;

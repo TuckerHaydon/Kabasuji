@@ -24,8 +24,8 @@ public class AddTileToBullpenMove extends Move {
 	 * @param t
 	 * @param bpv
 	 */
-	AddTileToBullpenMove(BuilderModel m, Tile t, BullpenView bpv) {
-		super(m);
+	AddTileToBullpenMove(KabasujiBuilderApplication app, BuilderModel m, Tile t, BullpenView bpv) {
+		super(app, m);
 		this.t = t;
 		this.bullpenView = bpv;
 	}
