@@ -23,7 +23,6 @@ public class LightningLevelTimer implements ActionListener{
     	((LightningLevelView) app.getGameWindow().getLevelView()).getJLabel().repaint();
 
         if (level.hasWon() || level.isTimeUsedUp()) {
-            //TODO find out how to trickle down to lightningLevelView so you can stop timer
         	((LightningLevelView) app.getGameWindow().getLevelView()).getTimer().stop();
         }
     }    
