@@ -7,7 +7,12 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * Handler to add a level to the builder model game. 
+ * Controller class to add a level to a game in the builder application.
+ * The class implements the ActionListener interface to process the action
+ * upon invoking the actionPerformed method (in this case, the action is 
+ * pressing a level button).
+ * @see GameEditor
+ * @see AddLevelToGameMove
  * @author tuckerhaydon
  */
 public class AddLevelToGameHandler implements ActionListener {
@@ -16,9 +21,15 @@ public class AddLevelToGameHandler implements ActionListener {
 	int levelIndex;
 	
 	/**
+<<<<<<< HEAD
+	 * Default Constructor
+	 * @param m the Builder Model
+	 * @param levelIndex the index of the level being added
+=======
 	 * Constructor. Validates that the parameters are non-null and that levelIndex is contained within [0,14]
 	 * @param m  The top-level builder model
 	 * @param levelIndex The index where the level is to be added
+>>>>>>> branch 'master' of https://github.com/TuckerHaydon/Kabasuji-Cebriones
 	 */
 	public AddLevelToGameHandler(BuilderModel m, int levelIndex) {
 		
@@ -38,8 +49,10 @@ public class AddLevelToGameHandler implements ActionListener {
 		processAction();
 	}
 	
+	/**
+	 * Instantiate an AddLevelToGameMove and try to execute it
+	 */
 	void processAction(){
-		
 		AddLevelToGameMove move = new AddLevelToGameMove(m, levelIndex);
 		move.execute();
 	}
