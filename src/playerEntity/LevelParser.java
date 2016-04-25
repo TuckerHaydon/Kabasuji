@@ -1,9 +1,10 @@
-package builderEntity;
+package playerEntity;
 
 import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
+import playerEntity.Level;
 
 /**
  * 
@@ -106,9 +107,22 @@ public class LevelParser {
 		// Create the board
 		Board board = new Board(elts);
 		
-		
 		// Create the level
-		parsedLevel = new Level(bullpen, board, -1, levelType, levelData);
+		switch(levelType.toLowerCase()){
+		case "puzzle":
+			parsedLevel = new PuzzleLevel(1, levelData, board, bullpen);
+			break;
+		case "release":
+			parsedLevel = new ReleaseLevel(1, board, bullpen);
+			break;
+		case "lightning":
+			parsedLevel = new LightningLevel(1, levelData, board, bullpen);
+			break;
+		default:
+			System.err.println("Wrong levelType in player LevelParser: "+levelType);
+			parsedLevel = null;
+		}
+		
 		
 		return parsedLevel;
 	}

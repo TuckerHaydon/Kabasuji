@@ -1,6 +1,7 @@
 package builderController;
 
 import builderBoundary.LevelBuilderView;
+import builderEntity.BuilderModel;
 import builderEntity.Level;
 
 /**
@@ -8,20 +9,21 @@ import builderEntity.Level;
  * @author tuckerhaydon
  *
  */
-public class SetLevelTypeMove implements IMove {
+public class SetLevelTypeMove extends Move {
 	Level l;
 	String levelType;
 	LevelBuilderView editorView;
 	String prev;
 	
-	SetLevelTypeMove(Level l, String levelType, LevelBuilderView editorView){
+	SetLevelTypeMove(BuilderModel m, Level l, String levelType, LevelBuilderView editorView){
+		super(m);
 		this.l = l;
 		this.levelType = levelType;
 		this.editorView = editorView;
 	}
 
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 		prev = l.getLevelType();
 		l.setLevelType(levelType);
 		editorView.updateView(levelType);
@@ -38,7 +40,7 @@ public class SetLevelTypeMove implements IMove {
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}

@@ -24,9 +24,13 @@ public class PlayableBoardElt extends BoardElt{
 	}
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+	public String toString(){
+		if(isHint){
+			return "PH";
+		}
+		else{
+			return "P";
+		}
 	}
 	
 	public String getType() {

@@ -2,25 +2,18 @@ package builderController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
+import playerBoundary.KabasujiPlayerApplication;
 
-/**
- * 
- * @author tuckerhaydon
- *
- */
-public class AddLevelToGameHandler implements ActionListener {
-	
+public class TestLevelHandler implements ActionListener{
+
 	BuilderModel m;
-	int levelIndex;
 	
-	
-	public AddLevelToGameHandler(BuilderModel m, int levelIndex) {
+	public TestLevelHandler(BuilderModel m) {
 		this.m = m;
-		this.levelIndex = levelIndex;
 	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -28,9 +21,8 @@ public class AddLevelToGameHandler implements ActionListener {
 	}
 	
 	void processAction(){
-		
-		AddLevelToGameMove move = new AddLevelToGameMove(m, levelIndex);
-		move.execute();
+		TestLevelMove move = new TestLevelMove(m);
+		move.doMove();
 	}
 
 }

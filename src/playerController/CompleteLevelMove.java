@@ -8,20 +8,14 @@ import playerEntity.GameModel;
  * @author 
  *
  */
-public class CompleteLevelMove implements IMove{
-	GameModel m;
+public class CompleteLevelMove extends Move{
 	
-	public CompleteLevelMove(GameModel m){
-		this.m=m;
+	public CompleteLevelMove(KabasujiPlayerApplication app, GameModel m){
+		super(app, m);
 	}
 	
-	/*Finished*/
-	public boolean doMove(KabasujiPlayerApplication app) {
-		
-		// Validate the move
-		if(!this.isValid(app)){
-			return false;
-		}
+	@Override
+	public boolean doMove() {
 		
 		if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
 			m.getCurrentAM().popUpScreen();
@@ -30,18 +24,18 @@ public class CompleteLevelMove implements IMove{
 		app.displayLevelSelectionMenu();
 		app.getGameWindow().updateView();
 		return true;
-
 	}
 
-	/*Finished*/
-	public boolean isValid(KabasujiPlayerApplication app) {
+	@Override
+	boolean isValid() {
 		if(m.getCurrentLevel().hasWon()){
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean undo(KabasujiPlayerApplication app) {
+	@Override
+	public boolean undo() {
 		return false;
 	}
 }

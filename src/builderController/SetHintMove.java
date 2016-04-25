@@ -2,24 +2,23 @@ package builderController;
 
 import builderEntity.BuilderModel;
 
-public class SetHintMove implements IMove {
+public class SetHintMove extends Move {
 	
 	boolean isHint;
-	BuilderModel model;
 	
 	public SetHintMove(BuilderModel model, boolean isHint) {
+		super(model);
 		this.isHint = isHint;
-		this.model = model;
 	}
 	
 	@Override
-	public boolean doMove() {
-		model.setHintSelected(isHint);
+	boolean doMove() {
+		m.setHintSelected(isHint);
 		return true;
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}

@@ -22,7 +22,7 @@ public class LevelController extends MouseAdapter {
 	LevelView lv;
 	GameModel m;
 	
-	public LevelController(KabasujiPlayerApplication app, LevelView lv, GameModel m){
+	public LevelController(KabasujiPlayerApplication app, GameModel m, LevelView lv){
 		super();
 		this.app = app;
 		this.lv = lv;
@@ -45,8 +45,8 @@ public class LevelController extends MouseAdapter {
 		// If a tile is selected, move it to the bullpen
 		else{
 			Tile draggedTile = draggedTileView.getTile();
-			TileToBullpenMove move = new TileToBullpenMove(draggedTile, m.getCurrentLevel().getBullpen());
-			move.doMove(app);
+			TileToBullpenMove move = new TileToBullpenMove(app, m, draggedTile, m.getCurrentLevel().getBullpen());
+			move.execute();
 			lv.repaint();
 		}
 	}
@@ -64,8 +64,8 @@ public class LevelController extends MouseAdapter {
 		}
 		// If a tile is selected, move it to the mouse location
 		else{
-			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
-			move.doMove(app);
+			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove(app, m);
+			move.execute();
 		}
 	}
 }

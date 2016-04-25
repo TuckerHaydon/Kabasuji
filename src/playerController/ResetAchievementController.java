@@ -24,8 +24,8 @@ public class ResetAchievementController implements ActionListener{
 	/*Finished*/	
 	public void actionPerformed(ActionEvent e) {
 		
-		IMove move = new ResetAchievementMove(m.getAchievements());
-		if(move.doMove(app)){
+		ResetAchievementMove move = new ResetAchievementMove(app, m, m.getAchievements());
+		if(move.execute()){
 			app.getGameWindow().updateView();
 			app.getAchievementsMenu().updateView();
 			System.out.println("ResetAchievementController::actionPerformed");

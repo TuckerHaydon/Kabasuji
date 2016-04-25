@@ -7,23 +7,22 @@ import builderEntity.BuilderModel;
  * @author tuckerhaydon
  *
  */
-public class SetBoardEltNumMove implements IMove{
+public class SetBoardEltNumMove extends Move{
 	
 	int num;
-	BuilderModel m;
 	int prev;
 	
 	public SetBoardEltNumMove(BuilderModel m, int num) {
+		super(m);
 		this.num = num;
 		this.m = m;
 	}
 
 	@Override
-	public boolean doMove() {
-		if(isValid()){
-			prev = m.getSelectedNumber();
-			m.setSelectedNumber(num);
-		} else return false;
+	boolean doMove() {
+		
+		prev = m.getSelectedNumber();
+		m.setSelectedNumber(num);
 		
 		return true;
 	}
@@ -35,7 +34,7 @@ public class SetBoardEltNumMove implements IMove{
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}

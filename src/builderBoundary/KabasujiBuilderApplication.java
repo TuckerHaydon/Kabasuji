@@ -5,13 +5,13 @@ import java.util.Enumeration;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-
-import builderController.IMove;
+import builderController.Move;
 import builderEntity.BuilderModel;
 
 /**
  * 
  * @author tuckerhaydon
+ *
  *
  */
 public class KabasujiBuilderApplication {
@@ -21,12 +21,12 @@ public class KabasujiBuilderApplication {
 	LevelEditor levelEditor;
 	GameEditorMenu gameEditorMenu;
 	GameEditor gameEditor;
-	
 	BuilderModel m;
+	java.util.Stack<Move> moves = new java.util.Stack<Move>();
 	
-	java.util.Stack<IMove> moves = new java.util.Stack<IMove>();
-	
-	public KabasujiBuilderApplication(){
+	public KabasujiBuilderApplication(BuilderModel m){
+		this.m = m;
+		init();
 	}
 	
 	public void init(){
@@ -36,7 +36,7 @@ public class KabasujiBuilderApplication {
 	}
 	
 	public void initModel(){
-		m = new BuilderModel();	
+	
 	}
 	
 	public void initView(){
@@ -44,7 +44,7 @@ public class KabasujiBuilderApplication {
 		// Create the various frames
 		mainMenu = new MainMenu(this);
 		levelEditorMenu = new LevelEditorMenu(this, m);
-		levelEditor = new LevelEditor(this);
+		levelEditor = new LevelEditor(this, m);
 		gameEditorMenu = new GameEditorMenu(this, m);
 		gameEditor = new GameEditor(this, m);
 		
@@ -54,9 +54,6 @@ public class KabasujiBuilderApplication {
 		levelEditor.initView();
 		gameEditorMenu.initView();
 		gameEditor.initView();
-		
-		// Display Splash screen
-//		displaySplashScreen();
 		
 		// Display the main menu
 		displayMainMenu();
@@ -132,7 +129,7 @@ public class KabasujiBuilderApplication {
 	}
 	
 	public void refreshLevelEditor(){
-		this.levelEditor.initView();
+		this.levelEditor.refresh();
 	}
 
 	public LevelEditor getLevelEditor(){
@@ -153,26 +150,21 @@ public class KabasujiBuilderApplication {
 	public MainMenu getMainMenu(){
 		return this.mainMenu;
 	}
-	
-	
-	public BuilderModel getBuilderModel(){
-		return this.m;
-	}
 
-	public Enumeration<IMove> getMoves() {
+	public Enumeration<Move> getMoves() {
 		return moves.elements();
 	}
 	
-	public IMove popMove() {
+	public Move popMove() {
 		return this.moves.pop();
 	}
 	
-	public IMove pushMove(IMove m) {
+	public Move pushMove(Move m) {
 		return this.moves.push(m);
 	}
 	
 	public boolean undoMove() {
-		IMove m = popMove();
+		Move m = popMove();
 		
 		if(m == null) {
 			return false;

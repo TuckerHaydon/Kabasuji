@@ -29,6 +29,7 @@ import playerController.LoadGame;
 /**
  * 
  * @author tuckerhaydon
+ * @author jwilder
  *
  */
 public class LevelBuilderView extends JPanel{
@@ -131,13 +132,13 @@ public class LevelBuilderView extends JPanel{
 	public void initControllers(){
 		
 		// Allow mouse functionality for board, bullpen, and bank.
-		boardView.addMouseAdapter(new BoardController(boardView, m));
-		bullpenView.addMouseAdapter(new BullpenController(bullpenView, bankView));
-		bankView.addMouseAdapter(new BankController(bankView, bullpenView));
+		boardView.addMouseAdapter(new BoardController(m, boardView));
+		bullpenView.addMouseAdapter(new BullpenController(m, bullpenView, bankView));
+		bankView.addMouseAdapter(new BankController(m, bankView, bullpenView));
 		
 		// Action listeners for the various 
 		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(m, boardEltNumBox));
-		levelTypeBox.addActionListener(new SetLevelTypeHandler(lvl, levelTypeBox, this));
+		levelTypeBox.addActionListener(new SetLevelTypeHandler(m, lvl, levelTypeBox, this));
 		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(m, boardEltTypeBox));
 		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(m, boardEltColorsBox));
 		hintBox.addActionListener(new SetHintHandler(m, hintBox));
@@ -171,20 +172,38 @@ public class LevelBuilderView extends JPanel{
 		this.repaint();
 		
 	}
+	
+	
 
 	public Level getLevel(){
 		return this.lvl;
+	}
+	
+	public void setLevel(Level lev){
+		this.lvl = lev;
 	}
 	
 	public BullpenView getBullpenView(){
 		return this.bullpenView;
 	}
 	
+	public void setBullpenView(BullpenView bpv){
+		this.bullpenView = bpv;
+	}
+	
 	public BankView getBankView(){
 		return this.bankView;
+	}
+	
+	public void setBankView(BankView bkv){
+		this.bankView = bkv;
 	}
 
 	public BoardView getBoardView() {
 		return this.boardView;
+	}
+	
+	public void setBoardView(BoardView bv){
+		this.boardView = bv;
 	}
 }

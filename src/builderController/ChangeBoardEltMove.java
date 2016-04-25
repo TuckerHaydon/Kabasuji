@@ -1,7 +1,6 @@
 package builderController;
 
 import java.awt.Color;
-
 import builderEntity.Board;
 import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
@@ -14,7 +13,7 @@ import builderEntity.UnplayableBoardElt;
  * @author tuckerhaydon
  *
  */
-public class ChangeBoardEltMove implements IMove {
+public class ChangeBoardEltMove extends Move {
 	
 	String selectedBoardEltType, selectedColor, prevType;
 	Color prevColor;
@@ -24,6 +23,8 @@ public class ChangeBoardEltMove implements IMove {
 	boolean isHint, prevHint;
 	
 	public ChangeBoardEltMove(BuilderModel model, Board board, int row, int col) {
+		super(model);
+		
 		this.board = board;
 		this.row = row;
 		this.col = col;
@@ -34,7 +35,7 @@ public class ChangeBoardEltMove implements IMove {
 	}
 
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 		
 		BoardElt b = board.getBoardElts()[row][col];
 		if (b instanceof PlayableBoardElt) {
@@ -74,7 +75,7 @@ public class ChangeBoardEltMove implements IMove {
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}
@@ -89,7 +90,6 @@ public class ChangeBoardEltMove implements IMove {
 			board.getBoardElts()[row][col] = new UnplayableBoardElt(row, col);
 			break;
 		case "numbered":
-			
 			board.getBoardElts()[row][col] = new NumberedBoardElt(row, col, isHint, prevColor, selectedNumber); 
 			break;
 		default:

@@ -1,6 +1,7 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.GameModel;
 import playerEntity.Tile;
 
 /**
@@ -8,31 +9,29 @@ import playerEntity.Tile;
  * @author tuckerhaydon
  *
  */
-public class MirrorTileHorizontalMove implements IMove{
+public class MirrorTileHorizontalMove extends Move{
 	Tile tile;
 	
-	public MirrorTileHorizontalMove(Tile tile){
+	public MirrorTileHorizontalMove(KabasujiPlayerApplication app, GameModel m, Tile tile){
+		super(app, m);
 		this.tile=tile;
 	}
 	
 	@Override
-	public boolean doMove(KabasujiPlayerApplication app) {
-		if(!this.isValid(app)){
-			return false;
-		}
-				
+	public boolean doMove() {
 		tile.flipHorizontal();
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;
 	}
 
 	@Override
-	public boolean isValid(KabasujiPlayerApplication app) {
+	public boolean isValid() {
 		// TODO Auto-generated method stub
 		return true;
 	}
 	
-	public boolean undo(KabasujiPlayerApplication app) {
+	@Override
+	public boolean undo() {
 		tile.flipHorizontal();
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;

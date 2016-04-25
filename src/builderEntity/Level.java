@@ -30,7 +30,7 @@ public class Level {
 		this.board = new Board();
 		this.levelNum = -1;
 		this.levelData = -1;
-		this.levelType = PUZZLE;
+		this.levelType = RELEASE;
 	}
 	
 	public Bullpen getBullpen(){

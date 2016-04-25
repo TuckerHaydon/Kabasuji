@@ -1,12 +1,5 @@
 package builderEntity;
 
-import java.awt.Color;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-
 /**
  * 
  * @author tuckerhaydon
@@ -38,7 +31,7 @@ public class BuilderModel {
 		this.game = g;
 	}
 	
-		public Game getGame(){
+	public Game getGame(){
 		return this.game;
 	}
 		
@@ -91,4 +84,5 @@ public class BuilderModel {
 		return "Level: "+level+"\nGame: "+game+"\nBoard Elt Type: "+selectedBoardEltType+"\nColor: "+selectedColor+"\nNumber: "+selectedNumber;
 	}
 	
+
 }

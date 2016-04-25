@@ -47,6 +47,7 @@ public class GameWindow extends JFrame {
 		
 		// Init sub components
 		currentLevelView.initView();
+		
 		// Set Frame properties
 		setSize(1000, 1000);
 		setTitle("Game Window");
@@ -110,16 +111,26 @@ public class GameWindow extends JFrame {
 	void updateCurrentLevelView() {
 		
 		Level currLev = m.getCurrentLevel();
-		int currLevNum = currLev.getLevelNum();
-		if(currLevNum % 3 == 1){
-			currentLevelView = new PuzzleLevelView((PuzzleLevel)currLev, m, app);
+//		int currLevNum = currLev.getLevelNum();
+		
+		// Holy shit this is so bad. I feel so dirty. Don't change this though. Need this for the level tester
+		try{
+			currentLevelView = new PuzzleLevelView(app, m, (PuzzleLevel)currLev);
+			return;
 		}
-		else if(currLevNum % 3 == 2){
-			currentLevelView = new LightningLevelView((LightningLevel)currLev, m, app);
+		catch(Exception e){}
+		
+		try{
+			currentLevelView = new LightningLevelView(app, m, (LightningLevel)currLev);
+			return;
 		}
-		else if(currLevNum % 3 == 0){
-			currentLevelView = new ReleaseLevelView((ReleaseLevel)currLev, m, app);
+		catch(Exception e){}
+		
+		try{
+			currentLevelView = new ReleaseLevelView(app, m, (ReleaseLevel)currLev);
+			return;
 		}
+		catch(Exception e){}
 	}
 	
 	public void updateView() {

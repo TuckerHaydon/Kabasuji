@@ -16,21 +16,18 @@ import javax.swing.Timer;
  *
  */
 public class LightningLevelView extends LevelView{
-	KabasujiPlayerApplication app;
 	JLabel timeLeft; 
-	GameModel m;
 	LightningLevel level;
-	//javax.swing.Timer timer;
-	//public final static int ONE_SECOND = 1000;
 	
-	public LightningLevelView(LightningLevel lightningLvl, GameModel m, KabasujiPlayerApplication app) {
-		super();
+	javax.swing.Timer timer;
+	public final static int ONE_SECOND = 1000;
+	
+	public LightningLevelView(KabasujiPlayerApplication app, GameModel m, LightningLevel lightningLvl) {
+		super(app, m);
 		this.level = lightningLvl;
-		this.m=m;
-		this.app = app;
 		
-		bullpenView = new BullpenView(app, level.getBullpen());
-		boardView = new BoardView(level.getBoard(),app,m);
+		bullpenView = new BullpenView(app, m, level.getBullpen());
+		boardView = new BoardView(app, m, level.getBoard());
 
 	}
 
@@ -56,16 +53,17 @@ public class LightningLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		/*
+		
 		String remTime = new String (Integer.toString(level.getRemainingTime()));
 		JLabel lblTimeLeft = new JLabel("<html>" + "Time Remaining: " + remTime + " " + "</html>");
 		lblTimeLeft.setBounds(770, 400, 60, 300);
 		add(lblTimeLeft);
-		*/
 		
-		JLabel lblTimeLeft = new JLabel("Time Allowed");
-		lblTimeLeft.setBounds(770, 770, 60, 15);
-		add(lblTimeLeft);
+		timeLeft = lblTimeLeft;
+		
+		//JLabel lblTimeLeft = new JLabel("Time Allowed");
+		//lblTimeLeft.setBounds(770, 770, 60, 15);
+		//add(lblTimeLeft);
 		
 		JLabel lblScoreNStuff = new JLabel("Score n stuff");
 		lblScoreNStuff.setBounds(770, 850, 60, 15);
@@ -75,15 +73,23 @@ public class LightningLevelView extends LevelView{
 		
 	}
 	
+	public Timer getTimer(){
+		return timer;
+	}
+	
 	@Override
 	public void initControllers(){
 		// Init the controllers of the subcomponents
 		bullpenView.initControllers();
 		boardView.initControllers();
 		
-		//timer = new Timer(ONE_SECOND, new LightningLevelTimer(level));
+		timer = new Timer(ONE_SECOND, new LightningLevelTimer(level, app));
 		
 		// Init own controllers
-		setMouseAdapter(new LevelController(app,app.getGameWindow().getLevelView(),m));
+		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
+	}
+	
+	public JLabel getJLabel(){
+		return timeLeft;
 	}
 }

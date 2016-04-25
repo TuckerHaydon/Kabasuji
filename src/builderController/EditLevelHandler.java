@@ -1,6 +1,7 @@
 package builderController;
 
 
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -10,7 +11,13 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import builderBoundary.BoardView;
+import builderBoundary.BullpenView;
 import builderBoundary.KabasujiBuilderApplication;
+import builderBoundary.LevelBuilderView;
+import builderBoundary.LevelEditor;
+import builderEntity.Board;
+import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.LevelParser;
@@ -48,19 +55,19 @@ public class EditLevelHandler implements ActionListener {
 
 		String path = "src/resources/levels/"+chosenLevelName;
 		
-		//LevelParser lp = new LevelParser();
 		Level editLevel = LevelParser.getLevel(path);
 		m.setLevel(editLevel);
+		LevelEditor le = app.getLevelEditor();
+		LevelBuilderView lbv = le.getLevelBuilderView();
+		Level oldLevel = lbv.getLevel();
+		oldLevel.setBoard(editLevel.getBoard());
+		BoardView bv = new BoardView(editLevel.getBoard());
+		BullpenView bpv = new BullpenView(editLevel.getBullpen());
+		lbv.setBoardView(bv);
+		lbv.setBullpenView(bpv);
+		le.refresh();
 		app.displayLevelEditor();
-		
-//		try (Scanner fileScanner = new Scanner(new File(path))){
-//			m.parseFile(fileScanner);
-//		} catch (FileNotFoundException e1) {
-//			e1.printStackTrace();
-//		}
-//		
-
-		
+	
 	}
 
 }

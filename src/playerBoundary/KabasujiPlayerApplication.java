@@ -6,8 +6,6 @@ import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import playerController.LoadGame;
 import playerEntity.GameModel;
 
 /**
@@ -23,37 +21,43 @@ public class KabasujiPlayerApplication {
 	AchievementsMenu achievementsMenu;
 	GameModel m;
 	
-	public KabasujiPlayerApplication(){
+	public KabasujiPlayerApplication(GameModel m){
+		this.m = m;
 		init();
-		playThemeSong();
 	}
 	
-	public KabasujiPlayerApplication(String path){
-		initBuilderModel(path);
-		initView();
-		initControllers();
-		displayGameWindow();
+	public KabasujiPlayerApplication(GameModel m, String levelPath){
+		this.m = m;
+		init(levelPath);
 	}
 	
 	public void init(){
-		displaySplashScreen();
 		initModel();
 		initView();
 		initControllers();
+		
+		playThemeSong();
+		displaySplashScreen();
 		displayMainMenu();
 	}
 	
+	public void init(String levelPath){
+		initModel(levelPath);
+		initView();
+		initControllers();
+		
+		displayGameWindow();
+	}
+	
 	public void initModel(){
-		m = new GameModel();
-		m.loadLevel("src/resources/games/ExampleGame1");
-		m.setCurrentLevel(1);
+		m.loadGame("src/resources/games/ExampleGame1");
+		m.setCurrentLevel(0);
 		m.initModel();
 	}
 	
-	void initBuilderModel(String path){
-		m = new GameModel();
-		m.loadLevel(path);
-		m.setCurrentLevel(1);
+	void initModel(String levelPath){
+		m.loadLevel(levelPath);
+		m.setCurrentLevel(0);
 		m.initModel();
 	}
 	
@@ -112,10 +116,6 @@ public class KabasujiPlayerApplication {
 	public GameWindow getGameWindow(){
 		return gameWindow;
 
-	}
-	
-	public GameModel getGameModel(){
-		return m;
 	}
 	
 	public AchievementsMenu getAchievementsMenu(){

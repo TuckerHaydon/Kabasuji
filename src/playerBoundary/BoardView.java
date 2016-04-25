@@ -7,7 +7,7 @@ import playerController.BoardController;
 import playerEntity.Board;
 import playerEntity.BoardElt;
 import playerEntity.GameModel;
-import playerEntity.NumberBoardElt;
+import playerEntity.NumberedBoardElt;
 import playerEntity.PlayableBoardElt;
 import playerEntity.UnplayableBoardElt;
 
@@ -18,15 +18,11 @@ import playerEntity.UnplayableBoardElt;
  */
 public class BoardView extends View{
 	Board b;
-	KabasujiPlayerApplication app;
-	GameModel m;
 	private static int SQUARE_WIDTH = 40;
 	
-	public BoardView(Board b, KabasujiPlayerApplication app, GameModel m){
-		super();
+	public BoardView(KabasujiPlayerApplication app, GameModel m, Board b){
+		super(app, m);
 		this.b = b;
-		this.app=app;
-		this.m=m;
 	}
 	
 	public void initView(){
@@ -38,7 +34,7 @@ public class BoardView extends View{
 	}
 	
 	public void initControllers(){
-		setMouseAdapter(new BoardController(b, app, SQUARE_WIDTH));
+		setMouseAdapter(new BoardController(app, m, b, SQUARE_WIDTH));
 	}
 	
 	@Override
@@ -55,7 +51,7 @@ public class BoardView extends View{
 					if(((PlayableBoardElt)elts[row][col]).getCovered()){
 						squareColor = Color.GREEN;
 					}
-					else if(elts[row][col] instanceof NumberBoardElt){
+					else if(elts[row][col] instanceof NumberedBoardElt){
 						squareColor = Color.RED;
 					}
 					else if(((PlayableBoardElt)elts[row][col]).isHint())

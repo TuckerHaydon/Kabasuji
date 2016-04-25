@@ -4,6 +4,8 @@ import java.awt.event.MouseAdapter;
 
 import javax.swing.JPanel;
 
+import playerEntity.GameModel;
+
 /**
  * 
  * @author tuckerhaydon
@@ -11,8 +13,13 @@ import javax.swing.JPanel;
  */
 public abstract class View extends JPanel {
 	
-	public View() {
+	KabasujiPlayerApplication app;
+	GameModel m;
+	
+	public View(KabasujiPlayerApplication app, GameModel m) {
 		super();
+		this.app = app;
+		this.m = m;
 	}
 	
 	public void setMouseAdapter(MouseAdapter ma){

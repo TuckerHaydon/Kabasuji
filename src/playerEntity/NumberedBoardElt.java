@@ -6,7 +6,7 @@ import java.awt.Color;
  * @author kacper, tuckerhaydon
  *
  */
-public class NumberBoardElt extends PlayableBoardElt {
+public class NumberedBoardElt extends PlayableBoardElt {
 
 	int row;
 	int col;
@@ -14,7 +14,7 @@ public class NumberBoardElt extends PlayableBoardElt {
 	int number;
 	Color color;
 	
-	public NumberBoardElt(int row, int col, boolean isHint, Color color, int num) {
+	public NumberedBoardElt(int row, int col, boolean isHint, Color color, int num) {
 		super(row, col, isHint);
 		this.color = color;
 		this.number = num;

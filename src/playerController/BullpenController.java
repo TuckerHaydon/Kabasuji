@@ -22,10 +22,10 @@ public class BullpenController extends MouseAdapter {
 	
 	public BullpenController(KabasujiPlayerApplication app, GameModel m, Bullpen bp, int boxwidth){
 		super();
-		this.bp = bp;
 		this.app = app;
+		this.m=m;
+		this.bp = bp;
 		this.boxwidth = boxwidth;
-		this.m = m;
 	}
 	
 	@Override
@@ -61,43 +61,43 @@ public class BullpenController extends MouseAdapter {
 		// If the control button is pressed, rotate a tile
 		if(isControlDown){
 			if (isLeftClick){
-				RotateTileClockwiseMove move = new RotateTileClockwiseMove(pressedTile);
-				move.doMove(app);
+				RotateTileClockwiseMove move = new RotateTileClockwiseMove(app, m, pressedTile);
+				move.execute();
 			}
 			else if (isRightClick)
 			{
-				RotateTileCounterClockwiseMove move = new RotateTileCounterClockwiseMove(pressedTile);
-				move.doMove(app);
+				RotateTileCounterClockwiseMove move = new RotateTileCounterClockwiseMove(app, m, pressedTile);
+				move.execute();
 			}
 		}
 		// If the shift button is pressed, mirror a tile
 		else if(isShiftDown){
 			if (isLeftClick){
-				MirrorTileHorizontalMove move = new MirrorTileHorizontalMove(pressedTile);
-				move.doMove(app);
+				MirrorTileHorizontalMove move = new MirrorTileHorizontalMove(app, m, pressedTile);
+				move.execute();
 			}
 			else if (isRightClick)
 			{
-				MirrorTileVerticalMove move = new MirrorTileVerticalMove(pressedTile);
-				move.doMove(app);
+				MirrorTileVerticalMove move = new MirrorTileVerticalMove(app, m, pressedTile);
+				move.execute();
 			}
 		}
 		// If no tile is picked up, pick one up
 		else if(app.getGameWindow().getDraggedTile() == null){
 			// Pickup a tile
-			PickUpTileBullpenMove move1 = new PickUpTileBullpenMove(pressedTile, bp);
-			move1.doMove(app);
+			PickUpTileBullpenMove move1 = new PickUpTileBullpenMove(app, m, pressedTile, bp);
+			move1.execute();
 			
 			// Update the UI
-			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
-			move.doMove(app);
+			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove(app, m);
+			move.execute();
 		}
 		// If a tile is already pick up, return it to the bullpen
 		else{
 			// Return the tile to the bullpen
 			Tile draggedTile = app.getGameWindow().getDraggedTile().getTile();
-			TileToBullpenMove move = new TileToBullpenMove(draggedTile, m.getCurrentLevel().getBullpen());
-			move.doMove(app);
+			TileToBullpenMove move = new TileToBullpenMove(app, m, draggedTile, m.getCurrentLevel().getBullpen());
+			move.execute();
 			
 		}
 	}
@@ -112,8 +112,8 @@ public class BullpenController extends MouseAdapter {
 			return;
 		}
 		else{
-			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove();
-			move.doMove(app);
+			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove(app, m);
+			move.execute();
 		}
 	}	
 }

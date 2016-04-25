@@ -1,6 +1,7 @@
 package application;
 
 import builderBoundary.KabasujiBuilderApplication;
+import builderEntity.BuilderModel;
 
 /**
  * 
@@ -13,7 +14,7 @@ public class BuilderLauncher {
 	{
 		System.out.println("Builder Application launched.");
 		
-		KabasujiBuilderApplication app = new KabasujiBuilderApplication();
-		app.init();
+		BuilderModel m = new BuilderModel();
+		KabasujiBuilderApplication app = new KabasujiBuilderApplication(m);
 	}
 }

@@ -42,6 +42,8 @@ public class BoardView extends View {
 		return b;
 	}
 	
+	
+	
 	@Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

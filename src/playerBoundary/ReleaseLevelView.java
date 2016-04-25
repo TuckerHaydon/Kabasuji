@@ -18,18 +18,17 @@ import playerEntity.ReleaseLevel;
  */
 public class ReleaseLevelView extends LevelView{
 	
-	GameModel m;
 	ReleaseLevel level;
 	
-	public ReleaseLevelView(ReleaseLevel releaseLevel, GameModel m, KabasujiPlayerApplication app) {
-		super();
+	public ReleaseLevelView(KabasujiPlayerApplication app, GameModel m, ReleaseLevel releaseLevel) {
+		super(app, m);
 		this.level = releaseLevel;
 		this.m=m;
 		this.app = app;
 		
 		// Initialize the sub-view components
-		bullpenView = new BullpenView(app, level.getBullpen());
-		boardView = new BoardView(level.getBoard(),app,m);
+		bullpenView = new BullpenView(app, m, level.getBullpen());
+		boardView = new BoardView(app, m, level.getBoard());
 	}
 
 	@Override
@@ -69,7 +68,7 @@ public class ReleaseLevelView extends LevelView{
 		boardView.initControllers();
 		
 		// Init own controllers
-		setMouseAdapter(new LevelController(app, app.getGameWindow().getLevelView(), m));
+		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
 	}
 
 }

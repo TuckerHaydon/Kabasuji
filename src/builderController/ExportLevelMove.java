@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import builderController.IMove;
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.Board;
 import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
@@ -18,25 +18,25 @@ import builderEntity.Level;
  * @author tuckerhaydon
  *
  */
-public class ExportLevelMove implements IMove {
+public class ExportLevelMove extends Move {
 
-	BuilderModel model;
-	String filePath;
-	boolean overwrite = true;
+	String fileName;
+	boolean isTestLevel;
 	
-	public ExportLevelMove(BuilderModel m, String filePath){
-		this.model = m;
-		this.filePath = filePath;
+	public ExportLevelMove(BuilderModel m, String fileName){
+		super(m);
+		this.fileName = fileName;
+		this.isTestLevel = false;
 	}
 	
-	public ExportLevelMove(BuilderModel m, String filePath, boolean overwrite){
-		this.model = m;
-		this.filePath = filePath;
-		this.overwrite = overwrite;
+	public ExportLevelMove(BuilderModel m, String fileName, boolean isTestLevel){
+		super(m);
+		this.fileName = fileName;
+		this.isTestLevel = isTestLevel;
 	}
 	
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 		this.writeFile();
 		return true;
 	}
@@ -48,7 +48,7 @@ public class ExportLevelMove implements IMove {
 	}
 
 	@Override
-	public boolean isValid() {
+	boolean isValid() {
 		// TODO this is not always true
 		return true;
 	}
@@ -56,20 +56,22 @@ public class ExportLevelMove implements IMove {
 	void writeFile(){
 		
 		// Extract the data that will be written
-		Level lvl = model.getLevel();
+		Level lvl = m.getLevel();
 		BoardElt elts[][] = lvl.getBoard().getBoardElts();
 		ArrayList<Integer> tileReferenceNumbers =  lvl.getBullpen().getTileReferenceNumbers();
 		String type = lvl.getLevelType();
 		int data = lvl.getlevelData();
 		
+		String filePath = this.getFilePath(type);
+		
 		try {
-			File file = new File("src/resources/levels/"+filePath);
+			File file = new File(filePath);
 
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();
 			}
-			else if(overwrite == true){
+			else {
 				// TODO maybe check to make sure they want to overwrite
 				file.delete();
 				file.createNewFile();
@@ -99,7 +101,7 @@ public class ExportLevelMove implements IMove {
 				bw.newLine();
 			}
 			bw.write("EndElts");		bw.newLine();
-			bw.write("EndLevel"); 	bw.newLine();
+			bw.write("EndLevel"); 		bw.newLine();
 			
 			bw.close();
 			
@@ -107,6 +109,27 @@ public class ExportLevelMove implements IMove {
 
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	String getFilePath(String levelType) {
+		
+		// If it is a test level, export to the test directory
+		if(this.isTestLevel){
+			return "src/resources/levels/test/"+fileName;
+		}
+		
+		// If it is not a test level, determine which directory to export the file to
+		switch(levelType.toLowerCase()){
+		case "puzzle":
+			return "src/resources/levels/puzzle/"+fileName;
+		case "release":
+			return "src/resources/levels/release/"+fileName;
+		case "lightning":
+			return "src/resources/levels/lightning/"+fileName;
+		default:
+			System.err.println("Wrong level type in ExportLevelMove: "+levelType);
+			return null;
 		}
 	}
 

@@ -14,7 +14,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.LightningLevel;
-import playerEntity.NumberBoardElt;
+import playerEntity.NumberedBoardElt;
 import playerEntity.PlayableBoardElt;
 import playerEntity.PuzzleLevel;
 import playerEntity.ReleaseLevel;
