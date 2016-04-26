@@ -61,7 +61,7 @@ public class EditGameHandler implements ActionListener {
 		
 		loadGame(path);
 		m.getGame().setName(chosenLevelName);
-		ge.refreshLevelButtons();
+		ge.refreshAll();
 		app.displayGameEditor();
 		
 	}

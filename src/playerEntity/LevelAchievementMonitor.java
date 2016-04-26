@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * 
+ * This class is in charge of monitor levels
  * @author dorothy
  *
  */

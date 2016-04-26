@@ -264,6 +264,13 @@ public class GameModel {
 		return hexominoes;
 	}
 	
-	
+	/**
+	 * disable all achievement functionalities
+	 */
+	public void disableAchievement(){
+		for(String key: achievements.keySet()){
+			achievements.get(key).setIsEarned(true);
+		}
+	}
 	
 }

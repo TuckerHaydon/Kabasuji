@@ -14,8 +14,8 @@ import playerEntity.GameModel;
 import javax.swing.ImageIcon;
 
 /**
- * 
- * @author 
+ * This class is in charge of displaying the status of achievement
+ * @author dorothy
  *
  */
 public class AchievementsMenu extends JFrame {
