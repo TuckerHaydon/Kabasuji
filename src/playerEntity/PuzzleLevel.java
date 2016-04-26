@@ -11,11 +11,12 @@ public class PuzzleLevel extends Level {
 	
 	int usedMove;
 	int allowedMoves;
+	int initScore;
 	
 	public PuzzleLevel(int levelNum, int allowedMoves, Board b, Bullpen bp){
 		super(levelNum, b, bp);
 		this.allowedMoves = allowedMoves;
-		
+		this.initScore = bullpen.getTiles().size();
 	}
 	
 	public int getUsedMoves() {
@@ -83,5 +84,24 @@ public class PuzzleLevel extends Level {
 	@Override
 	public void setLevelData(int levelData) {
 		this.usedMove = levelData;
+	}
+	
+	public int getScore(){
+		int remScore = 0;
+		int star = 0;
+		
+		remScore = this.bullpen.getTiles().size();
+		score = initScore - remScore;
+		
+		if (remScore == 2){
+			star = 1;
+		}
+		else if (remScore == 1){
+			star = 2;
+		} else if( remScore == 0){
+			star = 3;
+		}
+		
+		return score;
 	}
 }
