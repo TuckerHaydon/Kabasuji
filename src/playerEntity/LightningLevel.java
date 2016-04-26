@@ -100,7 +100,7 @@ public class LightningLevel extends Level{
 		timer.stop();
 	}
 
-	public int updateStars(){
+	public int getStars(){
 		int stars= 0;
 		int coveredElts = 0;
 		int totalElts = 0;

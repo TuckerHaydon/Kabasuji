@@ -56,9 +56,6 @@ public class LightningLevelView extends LevelView{
 		timeLabel.setBounds(650, 400, 150, 300);
 		add(timeLabel);
 		
-		JLabel lblScoreNStuff = new JLabel("Score n stuff");
-		lblScoreNStuff.setBounds(770, 850, 60, 15);
-		add(lblScoreNStuff);
 		
 		setBackground(new Color(255, 228, 225));
 		

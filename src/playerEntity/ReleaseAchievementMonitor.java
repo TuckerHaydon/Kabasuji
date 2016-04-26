@@ -87,7 +87,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	/*Finish*/
+	@Override
 	public void reset() {
 		this.lv=null;
 		this.moveCounter=0;
