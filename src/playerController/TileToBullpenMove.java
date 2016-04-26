@@ -1,11 +1,13 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.PuzzleLevelView;
 import playerEntity.Anchor;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
 import playerEntity.LevelAchievementMonitor;
 import playerEntity.LightningLevel;
+import playerEntity.PuzzleLevel;
 import playerEntity.Tile;
 
 /**
@@ -50,6 +52,7 @@ public class TileToBullpenMove extends Move{
 		
 		// Repaint the bullpen
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		
 		
 		if(AM.updateAchievement_releaseonbullpen()){
 			AM.popUpScreen();

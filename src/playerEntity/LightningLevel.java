@@ -6,7 +6,7 @@ import javax.swing.Timer;
 
 /**
  * 
- * @author tuckerhaydon, ndiwakar
+ * @author tuckerhaydon, ndiwakar, dgwalder
  *
  */
 public class LightningLevel extends Level{

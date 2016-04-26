@@ -1,6 +1,7 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.PuzzleLevelView;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.BoardElt;
@@ -8,13 +9,14 @@ import playerEntity.GameModel;
 import playerEntity.LevelAchievementMonitor;
 import playerEntity.LightningLevel;
 import playerEntity.PlayableBoardElt;
+import playerEntity.PuzzleLevel;
 import playerEntity.Square;
 import playerEntity.Tile;
 import playerEntity.UnplayableBoardElt;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class TileToBoardMove extends Move{
@@ -64,6 +66,11 @@ public class TileToBoardMove extends Move{
 		// Update the GUI
 		app.getGameWindow().getLevelView().getBoardView().repaint();
 		
+		//update puzzle level moves
+		if (m.getCurrentLevel() instanceof PuzzleLevel){
+			((PuzzleLevel) m.getCurrentLevel()).updateMoves(+1);
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMovesLabel();
+		}
 		
 		if(AM.updateAchievement_releaseonboard()){
 			AM.popUpScreen();
@@ -81,7 +88,7 @@ public class TileToBoardMove extends Move{
 		//bullpen -> board: any level
 		//board -> board: puzzle
 		//board-> bullpen: puzzle, release
-		//there are moves left: puzzle
+		//TODO - check when there are moves left: puzzle
 		
 		
 		//check each board element and determine if it is playable
@@ -127,6 +134,7 @@ public class TileToBoardMove extends Move{
 		if(m.getCurrentLevel() instanceof LightningLevel) {
 			return false;
 		}
+		
 		
 		board.removeTile(tile);
 		m.getCurrentLevel().getBullpen().addTile(tile.getReferenceNumber());

@@ -23,13 +23,33 @@ public class AddLevelToGameMove extends Move {
 	int levelIndex;
 	ArrayList<String> allnames;
 	String levelname;
+	String folderName;
 	
 	public AddLevelToGameMove(KabasujiBuilderApplication app, BuilderModel m, int levelIndex) {
 		super(app, m);
 		
 		this.levelIndex = levelIndex;
 		
-		File folder = new File("src/resources/levels/");
+		folderName = null;
+		
+		switch(levelIndex%3){
+		case 0:
+			folderName = "src/resources/levels/puzzle/";
+			break;
+		case 1: 
+			folderName = "src/resources/levels/lightning/";
+			break;
+		case 2:
+			folderName = "src/resources/levels/release/";
+			break;
+		default:
+			System.err.println("Error in AddLevelToGameMove");
+			break;
+		
+		}
+		
+		File folder = new File(folderName);
+		
 		File[] listOfFiles = folder.listFiles();
 		ArrayList<String> levelNames = new ArrayList<>();
 		
@@ -58,7 +78,7 @@ public class AddLevelToGameMove extends Move {
 	@Override
 	boolean doMove() {
 
-		String path = "src/resources/levels/"+levelname;
+		String path = folderName+levelname;
 		Level lvl = LevelParser.getLevel(path);
 		lvl.setLevelNum(levelIndex);
 		

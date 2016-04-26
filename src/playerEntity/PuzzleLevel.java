@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author tuckerhaydon, dorothy, ndiwakar
+ * @author tuckerhaydon, dorothy, ndiwakar, dgwalder
  *
  */
 public class PuzzleLevel extends Level {
@@ -26,7 +26,7 @@ public class PuzzleLevel extends Level {
 		return (this.allowedMoves - this.usedMove);
 	}
 	
-	void updateMoves(int delta){
+	public void updateMoves(int delta){
 		usedMove += delta;
 	}
 
@@ -56,6 +56,10 @@ public class PuzzleLevel extends Level {
 	@Override
 	public boolean hasWon() {
 		// TODO Auto-generated method stub
+		
+		//Damani - trying to figure out logic
+		//if (!isMoveUsedUp) and board completed?
+		//for board completed - maybe that logic uses the score logic which is to be determined
 		return false;
 	}
 
