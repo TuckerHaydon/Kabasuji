@@ -199,12 +199,6 @@ public class LevelBuilderView extends JPanel{
 		bankView.repaint();
 		boardView.repaint();
 		
-//		// Set the combo boxes to a default selected value
-//		boardEltNumBox.setSelectedItem(m.getSelectedNumber());
-//		levelTypeBox.setSelectedItem(lvl.getLevelType());
-//		boardEltColorsBox.setSelectedItem(m.getSelectedColor());
-//		boardEltTypeBox.setSelectedItem(m.getSelectedBoardEltType());
-		
 		hintBox.revalidate();
 		boardEltNumBox.revalidate();
 		boardEltTypeBox.revalidate();

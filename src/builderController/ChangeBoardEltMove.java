@@ -78,7 +78,12 @@ public class ChangeBoardEltMove extends Move {
 
 	@Override
 	boolean isValid() {
-		// TODO Auto-generated method stub
+
+		// Make sure the row/col are within bounds.
+		if(row < 0 || row > 11 || col < 0 || col > 11){
+			return false;
+		}
+		
 		return true;
 	}
 

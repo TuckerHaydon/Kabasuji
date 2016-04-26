@@ -7,11 +7,11 @@ EndHexomino
 BeginElts
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
+P P P P U P P P P P U P 
+P P P P P P U P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
+P P P P P U P U P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
