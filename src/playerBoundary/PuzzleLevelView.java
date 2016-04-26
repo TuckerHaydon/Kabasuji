@@ -11,7 +11,7 @@ import playerEntity.PuzzleLevel;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class PuzzleLevelView extends LevelView{
@@ -50,10 +50,10 @@ public class PuzzleLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
+		// Add  the moves label
 		movesLabel = new JLabel("<html>" + "Moves Remaining: " + (Integer.toString(level.getMovesRemaining())) + " " + "</html>");
-		movesLabel.setBounds(770, 400, 60, 300);
+		movesLabel.setBounds(650, 400, 150, 300);
 		add(movesLabel);
-		
 		
 		JLabel lblScoreNStuff = new JLabel("Score n stuff");
 		lblScoreNStuff.setBounds(770, 850, 60, 15);

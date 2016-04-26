@@ -12,7 +12,7 @@ import javax.swing.Timer;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class LightningLevelView extends LevelView{
