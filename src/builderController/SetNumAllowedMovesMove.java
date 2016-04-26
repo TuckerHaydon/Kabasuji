@@ -1,35 +1,34 @@
 package builderController;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 
 public class SetNumAllowedMovesMove extends Move{
-	BuilderModel model;
 	int moves, prev;
 	
-	SetNumAllowedMovesMove(BuilderModel m, int moves){
-		super(m);
-		this.model = m;
+	SetNumAllowedMovesMove(KabasujiBuilderApplication app, BuilderModel m, int moves){
+		super(app, m);
 		this.moves = moves;
 	}
 
 	@Override
 	boolean doMove() {
-		prev = model.getLevel().getlevelData();
-		model.getLevel().setLevelData(moves);
+		prev = m.getLevel().getlevelData();
+		m.getLevel().setLevelData(moves);
 		return true;
 	}
 
 	@Override
 	public boolean undoMove() {
-		model.getLevel().setLevelData(prev);
+		m.getLevel().setLevelData(prev);
 		return true;
 	}
 
 	@Override
 	boolean isValid() {
 		boolean valid = false;
-		if(model.getLevel().getLevelType() == Level.PUZZLE) {
+		if(m.getLevel().getLevelType() == Level.PUZZLE) {
 			valid = true;
 		}
 		return valid;

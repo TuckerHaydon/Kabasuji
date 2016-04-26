@@ -74,7 +74,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	/*Finished*/
 	private boolean checkJustUnderTheWire(){
 		if(lv.isMoveUsedUp() && lv.hasWon() && this.notEarnJustUnderTheWire()){
-			achievements.get("JustUnderTheWire").setEarned();
+			achievements.get("JustUnderTheWire").setIsEarned(true);
 			popingUp.push("JustUnderTheWire");
 			return true;
 		}
@@ -84,7 +84,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	/*Finished*/
 	private boolean checkNoRegrets(){
 		if(lv.hasWon()&& (this.toBullpenMove==0) && this.notEarnNoRegrets()){
-			achievements.get("NoRegrets ").setEarned();
+			achievements.get("NoRegrets ").setIsEarned(true);
 			popingUp.push("NoRegrets");
 			return true;
 		}
@@ -94,7 +94,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	@Override
 	boolean checkRageQuit(){
 		if(this.notEarnRageQuit() && !(lv.hasWon())){
-			achievements.get("RageQuit").setEarned();
+			achievements.get("RageQuit").setIsEarned(true);
 			popingUp.push("RageQuit");
 			return true;
 		}
@@ -104,7 +104,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	@Override
 	boolean checkVictoryLap() {
 		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
-			achievements.get("VictoryLap").setEarned();
+			achievements.get("VictoryLap").setIsEarned(true);
 			popingUp.push("VictoryLap");
 			return true;
 		}

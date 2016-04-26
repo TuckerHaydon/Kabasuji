@@ -62,7 +62,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	/*Finished*/ /*Have questions about isLevelDone */
 	private boolean checkSlowPoke(){
 		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && !(lv.hasWon())){
-			achievements.get("SlowPoke").setEarned();
+			achievements.get("SlowPoke").setIsEarned(true);
 			popingUp.push("SlowPoke");
 			return true;
 		}
@@ -71,7 +71,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	
 	private boolean checkSpeedyGonzales(){
 		if(this.notEarnSpeedyGonzales() && (lv.getUsedTime()<=(lv.getAllowedTime()*0.5)) && lv.hasWon()){
-			achievements.get("SpeedyGonzales").setEarned();
+			achievements.get("SpeedyGonzales").setIsEarned(true);
 			popingUp.push("SpeedyGonzales");
 			return true;
 		}
@@ -81,7 +81,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	@Override
 	boolean checkRageQuit(){
 		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && !(lv.hasWon())){
-			achievements.get("RageQuit").setEarned();
+			achievements.get("RageQuit").setIsEarned(true);
 			popingUp.push("RageQuit");
 			return true;
 		}

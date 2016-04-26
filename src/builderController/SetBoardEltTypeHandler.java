@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
@@ -14,12 +15,14 @@ import builderEntity.BuilderModel;
  */
 public class SetBoardEltTypeHandler implements ActionListener {
 	
+	KabasujiBuilderApplication app;
 	BuilderModel m;
 	JComboBox<String> box;
 	
-	public SetBoardEltTypeHandler(BuilderModel m, JComboBox<String> box) {
+	public SetBoardEltTypeHandler(KabasujiBuilderApplication app, BuilderModel m, JComboBox<String> box) {
 		this.m = m;
 		this.box = box;
+		this.app = app;
 	}
 
 	@Override
@@ -27,11 +30,8 @@ public class SetBoardEltTypeHandler implements ActionListener {
 		
 		String selection = (String)box.getSelectedItem();
 		
-		SetBoardEltTypeMove move = new SetBoardEltTypeMove(m, selection);
-		
-		if(move.isValid()){
-			move.doMove();
-		}
+		SetBoardEltTypeMove move = new SetBoardEltTypeMove(app, m, selection);
+		move.execute();
 		
 	}
 

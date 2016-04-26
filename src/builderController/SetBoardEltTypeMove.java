@@ -1,5 +1,6 @@
 package builderController;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
@@ -11,8 +12,8 @@ public class SetBoardEltTypeMove extends Move{
 	
 	String boardEltType, prev;
 	
-	SetBoardEltTypeMove(BuilderModel m, String bet){
-		super(m);
+	SetBoardEltTypeMove(KabasujiBuilderApplication app, BuilderModel m, String bet){
+		super(app, m);
 		this.boardEltType = bet;
 		
 	}
@@ -22,6 +23,7 @@ public class SetBoardEltTypeMove extends Move{
 		
 		prev = m.getSelectedBoardEltType();
 		m.setSelectedBoardEltType(boardEltType);
+		app.refreshLevelEditor();
 		return true;
 	}
 
@@ -29,12 +31,12 @@ public class SetBoardEltTypeMove extends Move{
 	public boolean undoMove() {
 		
 		m.setSelectedBoardEltType(prev);
-		return false;
+		app.refreshLevelEditor();
+		return true;
 	}
 
 	@Override
 	boolean isValid() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 

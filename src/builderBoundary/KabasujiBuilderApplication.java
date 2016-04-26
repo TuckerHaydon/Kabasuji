@@ -1,18 +1,14 @@
 package builderBoundary;
 
-import java.util.Enumeration;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import builderController.Move;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * The top-level entry point for the Kabasuji Builder Application. Creates the various frames for each of the game editors and menus. 
+ * Determines which frames to show and ensures that each of the fields is contructed with the proper parameters.
  * @author tuckerhaydon
- *
- *
  */
 public class KabasujiBuilderApplication {
 	
@@ -22,23 +18,28 @@ public class KabasujiBuilderApplication {
 	GameEditorMenu gameEditorMenu;
 	GameEditor gameEditor;
 	BuilderModel m;
-	java.util.Stack<Move> moves = new java.util.Stack<Move>();
 	
+	/**
+	 * Constructor. Ensures that the BuilderModel is non-null 
+	 * @param m The top-lvel BuilderModel
+	 */
 	public KabasujiBuilderApplication(BuilderModel m){
+		if(m == null){
+			throw new RuntimeException();
+		}
+		
 		this.m = m;
 	}
 	
+	/**
+	 * Instructs each of the various frames to initialize their view and controller objects
+	 */
 	public void init(){
-		initModel();
 		initView();
 		initControllers();
 	}
 	
-	public void initModel(){
-	
-	}
-	
-	public void initView(){
+	void initView(){
 		
 		// Create the various frames
 		mainMenu = new MainMenu(this);
@@ -59,7 +60,7 @@ public class KabasujiBuilderApplication {
 		
 	}
 	
-	public void initControllers(){
+	void initControllers(){
 		mainMenu.initControllers();
 		levelEditorMenu.initControllers();
 		levelEditor.initControllers();
@@ -67,6 +68,9 @@ public class KabasujiBuilderApplication {
 		gameEditor.initControllers();
 	}
 	
+	/**
+	 * Sets only the main menu frame to be visible
+	 */
 	public void displayMainMenu(){
 		mainMenu.setVisible(true);
 		levelEditorMenu.setVisible(false);
@@ -75,6 +79,9 @@ public class KabasujiBuilderApplication {
 		gameEditor.setVisible(false);
 	}
 	
+	/**
+	 * Sets only the level editor menu to be visible
+	 */
 	public void displayLevelEditorMenu(){
 		mainMenu.setVisible(false);
 		levelEditorMenu.setVisible(true);
@@ -83,6 +90,9 @@ public class KabasujiBuilderApplication {
 		gameEditor.setVisible(false);
 	}
 	
+	/**
+	 * Sets only the game editor menu to be visible
+	 */
 	public void displayGameEditorMenu(){
 		mainMenu.setVisible(false);
 		levelEditorMenu.setVisible(false);
@@ -91,14 +101,24 @@ public class KabasujiBuilderApplication {
 		gameEditor.setVisible(false);
 	}
 	
+	/**
+	 * Sets only the level editor to be visible. Sets the levelEditor to be in focus to enable the keyListener.
+	 */
 	public void displayLevelEditor(){
 		mainMenu.setVisible(false);
 		levelEditorMenu.setVisible(false);
 		levelEditor.setVisible(true);
 		gameEditorMenu.setVisible(false);
 		gameEditor.setVisible(false);
+		
+		// Bring to focus
+		levelEditor.toFront();
+		levelEditor.requestFocus();
 	}
 	
+	/**
+	 * Sets only the game editor to be visible
+	 */
 	public void displayGameEditor(){
 		mainMenu.setVisible(false);
 		levelEditorMenu.setVisible(false);
@@ -107,6 +127,9 @@ public class KabasujiBuilderApplication {
 		gameEditor.setVisible(true);
 	}
 	
+	/**
+	 * Creates and displays a splash screen for 3 seconds
+	 */
 	public void displaySplashScreen(){
 		JFrame splash = new JFrame("Splash Screen");
 		splash.setBounds(200, 200, 400, 200);
@@ -119,6 +142,9 @@ public class KabasujiBuilderApplication {
 		splash.dispose();
 	}
 	
+	/**
+	 * Hides all of the frames.
+	 */
 	public void hideAll(){
 		mainMenu.setVisible(false);
 		levelEditorMenu.setVisible(false);
@@ -127,55 +153,51 @@ public class KabasujiBuilderApplication {
 		gameEditor.setVisible(false);
 	}
 	
+	/**
+	 * Instructs the level editor to refresh the view
+	 */
 	public void refreshLevelEditor(){
 		this.levelEditor.refresh();
 	}
 
+	/**
+	 * Returns the level editor
+	 * @return LevelEditor The LevelEditor window
+	 */
 	public LevelEditor getLevelEditor(){
 		return this.levelEditor;
 	}
+	
+	/**
+	 * Returns the level editor menu
+	 * @return LevelEditorMenu The LevelEditorMenu window
+	 */
 	public LevelEditorMenu getLevelEditorMenu(){
 		return this.levelEditorMenu;
 	}
 	
+	/**
+	 * Returns the GameEditor
+	 * @return GameEditor The GameEditor window
+	 */
 	public GameEditor getGameEditor(){
 		return this.gameEditor;
 	}
 	
+	/**
+	 * Returns the GameEditorMenu
+	 * @return GameEditorMenu The GameEditorMenu window
+	 */
 	public GameEditorMenu getGameEditorMenu(){
 		return this.gameEditorMenu;
 	}
 	
+	/**
+	 * Returns the MainMenu
+	 * @return MainMenu The MainMenu window
+	 */
 	public MainMenu getMainMenu(){
 		return this.mainMenu;
 	}
 
-	public Enumeration<Move> getMoves() {
-		return moves.elements();
-	}
-	
-	public Move popMove() {
-		return this.moves.pop();
-	}
-	
-	public Move pushMove(Move m) {
-		return this.moves.push(m);
-	}
-	
-	public boolean undoMove() {
-		Move m = popMove();
-		
-		if(m == null) {
-			return false;
-		}
-		
-		boolean stat = m.undoMove();
-		if(stat) {
-			refreshLevelEditor();
-		} else{
-			pushMove(m);
-		}
-		
-		return stat;
-	}
 }

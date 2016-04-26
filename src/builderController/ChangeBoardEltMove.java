@@ -1,6 +1,8 @@
 package builderController;
 
 import java.awt.Color;
+
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.Board;
 import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
@@ -22,8 +24,8 @@ public class ChangeBoardEltMove extends Move {
 	Board board;
 	boolean isHint, prevHint;
 	
-	public ChangeBoardEltMove(BuilderModel model, Board board, int row, int col) {
-		super(model);
+	public ChangeBoardEltMove(KabasujiBuilderApplication app, BuilderModel model, Board board, int row, int col) {
+		super(app, model);
 		
 		this.board = board;
 		this.row = row;

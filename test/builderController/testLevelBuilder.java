@@ -61,9 +61,9 @@ public class testLevelBuilder {
 		builder.displayLevelEditorMenu();
 		
 		//create controllers for views on levelBuilderView
-		BullpenController bpc = new BullpenController(m, bpv, bankview);
-		BoardController boardc = new BoardController(m, bv);
-		BankController bkc = new BankController(m, bankview, bpv);
+		BullpenController bpc = new BullpenController(builder, m, bpv, bankview);
+		BoardController boardc = new BoardController(builder, m, bv);
+		BankController bkc = new BankController(builder, m, bankview, bpv);
 
 		//dummy test for mouse clicked on bankController
 		MouseEvent meBank = new MouseEvent(bankview, 0, 0, 0, 0, 20, 20, false);
@@ -83,32 +83,32 @@ public class testLevelBuilder {
 		Tile tile2 = new Tile(2, "bullpen");
 
 		//now add those tiles to the bullpen, then undo the second addition
-		AddTileToBullpenMove attbpm = new AddTileToBullpenMove(m, tile1, bpv);
-		attbpm.doMove();
-		AddTileToBullpenMove attbpm2 = new AddTileToBullpenMove(m, tile2, bpv);
-		attbpm2.doMove();
-		attbpm2.undoMove();
+		AddTileToBullpenMove attbpm = new AddTileToBullpenMove(builder, m, tile1, bpv);
+		attbpm.execute();
+		AddTileToBullpenMove attbpm2 = new AddTileToBullpenMove(builder, m, tile2, bpv);
+		attbpm2.execute();
+		attbpm2.executeUndo();
 
 		//change the type of the level to be release
-		SetLevelTypeMove sltm = new SetLevelTypeMove(m, lvl, "release", lbv);
-		sltm.doMove();
+		SetLevelTypeMove sltm = new SetLevelTypeMove(builder, m, lvl, "release", lbv);
+		sltm.execute();
 
 		//make a new board elt with a green 2, then undo it
 		m.setSelectedBoardEltType("numbered");
 		m.setSelectedColor("green");
 		m.setSelectedNumber(2);
-		ChangeBoardEltMove cbem = new ChangeBoardEltMove(m, board, 1, 1);
-		cbem.doMove();
-		cbem.undoMove();
+		ChangeBoardEltMove cbem = new ChangeBoardEltMove(builder, m, board, 1, 1);
+		cbem.execute();
+		cbem.executeUndo();
 		
 		//change the color to red and repeat
 		m.setSelectedColor("red");
-		cbem.doMove();
-		cbem.undoMove();
+		cbem.execute();
+		cbem.executeUndo();
 		
 		//finally try blue
 		m.setSelectedColor("blue");
-		cbem.doMove();
+		cbem.execute();
 		
 		//get/set attributes of builderModel
 		m.setLevel(lvl);
@@ -118,14 +118,14 @@ public class testLevelBuilder {
 		m.setSelectedBoardEltType("playable");
 		
 		//change a new playable board elt as a hint
-		ChangeBoardEltMove cbem2 = new ChangeBoardEltMove(m, board, 1, 2);
-		cbem2.doMove();
+		ChangeBoardEltMove cbem2 = new ChangeBoardEltMove(builder, m, board, 1, 2);
+		cbem2.execute();
 
 		//change a board elt to be unplayable, then undo
 		m.setSelectedBoardEltType("unplayable");
-		ChangeBoardEltMove cbem3 = new ChangeBoardEltMove(m, board, 1, 3);
-		cbem3.doMove();
-		cbem3.undoMove();
+		ChangeBoardEltMove cbem3 = new ChangeBoardEltMove(builder, m, board, 1, 3);
+		cbem3.execute();
+		cbem3.executeUndo();
 		
 		//make sure that drawTileBank, drawTile, drawBoard works
 		Graphics bankg = bankview.getGraphics();
@@ -140,13 +140,13 @@ public class testLevelBuilder {
 		String testboardstring =  board.toString();
 		
 		//export the level, then undo it (shouldn't this be impossible?)
-		ExportLevelMove elm = new ExportLevelMove(m, "testlevel");
-		elm.doMove();
-		elm.undoMove();
+		ExportLevelMove elm = new ExportLevelMove(builder, m, "testlevel");
+		elm.execute();
+		elm.executeUndo();
 
 		//now export the level with overwrite = true
-		ExportLevelMove elm2 = new ExportLevelMove(m, "testlevel", true);
-		elm2.doMove();
+		ExportLevelMove elm2 = new ExportLevelMove(builder, m, "testlevel", true);
+		elm2.execute();
 	}
 
 	@Test
@@ -181,15 +181,15 @@ public class testLevelBuilder {
 		CreateGameHandler cgh = new CreateGameHandler(builder, m);
 		cgh.actionPerformed(me4);
 
-		AddLevelToGameMove altgm = new AddLevelToGameMove(m, 0);
+		AddLevelToGameMove altgm = new AddLevelToGameMove(builder, m, 0);
 		altgm.setLevelName("Release");
-		altgm.doMove();
+		altgm.execute();
 
 
-		ExportGameMove egm = new ExportGameMove(m, "testgame");
-		egm.doMove();
-		egm.undoMove();
-		altgm.undoMove();
+		ExportGameMove egm = new ExportGameMove(builder, m, "testgame");
+		egm.execute();
+		egm.executeUndo();
+		altgm.executeUndo();
 	}
 
 

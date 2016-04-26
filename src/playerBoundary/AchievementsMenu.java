@@ -168,7 +168,7 @@ public class AchievementsMenu extends JFrame {
 	
 	public void updateView(){
 		for(String key: this.pics.keySet()){
-			this.pics.get(key).setVisible(this.m.getAchievements().get(key).getisEarned());
+			this.pics.get(key).setVisible(this.m.getAchievements().get(key).getIsEarned());
 		}
 	}
 	public void initControllers(){
