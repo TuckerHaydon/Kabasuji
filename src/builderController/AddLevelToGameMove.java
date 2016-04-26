@@ -16,7 +16,7 @@ import builderEntity.LevelParser;
  * @see AddLevelToGameHandler
  * @see GameEditor
  * @author tuckerhaydon
- * @author wilderj
+ * @author jwilder
  */
 public class AddLevelToGameMove extends Move {
 	

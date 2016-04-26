@@ -2,7 +2,7 @@ package playerEntity;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, ndiwakar
  *
  */
 public abstract class Level {

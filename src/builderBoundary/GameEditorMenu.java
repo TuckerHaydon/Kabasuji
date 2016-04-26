@@ -8,12 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import builderController.CreateGameHandler;
+import builderController.EditGameHandler;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
 /**
  * The window for the GameEditor's menu. Contains buttons that allow the user to either create or edit a game and return to the main menu.
  * @author tuckerhaydon
+ * @author jwilder
  */
 public class GameEditorMenu extends JFrame {
 	
@@ -77,7 +79,7 @@ public class GameEditorMenu extends JFrame {
 	 */
 	public void initControllers(){
 		createGameButton.addActionListener(new CreateGameHandler(app, m));
-		// TODO editGameController
+		editGameButton.addActionListener(new EditGameHandler(app, m));
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
 	}
 
