@@ -1,13 +1,17 @@
 package playerBoundary;
 
 import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import playerController.LevelController;
 import playerController.TimerHandler;
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
 import javax.swing.Timer;
+import javax.swing.border.Border;
 
 
 /**
@@ -17,13 +21,15 @@ import javax.swing.Timer;
  */
 public class LightningLevelView extends LevelView{
 	JLabel timeLabel; 
-	LightningLevel level;
 	
 	public final static int ONE_SECOND = 1000;
 	
+	LightningLevel level;
+	
 	public LightningLevelView(KabasujiPlayerApplication app, GameModel m, LightningLevel lightningLvl) {
-		super(app, m);
-		this.level = lightningLvl;
+		super(app, m, lightningLvl);
+		
+		level = lightningLvl;
 		
 		bullpenView = new BullpenView(app, m, level.getBullpen());
 		boardView = new BoardView(app, m, level.getBoard());
@@ -47,15 +53,24 @@ public class LightningLevelView extends LevelView{
 		scrollPane.setBounds(25, 25, 850, 7*bullpenView.getSquareWidth());
 		add(scrollPane);
 		
-		
 		// Add the boardView
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
 		timeLabel = new JLabel("<html>" + "Time Remaining: " + (Integer.toString(level.getRemainingTime())) + " " + "</html>");
-		timeLabel.setBounds(650, 400, 150, 300);
+		timeLabel.setBounds(650, 400, 150, 100);
 		add(timeLabel);
 		
+
+		//3 stars hence that max and min
+		pBar = new JProgressBar(0,3);
+		pBar.setValue(level.getStars());
+		pBar.setStringPainted(true);
+		Border border = BorderFactory.createTitledBorder("Star Progress...");
+		pBar.setBorder(border);
+		pBar.setBounds(650, 500, 250, 50);
+		add(pBar);
+
 		
 		setBackground(new Color(255, 228, 225));
 		
@@ -80,7 +95,7 @@ public class LightningLevelView extends LevelView{
 	public void refreshTimeLabel(){
 		this.remove(timeLabel);
 		timeLabel = new JLabel("<html>" + "Time Remaining: " + (Integer.toString(level.getRemainingTime())) + " " + "</html>");
-		timeLabel.setBounds(650, 400, 150, 300);
+		timeLabel.setBounds(650, 400, 150, 100);
 		this.add(timeLabel, 0);
 		this.getParent().revalidate();
 		this.getParent().repaint();
