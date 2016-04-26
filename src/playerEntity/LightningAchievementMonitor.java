@@ -60,6 +60,10 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	
 	
 	/*Finished*/ /*Have questions about isLevelDone */
+	/**
+	 * 
+	 * @return true if "SlowPoke" was just unlocked
+	 */
 	private boolean checkSlowPoke(){
 		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && !(lv.hasWon())){
 			achievements.get("SlowPoke").setIsEarned(true);
@@ -69,6 +73,10 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @return true if "SpeedyGonzales" was just unlocked
+	 */
 	private boolean checkSpeedyGonzales(){
 		if(this.notEarnSpeedyGonzales() && (lv.getUsedTime()<=(lv.getAllowedTime()*0.5)) && lv.hasWon()){
 			achievements.get("SpeedyGonzales").setIsEarned(true);
@@ -96,7 +104,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	/*Finished*/
+	@Override
 	public void reset() {
 		this.lv=null;
 		this.moveCounter=0;

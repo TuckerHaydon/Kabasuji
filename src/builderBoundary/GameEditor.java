@@ -16,6 +16,7 @@ import builderEntity.Level;
 /**
  * A Window that for the game editor. Contains an export game button, menu navigation button, and 15 buttons corresponding to each of the 15 levels in a game.
  * @author tuckerhaydon
+ * @author jwilder
  */
 public class GameEditor extends JFrame {
 	
@@ -100,5 +101,38 @@ public class GameEditor extends JFrame {
 			levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
 		}
 	}
-
+	
+	
+	public JButton[] getButtons(){
+		return this.levelButtons;
+	}
+	
+	public void refreshAll(){
+		Level[] currLevs = m.getGame().getLevels();
+		for(int i = 0; i < 15; i++){
+			if(currLevs[i] == null){
+				this.remove(levelButtons[i]);
+				levelButtons[i] = new JButton("Level" + (i+1));
+				levelButtons[i].setBackground(Color.RED);
+				levelButtons[i].setOpaque(true);
+				levelButtons[i].setBorderPainted(false);
+				levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+				this.add(levelButtons[i]);
+				levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
+			}
+		}
+		}
+		
+	public void refreshLevel(int i){
+		//this.remove(levelButtons[i]);
+		//levelButtons[i] = new JButton("Level" + (i+1));
+		levelButtons[i].setBackground(Color.RED);
+		levelButtons[i].setOpaque(true);
+		levelButtons[i].setBorderPainted(false);
+		levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+		//this.add(levelButtons[i]);
+		//levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
+	}
+	
 }
+
