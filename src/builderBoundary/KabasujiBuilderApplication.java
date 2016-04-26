@@ -154,10 +154,17 @@ public class KabasujiBuilderApplication {
 	}
 	
 	/**
-	 * Instructs the level editor to refresh the view
+	 * Instructs the level editor to initialize a new LevelEditorView
 	 */
 	public void refreshLevelEditor(){
 		this.levelEditor.refresh();
+	}
+	
+	/**
+	 * Instruct the level editor to repaint the current level editor view
+	 */
+	public void repaintLevelEditor(){
+		this.levelEditor.repaintLevelEditor();
 	}
 
 	/**
