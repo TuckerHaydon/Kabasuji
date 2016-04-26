@@ -114,22 +114,22 @@ public class LightningLevel extends Level{
 					}
 				}
 			}
-
-			//if all playable board elts are covered, stars = 3
-			//if total playable elts - covered playable elts = 6, stars = 2;
-			//if total playable elts - covered playable elts = 12, stars = 1;
-			
-			if(totalElts == coveredElts){
-				stars = 3;
-			}
-			
-			if(totalElts - coveredElts == 6){
-				stars = 2;
-			}
-			
-			if(totalElts - coveredElts == 12){
-				stars = 1;
-			}
+		}
+		
+		//if all playable board elts are covered, stars = 3
+		//if total playable elts - covered playable elts = 6, stars = 2;
+		//if total playable elts - covered playable elts = 12, stars = 1;
+		
+		if(totalElts == coveredElts){
+			stars = 3;
+		}
+		
+		if(totalElts - coveredElts == 6){
+			stars = 2;
+		}
+		
+		if(totalElts - coveredElts == 12){
+			stars = 1;
 		}
 
 		return stars;
