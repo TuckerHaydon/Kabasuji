@@ -111,6 +111,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		if(e.getKeyCode() == 90 && isControlPressed){
 			try{
 				UndoManager.popMove().executeUndo();
+				System.out.println("Undo");
 			}
 			catch(EmptyStackException ex){} // NOOP
 		}
@@ -130,16 +131,15 @@ public class LevelEditor extends JFrame implements KeyListener {
 	}
 	
 	public void refresh(){
-		contentPane.remove(levelBuilderView);
-		levelBuilderView = new LevelBuilderView(m.getLevel(), app, m); 
-		levelBuilderView.initView();
-		levelBuilderView.setBounds(50, 50, 900, 900);
-		levelBuilderView.initControllers();
-		contentPane.add(levelBuilderView);
-		contentPane.revalidate();
-		contentPane.repaint();
+
+		// Bring to focus for the key listener
 		this.toFront();
 		this.requestFocus();
+		
+		// Refresh all of the components
+		contentPane.repaint();
+		levelBuilderView.refresh();
+		
 	}
 	
 

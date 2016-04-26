@@ -6,6 +6,8 @@ import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import builderBoundary.KabasujiBuilderApplication;
 import playerEntity.GameModel;
 
 /**
@@ -26,9 +28,9 @@ public class KabasujiPlayerApplication {
 		init();
 	}
 	
-	public KabasujiPlayerApplication(GameModel m, String levelPath){
+	public KabasujiPlayerApplication(GameModel m, String levelPath, KabasujiBuilderApplication builderapp){
 		this.m = m;
-		init(levelPath);
+		init(levelPath, builderapp);
 	}
 	
 	public void init(){
@@ -41,10 +43,11 @@ public class KabasujiPlayerApplication {
 		displayMainMenu();
 	}
 	
-	public void init(String levelPath){
+	public void init(String levelPath, KabasujiBuilderApplication builderapp){
 		initModel(levelPath);
 		initView();
 		initControllers();
+		this.gameWindow.switchTobuilderTestMode(builderapp);
 		
 		m.selectCurrentAM(2);
 		displayGameWindow();
