@@ -21,6 +21,7 @@ public class Tile {
 	public int getReferenceNumber() {
 		return this.getReferenceNumber();
 	}
+	
 	public void rotateRight() {
 		int temp;
 		for(Square square : squares) {
@@ -74,5 +75,13 @@ public class Tile {
 	
 	public void setAnchor(Anchor anchor){
 		this.anchor = anchor;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getRefNum() {
+		// TODO Auto-generated method stub
+		return getReferenceNumber();
 	}
 }

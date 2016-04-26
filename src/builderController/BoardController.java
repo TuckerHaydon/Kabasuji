@@ -29,6 +29,7 @@ public class BoardController extends MouseAdapter {
 	@Override
 	public void mousePressed(MouseEvent me){
 		
+		System.out.println("mousePressed");
 		// Determine the XY location where the mouse was clicked. 
 		int x = me.getX();
 		int y = me.getY();
@@ -53,6 +54,7 @@ public class BoardController extends MouseAdapter {
 	
 	@Override
 	public void mouseDragged(MouseEvent me){
+		System.out.println("mouseDragged");
 		this.mousePressed(me);
 	}
 	
