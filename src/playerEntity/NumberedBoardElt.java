@@ -3,7 +3,10 @@ package playerEntity;
 import java.awt.Color;
 
 /**
- * @author kacper, tuckerhaydon
+ * Numbered Board Element
+ * This extension of a Playable Element contains a specified color and number
+ * This is used in Release Levels
+ * @author kacper puczydlowski, tuckerhaydon
  *
  */
 public class NumberedBoardElt extends PlayableBoardElt {
@@ -20,26 +23,6 @@ public class NumberedBoardElt extends PlayableBoardElt {
 		this.number = num;
 	}
 	
-	
-	public void setCovered(boolean b) {
-		this.isCovered = b;
-	}
-	
-	public boolean getCovered() {
-		return this.isCovered;
-	}
-	public void toggleCovered() {
-		isCovered = !isCovered;
-	}
-	
-	public void toggleHint() {
-		isHint = !isHint;
-	}
-	
-	public boolean isHint(){
-		return isHint;
-	}
-	
 	@Override
 	public String toString(){
 		if(isHint){
@@ -50,10 +33,18 @@ public class NumberedBoardElt extends PlayableBoardElt {
 		}
 	}
 	
+	/**
+	 * Returns the number of the Element
+	 * @return number of element
+	 */
 	public int getNum(){
 		return number;
 	}
 	
+	/**
+	 * Returns the Color of the Element
+	 * @return color of element
+	 */
 	public Color getColor(){
 		return color;
 	}
