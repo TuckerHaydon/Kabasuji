@@ -43,9 +43,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 		exportGameButton = new JButton("Export");
 		goToMenuButton = new JButton("Main Menu");
 		testLevelButton = new JButton("Test Level");
-		
-		// TODO implement all the other shit.
-		
+				
 	}
 	
 	public void initView(){
