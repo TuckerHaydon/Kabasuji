@@ -164,6 +164,8 @@ public class GameWindow extends JFrame {
 	
 	public void switchTobuilderTestMode(KabasujiBuilderApplication builderapp){
 		menuButton.setText("Back");
+		//remove the default ActionListener
+		menuButton.removeActionListener(menuButton.getActionListeners()[0]);
 		menuButton.addActionListener(new TestLevelNavigateLevelEditorMove(app,builderapp));
 		resetButton.setVisible(false);
 	}
