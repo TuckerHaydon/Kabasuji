@@ -11,18 +11,18 @@ import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 
 /**
- * The view object for a Board. It is responsible for drawing the Board. Must be initialized with a non-null board. 
+ * The view object for a Board. It is responsible for drawing the Board. Must be initialized WIDTH a non-null board. 
  * @author tuckerhaydon
  *
  */
 public class BoardView extends View {
 
 	static int BOARD_WIDTH = 600;
-	static int SQUARE_WITH = BOARD_WIDTH/12;
+	static int SQUARE_WIDTH = BOARD_WIDTH/12;
 	Board b;
 	
 	/**
-	 * The BoardView constructor. Must be called with a non-null Board.
+	 * The BoardView constructor. Must be called WIDTH a non-null Board.
 	 * @param b
 	 */
 	public BoardView(Board b){
@@ -55,7 +55,7 @@ public class BoardView extends View {
 	 * @return in the width of the squares in the board
 	 */
 	public int getSquareWidth(){
-		return SQUARE_WITH;
+		return SQUARE_WIDTH;
 	}
 	
 	/**
@@ -67,7 +67,7 @@ public class BoardView extends View {
 	}
 	
 	/**
-	 * Paints the board. Iterates through every element in the board and fills in squares with colors corresponding to the element's type/status
+	 * Paints the board. Iterates through every element in the board and fills in squares WIDTH colors corresponding to the element's type/status
 	 */
 	@Override
     public void paintComponent(Graphics g) {
@@ -96,10 +96,10 @@ public class BoardView extends View {
 
 				
 				g.setColor(squareColor);
-				g.fillRect(SQUARE_WITH * col, SQUARE_WITH * row, SQUARE_WITH, SQUARE_WITH);
+				g.fillRect(SQUARE_WIDTH * col, SQUARE_WIDTH * row, SQUARE_WIDTH, SQUARE_WIDTH);
 				
 				g.setColor(Color.BLACK);
-				g.drawRect(SQUARE_WITH * col, SQUARE_WITH * row, SQUARE_WITH, SQUARE_WITH);
+				g.drawRect(SQUARE_WIDTH * col, SQUARE_WIDTH * row, SQUARE_WIDTH, SQUARE_WIDTH);
 				
 				if(elts[row][col] instanceof NumberedBoardElt){
 					int num = ((NumberedBoardElt) elts[row][col]).getNum();
@@ -107,7 +107,7 @@ public class BoardView extends View {
 					
 					g.setColor(numberColor);
 					g.setFont(new Font("Arial", Font.BOLD, 25)); 
-					g.drawString(""+num, SQUARE_WITH * col+(SQUARE_WITH)/3, SQUARE_WITH * row + (2*SQUARE_WITH)/3);
+					g.drawString(""+num, SQUARE_WIDTH * col+(SQUARE_WIDTH)/3, SQUARE_WIDTH * row + (2*SQUARE_WIDTH)/3);
 				}
 			}
 		}

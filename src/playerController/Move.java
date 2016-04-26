@@ -27,7 +27,15 @@ abstract class Move {
 		return this.doMove();
 	}
 	
+	public boolean executeUndo(){
+//		boolean wasSuccessful = this.undoMove();
+//		app.refreshLevelEditor();
+		
+//		return wasSuccessful;
+		return true;
+	}
+	
 	abstract boolean doMove();
 	abstract boolean isValid();
-	public abstract boolean undo();
+	abstract boolean undo();
 }

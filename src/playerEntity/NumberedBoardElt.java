@@ -50,4 +50,12 @@ public class NumberedBoardElt extends PlayableBoardElt {
 		}
 	}
 	
+	public int getNum(){
+		return number;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
+	
 }

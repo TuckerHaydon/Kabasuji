@@ -1,6 +1,7 @@
 package playerBoundary;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import playerController.BoardController;
@@ -48,19 +49,15 @@ public class BoardView extends View{
 				Color squareColor = Color.BLACK;
 				
 				if(elts[row][col] instanceof PlayableBoardElt){
-					if(((PlayableBoardElt)elts[row][col]).getCovered()){
-						squareColor = Color.GREEN;
+					if(((PlayableBoardElt)elts[row][col]).isHint()){
+						squareColor = Color.YELLOW;
 					}
 					else if(elts[row][col] instanceof NumberedBoardElt){
-						squareColor = Color.RED;
-					}
-					else if(((PlayableBoardElt)elts[row][col]).isHint())
-					{
-						squareColor = Color.YELLOW;
+						squareColor = Color.LIGHT_GRAY;
 					}
 					else{
 						squareColor = Color.WHITE;
-					}
+					} 
 				}
 				else if(elts[row][col] instanceof UnplayableBoardElt){
 					squareColor = Color.BLACK;
@@ -72,8 +69,17 @@ public class BoardView extends View{
 				
 				g.setColor(Color.BLACK);
 				g.drawRect(SQUARE_WIDTH * col, SQUARE_WIDTH * row, SQUARE_WIDTH, SQUARE_WIDTH);
+				
+				if(elts[row][col] instanceof NumberedBoardElt){
+					int num = ((NumberedBoardElt) elts[row][col]).getNum();
+					Color numberColor =  ((NumberedBoardElt) elts[row][col]).getColor();
+					
+					g.setColor(numberColor);
+					g.setFont(new Font("Arial", Font.BOLD, 25)); 
+					g.drawString(""+num, SQUARE_WIDTH * col+(SQUARE_WIDTH)/3, SQUARE_WIDTH * row + (2*SQUARE_WIDTH)/3);
+				}
 			}
-		}
-    } 
+		} 
 	
+	}
 }
