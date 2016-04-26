@@ -69,7 +69,7 @@ public class PickUpTileBoardMove extends Move{
 
 	@Override
 	boolean isValid() {
-		if(m.getCurrentLevel() instanceof LightningLevel) {
+		if(m.getCurrentLevel() instanceof LightningLevel || m.getCurrentLevel() instanceof ReleaseLevel) {
 			return false;
 		}
 		return true;
