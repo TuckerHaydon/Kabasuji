@@ -2,6 +2,7 @@ package builderController;
 
 import builderBoundary.KabasujiBuilderApplication;
 import builderBoundary.LevelBuilderView;
+import builderEntity.Board;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 
@@ -28,7 +29,10 @@ public class SetLevelTypeMove extends Move {
 		prev = l.getLevelType();
 		m.setSelectedBoardEltType("playable");
 		l.setLevelType(levelType);
+		l.setBoard(new Board());
+		app.getLevelEditor().refresh();
 		editorView.changeViewLevelType(levelType);
+
 		
 		return true;
 	}

@@ -176,14 +176,17 @@ public class LevelBuilderView extends JPanel{
 		case "playable":
 			boardEltNumBox.setVisible(false);
 			boardEltColorsBox.setVisible(false);
+			hintBox.setVisible(true);
 			break;
 		case "unplayable":
 			boardEltNumBox.setVisible(false);
 			boardEltColorsBox.setVisible(false);
+			hintBox.setVisible(false);
 			break;
 		case "numbered":
 			boardEltNumBox.setVisible(true);
 			boardEltColorsBox.setVisible(true);
+			hintBox.setVisible(true);
 			break;
 		default:
 			System.out.println("eltTYpe");
