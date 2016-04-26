@@ -83,6 +83,7 @@ public class AddLevelToGameMove extends Move {
 		lvl.setLevelNum(levelIndex);
 		
 		m.getGame().setLevel(lvl, levelIndex);
+		app.getGameEditor().refreshLevel(levelIndex);
 		return true;
 	}
 	
@@ -93,15 +94,6 @@ public class AddLevelToGameMove extends Move {
 		return true;
 	}
 	
-//	public boolean processName (String chosenLevelName) {
-//
-//		String path = "src/resources/levels/"+chosenLevelName;
-//		Level lvl = LevelParser.getLevel(path);
-//		lvl.setLevelNum(levelIndex);
-//		
-//		m.getGame().setLevel(lvl, levelIndex);
-//		return true;
-//	}
 
 	@Override
 	public boolean isValid() {
