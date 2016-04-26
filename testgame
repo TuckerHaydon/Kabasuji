@@ -1,23 +1,23 @@
 BeginGame
 BeginLevel
-Release
+Puzzle
 -1
 BeginHexomino
 1 2 3 4 
 EndHexomino
 BeginElts
-null null null null null null null null N1R null null null 
-null null null null N1R N1R N1R N1R N1R null null null 
-null null N1R N1R null null null null N1R null null null 
-null null N1R null null null null null null N1R null null 
-null null N1R null null null null null null N1R null null 
-null null N1R null null null null null null null null null 
-null null N1R null null null null null null N1R null null 
-null null N1R null null null null null null N1R N1R N1R 
-null null null N1R N1R N1R N1R N1R N1R null N1R null 
-null null null N1R null null null null N1R N1R N1R null 
-null null null N1R N1R null N1R N1R N1R N1R null null 
-null null null null N1R N1R null null null null null null 
+U U U U U U U U U U U U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U P P P P P P P P P P U 
+U U U U U U U U U U U U 
 EndElts
 EndLevel
 EndGame

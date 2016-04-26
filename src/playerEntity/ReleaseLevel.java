@@ -187,4 +187,10 @@ public class ReleaseLevel extends Level {
 
 		return stars;
 	}
+
+	@Override
+	public boolean cannotContinue() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

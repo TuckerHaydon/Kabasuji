@@ -81,4 +81,6 @@ public abstract class Level {
 	public abstract int getLevelData();
 	
 	public abstract void setLevelData(int levelData);
+	
+	public abstract boolean cannotContinue();
 }

@@ -22,7 +22,7 @@ EndElts
 EndLevel
 BeginLevel
 Lightning
-300
+30
 BeginHexomino
 1 2 3 6 
 EndHexomino

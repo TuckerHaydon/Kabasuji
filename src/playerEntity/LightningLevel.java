@@ -62,8 +62,7 @@ public class LightningLevel extends Level{
 
 	@Override
 	public boolean hasWon() {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.getStars() == 3);
 	}
 
 	/**
@@ -134,5 +133,10 @@ public class LightningLevel extends Level{
 		}
 
 		return stars;
+	}
+
+	@Override
+	public boolean cannotContinue() {
+		return this.isTimeUsedUp();
 	}
 }

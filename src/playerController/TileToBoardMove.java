@@ -93,9 +93,15 @@ public class TileToBoardMove extends Move{
 		//refresh progress bar
 		app.getGameWindow().getLevelView().refreshProgressBar();
 		
+		
 		// Update the GUI
 		app.getGameWindow().getLevelView().getBoardView().repaint();
 		app.getGameWindow().getLevelView().repaint();
+		
+		// Check to see if the level has won
+		CompleteLevelMove move = new CompleteLevelMove(app, m);
+		move.execute();
+		
 		return true;
 	}
 
