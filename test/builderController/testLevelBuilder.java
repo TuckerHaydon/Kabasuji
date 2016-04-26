@@ -53,9 +53,9 @@ public class testLevelBuilder {
 		Board board = lvl.getBoard();
 
 		//test changing view based off level type
-		lbv.updateView("puzzle");
-		lbv.updateView("lightning");
-		lbv.updateView("release");
+		lbv.changeViewLevelType("puzzle");
+		lbv.changeViewLevelType("lightning");
+		lbv.changeViewLevelType("release");
 
 		//navigate to level editor menu screen
 		builder.displayLevelEditorMenu();
@@ -165,9 +165,9 @@ public class testLevelBuilder {
 		BullpenView bpv = lbv.getBullpenView();
 
 
-		lbv.updateView("puzzle");
-		lbv.updateView("lightning");
-		lbv.updateView("release");
+		lbv.changeViewLevelType("puzzle");
+		lbv.changeViewLevelType("lightning");
+		lbv.changeViewLevelType("release");
 
 		Level lvl = lbv.getLevel();
 		Bullpen bp = lvl.getBullpen();

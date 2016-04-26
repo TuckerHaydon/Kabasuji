@@ -26,8 +26,9 @@ public class SetLevelTypeMove extends Move {
 	@Override
 	boolean doMove() {
 		prev = l.getLevelType();
+		m.setSelectedBoardEltType("playable");
 		l.setLevelType(levelType);
-		editorView.updateView(levelType);
+		editorView.changeViewLevelType(levelType);
 		
 		return true;
 	}
@@ -36,7 +37,7 @@ public class SetLevelTypeMove extends Move {
 	public boolean undoMove() {
 		// TODO Auto-generated method stub
 		l.setLevelType(prev);
-		editorView.updateView(levelType);
+		editorView.changeViewLevelType(levelType);
 		return true;
 	}
 

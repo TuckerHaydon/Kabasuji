@@ -47,6 +47,7 @@ public class BullpenController extends MouseAdapter {
 	}
 	
 	void processMousePressed(int x, int y, boolean isControlDown, boolean isShiftDown, boolean isLeftClick, boolean isRightClick){
+			 
 		int cellNum = x/boxwidth;
 		
 		Tile pressedTile = null;

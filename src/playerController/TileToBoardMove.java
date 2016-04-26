@@ -44,14 +44,11 @@ public class TileToBoardMove extends Move{
 		
 		// Validate the move
 		if(!this.isValid()) {
-			if(m.getCurrentLevel() instanceof LightningLevel){
-				Random r = new Random();
-				int randIndex = r.nextInt(35 - 1) + 1;
-				Tile t = new Tile(randIndex, "bullpen");
-				m.getCurrentLevel().getBullpen().addTile(t);
-				System.out.println("Adding tile "+randIndex+" to bullpen.");
-			}
 			app.getGameWindow().releaseDraggedTile();
+			if(m.getCurrentLevel() instanceof LightningLevel){
+				m.getCurrentLevel().getBullpen().addTile(tile);
+				System.out.println("Adding tile "+tile.getRefNum()+" to bullpen.");
+			}
 			if(AM.updateAchievement_wheninvalidmove()){
 				AM.popUpScreen();
 			}
@@ -84,7 +81,8 @@ public class TileToBoardMove extends Move{
 		//update puzzle level moves
 		if (m.getCurrentLevel() instanceof PuzzleLevel){
 			((PuzzleLevel) m.getCurrentLevel()).updateMoves(+1);
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshLabels();
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
 		}
 		
 		if(AM.updateAchievement_releaseonboard()){

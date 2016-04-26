@@ -84,16 +84,20 @@ public class PuzzleLevelView extends LevelView{
 	}
 
 	//TODO need to implement the refresh move after each move to the board
-	public void refreshLabels(){
+	public void refreshMoveLabel(){
 		this.remove(movesLabel);
-		this.remove(scoreLabel);
 		movesLabel = new JLabel("<html>" + "Moves Remaining: " + (Integer.toString(level.getMovesRemaining())) + " " + "</html>");
 		movesLabel.setBounds(650, 400, 150, 300);
+		this.add(movesLabel, 0);
+		this.getParent().revalidate();
+		this.getParent().repaint();
+	}
+	
+	public void refreshScoreLabel(){
+		this.remove(scoreLabel);
 		scoreLabel = new JLabel("<html>" + "Current Score: " + (Integer.toString(level.getScore())) + " " + "</html>");
 		scoreLabel.setBounds(650, 500, 150, 300);
-		
-		this.add(movesLabel, 0);
-		this.add(scoreLabel,1);
+		this.add(scoreLabel,0);
 		this.getParent().revalidate();
 		this.getParent().repaint();
 	}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 BeginLevel
 Release
 -1
@@ -19,3 +20,26 @@ P P P P P P P P P P P P
 P P P P P P P P P P P P 
 EndElts
 EndLevel
+=======
+BeginLevel
+Release
+-1
+BeginHexomino
+
+EndHexomino
+BeginElts
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+>>>>>>> 1eb18d739e6930866760ad4d71b18bc1b255ec9b

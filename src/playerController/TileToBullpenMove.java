@@ -12,7 +12,7 @@ import playerEntity.Tile;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class TileToBullpenMove extends Move{
@@ -52,6 +52,11 @@ public class TileToBullpenMove extends Move{
 		
 		// Repaint the bullpen
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		
+		//update puzzle level score
+		if (m.getCurrentLevel() instanceof PuzzleLevel){
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
+		}
 		
 		
 		if(AM.updateAchievement_releaseonbullpen()){
