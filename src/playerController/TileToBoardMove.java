@@ -94,6 +94,7 @@ public class TileToBoardMove extends Move{
 		//update score
 		m.getCurrentLevel().updateScore(6);
 		((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
+		
 		// Update the GUI
 		app.getGameWindow().getLevelView().getBoardView().repaint();
 		app.getGameWindow().getLevelView().repaint();

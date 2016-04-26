@@ -90,7 +90,7 @@ public class testLevelBuilder {
 		attbpm2.executeUndo();
 
 		//change the type of the level to be release
-		SetLevelTypeMove sltm = new SetLevelTypeMove(builder, m, lvl, "release", lbv);
+		SetLevelTypeMove sltm = new SetLevelTypeMove(builder, m, "release");
 		sltm.execute();
 
 		//make a new board elt with a green 2, then undo it
