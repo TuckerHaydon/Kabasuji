@@ -45,6 +45,7 @@ public class EditGameHandler implements ActionListener {
 		File folder = new File("src/resources/games/");
 		File[] listOfFiles = folder.listFiles();
 		ArrayList<String> gameNames = new ArrayList<>();
+		GameEditor ge = app.getGameEditor();
 		
 		// Get all of the levels in the levels directory
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -60,7 +61,9 @@ public class EditGameHandler implements ActionListener {
 		
 		loadGame(path);
 		m.getGame().setName(chosenLevelName);
+		ge.refreshLevelButtons();
 		app.displayGameEditor();
+		
 	}
 	
 	public void loadGame(String path){
@@ -108,8 +111,6 @@ public class EditGameHandler implements ActionListener {
 		
 		Bullpen bp = new Bullpen(hexominoes);
 		Board b = new Board(elts);
-		
-		// System.out.println(b);
 	
 		switch(levelType)
 		{
@@ -197,5 +198,7 @@ public class EditGameHandler implements ActionListener {
 		
 		return hexominoes;
 	}
+	
+	
 
 }
