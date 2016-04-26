@@ -11,12 +11,12 @@ import playerEntity.PuzzleLevel;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class PuzzleLevelView extends LevelView{
 	
-	JLabel movesLeft;
+	JLabel movesLabel;
 	PuzzleLevel level;
 	
 	public PuzzleLevelView(KabasujiPlayerApplication app, GameModel m, PuzzleLevel puzzleLvl) {
@@ -50,16 +50,10 @@ public class PuzzleLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		/*
-		String numMovesLeft = new String (Integer.toString(level.getMovesRemaining()));
-		JLabel lblNumMovesLeft = new JLabel("<html>" + "Moves Remaining: " + numMovesLeft + " " + "</html>");
-		lblNumMovesLeft.setBounds(770, 400, 60, 300);
-		add(lblNumMovesLeft);
-		*/
-		
-		JLabel lblNumMovesLeft = new JLabel("Num Moves Left: ");
-		lblNumMovesLeft.setBounds(770, 770, 60, 15);
-		add(lblNumMovesLeft);
+		// Add  the moves label
+		movesLabel = new JLabel("<html>" + "Moves Remaining: " + (Integer.toString(level.getMovesRemaining())) + " " + "</html>");
+		movesLabel.setBounds(650, 400, 150, 300);
+		add(movesLabel);
 		
 		JLabel lblScoreNStuff = new JLabel("Score n stuff");
 		lblScoreNStuff.setBounds(770, 850, 60, 15);
@@ -82,4 +76,13 @@ public class PuzzleLevelView extends LevelView{
 
 	}
 
+	//TODO need to implement the refresh move after each move to the board
+	public void refreshMovesLabel(){
+		this.remove(movesLabel);
+		movesLabel = new JLabel("<html>" + "Moves Remaining: " + (Integer.toString(level.getMovesRemaining())) + " " + "</html>");
+		movesLabel.setBounds(650, 400, 150, 300);
+		this.add(movesLabel, 0);
+		this.getParent().revalidate();
+		this.getParent().repaint();
+	}
 }

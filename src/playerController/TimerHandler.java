@@ -9,6 +9,11 @@ import playerBoundary.LightningLevelView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/***
+ * 
+ * @author dgwalder
+ *
+ */
 public class TimerHandler implements ActionListener{
 	LightningLevel level;
 	KabasujiPlayerApplication app;

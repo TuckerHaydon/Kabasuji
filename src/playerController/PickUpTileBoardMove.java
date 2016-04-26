@@ -1,19 +1,21 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.PuzzleLevelView;
 import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
 import playerEntity.PlayableBoardElt;
+import playerEntity.PuzzleLevel;
 import playerEntity.ReleaseLevel;
 import playerEntity.Square;
 import playerEntity.Tile;
 
 /**
  * 
- * @author tuckerhaydon, ndiwakar
+ * @author tuckerhaydon, ndiwakar, dgwalder
  *
  */
 public class PickUpTileBoardMove extends Move{
@@ -58,6 +60,12 @@ public class PickUpTileBoardMove extends Move{
 		
 		// Repaint the board
 		app.getGameWindow().getLevelView().getBoardView().repaint();
+		
+		//update puzzle level moves and repaint the label
+		if (m.getCurrentLevel() instanceof PuzzleLevel){
+			((PuzzleLevel) m.getCurrentLevel()).updateMoves(-1);
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMovesLabel();
+		}
 		
 		return true;
 	}
