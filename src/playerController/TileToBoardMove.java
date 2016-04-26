@@ -136,13 +136,13 @@ public class TileToBoardMove extends Move{
 				
 				// Check to see if the elt is already covered
 				if(playableElt.getCovered()){
-					System.err.println("TTBM:isValid(): trying to cover a covered elt.");
+					//System.err.println("TTBM:isValid(): trying to cover a covered elt.");
 					return false;
 				}
 			} 
 			// If it is not a playable elt, the move is not valid
 			else {
-				System.err.println("TTBM:isValid(): trying to cover an unplayable elt.");
+				//System.err.println("TTBM:isValid(): trying to cover an unplayable elt.");
 				return false;
 			}
 		}
