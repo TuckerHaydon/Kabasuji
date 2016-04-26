@@ -60,7 +60,7 @@ public class EditGameHandler implements ActionListener {
 		
 		loadGame(path);
 		m.getGame().setName(chosenLevelName);
-		app.displayGameEditor();	
+		app.displayGameEditor();
 	}
 	
 	public void loadGame(String path){
@@ -100,12 +100,17 @@ public class EditGameHandler implements ActionListener {
 	Level parseLevel(Scanner fileScanner, int levelNum){
 		
 		String levelType = fileScanner.next();
+		int levelData = Integer.parseInt(fileScanner.next());
+		
 		ArrayList<Integer> hexominoes = parseHexominoes(fileScanner);
 		BoardElt elts[][] = parseBoardElts(fileScanner);
+		
 		
 		Bullpen bp = new Bullpen(hexominoes);
 		Board b = new Board(elts);
 		
+		// System.out.println(b);
+	
 		switch(levelType)
 		{
 			case "Lightning":
