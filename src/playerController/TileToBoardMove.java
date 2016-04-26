@@ -13,9 +13,8 @@ import playerEntity.Tile;
 import playerEntity.UnplayableBoardElt;
 
 /**
- * 
+ * Move class in charge of changing the game model corresponding 
  * @author tuckerhaydon
- *
  */
 public class TileToBoardMove extends Move{
 	int row;
