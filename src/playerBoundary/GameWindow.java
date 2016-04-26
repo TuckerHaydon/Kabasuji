@@ -5,8 +5,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import builderBoundary.KabasujiBuilderApplication;
 import playerController.GameWindowNavigateMainMenu;
 import playerController.ResetLevelController;
+import playerController.TestLevelNavigateLevelEditorMove;
 import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.LightningLevel;
@@ -157,6 +160,14 @@ public class GameWindow extends JFrame {
 		if(draggedTile != null){
 			draggedTile.setBounds(draggedTile.getX(), draggedTile.getY(), 6*draggedTile.getSquareWidth(), 6*draggedTile.getSquareWidth());
 		}
+	}
+	
+	public void switchTobuilderTestMode(KabasujiBuilderApplication builderapp){
+		menuButton.setText("Back");
+		//remove the default ActionListener
+		menuButton.removeActionListener(menuButton.getActionListeners()[0]);
+		menuButton.addActionListener(new TestLevelNavigateLevelEditorMove(app,builderapp));
+		resetButton.setVisible(false);
 	}
 	
 	

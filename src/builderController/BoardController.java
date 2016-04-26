@@ -28,12 +28,12 @@ public class BoardController extends MouseAdapter {
 	
 	@Override
 	public void mousePressed(MouseEvent me){
-		
-		// Determine the XY location where the mouse was clicked. 
 		int x = me.getX();
 		int y = me.getY();
 		
 		processMousePressed(x, y);
+		// Determine the XY location where the mouse was clicked. 
+		
 	}
 	
 	void processMousePressed(int x, int y){
@@ -48,13 +48,15 @@ public class BoardController extends MouseAdapter {
 		move.execute();
 
 		// Repaint the board
-		bv.repaint();
+//		bv.repaint();
+		app.refreshLevelEditor();
 	}
 	
 	@Override
 	public void mouseDragged(MouseEvent me){
 		this.mousePressed(me);
 	}
+
 	
 
 }

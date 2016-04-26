@@ -1,10 +1,14 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.PuzzleLevelView;
 import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
+import playerEntity.PuzzleLevel;
+import playerEntity.LightningLevel;
+
 import playerEntity.Tile;
 
 /**
@@ -27,7 +31,6 @@ public class PickUpTileBullpenMove extends Move{
 		
 		// Remove the tile from the bullpen
 		bullpen.removeTile(tile);
-		
 		// Update the dragged tile view
 		TileView tv = new TileView(app, m, tile);
 		app.getGameWindow().setDraggedTile(tv);

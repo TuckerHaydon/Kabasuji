@@ -173,7 +173,29 @@ public class LevelBuilderView extends JPanel{
 		
 	}
 	
-	
+	public void refresh(){
+		bullpenView.repaint();
+		bankView.repaint();
+		boardView.repaint();
+		
+//		// Set the combo boxes to a default selected value
+//		boardEltNumBox.setSelectedItem(m.getSelectedNumber());
+//		levelTypeBox.setSelectedItem(lvl.getLevelType());
+//		boardEltColorsBox.setSelectedItem(m.getSelectedColor());
+//		boardEltTypeBox.setSelectedItem(m.getSelectedBoardEltType());
+		
+		hintBox.revalidate();
+		boardEltNumBox.revalidate();
+		boardEltTypeBox.revalidate();
+		boardEltColorsBox.revalidate();
+		
+		hintBox.repaint();
+		boardEltNumBox.repaint(); 
+		levelTypeBox.repaint();
+		boardEltTypeBox.repaint(); 
+		boardEltColorsBox.repaint();
+		
+	}
 
 	public Level getLevel(){
 		return this.lvl;

@@ -17,6 +17,7 @@ import playerEntity.PuzzleLevel;
 public class PuzzleLevelView extends LevelView{
 	
 	JLabel movesLabel;
+	JLabel scoreLabel;
 	PuzzleLevel level;
 	
 	public PuzzleLevelView(KabasujiPlayerApplication app, GameModel m, PuzzleLevel puzzleLvl) {
@@ -55,9 +56,15 @@ public class PuzzleLevelView extends LevelView{
 		movesLabel.setBounds(650, 400, 150, 300);
 		add(movesLabel);
 		
-		JLabel lblScoreNStuff = new JLabel("Score n stuff");
+		// Add  the score label
+		scoreLabel = new JLabel("<html>" + "Current Score: " + (Integer.toString(level.getScore())) + " " + "</html>");
+		scoreLabel.setBounds(650, 500, 150, 300);
+		add(scoreLabel);
+		
+		/*JLabel lblScoreNStuff = new JLabel("Score n stuff");
 		lblScoreNStuff.setBounds(770, 850, 60, 15);
 		add(lblScoreNStuff);
+		*/
 		
 		setBackground(new Color(255, 228, 225));
 		
@@ -77,11 +84,20 @@ public class PuzzleLevelView extends LevelView{
 	}
 
 	//TODO need to implement the refresh move after each move to the board
-	public void refreshMovesLabel(){
+	public void refreshMoveLabel(){
 		this.remove(movesLabel);
 		movesLabel = new JLabel("<html>" + "Moves Remaining: " + (Integer.toString(level.getMovesRemaining())) + " " + "</html>");
 		movesLabel.setBounds(650, 400, 150, 300);
 		this.add(movesLabel, 0);
+		this.getParent().revalidate();
+		this.getParent().repaint();
+	}
+	
+	public void refreshScoreLabel(){
+		this.remove(scoreLabel);
+		scoreLabel = new JLabel("<html>" + "Current Score: " + (Integer.toString(level.getScore())) + " " + "</html>");
+		scoreLabel.setBounds(650, 500, 150, 300);
+		this.add(scoreLabel,0);
 		this.getParent().revalidate();
 		this.getParent().repaint();
 	}
