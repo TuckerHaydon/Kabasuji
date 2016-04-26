@@ -23,9 +23,6 @@ public class TestLevelHandler implements ActionListener{
 	}
 	
 	void processAction(){
-		System.out.println(m.getLevel().getBoard());
-		System.out.println(app.getLevelEditor().getLevelBuilderView().getLevel().getBoard());
-		System.out.println(m.getLevel().getBoard() == app.getLevelEditor().getLevelBuilderView().getLevel().getBoard());
 		TestLevelMove move = new TestLevelMove(app, m);
 		move.execute();
 	}

@@ -48,8 +48,7 @@ public class BoardController extends MouseAdapter {
 		move.execute();
 
 		// Repaint the board
-//		bv.repaint();
-		app.refreshLevelEditor();
+		app.repaintLevelEditor();
 	}
 	
 	@Override

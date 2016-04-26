@@ -30,7 +30,7 @@ public abstract class Move {
 		if(this.doMove()){
 			UndoManager.pushMove(this);
 			RedoManager.clear();
-			app.refreshLevelEditor();
+			app.repaintLevelEditor();
 			return true;
 		}
 		

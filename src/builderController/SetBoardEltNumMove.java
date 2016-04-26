@@ -24,6 +24,7 @@ public class SetBoardEltNumMove extends Move{
 		
 		prev = m.getSelectedNumber();
 		m.setSelectedNumber(num);
+		app.repaintLevelEditor();
 		
 		return true;
 	}
