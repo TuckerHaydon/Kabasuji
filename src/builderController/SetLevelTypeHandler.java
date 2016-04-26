@@ -17,18 +17,14 @@ import builderEntity.Level;
  */
 public class SetLevelTypeHandler implements ActionListener {
 
-	Level l;
 	JComboBox<String> box;
-	LevelBuilderView editorView;
 	BuilderModel m;
 	KabasujiBuilderApplication app;
 	
-	public SetLevelTypeHandler(KabasujiBuilderApplication app, BuilderModel m, Level l, JComboBox<String> box, LevelBuilderView editorView) {
+	public SetLevelTypeHandler(KabasujiBuilderApplication app, BuilderModel m, JComboBox<String> box) {
 		this.app = app;
 		this.m = m;
-		this.l = l;
 		this.box = box;
-		this.editorView = editorView;
 	}
 	
 	@Override
@@ -36,7 +32,7 @@ public class SetLevelTypeHandler implements ActionListener {
 		
 		String selection = (String) box.getSelectedItem();
 		
-		SetLevelTypeMove move = new SetLevelTypeMove(app, m, l, selection, editorView);
+		SetLevelTypeMove move = new SetLevelTypeMove(app, m, selection);
 		move.execute();
 	}
 
