@@ -54,7 +54,6 @@ public class BoardController extends MouseAdapter {
 	
 	@Override
 	public void mouseDragged(MouseEvent me){
-	
 		this.mousePressed(me);
 	}
 

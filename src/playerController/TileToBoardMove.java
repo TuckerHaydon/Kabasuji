@@ -1,5 +1,8 @@
 package playerController;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.PuzzleLevelView;
 import playerEntity.Anchor;
@@ -41,6 +44,14 @@ public class TileToBoardMove extends Move{
 		
 		// Validate the move
 		if(!this.isValid()) {
+			if(m.getCurrentLevel() instanceof LightningLevel){
+				Random r = new Random();
+				int randIndex = r.nextInt(35 - 1) + 1;
+				Tile t = new Tile(randIndex, "bullpen");
+				m.getCurrentLevel().getBullpen().addTile(t);
+				System.out.println("Adding tile "+randIndex+" to bullpen.");
+			}
+			app.getGameWindow().releaseDraggedTile();
 			if(AM.updateAchievement_wheninvalidmove()){
 				AM.popUpScreen();
 			}
@@ -62,19 +73,26 @@ public class TileToBoardMove extends Move{
 		
 		// Release the dragged tile
 		app.getGameWindow().releaseDraggedTile();
-		
-		// Update the GUI
-		app.getGameWindow().getLevelView().getBoardView().repaint();
+		if(m.getCurrentLevel() instanceof LightningLevel){
+			Random r = new Random();
+			int randIndex = r.nextInt(35 - 1) + 1;
+			Tile t = new Tile(randIndex, "bullpen");
+			m.getCurrentLevel().getBullpen().addTile(t);
+			System.out.println("Adding tile "+randIndex+" to bullpen.");
+		}
 		
 		//update puzzle level moves
 		if (m.getCurrentLevel() instanceof PuzzleLevel){
 			((PuzzleLevel) m.getCurrentLevel()).updateMoves(+1);
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMovesLabel();
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshLabels();
 		}
 		
 		if(AM.updateAchievement_releaseonboard()){
 			AM.popUpScreen();
 		}
+		
+		// Update the GUI
+		app.getGameWindow().getLevelView().getBoardView().repaint();
 		
 		return true;
 	}
