@@ -144,7 +144,7 @@ public class LevelBuilderView extends JPanel{
 		hintBox.addActionListener(new SetHintHandler(app, m, hintBox));
 	}
 	
-	public void updateView(String levelType){
+	public void changeViewLevelType(String levelType){
 		switch(levelType)
 		{
 		case "puzzle":
@@ -158,8 +158,7 @@ public class LevelBuilderView extends JPanel{
 			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(regularBoardEltTypes));
 			break;
 		case "release":
-			boardEltNumBox.setVisible(true);
-			boardEltColorsBox.setVisible(true);
+			this.changeViewEltType(m.getSelectedBoardEltType());
 			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(numberedBoardEltTypes));
 			break;
 		default:
@@ -167,10 +166,32 @@ public class LevelBuilderView extends JPanel{
 			break;
 		}
 		
-		// update the UI
-		this.revalidate();
-		this.repaint();
+		// Update the UI
+		this.refresh();
 		
+	}
+	
+	public void changeViewEltType(String eltType){
+		switch(eltType){
+		case "playable":
+			boardEltNumBox.setVisible(false);
+			boardEltColorsBox.setVisible(false);
+			break;
+		case "unplayable":
+			boardEltNumBox.setVisible(false);
+			boardEltColorsBox.setVisible(false);
+			break;
+		case "numbered":
+			boardEltNumBox.setVisible(true);
+			boardEltColorsBox.setVisible(true);
+			break;
+		default:
+			System.out.println("eltTYpe");
+			break;
+		}
+		
+		// Update the UI
+		this.refresh();
 	}
 	
 	public void refresh(){
