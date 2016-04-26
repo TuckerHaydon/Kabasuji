@@ -39,7 +39,7 @@ public class EditLevelHandler implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		File folder = new File("src/resources/levels/");
+		File folder = new File("src/resources/levels/test/");
 		File[] listOfFiles = folder.listFiles();
 		ArrayList<String> levelNames = new ArrayList<>();
 		
@@ -53,10 +53,11 @@ public class EditLevelHandler implements ActionListener {
 		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to load", "Level Loader",
 		        JOptionPane.QUESTION_MESSAGE, null, levelNames.toArray(), levelNames.get(0));
 
-		String path = "src/resources/levels/"+chosenLevelName;
+		String path = "src/resources/levels/test/"+chosenLevelName;
 		
 		Level editLevel = LevelParser.getLevel(path);
 		m.setLevel(editLevel);
+		
 		LevelEditor le = app.getLevelEditor();
 		LevelBuilderView lbv = le.getLevelBuilderView();
 		Level oldLevel = lbv.getLevel();
@@ -65,6 +66,7 @@ public class EditLevelHandler implements ActionListener {
 		BullpenView bpv = new BullpenView(editLevel.getBullpen());
 		lbv.setBoardView(bv);
 		lbv.setBullpenView(bpv);
+		
 		le.refresh();
 		app.displayLevelEditor();
 	

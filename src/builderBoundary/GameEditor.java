@@ -11,6 +11,7 @@ import builderController.AddLevelToGameHandler;
 import builderController.ExportGameHandler;
 import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
+import builderEntity.Level;
 
 /**
  * 
@@ -37,8 +38,14 @@ public class GameEditor extends JFrame {
 		levelButtons = new JButton[15];
 		
 		// Create the 15 level buttons
+
 		for(int i = 0; i < 15; i++){
 			levelButtons[i] = new JButton("Level " + (i+1));
+		}
+		
+		
+		for(int i = 0; i < 15; i++){
+			
 		}
 	}
 	
@@ -53,7 +60,9 @@ public class GameEditor extends JFrame {
 		getContentPane().setLayout(new GridLayout(3,1));
 		
 		// Add the buttons
+		
 		for(int i = 0; i < 15; i++){
+			
 			levelButtons[i].setBackground(new Color(128, 128, 128));
 			levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		}

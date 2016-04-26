@@ -13,7 +13,7 @@ import builderEntity.LevelParser;
 /**
  * 
  * @author tuckerhaydon
- * @author wilderj
+ * @author jwilder
  */
 public class AddLevelToGameMove extends Move {
 	
