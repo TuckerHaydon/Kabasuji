@@ -1,6 +1,8 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.LightningLevelView;
+import playerBoundary.PuzzleLevelView;
 import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.LightningLevel;
@@ -38,6 +40,13 @@ public class ResetLevelMove extends Move{
 		// Update the UI
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		app.getGameWindow().getLevelView().getBoardView().repaint();
+		
+		if(m.getCurrentLevel() instanceof PuzzleLevel){
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
+		}else if(m.getCurrentLevel() instanceof LightningLevel){
+			((LightningLevelView) app.getGameWindow().getLevelView()).refreshTimeLabel();
+		}
 		
 		return true;
 	}
