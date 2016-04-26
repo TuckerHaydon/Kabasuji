@@ -1,11 +1,11 @@
-package builderBoundary;
+package builderController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
-import builderController.SetAllowedTimeMove;
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 public class SetAllowedTimeHandler implements ActionListener {

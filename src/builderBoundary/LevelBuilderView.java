@@ -15,12 +15,14 @@ import builderController.BankController;
 import builderController.BoardController;
 import builderBoundary.BoardView;
 import builderController.BullpenController;
+import builderController.SetAllowedTimeHandler;
 import builderController.SetAllowedTimeMove;
 import builderController.SetBoardEltColorHandler;
 import builderController.SetBoardEltNumHandler;
 import builderController.SetBoardEltTypeHandler;
 import builderController.SetHintHandler;
 import builderController.SetLevelTypeHandler;
+import builderController.SetNumAllowedMovesHandler;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.Tile;
@@ -164,6 +166,7 @@ public class LevelBuilderView extends JPanel{
 		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(app, m, boardEltColorsBox));
 		hintBox.addActionListener(new SetHintHandler(app, m, hintBox));
 		timeField.addActionListener(new SetAllowedTimeHandler(app, m, timeField));
+		numField.addActionListener(new SetNumAllowedMovesHandler(app, m, numField));
 	}
 	
 	public void changeViewLevelType(String levelType){
