@@ -64,7 +64,7 @@ public class PickUpTileBoardMove extends Move{
 		//update puzzle level moves and repaint the label
 		if (m.getCurrentLevel() instanceof PuzzleLevel){
 			((PuzzleLevel) m.getCurrentLevel()).updateMoves(-1);
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMovesLabel();
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshLabels();
 		}
 		
 		return true;
