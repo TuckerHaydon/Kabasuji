@@ -86,7 +86,7 @@ public class PuzzleLevel extends Level {
 		this.usedMove = levelData;
 	}
 	
-	public int getScore(){
+	public int getStars(){
 		int remScore = 0;
 		int star = 0;
 		
@@ -102,6 +102,7 @@ public class PuzzleLevel extends Level {
 			star = 3;
 		}
 		
-		return score;
+		return star;
 	}
+	
 }
