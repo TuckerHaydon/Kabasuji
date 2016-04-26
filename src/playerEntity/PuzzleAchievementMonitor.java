@@ -111,7 +111,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	/*Finished*/
+	@Override
 	public void reset() {
 		this.lv=null;
 		this.toBullpenMove=0;

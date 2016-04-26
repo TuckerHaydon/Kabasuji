@@ -167,6 +167,7 @@ public class GameWindow extends JFrame {
 		//remove the default ActionListener
 		menuButton.removeActionListener(menuButton.getActionListeners()[0]);
 		menuButton.addActionListener(new TestLevelNavigateLevelEditorMove(app,builderapp));
+		m.disableAchievement();
 		resetButton.setVisible(false);
 	}
 	
