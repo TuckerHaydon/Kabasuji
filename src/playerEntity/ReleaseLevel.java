@@ -78,10 +78,9 @@ public class ReleaseLevel extends Level {
 		int stars= 0;
 		int coveredNumElts = 0;
 		int totalNumElts = 0;
-		int numEltTracker [] = null;
-		int blueTracker [] = null;
-		int redTracker [] = null;
-		int greenTracker[] = null;
+		int [] blueTracker = new int [7];
+		int [] redTracker = new int [7];
+		int [] greenTracker = new int [7];
 		int redSets = 0;
 		int blueSets = 0;
 		int greenSets = 0;
@@ -124,7 +123,7 @@ public class ReleaseLevel extends Level {
 
 		//////////////////////////////////////////////////////////////////////////
 		//if 1 set of 1 color of numbered boards elts is covered, stars = 1;
-
+		
 		for(int m = 1; m<7; m++){
 			if(redTracker[m] > 0){
 				redSets++;
