@@ -1,5 +1,6 @@
 package builderController;
 
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
@@ -12,8 +13,8 @@ public class SetBoardEltNumMove extends Move{
 	int num;
 	int prev;
 	
-	public SetBoardEltNumMove(BuilderModel m, int num) {
-		super(m);
+	public SetBoardEltNumMove(KabasujiBuilderApplication app, BuilderModel m, int num) {
+		super(app, m);
 		this.num = num;
 		this.m = m;
 	}

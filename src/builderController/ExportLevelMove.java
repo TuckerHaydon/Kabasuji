@@ -23,14 +23,14 @@ public class ExportLevelMove extends Move {
 	String fileName;
 	boolean isTestLevel;
 	
-	public ExportLevelMove(BuilderModel m, String fileName){
-		super(m);
+	public ExportLevelMove(KabasujiBuilderApplication app, BuilderModel m, String fileName){
+		super(app, m);
 		this.fileName = fileName;
 		this.isTestLevel = false;
 	}
 	
-	public ExportLevelMove(BuilderModel m, String fileName, boolean isTestLevel){
-		super(m);
+	public ExportLevelMove(KabasujiBuilderApplication app, BuilderModel m, String fileName, boolean isTestLevel){
+		super(app, m);
 		this.fileName = fileName;
 		this.isTestLevel = isTestLevel;
 	}

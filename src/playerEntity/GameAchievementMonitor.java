@@ -32,11 +32,11 @@ public class GameAchievementMonitor {
 	
 	//goes to complete level handler
 	public boolean updateAchievement(int lvNum){
-		if(!achievements.get("K-komboBreaker").getisEarned()){
+		if(!achievements.get("K-komboBreaker").getIsEarned()){
 			updateWonlst(lvNum);
 			for(int i=0;i<5;i++){
 				if(isWonlst[i] && isWonlst[i+5] && isWonlst[i+10]){
-					achievements.get("K-komboBreaker").setEarned();
+					achievements.get("K-komboBreaker").setIsEarned(true);
 					return true;
 				}
 			}

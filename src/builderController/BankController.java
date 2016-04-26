@@ -19,12 +19,14 @@ public class BankController extends MouseAdapter {
 	
 	BullpenView bullpenView;
 	BankView bankView;
+	KabasujiBuilderApplication app;
 	BuilderModel m;
 	
-	public BankController(BuilderModel m, BankView bankView, BullpenView bullpenView) {
+	public BankController(KabasujiBuilderApplication app, BuilderModel m, BankView bankView, BullpenView bullpenView) {
 		super();
 		this.bankView = bankView;
 		this.bullpenView = bullpenView;
+		this.app = app;
 		this.m = m;
 	}
 
@@ -53,7 +55,7 @@ public class BankController extends MouseAdapter {
 			return;
 		}
 		
-		AddTileToBullpenMove move = new AddTileToBullpenMove(m, t, bullpenView);
+		AddTileToBullpenMove move = new AddTileToBullpenMove(app, m, t, bullpenView);
 		move.execute();
 	}
 }

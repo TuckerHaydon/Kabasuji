@@ -13,7 +13,7 @@ import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * The window for the GameEditor's menu. Contains buttons that allow the user to either create or edit a game and return to the main menu.
  * @author tuckerhaydon
  * @author jwilder
  */
@@ -26,8 +26,17 @@ public class GameEditorMenu extends JFrame {
 	JButton editGameButton;
 	JButton goToMenuButton;
 	
+	/**
+	 * Constructor for the GameEditorMenu.Ensures that the parameters are non-null.
+	 * @param app The top-level KabasujiBuilderApplication
+	 * @param m The tip-levle BuilderModel
+	 */
 	public GameEditorMenu(KabasujiBuilderApplication app, BuilderModel m){
 		super();
+		
+		if(app == null || m == null){
+			throw new RuntimeException();
+		}
 		
 		this.m = m;
 		this.app = app;
@@ -40,6 +49,9 @@ public class GameEditorMenu extends JFrame {
 		
 	}
 	
+	/**
+	 * Initializes the various properties of the window. Adds the buttons to the menu
+	 */
 	public void initView(){
 		this.setResizable(false);
 		// Set frame properties
@@ -62,6 +74,9 @@ public class GameEditorMenu extends JFrame {
 		
 	}
 	
+	/**
+	 * Initializes the controllers for each of the buttons in the menu
+	 */
 	public void initControllers(){
 		createGameButton.addActionListener(new CreateGameHandler(app, m));
 		editGameButton.addActionListener(new EditGameHandler(app, m));

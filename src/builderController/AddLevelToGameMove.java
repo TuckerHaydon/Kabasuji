@@ -11,7 +11,10 @@ import builderEntity.Level;
 import builderEntity.LevelParser;
 
 /**
- * 
+ * Adds a level to a game in the Game Editor. This class is used by
+ * the corresponding handler to add made levels to a game being constructed.
+ * @see AddLevelToGameHandler
+ * @see GameEditor
  * @author tuckerhaydon
  * @author jwilder
  */
@@ -21,8 +24,8 @@ public class AddLevelToGameMove extends Move {
 	ArrayList<String> allnames;
 	String levelname;
 	
-	public AddLevelToGameMove(BuilderModel m, int levelIndex) {
-		super(m);
+	public AddLevelToGameMove(KabasujiBuilderApplication app, BuilderModel m, int levelIndex) {
+		super(app, m);
 		
 		this.levelIndex = levelIndex;
 		

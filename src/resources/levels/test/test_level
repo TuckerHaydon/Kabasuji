@@ -2,19 +2,19 @@ BeginLevel
 puzzle
 -1
 BeginHexomino
-1 2 
+1 1 1 2 2 
 EndHexomino
 BeginElts
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
+P P P P P P U U U PH PH PH 
+P P U U U U U U P U U PH 
+U U U P U U P U U P P PH 
+U P P U P P P P P P P PH 
+P P P P U P P P P P U P 
+P U P P P U P P U U U U 
+P P P P U P U U U U P P 
+P P U P U P P P U P P P 
+P P P U U U U U P P P P 
+P P P P U U U U U P U P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 EndElts

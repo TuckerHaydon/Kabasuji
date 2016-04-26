@@ -11,7 +11,7 @@ import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 
 /**
- * 
+ * The view object for a Board. It is responsible for drawing the Board. Must be initialized with a non-null board. 
  * @author tuckerhaydon
  *
  */
@@ -21,29 +21,54 @@ public class BoardView extends View {
 	static int SQUARE_WITH = BOARD_WIDTH/12;
 	Board b;
 	
+	/**
+	 * The BoardView constructor. Must be called with a non-null Board.
+	 * @param b
+	 */
 	public BoardView(Board b){
 		super();
+		
+		if(b == null){
+			throw new RuntimeException();
+		}
+		
 		this.b = b;
 	}
 	
+	/**
+	 * Sets the size of the View.
+	 */
 	public void initView(){
 		this.setSize(500, 500);
 	}
 	
+	/**
+	 * Returns the width in pixels of the board
+	 * @return int the width of the board
+	 */
 	public int getBoardWidth(){
 		return BOARD_WIDTH;
 	}
 	
+	/**
+	 * Returns the width of the squares in the board
+	 * @return in the width of the squares in the board
+	 */
 	public int getSquareWidth(){
 		return SQUARE_WITH;
 	}
 	
+	/**
+	 * Returns the board object that this object displays
+	 * @return Board the board object that this object displays
+	 */
 	public Board getBoard(){
 		return b;
 	}
 	
-	
-	
+	/**
+	 * Paints the board. Iterates through every element in the board and fills in squares with colors corresponding to the element's type/status
+	 */
 	@Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

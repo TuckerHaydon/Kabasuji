@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 
 import builderBoundary.BankView;
 import builderBoundary.BullpenView;
+import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 import builderEntity.Bullpen;
 import builderEntity.Tile;
@@ -17,12 +18,14 @@ import builderEntity.Tile;
 public class BullpenController extends MouseAdapter {
 	
 	BuilderModel m;
+	KabasujiBuilderApplication app;
 	BullpenView bullpenView;
 	BankView bankView;
 	
-	public BullpenController(BuilderModel m, BullpenView bullpenView, BankView bankView) {
+	public BullpenController(KabasujiBuilderApplication app, BuilderModel m, BullpenView bullpenView, BankView bankView) {
 		super();
 
+		this.app = app;
 		this.m = m;
 		this.bankView = bankView;
 		this.bullpenView = bullpenView;
@@ -52,7 +55,7 @@ public class BullpenController extends MouseAdapter {
 			return;
 		}
 		
-		RemoveTileFromBullpenMove move = new RemoveTileFromBullpenMove(m, t, bullpenView);
+		RemoveTileFromBullpenMove move = new RemoveTileFromBullpenMove(app, m, t, bullpenView);
 		move.execute();
 	}
 

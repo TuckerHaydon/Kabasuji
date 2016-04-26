@@ -13,7 +13,7 @@ import playerEntity.Tile;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, ndiwakar
  *
  */
 public class PickUpTileBoardMove extends Move{
@@ -69,7 +69,7 @@ public class PickUpTileBoardMove extends Move{
 
 	@Override
 	boolean isValid() {
-		if(m.getCurrentLevel() instanceof LightningLevel) {
+		if(m.getCurrentLevel() instanceof LightningLevel || m.getCurrentLevel() instanceof ReleaseLevel) {
 			return false;
 		}
 		return true;

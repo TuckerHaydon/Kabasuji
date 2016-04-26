@@ -17,8 +17,10 @@ public class ExportLevelHandler implements ActionListener {
 	
 	BuilderModel m;
 	String fileName;
+	KabasujiBuilderApplication app;
 	
-	public ExportLevelHandler(BuilderModel m) {
+	public ExportLevelHandler(KabasujiBuilderApplication app, BuilderModel m) {
+		this.app = app;
 		this.m = m;
 	}
 
@@ -36,7 +38,7 @@ public class ExportLevelHandler implements ActionListener {
 	void processAction(){
 		
 		// Create an export move and do it
-		ExportLevelMove move = new ExportLevelMove(m, fileName, false);
+		ExportLevelMove move = new ExportLevelMove(app, m, fileName, false);
 		move.execute();
 	}
 

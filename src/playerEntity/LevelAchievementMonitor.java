@@ -28,7 +28,7 @@ public abstract class LevelAchievementMonitor {
 	/*Finished*/
 	protected boolean checkBabySteps(){
 		if(this.moveCounter==10 && this.notEarnBabyStep()){
-			achievements.get("BabySteps").setEarned();
+			achievements.get("BabySteps").setIsEarned(true);
 			popingUp.push("BabySteps");
 			return true;
 		}
@@ -38,7 +38,7 @@ public abstract class LevelAchievementMonitor {
 	/*Finished*/
 	protected boolean checkRebel(){
 		if(this.notEarnRebel()){
-			achievements.get("Rebel").setEarned();
+			achievements.get("Rebel").setIsEarned(true);
 			popingUp.push("Rebel");
 			return true;
 		}
@@ -47,40 +47,40 @@ public abstract class LevelAchievementMonitor {
 	
 	/*Finished*/
 	protected boolean notEarnBabyStep() {
-		return !(achievements.get("SpeedyGonzales").getisEarned());
+		return !(achievements.get("SpeedyGonzales").getIsEarned());
 	}
 	/*Finished*/
 	protected boolean notEarnRebel() {
-		return !(achievements.get("Rebel").getisEarned());
+		return !(achievements.get("Rebel").getIsEarned());
 	}
 	/*Finished*/
 	protected boolean notEarnOverAchiever() {
-		return !(achievements.get("OverAchiever").getisEarned());
+		return !(achievements.get("OverAchiever").getIsEarned());
 	}
 	/*Finished*/
 	protected boolean notEarnSlowPoke() {
-		return !(achievements.get("SlowPoke").getisEarned());
+		return !(achievements.get("SlowPoke").getIsEarned());
 	}
 	/*Finished*/
 	protected boolean notEarnSpeedyGonzales() {
-		return !(achievements.get("SpeedyGonzales").getisEarned());
+		return !(achievements.get("SpeedyGonzales").getIsEarned());
 	}
 	/*Finished*/
 	protected boolean notEarnJustUnderTheWire() {
-		return !(achievements.get("JustUnderTheWire").getisEarned());
+		return !(achievements.get("JustUnderTheWire").getIsEarned());
 	}
 	/*Finished*/
 	protected boolean notEarnNoRegrets() {
-		return !(achievements.get("NoRegrets").getisEarned());
+		return !(achievements.get("NoRegrets").getIsEarned());
 	}
 	/*Finished*/
 	protected boolean notEarnRageQuit() {
-		return !(achievements.get("RageQuit").getisEarned());
+		return !(achievements.get("RageQuit").getIsEarned());
 	}
 	
 	/*Finished*/
 	protected boolean notEarnVictoryLap(){
-		return !(achievements.get("VictoryLap").getisEarned());
+		return !(achievements.get("VictoryLap").getIsEarned());
 	}
 	
 	/*Finished*/

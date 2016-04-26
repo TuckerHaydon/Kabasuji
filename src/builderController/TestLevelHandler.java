@@ -9,9 +9,11 @@ import playerBoundary.KabasujiPlayerApplication;
 public class TestLevelHandler implements ActionListener{
 
 	BuilderModel m;
+	KabasujiBuilderApplication app;
 	
-	public TestLevelHandler(BuilderModel m) {
+	public TestLevelHandler(KabasujiBuilderApplication app, BuilderModel m) {
 		this.m = m;
+		this.app = app;
 	}
 
 
@@ -21,8 +23,8 @@ public class TestLevelHandler implements ActionListener{
 	}
 	
 	void processAction(){
-		TestLevelMove move = new TestLevelMove(m);
-		move.doMove();
+		TestLevelMove move = new TestLevelMove(app, m);
+		move.execute();
 	}
 
 }
