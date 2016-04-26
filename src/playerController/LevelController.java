@@ -13,7 +13,7 @@ import playerEntity.Tile;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, ndiwakar
  *
  */
 public class LevelController extends MouseAdapter {

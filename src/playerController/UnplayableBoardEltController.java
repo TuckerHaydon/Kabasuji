@@ -9,7 +9,7 @@ import playerEntity.GameModel;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, ndiwakar
  *
  */
 public class UnplayableBoardEltController extends java.awt.event.MouseAdapter {
