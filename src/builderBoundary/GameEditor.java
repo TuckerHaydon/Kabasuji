@@ -16,6 +16,7 @@ import builderEntity.Level;
 /**
  * A Window that for the game editor. Contains an export game button, menu navigation button, and 15 buttons corresponding to each of the 15 levels in a game.
  * @author tuckerhaydon
+ * @author jwilder
  */
 public class GameEditor extends JFrame {
 	
@@ -112,8 +113,8 @@ public class GameEditor extends JFrame {
 				this.remove(levelButtons[i]);
 				levelButtons[i] = new JButton("Level" + (i+1));
 				levelButtons[i].setBackground(Color.RED);
-				levelButtons[i].setContentAreaFilled(false);
 				levelButtons[i].setOpaque(true);
+				levelButtons[i].setBorderPainted(false);
 				levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 				this.add(levelButtons[i]);
 				levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
