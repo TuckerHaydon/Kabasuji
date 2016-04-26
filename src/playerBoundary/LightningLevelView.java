@@ -61,6 +61,7 @@ public class LightningLevelView extends LevelView{
 		timeLabel.setBounds(650, 400, 150, 100);
 		add(timeLabel);
 		
+
 		//3 stars hence that max and min
 		pBar = new JProgressBar(0,3);
 		pBar.setValue(level.getStars());
@@ -69,6 +70,7 @@ public class LightningLevelView extends LevelView{
 		pBar.setBorder(border);
 		pBar.setBounds(650, 500, 250, 50);
 		add(pBar);
+
 		
 		setBackground(new Color(255, 228, 225));
 		
@@ -95,19 +97,6 @@ public class LightningLevelView extends LevelView{
 		timeLabel = new JLabel("<html>" + "Time Remaining: " + (Integer.toString(level.getRemainingTime())) + " " + "</html>");
 		timeLabel.setBounds(650, 400, 150, 100);
 		this.add(timeLabel, 0);
-		this.getParent().revalidate();
-		this.getParent().repaint();
-	}
-	
-	public void refreshProgressBar(){
-		this.remove(pBar);
-		pBar = new JProgressBar(0,3);
-		pBar.setValue(level.getStars());
-		pBar.setStringPainted(true);
-		Border border = BorderFactory.createTitledBorder("Star Progress...");
-		pBar.setBorder(border);
-		pBar.setBounds(650, 500, 250, 50);
-		this.add(pBar);
 		this.getParent().revalidate();
 		this.getParent().repaint();
 	}
