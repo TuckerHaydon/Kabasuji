@@ -1,10 +1,12 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerBoundary.PuzzleLevelView;
 import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
+import playerEntity.PuzzleLevel;
 import playerEntity.Tile;
 
 /**
