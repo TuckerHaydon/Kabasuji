@@ -84,16 +84,15 @@ public class TileToBoardMove extends Move{
 		if (m.getCurrentLevel() instanceof PuzzleLevel){
 			((PuzzleLevel) m.getCurrentLevel()).updateMoves(+1);
 			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
 		}
 		
 		if(AM.updateAchievement_releaseonboard()){
 			AM.popUpScreen();
 		}
 		
-		//update score
-		m.getCurrentLevel().updateScore(6);
-		((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
+		//refresh progress bar
+		app.getGameWindow().getLevelView().refreshProgressBar();
+		
 		// Update the GUI
 		app.getGameWindow().getLevelView().getBoardView().repaint();
 		app.getGameWindow().getLevelView().repaint();

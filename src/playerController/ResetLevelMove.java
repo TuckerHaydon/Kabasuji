@@ -40,10 +40,10 @@ public class ResetLevelMove extends Move{
 		// Update the UI
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		app.getGameWindow().getLevelView().getBoardView().repaint();
+		app.getGameWindow().getLevelView().refreshProgressBar();
 		
 		if(m.getCurrentLevel() instanceof PuzzleLevel){
 			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
 		}else if(m.getCurrentLevel() instanceof LightningLevel){
 			((LightningLevelView) app.getGameWindow().getLevelView()).refreshTimeLabel();
 		}
