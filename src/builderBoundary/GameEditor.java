@@ -120,16 +120,22 @@ public class GameEditor extends JFrame {
 				this.add(levelButtons[i]);
 				levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
 			}
+			else{
+				refreshLevel(i);
+			}
 		}
-		}
+	}
 		
 	public void refreshLevel(int i){
+		
+		Level[] currLevs = m.getGame().getLevels();
 		//this.remove(levelButtons[i]);
 		//levelButtons[i] = new JButton("Level" + (i+1));
-		levelButtons[i].setBackground(Color.RED);
+		levelButtons[i].setBackground(Color.GREEN);
 		levelButtons[i].setOpaque(true);
 		levelButtons[i].setBorderPainted(false);
-		levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+		levelButtons[i].setText(currLevs[i].getLevelName());
+		levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 15));
 		//this.add(levelButtons[i]);
 		//levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
 	}

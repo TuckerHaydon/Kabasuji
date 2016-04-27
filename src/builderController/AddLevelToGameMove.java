@@ -80,6 +80,7 @@ public class AddLevelToGameMove extends Move {
 
 		String path = folderName+levelname;
 		Level lvl = LevelParser.getLevel(path);
+		lvl.setLevelName(levelname);
 		lvl.setLevelNum(levelIndex);
 		
 		m.getGame().setLevel(lvl, levelIndex);
