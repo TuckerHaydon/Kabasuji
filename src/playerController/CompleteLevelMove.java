@@ -32,9 +32,10 @@ public class CompleteLevelMove extends Move{
 			JOptionPane.showMessageDialog(null, "Level Failed!");
 		}
 
-		
-		app.displayLevelSelectionMenu();
-		app.getGameWindow().updateView();
+		if(!app.getGameModel().IsTesting()){
+			app.displayLevelSelectionMenu();
+			app.getGameWindow().updateView();
+		}
 		return true;
 	}
 

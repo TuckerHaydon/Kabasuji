@@ -16,7 +16,7 @@ public class testPlayLevel {
 		
 		player.init();
 		
-		NavigateLevelSelectionMenu nlsm = new NavigateLevelSelectionMenu(player);
+		NavigateLevelSelectionMenu nlsm = new NavigateLevelSelectionMenu(player, gm);
 		PlayLevel pl = new PlayLevel(player, gm, 1); 
 		player.displayGameWindow();
 	}

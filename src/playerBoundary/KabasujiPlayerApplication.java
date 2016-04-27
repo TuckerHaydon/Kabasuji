@@ -154,4 +154,8 @@ public class KabasujiPlayerApplication {
 			e.printStackTrace();
 		}
 	}
+	
+	public GameModel getGameModel(){
+		return m;
+	}
 }

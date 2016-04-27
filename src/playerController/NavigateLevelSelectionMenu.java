@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.GameModel;
 
 /**
  * 
@@ -13,14 +14,18 @@ import playerBoundary.KabasujiPlayerApplication;
 public class NavigateLevelSelectionMenu implements ActionListener{
 	
 	KabasujiPlayerApplication app;
+	GameModel m;
 	
-	public NavigateLevelSelectionMenu(KabasujiPlayerApplication app) {
+	public NavigateLevelSelectionMenu(KabasujiPlayerApplication app,GameModel m) {
 		this.app = app;
+		this.m=m;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		app.displayLevelSelectionMenu();
+		if(!m.IsTesting()){
+			app.displayLevelSelectionMenu();
+		}
 	}
 
 }

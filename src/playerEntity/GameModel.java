@@ -24,6 +24,7 @@ public class GameModel {
 	GameAchievementMonitor GAM;
 	LevelAchievementMonitor lightningAM, puzzleAM, releaseAM;
 	int currentAMNum;
+	boolean isTesting=false;
 	
 	static GameModel model = null;
 	
@@ -276,4 +277,12 @@ public class GameModel {
 		}
 	}
 	
+	
+	public boolean IsTesting(){
+		return this.isTesting;
+	}
+	
+	public void setIsTesting(boolean hi){
+		this.isTesting=hi;
+	}
 }

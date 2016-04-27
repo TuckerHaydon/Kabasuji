@@ -59,7 +59,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	
 	/*Finished*/
 	private boolean checkOverAchiever(){
-		if(lv.hasWon() && lv.isCoverAll() && this.notEarnOverAchiever()){
+		if(this.notEarnOverAchiever() && lv.hasWon() && lv.isCoverAll()){
 			achievements.get("OverAchiever").setIsEarned(true);
 			popingUp.push("OverAchiever");
 			return true;
