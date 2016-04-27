@@ -38,7 +38,7 @@ public class KabasujiPlayerApplication {
 		initView();
 		initControllers();
 		
-		playThemeSong();
+//		playThemeSong();
 		displaySplashScreen();
 		displayMainMenu();
 	}
