@@ -37,6 +37,7 @@ public class CompleteLevelMove extends Move{
 				m.getCurrentAM().popUpScreen();
 			}
 			
+			m.getCurrentLevel().setLevelComplete(true);
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Level Failed!");

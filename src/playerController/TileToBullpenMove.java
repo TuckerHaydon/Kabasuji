@@ -29,7 +29,6 @@ public class TileToBullpenMove extends Move{
 	@Override 
 	public boolean execute(){
 		
-		AM = m.getCurrentAM();
 		
 		if(!this.isValid()){
 			return false;
@@ -49,6 +48,9 @@ public class TileToBullpenMove extends Move{
 		
 		// Repaint the bullpen
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
+		
+
+		AM = m.getCurrentAM();
 		
 		if(AM.updateAchievement_releaseonbullpen()){
 			AM.popUpScreen();

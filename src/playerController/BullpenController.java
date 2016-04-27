@@ -59,8 +59,27 @@ public class BullpenController extends MouseAdapter {
 			return;
 		}
 	
+		if(!isControlDown && !isShiftDown){
+
+			// If no tile is picked up, pick one up
+			if(app.getGameWindow().getDraggedTile() == null){
+				// Pickup a tile
+				PickUpTileBullpenMove move1 = new PickUpTileBullpenMove(app, m, pressedTile, bp);
+				move1.execute();
+				
+				// Update the UI
+				UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove(app, m);
+				move.execute();
+			}
+			else{
+				// If a tile is already pick up, return it to the bullpen
+				Tile draggedTile = app.getGameWindow().getDraggedTile().getTile();
+				TileToBullpenMove move = new TileToBullpenMove(app, m, draggedTile, m.getCurrentLevel().getBullpen());
+				move.execute();
+			}
+		}
 		// If the control button is pressed, rotate a tile
-		if(isControlDown){
+		else if(isControlDown && app.getGameWindow().getDraggedTile()==null){
 			if (isLeftClick){
 				RotateTileClockwiseMove move = new RotateTileClockwiseMove(app, m, pressedTile);
 				move.execute();
@@ -72,7 +91,7 @@ public class BullpenController extends MouseAdapter {
 			}
 		}
 		// If the shift button is pressed, mirror a tile
-		else if(isShiftDown){
+		else if(isShiftDown && app.getGameWindow().getDraggedTile()==null){
 			if (isLeftClick){
 				MirrorTileHorizontalMove move = new MirrorTileHorizontalMove(app, m, pressedTile);
 				move.execute();
@@ -83,24 +102,9 @@ public class BullpenController extends MouseAdapter {
 				move.execute();
 			}
 		}
-		// If no tile is picked up, pick one up
-		else if(app.getGameWindow().getDraggedTile() == null){
-			// Pickup a tile
-			PickUpTileBullpenMove move1 = new PickUpTileBullpenMove(app, m, pressedTile, bp);
-			move1.execute();
-			
-			// Update the UI
-			UpdateDraggedTileLocationMove move = new UpdateDraggedTileLocationMove(app, m);
-			move.execute();
-		}
-		// If a tile is already pick up, return it to the bullpen
-		else{
-			// Return the tile to the bullpen
-			Tile draggedTile = app.getGameWindow().getDraggedTile().getTile();
-			TileToBullpenMove move = new TileToBullpenMove(app, m, draggedTile, m.getCurrentLevel().getBullpen());
-			move.execute();
-			
-		}
+	
+		
+		
 	}
 	
 	@Override
