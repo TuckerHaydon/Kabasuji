@@ -53,17 +53,6 @@ public class PuzzleLevel extends Level {
 	public boolean isMoveUsedUp(){
 		return usedMove >= allowedMoves;
 	}
-	/*
-	@Override
-	public boolean hasWon() {
-		// TODO Finalize hasWon logic
-	
-		if(this.getStars() == 3){
-			isComplete = true;
-			return true;
-		}
-		return false;
-	}*/
 
 	/**
 	 * @param i

@@ -63,12 +63,13 @@ public class ReleaseLevelView extends LevelView{
 		pBar.setBorder(border);
 		if (lvl.getStars() == 0){
 			pBar.setIndeterminate(true);
+			pBar.setString("No Stars Acheived");
 		}
 		else{
 			pBar.setValue(lvl.getStars());
-			pBar.setString(Integer.toString(lvl.getStars())+ "Star");
-			pBar.setStringPainted(true);
+			pBar.setString(Integer.toString(lvl.getStars())+ "Stars Acheived");
 		}	
+		pBar.setStringPainted(true);
 		pBar.setBounds(650, 500, 250, 50);
 		add(pBar);
 		
