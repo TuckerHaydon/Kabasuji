@@ -39,8 +39,7 @@ public abstract class Level {
 	}
 	
 	public boolean getIsCompleted(){
-		isComplete = (getStars()>0);
-		return isComplete;
+		return (getStars()>0);
 	}
 	
 	public void setIsUnlocked(boolean u){
