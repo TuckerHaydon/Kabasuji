@@ -34,6 +34,8 @@ public class PlayLevel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+
+		System.out.println("PlayLevel    lv.getIsComplete:  "+m.getCurrentLevel().getIsCompleted());
 		processAction();
 	}
 	
