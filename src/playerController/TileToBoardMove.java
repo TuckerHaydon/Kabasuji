@@ -19,7 +19,7 @@ import playerEntity.UnplayableBoardElt;
 
 /**
  * 
- * @author tuckerhaydon, dgwalder
+ * @author tuckerhaydon, dgwalder, jwilder
  *
  */
 public class TileToBoardMove extends Move{
@@ -47,7 +47,7 @@ public class TileToBoardMove extends Move{
 			app.getGameWindow().releaseDraggedTile();
 			if(m.getCurrentLevel() instanceof LightningLevel){
 				m.getCurrentLevel().getBullpen().addTile(tile);
-				System.out.println("Adding tile "+tile.getRefNum()+" to bullpen.");
+				//System.out.println("Adding tile "+tile.getRefNum()+" to bullpen.");
 			}
 			if(AM.updateAchievement_wheninvalidmove()){
 				AM.popUpScreen();
@@ -153,9 +153,13 @@ public class TileToBoardMove extends Move{
 		
 		
 		board.removeTile(tile);
-		m.getCurrentLevel().getBullpen().addTile(tile.getReferenceNumber());
+		m.getCurrentLevel().getBullpen().addTile(tile);
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;
+	}
+	
+	public void setAM(LevelAchievementMonitor lam){
+		this.AM = lam;
 	}
 
 }

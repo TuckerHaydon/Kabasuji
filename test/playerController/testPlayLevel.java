@@ -13,12 +13,11 @@ public class testPlayLevel {
 	public void test() {
 		GameModel gm = GameModel.instance();
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
-		
 		player.init();
 		
-		NavigateLevelSelectionMenu nlsm = new NavigateLevelSelectionMenu(player);
 		PlayLevel pl = new PlayLevel(player, gm, 1); 
-		player.displayGameWindow();
+		pl.processAction();
+		assertTrue(gm.getCurrentLevel().getLevelNum() == 1);
 	}
 	
 
