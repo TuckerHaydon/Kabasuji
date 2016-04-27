@@ -50,14 +50,14 @@ public class ReleaseLevel extends Level {
 		return this.numEltLeft==0;
 	}
 
-	@Override
+	/*@Override
 	public boolean hasWon() {
 		// TODO Finalize win logic
 		if(getStars() == 3){
 			return true;
 		}
 		return false;
-	}
+	}*/
 
 	/**
 	 * @param i
