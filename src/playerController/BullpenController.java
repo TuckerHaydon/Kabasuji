@@ -56,6 +56,11 @@ public class BullpenController extends MouseAdapter {
 			pressedTile = bp.getTiles().get(cellNum);
 		}
 		catch(IndexOutOfBoundsException e){
+			if(app.getGameWindow().getDraggedTile() != null){
+				Tile draggedTile = app.getGameWindow().getDraggedTile().getTile();
+				TileToBullpenMove move = new TileToBullpenMove(app, m, draggedTile, m.getCurrentLevel().getBullpen());
+				move.execute();
+			}
 			return;
 		}
 	
