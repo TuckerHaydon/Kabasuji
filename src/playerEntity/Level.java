@@ -17,6 +17,7 @@ public abstract class Level {
 		this.levelNum = levelNum;
 		this.bullpen = bp;
 		this.board = b;
+		this.isComplete = false;
 		//this.score = 0;
 	}
 	
