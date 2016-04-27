@@ -60,7 +60,7 @@ public class BoardController extends MouseAdapter{
 			
 			// If there is no tile at the location of the mouse press, do nothing
 			if(selectedTile == null){
-				System.out.println("No tile here.");
+				System.err.println("No tile here.");
 			}
 			// If there is a tile at this location, pick it up
 			else
@@ -87,10 +87,6 @@ public class BoardController extends MouseAdapter{
 				return;
 			}
 
-			// TODO consolidate this stuff in the completeLevelMove
-			//achievement stuff goes here!
-			CompleteLevelMove move = new CompleteLevelMove(app, m);
-			move.execute();	
 			
 			//TODO GAM need to know if the CompleteLevelMove is valid
 			//but IDK if we should put it into the move class

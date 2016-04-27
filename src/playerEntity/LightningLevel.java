@@ -38,7 +38,7 @@ public class LightningLevel extends Level{
 
 	public void reset(){
 		// Set the score to 0
-		score = 0;
+		//score = 0;
 
 		// Set the usedTime to 0
 		usedTime = 0;
@@ -59,12 +59,7 @@ public class LightningLevel extends Level{
 	public boolean isTimeUsedUp(){
 		return (this.allowedTime==this.usedTime);
 	}
-
-	@Override
-	public boolean hasWon() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	/**
 	 * @param i
@@ -100,7 +95,7 @@ public class LightningLevel extends Level{
 		timer.stop();
 	}
 
-	public int updateStars(){
+	public int getStars(){
 		int stars= 0;
 		int coveredElts = 0;
 		int totalElts = 0;
@@ -115,24 +110,27 @@ public class LightningLevel extends Level{
 					}
 				}
 			}
-
-			//if all playable board elts are covered, stars = 3
-			//if total playable elts - covered playable elts = 6, stars = 2;
-			//if total playable elts - covered playable elts = 12, stars = 1;
-			
-			if(totalElts == coveredElts){
-				stars = 3;
-			}
-			
-			if(totalElts - coveredElts == 6){
-				stars = 2;
-			}
-			
-			if(totalElts - coveredElts == 12){
-				stars = 1;
-			}
 		}
-
+		
+		//if all playable board elts are covered, stars = 3
+		//if total playable elts - covered playable elts = 6, stars = 2;
+		//if total playable elts - covered playable elts = 12, stars = 1;
+		
+		if(totalElts == coveredElts){
+			stars = 3;
+		}
+		if(totalElts - coveredElts == 6){
+			stars = 2;
+		}
+		if(totalElts - coveredElts == 12){
+			stars = 1;
+		}
+		
 		return stars;
+	}
+
+	@Override
+	public boolean cannotContinue() {
+		return this.isTimeUsedUp();
 	}
 }

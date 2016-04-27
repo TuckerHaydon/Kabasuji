@@ -54,7 +54,7 @@ public class KabasujiPlayerApplication {
 	}
 	
 	public void initModel(){
-		m.loadGame("src/resources/games/ExampleGame1");
+		m.loadGame("src/resources/games/TemplateGame");
 		m.setCurrentLevel(0);
 		m.initModel();
 	}
@@ -107,6 +107,7 @@ public class KabasujiPlayerApplication {
 		gameWindow.setVisible(false);
 		levelSelectionMenu.setVisible(true);
 		achievementsMenu.setVisible(false);
+		levelSelectionMenu.refreshView();
 	}
 	
 	public void displayAchievementsMenu(){
@@ -153,5 +154,9 @@ public class KabasujiPlayerApplication {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public GameModel getGameModel(){
+		return m;
 	}
 }

@@ -19,7 +19,7 @@ public class Tile {
 	}
 	
 	public int getReferenceNumber() {
-		return this.getReferenceNumber();
+		return this.referenceNumber;
 	}
 	
 	public void rotateRight() {
@@ -75,13 +75,5 @@ public class Tile {
 	
 	public void setAnchor(Anchor anchor){
 		this.anchor = anchor;
-	}
-
-	/**
-	 * @return
-	 */
-	public int getRefNum() {
-		// TODO Auto-generated method stub
-		return getReferenceNumber();
 	}
 }

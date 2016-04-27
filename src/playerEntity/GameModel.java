@@ -10,7 +10,10 @@ import java.util.Scanner;
 import playerEntity.LevelParser;
 
 /**
- * 
+ * Model Class containing features beyond the scope of Levels
+ * The Game Model class handles the initialization of the 
+ * achievements, the parsing of Tiles, Boards, and Levels after import,
+ * and contains levels and monitors
  * @author tuckerhaydon, dorothy
  *
  */
@@ -21,6 +24,7 @@ public class GameModel {
 	GameAchievementMonitor GAM;
 	LevelAchievementMonitor lightningAM, puzzleAM, releaseAM;
 	int currentAMNum;
+	boolean isTesting=false;
 	
 	static GameModel model = null;
 	
@@ -148,7 +152,7 @@ public class GameModel {
 			next = fileScanner.next();
 			if(next.equals("BeginLevel")){
 				Level lvl = parseLevel(fileScanner, levelNum);
-				lvl.setIsUnlocked(true);
+				lvl.setIsUnlocked(false);
 				lvls[levelNum - 1] = lvl;
 			}
 			else if(next.equals("EndLevel"))
@@ -159,6 +163,7 @@ public class GameModel {
 		}
 		while(!next.equals("EndGame"));
 		
+		lvls[0].setIsUnlocked(true);
 		setLevels(lvls);
 		
 	}
@@ -273,4 +278,12 @@ public class GameModel {
 		}
 	}
 	
+	
+	public boolean IsTesting(){
+		return this.isTesting;
+	}
+	
+	public void setIsTesting(boolean hi){
+		this.isTesting=hi;
+	}
 }

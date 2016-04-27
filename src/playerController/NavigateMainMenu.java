@@ -23,7 +23,7 @@ public class NavigateMainMenu implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		processAction();
+			processAction();
 	}
 	
 	void processAction(){		

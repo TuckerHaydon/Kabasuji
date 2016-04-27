@@ -15,11 +15,14 @@ import builderController.BankController;
 import builderController.BoardController;
 import builderBoundary.BoardView;
 import builderController.BullpenController;
+import builderController.SetAllowedTimeHandler;
+import builderController.SetAllowedTimeMove;
 import builderController.SetBoardEltColorHandler;
 import builderController.SetBoardEltNumHandler;
 import builderController.SetBoardEltTypeHandler;
 import builderController.SetHintHandler;
 import builderController.SetLevelTypeHandler;
+import builderController.SetNumAllowedMovesHandler;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 import builderEntity.Tile;
@@ -41,8 +44,8 @@ public class LevelBuilderView extends JPanel{
 	Level lvl;
 	BuilderModel m;
 	KabasujiBuilderApplication app;
-	JLabel timeLabel, movesLabel, numLabel;
-	JTextField timeAllowed, numMovesAllowed;
+	JLabel timeLabel, numLabel;
+	JTextField timeField, numField;
 	JComboBox<String> boardEltNumBox, levelTypeBox, boardEltTypeBox, boardEltColorsBox;
 	String boardEltNums[] = {"1", "2", "3", "4", "5", "6"}, 
 			levelTypes[] = {"puzzle", "release", "lightning"}, 
@@ -66,11 +69,17 @@ public class LevelBuilderView extends JPanel{
 		boardEltColorsBox = new JComboBox<String>(boardEltColors);
 		hintBox = new JCheckBox("Hint");
 		
+		timeField = new JTextField();
+		timeLabel = new JLabel("Time in Sec.");
+		
+		numField = new JTextField();
+		numLabel = new JLabel("Num Moves");
+		
 		// Set the combo boxes to a default selected value
 		boardEltNumBox.setSelectedItem(m.getSelectedNumber());
-		levelTypeBox.setSelectedItem(lvl.getLevelType());
-		boardEltColorsBox.setSelectedItem(m.getSelectedColor());
-		boardEltTypeBox.setSelectedItem(m.getSelectedBoardEltType());
+		levelTypeBox.setSelectedItem(lvl.getLevelType().toLowerCase());
+		boardEltColorsBox.setSelectedItem(m.getSelectedColor().toLowerCase());
+		boardEltTypeBox.setSelectedItem(m.getSelectedBoardEltType().toLowerCase());
 	}
 	
 	public void initView(){
@@ -126,6 +135,20 @@ public class LevelBuilderView extends JPanel{
 		hintBox.setBounds(605, 530, 100, 100);
 		this.add(hintBox);
 		
+		timeField.setBounds(700, 650, 100, 35);
+		this.add(timeField);
+		
+		timeLabel.setBounds(605,650,90,35);
+		this.add(timeLabel);
+		
+		numField.setBounds(700, 700, 100, 35);
+		this.add(numField);
+		
+		numLabel.setBounds(605, 700, 90, 35);
+		this.add(numLabel);
+		
+		this.changeViewLevelType(this.getLevel().getLevelType());
+		
 		
 	}
 	
@@ -136,33 +159,62 @@ public class LevelBuilderView extends JPanel{
 		bullpenView.addMouseAdapter(new BullpenController(app, m, bullpenView, bankView));
 		bankView.addMouseAdapter(new BankController(app, m, bankView, bullpenView));
 		
-		// Action listeners for the various 
+		// Action listeners for the various elements
 		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(app, m, boardEltNumBox));
-		levelTypeBox.addActionListener(new SetLevelTypeHandler(app, m, lvl, levelTypeBox, this));
+		levelTypeBox.addActionListener(new SetLevelTypeHandler(app, m, levelTypeBox));
 		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(app, m, boardEltTypeBox));
 		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(app, m, boardEltColorsBox));
 		hintBox.addActionListener(new SetHintHandler(app, m, hintBox));
+		timeField.addActionListener(new SetAllowedTimeHandler(app, m, timeField));
+		numField.addActionListener(new SetNumAllowedMovesHandler(app, m, numField));
 	}
 	
 	public void changeViewLevelType(String levelType){
-		switch(levelType)
+		switch(levelType.toLowerCase())
 		{
 		case "puzzle":
+			
+			// No time for the puzzle level
+			timeField.setVisible(false);
+			timeLabel.setVisible(false);
+			
+			// Num moves in puzzle level
+			numField.setVisible(true);
+			numLabel.setVisible(true);
+			
 			boardEltNumBox.setVisible(false);
 			boardEltColorsBox.setVisible(false);
 			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(regularBoardEltTypes));
 			break;
 		case "lightning":
+			
+			// Time for lightning level
+			timeField.setVisible(true);
+			timeLabel.setVisible(true);
+			
+			// No num moves in puzzle level
+			numField.setVisible(false);
+			numLabel.setVisible(false);
+			
 			boardEltNumBox.setVisible(false);
 			boardEltColorsBox.setVisible(false);
 			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(regularBoardEltTypes));
 			break;
 		case "release":
+			
+			// No time for the puzzle level
+			timeField.setVisible(false);
+			timeLabel.setVisible(false);
+			
+			// No num moves in puzzle level
+			numField.setVisible(false);
+			numLabel.setVisible(false);
+			
 			this.changeViewEltType(m.getSelectedBoardEltType());
 			boardEltTypeBox.setModel(new DefaultComboBoxModel<String>(numberedBoardEltTypes));
 			break;
 		default:
-			System.err.println("Bad input in LevelbuilderView.");
+			System.err.println("Bad input in LevelbuilderView: "+levelType);
 			break;
 		}
 		
@@ -176,14 +228,17 @@ public class LevelBuilderView extends JPanel{
 		case "playable":
 			boardEltNumBox.setVisible(false);
 			boardEltColorsBox.setVisible(false);
+			hintBox.setVisible(true);
 			break;
 		case "unplayable":
 			boardEltNumBox.setVisible(false);
 			boardEltColorsBox.setVisible(false);
+			hintBox.setVisible(false);
 			break;
 		case "numbered":
 			boardEltNumBox.setVisible(true);
 			boardEltColorsBox.setVisible(true);
+			hintBox.setVisible(true);
 			break;
 		default:
 			System.out.println("eltTYpe");
@@ -198,12 +253,6 @@ public class LevelBuilderView extends JPanel{
 		bullpenView.repaint();
 		bankView.repaint();
 		boardView.repaint();
-		
-//		// Set the combo boxes to a default selected value
-//		boardEltNumBox.setSelectedItem(m.getSelectedNumber());
-//		levelTypeBox.setSelectedItem(lvl.getLevelType());
-//		boardEltColorsBox.setSelectedItem(m.getSelectedColor());
-//		boardEltTypeBox.setSelectedItem(m.getSelectedBoardEltType());
 		
 		hintBox.revalidate();
 		boardEltNumBox.revalidate();

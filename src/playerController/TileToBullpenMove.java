@@ -32,9 +32,6 @@ public class TileToBullpenMove extends Move{
 		AM = m.getCurrentAM();
 		
 		if(!this.isValid()){
-			if(AM.updateAchievement_wheninvalidmove()){
-				AM.popUpScreen();
-			}
 			return false;
 		}
 		
@@ -52,12 +49,6 @@ public class TileToBullpenMove extends Move{
 		
 		// Repaint the bullpen
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
-		
-		//update puzzle level score
-		if (m.getCurrentLevel() instanceof PuzzleLevel){
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
-		}
-		
 		
 		if(AM.updateAchievement_releaseonbullpen()){
 			AM.popUpScreen();

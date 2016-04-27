@@ -14,7 +14,7 @@ public class testPlayLevel {
 		GameModel gm = GameModel.instance();
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		player.init();
-		
+
 		PlayLevel pl = new PlayLevel(player, gm, 1); 
 		pl.processAction();
 		assertTrue(gm.getCurrentLevel().getLevelNum() == 1);

@@ -1,6 +1,5 @@
-BeginGame
 BeginLevel
-Puzzle
+puzzle
 -1
 BeginHexomino
 1 2 3 4 
@@ -20,4 +19,3 @@ U P P P P P P P P P P U
 U U U U U U U U U U U U 
 EndElts
 EndLevel
-EndGame

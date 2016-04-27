@@ -1,29 +1,35 @@
 package playerBoundary;
 
 import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import playerController.LevelController;
 import playerController.TimerHandler;
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
 import javax.swing.Timer;
+import javax.swing.border.Border;
 
 
 /**
- * 
+ * The view object of a lightning level. 
  * @author tuckerhaydon, dgwalder
  *
  */
 public class LightningLevelView extends LevelView{
 	JLabel timeLabel; 
-	LightningLevel level;
 	
 	public final static int ONE_SECOND = 1000;
 	
+	LightningLevel level;
+	
 	public LightningLevelView(KabasujiPlayerApplication app, GameModel m, LightningLevel lightningLvl) {
-		super(app, m);
-		this.level = lightningLvl;
+		super(app, m, lightningLvl);
+		
+		level = lightningLvl;
 		
 		bullpenView = new BullpenView(app, m, level.getBullpen());
 		boardView = new BoardView(app, m, level.getBoard());
@@ -47,22 +53,30 @@ public class LightningLevelView extends LevelView{
 		scrollPane.setBounds(25, 25, 850, 7*bullpenView.getSquareWidth());
 		add(scrollPane);
 		
-		
 		// Add the boardView
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
 		timeLabel = new JLabel("<html>" + "Time Remaining: " + (Integer.toString(level.getRemainingTime())) + " " + "</html>");
-		timeLabel.setBounds(650, 400, 150, 300);
+		timeLabel.setBounds(650, 400, 150, 100);
 		add(timeLabel);
 		
-		//JLabel lbltimeLabel = new JLabel("Time Allowed");
-		//lbltimeLabel.setBounds(770, 770, 60, 15);
-		//add(lbltimeLabel);
-		
-		JLabel lblScoreNStuff = new JLabel("Score n stuff");
-		lblScoreNStuff.setBounds(770, 850, 60, 15);
-		add(lblScoreNStuff);
+
+		//3 stars hence that max and min
+		pBar = new JProgressBar(0,3);
+		Border border = BorderFactory.createTitledBorder("Star Progress...");
+		pBar.setBorder(border);
+		if (lvl.getStars() == 0){
+			pBar.setIndeterminate(true);
+			pBar.setString("No Stars Acheived");
+		}
+		else{
+			pBar.setValue(lvl.getStars());
+			pBar.setString(Integer.toString(lvl.getStars())+ "Stars Acheived");
+		}	
+		pBar.setStringPainted(true);
+		pBar.setBounds(650, 500, 250, 50);
+		add(pBar);
 		
 		setBackground(new Color(255, 228, 225));
 		
@@ -74,7 +88,7 @@ public class LightningLevelView extends LevelView{
 		bullpenView.initControllers();
 		boardView.initControllers();
 		
-		level.setTimer(new Timer(ONE_SECOND, new TimerHandler(level, app)));
+		level.setTimer(new Timer(ONE_SECOND, new TimerHandler(level, app, m)));
 		
 		// Init own controllers
 		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
@@ -87,7 +101,7 @@ public class LightningLevelView extends LevelView{
 	public void refreshTimeLabel(){
 		this.remove(timeLabel);
 		timeLabel = new JLabel("<html>" + "Time Remaining: " + (Integer.toString(level.getRemainingTime())) + " " + "</html>");
-		timeLabel.setBounds(650, 400, 150, 300);
+		timeLabel.setBounds(650, 400, 150, 100);
 		this.add(timeLabel, 0);
 		this.getParent().revalidate();
 		this.getParent().repaint();

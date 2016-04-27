@@ -44,14 +44,16 @@ public class TileToBoardMove extends Move{
 		
 		// Validate the move
 		if(!this.isValid()) {
-			app.getGameWindow().releaseDraggedTile();
 			if(m.getCurrentLevel() instanceof LightningLevel){
+				app.getGameWindow().releaseDraggedTile();
 				m.getCurrentLevel().getBullpen().addTile(tile);
-				//System.out.println("Adding tile "+tile.getRefNum()+" to bullpen.");
+				System.out.println("Adding tile "+tile.getReferenceNumber()+" to bullpen.");
+
 			}
 			if(AM.updateAchievement_wheninvalidmove()){
 				AM.popUpScreen();
 			}
+			
 			return false;
 		}
 		
@@ -67,9 +69,10 @@ public class TileToBoardMove extends Move{
 		
 		// Add the tile to the board
 		board.addTile(tile,row, col);
-		
 		// Release the dragged tile
 		app.getGameWindow().releaseDraggedTile();
+				
+		//update lightning level moves
 		if(m.getCurrentLevel() instanceof LightningLevel){
 			Random r = new Random();
 			int randIndex = r.nextInt(35 - 1) + 1;
@@ -82,15 +85,27 @@ public class TileToBoardMove extends Move{
 		if (m.getCurrentLevel() instanceof PuzzleLevel){
 			((PuzzleLevel) m.getCurrentLevel()).updateMoves(+1);
 			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
 		}
 		
 		if(AM.updateAchievement_releaseonboard()){
 			AM.popUpScreen();
 		}
 		
+		//refresh progress bar
+		app.getGameWindow().getLevelView().refreshProgressBar();
+		
+		//if level is completed, complete to main button appears
+		if((m.getCurrentLevel().getIsCompleted())){
+			app.getGameWindow().getLevelView().competeLevelButton();
+		}
+		
 		// Update the GUI
 		app.getGameWindow().getLevelView().getBoardView().repaint();
+		app.getGameWindow().getLevelView().repaint();
+		
+		// Check to see if the level has won
+		CompleteLevelMove move = new CompleteLevelMove(app, m);
+		move.execute();
 		
 		return true;
 	}
@@ -131,13 +146,13 @@ public class TileToBoardMove extends Move{
 				
 				// Check to see if the elt is already covered
 				if(playableElt.getCovered()){
-					System.err.println("TTBM:isValid(): trying to cover a covered elt.");
+					//System.err.println("TTBM:isValid(): trying to cover a covered elt.");
 					return false;
 				}
 			} 
 			// If it is not a playable elt, the move is not valid
 			else {
-				System.err.println("TTBM:isValid(): trying to cover an unplayable elt.");
+				//System.err.println("TTBM:isValid(): trying to cover an unplayable elt.");
 				return false;
 			}
 		}

@@ -9,7 +9,6 @@ public abstract class Level {
 	
 	Bullpen bullpen;
 	Board board;
-	int score;
 	boolean isUnlocked;
 	int levelNum;
 	boolean isComplete;
@@ -18,14 +17,17 @@ public abstract class Level {
 		this.levelNum = levelNum;
 		this.bullpen = bp;
 		this.board = b;
-		this.score = 0;
+		//this.score = 0;
 	}
 	
-	public int getScore(){
+	/*public int getScore(){
 		return score;
 	}
+	*/
 	
-	abstract public boolean hasWon();
+	public boolean hasWon(){
+		return (this.getStars() == 3);
+	}
 	
 	public int getLevelNum(){
 		return this.levelNum;
@@ -36,6 +38,7 @@ public abstract class Level {
 	}
 	
 	public boolean getIsCompleted(){
+		isComplete = (getStars()>0);
 		return isComplete;
 	}
 	
@@ -63,16 +66,32 @@ public abstract class Level {
 	    this.bullpen = bp;
 	}
 	
+	public void setLevelComplete(boolean isComplete){
+		this.isComplete = isComplete;
+	}
+	
+	public abstract int getStars();
+	
+	/*
+	public void updateScore(int delta) {
+		this.score += delta;
+	}
+	*/
+	
 	abstract public void reset();
 
 	/**
 	 * @param i
 	 */
+	/*
 	public void setScore(int i) {
 		this.score = i;
 	}
+	*/
 	
 	public abstract int getLevelData();
 	
 	public abstract void setLevelData(int levelData);
+	
+	public abstract boolean cannotContinue();
 }

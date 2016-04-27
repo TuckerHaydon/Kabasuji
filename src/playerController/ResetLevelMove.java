@@ -29,7 +29,7 @@ public class ResetLevelMove extends Move{
 		Level l = m.getCurrentLevel();
 		
 		// Store the score in case of undo
-		data[0] = l.getScore();
+		//data[0] = l.getScore();
 		
 		// Store the level-specific data
 		data[1] = l.getLevelData();
@@ -40,10 +40,10 @@ public class ResetLevelMove extends Move{
 		// Update the UI
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		app.getGameWindow().getLevelView().getBoardView().repaint();
+		app.getGameWindow().getLevelView().refreshProgressBar();
 		
 		if(m.getCurrentLevel() instanceof PuzzleLevel){
 			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
 		}else if(m.getCurrentLevel() instanceof LightningLevel){
 			((LightningLevelView) app.getGameWindow().getLevelView()).refreshTimeLabel();
 		}
@@ -64,7 +64,7 @@ public class ResetLevelMove extends Move{
 		Level l = m.getCurrentLevel();
 		
 		// Set the score back
-		l.setScore(data[0]);
+		//l.setScore(data[0]);
 		
 		// Set the level-specific data back
 		l.setLevelData(data[1]);

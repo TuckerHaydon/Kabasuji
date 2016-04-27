@@ -30,7 +30,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	//should be called when make a move to the board/bullpen/next level or quit
 	@Override
 	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkJustUnderTheWire()||this.checkNoRegrets()||this.checkVictoryLap()){
+		if(this.checkJustUnderTheWire()|this.checkNoRegrets()|this.checkVictoryLap()){
 			return true;
 		}
 		return false;
@@ -83,8 +83,8 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	/*Finished*/
 	private boolean checkNoRegrets(){
-		if(lv.hasWon()&& (this.toBullpenMove==0) && this.notEarnNoRegrets()){
-			achievements.get("NoRegrets ").setIsEarned(true);
+		if(this.notEarnNoRegrets() && lv.hasWon()&& (this.toBullpenMove==0)){
+			achievements.get("NoRegrets").setIsEarned(true);
 			popingUp.push("NoRegrets");
 			return true;
 		}
@@ -111,7 +111,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	/*Finished*/
+	@Override
 	public void reset() {
 		this.lv=null;
 		this.toBullpenMove=0;

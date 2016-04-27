@@ -9,9 +9,8 @@ import builderEntity.Board;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * The object that controls how the board interacts with mouse events. Only two mouse events are handled: press and drag
  * @author tuckerhaydon
- *
  */
 public class BoardController extends MouseAdapter {
 	
@@ -21,6 +20,11 @@ public class BoardController extends MouseAdapter {
 	
 	public BoardController(KabasujiBuilderApplication app, BuilderModel model, BoardView bv){
 		super();
+		
+		if(app == null || model == null || bv == null){
+			throw new RuntimeException();
+		}
+		
 		this.app = app;
 		this.model = model;
 		this.bv = bv;
@@ -28,11 +32,12 @@ public class BoardController extends MouseAdapter {
 	
 	@Override
 	public void mousePressed(MouseEvent me){
+		
+		// Determine the XY location where the mouse was clicked. 
 		int x = me.getX();
 		int y = me.getY();
 		
 		processMousePressed(x, y);
-		// Determine the XY location where the mouse was clicked. 
 		
 	}
 	
@@ -48,8 +53,7 @@ public class BoardController extends MouseAdapter {
 		move.execute();
 
 		// Repaint the board
-//		bv.repaint();
-		app.refreshLevelEditor();
+		app.repaintLevelEditor();
 	}
 	
 	@Override

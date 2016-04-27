@@ -18,6 +18,7 @@ import builderEntity.LevelParser;
 /**
  * 
  * @author jwilder
+ * @author tuckerhaydon
  *
  */
 public class EditLevelHandler implements ActionListener {
@@ -26,15 +27,45 @@ public class EditLevelHandler implements ActionListener {
 	BuilderModel m;
 	
 	public EditLevelHandler(KabasujiBuilderApplication app, BuilderModel m) {
+		
+		if(app == null || m == null){
+			throw new RuntimeException();
+		}
 		this.app = app;
 		this.m = m;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		File folder = new File("src/resources/levels/test/");
-		File[] listOfFiles = folder.listFiles();
+		processAction();
+	}
+	
+	void processAction(){
 		ArrayList<String> levelNames = new ArrayList<>();
+		
+		File folder = new File("src/resources/levels/lightning/");
+		File[] listOfFiles = folder.listFiles();
+
+		
+		// Get all of the levels in the levels directory
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile() && !listOfFiles[i].getName().substring(0, 1).equals(".")) {
+				levelNames.add(listOfFiles[i].getName());
+		    }
+		}
+		
+		folder = new File("src/resources/levels/release/");
+		listOfFiles = folder.listFiles();
+		
+		// Get all of the levels in the levels directory
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile() && !listOfFiles[i].getName().substring(0, 1).equals(".")) {
+				levelNames.add(listOfFiles[i].getName());
+		    }
+		}
+		
+		folder = new File("src/resources/levels/puzzle/");
+		listOfFiles = folder.listFiles();
 		
 		// Get all of the levels in the levels directory
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -46,9 +77,38 @@ public class EditLevelHandler implements ActionListener {
 		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to load", "Level Loader",
 		        JOptionPane.QUESTION_MESSAGE, null, levelNames.toArray(), levelNames.get(0));
 
-		String path = "src/resources/levels/test/"+chosenLevelName;
+		// Determine which type of level it is.
+		Level editLevel = null;
 		
-		Level editLevel = LevelParser.getLevel(path);
+		try{
+			String path = "src/resources/levels/puzzle/"+chosenLevelName;
+			editLevel = LevelParser.getLevel(path);
+			if(editLevel == null){
+				throw new RuntimeException();
+			}
+		}
+		catch(Exception e){};
+		try{
+			String path = "src/resources/levels/lightning/"+chosenLevelName;
+			editLevel = LevelParser.getLevel(path);
+			if(editLevel == null){
+				throw new RuntimeException();
+			}
+		}
+		catch(Exception e){};
+		try{
+			String path = "src/resources/levels/release/"+chosenLevelName;
+			editLevel = LevelParser.getLevel(path);
+			if(editLevel == null){
+				throw new RuntimeException();
+			}
+		}
+		catch(Exception e){};
+		
+		if(editLevel == null){
+			System.err.println("Error in EditLevelHandler");
+		}
+		
 		m.setLevel(editLevel);
 		
 		LevelEditor le = app.getLevelEditor();
@@ -62,7 +122,6 @@ public class EditLevelHandler implements ActionListener {
 		
 		le.refresh();
 		app.displayLevelEditor();
-	
 	}
 
 }

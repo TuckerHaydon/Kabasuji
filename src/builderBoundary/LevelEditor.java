@@ -131,7 +131,26 @@ public class LevelEditor extends JFrame implements KeyListener {
 	}
 	
 	public void refresh(){
+		
+		contentPane.remove(levelBuilderView);
+		levelBuilderView = new LevelBuilderView(m.getLevel(), app, m); 
+		levelBuilderView.initView();
+		levelBuilderView.setBounds(50, 50, 900, 900);
+		levelBuilderView.initControllers();
+		contentPane.add(levelBuilderView);
 
+		// Bring to focus for the key listener
+		 this.toFront();
+		 this.requestFocus();
+		
+		// Refresh all of the components
+		contentPane.revalidate();
+		contentPane.repaint();
+		levelBuilderView.refresh();
+		
+	}
+	
+	public void repaintLevelEditor(){	
 		// Bring to focus for the key listener
 		this.toFront();
 		this.requestFocus();
@@ -139,7 +158,6 @@ public class LevelEditor extends JFrame implements KeyListener {
 		// Refresh all of the components
 		contentPane.repaint();
 		levelBuilderView.refresh();
-		
 	}
 	
 

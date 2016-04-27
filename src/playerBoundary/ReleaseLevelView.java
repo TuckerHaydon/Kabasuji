@@ -2,8 +2,11 @@ package playerBoundary;
 
 import java.awt.Color;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
+import javax.swing.border.Border;
 
 import builderController.NavigateMainMenu;
 import playerController.LevelController;
@@ -20,9 +23,10 @@ public class ReleaseLevelView extends LevelView{
 	
 	ReleaseLevel level;
 	
-	public ReleaseLevelView(KabasujiPlayerApplication app, GameModel m, ReleaseLevel releaseLevel) {
-		super(app, m);
-		this.level = releaseLevel;
+	public ReleaseLevelView(KabasujiPlayerApplication app, GameModel m, ReleaseLevel releaseLvl) {
+		super(app, m, releaseLvl);
+		
+		level = releaseLvl;
 		this.m=m;
 		this.app = app;
 		
@@ -53,9 +57,21 @@ public class ReleaseLevelView extends LevelView{
 		boardView.setBounds(25, 8*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth(), 12*bullpenView.getSquareWidth());
 		add(boardView);
 		
-		JLabel lblScoreNStuff = new JLabel("Score n stuff");
-		lblScoreNStuff.setBounds(770, 850, 60, 15);
-		add(lblScoreNStuff);
+		//3 stars hence that max and min
+		pBar = new JProgressBar(0,3);
+		Border border = BorderFactory.createTitledBorder("Star Progress");
+		pBar.setBorder(border);
+		if (lvl.getStars() == 0){
+			pBar.setIndeterminate(true);
+			pBar.setString("No Stars Acheived");
+		}
+		else{
+			pBar.setValue(lvl.getStars());
+			pBar.setString(Integer.toString(lvl.getStars())+ "Stars Acheived");
+		}	
+		pBar.setStringPainted(true);
+		pBar.setBounds(650, 500, 250, 50);
+		add(pBar);
 		
 		setBackground(new Color(255, 228, 225));
 		
@@ -70,5 +86,5 @@ public class ReleaseLevelView extends LevelView{
 		// Init own controllers
 		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
 	}
-
+ 
 }

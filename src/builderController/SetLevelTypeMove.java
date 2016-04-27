@@ -2,6 +2,7 @@ package builderController;
 
 import builderBoundary.KabasujiBuilderApplication;
 import builderBoundary.LevelBuilderView;
+import builderEntity.Board;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
 
@@ -11,24 +12,23 @@ import builderEntity.Level;
  *
  */
 public class SetLevelTypeMove extends Move {
-	Level l;
 	String levelType;
-	LevelBuilderView editorView;
 	String prev;
 	
-	SetLevelTypeMove(KabasujiBuilderApplication app, BuilderModel m, Level l, String levelType, LevelBuilderView editorView){
+	SetLevelTypeMove(KabasujiBuilderApplication app, BuilderModel m, String levelType){
 		super(app, m);
-		this.l = l;
 		this.levelType = levelType;
-		this.editorView = editorView;
 	}
 
 	@Override
 	boolean doMove() {
-		prev = l.getLevelType();
+		prev = m.getLevel().getLevelType();
 		m.setSelectedBoardEltType("playable");
-		l.setLevelType(levelType);
-		editorView.changeViewLevelType(levelType);
+		m.getLevel().setLevelType(levelType);
+		m.getLevel().setBoard(new Board());
+		app.getLevelEditor().refresh();
+		app.getLevelEditor().getLevelBuilderView().changeViewLevelType(levelType);
+
 		
 		return true;
 	}
@@ -36,8 +36,8 @@ public class SetLevelTypeMove extends Move {
 	@Override
 	public boolean undoMove() {
 		// TODO Auto-generated method stub
-		l.setLevelType(prev);
-		editorView.changeViewLevelType(levelType);
+		m.getLevel().setLevelType(prev);
+		app.getLevelEditor().getLevelBuilderView().changeViewLevelType(levelType);
 		return true;
 	}
 

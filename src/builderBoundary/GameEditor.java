@@ -126,16 +126,25 @@ public class GameEditor extends JFrame {
 				levelButtons[i].setOpaque(true);
 				levelButtons[i].setBorderPainted(false);
 				levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+				refreshLevel(i);
+
 			}
 		}
-		}
+	}
 		
 	public void refreshLevel(int i){
+
 		levelButtons[i].setBackground(Color.RED);
+		
+		Level[] currLevs = m.getGame().getLevels();
+		levelButtons[i].setBackground(Color.GREEN);
+
 		levelButtons[i].setOpaque(true);
 		levelButtons[i].setBorderPainted(false);
-		levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
-		
+
+		levelButtons[i].setText(currLevs[i].getLevelName());
+		levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 15));
+
 	}
 	
 }

@@ -24,7 +24,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	
 	@Override
 	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkVictoryLap()||this.checkOverAchiever()||this.checkOverAchiever()){
+		if(this.checkVictoryLap()|this.checkOverAchiever()|this.checkOverAchiever()){
 			return true;
 		}
 		return false;
@@ -59,7 +59,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	
 	/*Finished*/
 	private boolean checkOverAchiever(){
-		if(lv.hasWon() && lv.isCoverAll() && this.notEarnOverAchiever()){
+		if(this.notEarnOverAchiever() && lv.hasWon() && lv.isCoverAll()){
 			achievements.get("OverAchiever").setIsEarned(true);
 			popingUp.push("OverAchiever");
 			return true;
@@ -87,7 +87,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
-	/*Finish*/
+	@Override
 	public void reset() {
 		this.lv=null;
 		this.moveCounter=0;

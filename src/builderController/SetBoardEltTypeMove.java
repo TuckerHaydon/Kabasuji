@@ -24,7 +24,7 @@ public class SetBoardEltTypeMove extends Move{
 		prev = m.getSelectedBoardEltType();
 		m.setSelectedBoardEltType(boardEltType);
 		app.getLevelEditor().getLevelBuilderView().changeViewEltType(boardEltType);
-		app.refreshLevelEditor();
+		app.repaintLevelEditor();
 		return true;
 	}
 
@@ -32,7 +32,7 @@ public class SetBoardEltTypeMove extends Move{
 	public boolean undoMove() {
 		
 		m.setSelectedBoardEltType(prev);
-		app.refreshLevelEditor();
+		app.repaintLevelEditor();
 		return true;
 	}
 

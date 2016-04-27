@@ -34,7 +34,7 @@ public class PuzzleLevel extends Level {
 	public void reset(){
 		
 		// Set the score to 0
-		score = 0;
+		//score = 0;
 		
 		// Set the number of moves used to 0
 		usedMove = 0;
@@ -51,17 +51,7 @@ public class PuzzleLevel extends Level {
 	
 	/*added by Dorothy for AM uses*/
 	public boolean isMoveUsedUp(){
-		return usedMove==allowedMoves;
-	}
-
-	@Override
-	public boolean hasWon() {
-		// TODO Auto-generated method stub
-		
-		//Damani - trying to figure out logic
-		//if (!isMoveUsedUp) and board completed?
-		//for board completed - maybe that logic uses the score logic which is to be determined
-		return false;
+		return usedMove >= allowedMoves;
 	}
 
 	/**
@@ -86,12 +76,12 @@ public class PuzzleLevel extends Level {
 		this.usedMove = levelData;
 	}
 	
-	public int getScore(){
+	public int getStars(){
 		int remScore = 0;
 		int star = 0;
 		
 		remScore = this.bullpen.getTiles().size();
-		score = initScore - remScore;
+		//score = initScore - remScore;
 		
 		if (remScore == 2){
 			star = 1;
@@ -102,6 +92,15 @@ public class PuzzleLevel extends Level {
 			star = 3;
 		}
 		
-		return score;
+		if(star >0){
+			isComplete = true;
+		}
+		
+		return star;
 	}
+	
+	public boolean cannotContinue(){
+		return this.isMoveUsedUp();
+	}
+	
 }
