@@ -32,9 +32,6 @@ public class TileToBullpenMove extends Move{
 		AM = m.getCurrentAM();
 		
 		if(!this.isValid()){
-			if(AM.updateAchievement_wheninvalidmove()){
-				AM.popUpScreen();
-			}
 			return false;
 		}
 		
