@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
+import playerEntity.LightningLevel;
 
 /**
  * 
@@ -47,6 +48,11 @@ public class CompleteLevelMove extends Move{
 			app.displayLevelSelectionMenu();
 			app.getGameWindow().updateView();
 		}
+		
+		if(m.getCurrentLevel() instanceof LightningLevel){
+			app.getGameWindow().releaseDraggedTile();
+		}
+		
 		return true;
 	}
 
