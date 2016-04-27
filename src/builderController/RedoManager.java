@@ -21,6 +21,16 @@ public class RedoManager {
 	 */
 	static Stack<Move> moves = new Stack<Move>();
 	
+	static UndoManager redo = null;
+	
+	/**
+	 * Return an instance of the redomanager
+	 * @return
+	 */
+	public static UndoManager instance(){
+		if(redo == null) redo = new UndoManager();
+		return redo;
+	}
 	/**
 	 * Pushes a Move onto the stack
 	 * @param m Move being pushed

@@ -16,6 +16,17 @@ import java.util.Stack;
 public class UndoManager {
 	static Stack<Move> moves = new Stack<Move>();
 	
+	static UndoManager undo = null;
+	
+	/** 
+	 * Returns the static instance of the undomanager
+	 * @return
+	 */
+	public static UndoManager instance(){
+		if(undo == null) undo = new UndoManager();
+		return undo;
+	}
+	
 	/**
 	 * Pushes a Move onto the stack
 	 * @param m Move being pushed

@@ -60,12 +60,12 @@ public class PickUpTileBoardMove extends Move{
 		
 		// Repaint the board
 		app.getGameWindow().getLevelView().getBoardView().repaint();
-		
+		//hack, update the number of moves but dont repaint the window until you've placed the tile
+		//this works because the only actions you can do are reset the level, exit, or place the tile
+		//all of which will update to the correct number of moves
+		((PuzzleLevel) m.getCurrentLevel()).updateMoves(-1);
 		//update puzzle level moves and repaint the label
-		if (m.getCurrentLevel() instanceof PuzzleLevel){
-			((PuzzleLevel) m.getCurrentLevel()).updateMoves(-1);
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
-		}
+		//((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
 		
 		return true;
 	}
