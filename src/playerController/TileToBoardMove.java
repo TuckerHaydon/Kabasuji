@@ -47,7 +47,7 @@ public class TileToBoardMove extends Move{
 			if(m.getCurrentLevel() instanceof LightningLevel){
 				app.getGameWindow().releaseDraggedTile();
 				m.getCurrentLevel().getBullpen().addTile(tile);
-				System.out.println("Adding tile "+tile.getRefNum()+" to bullpen.");
+				System.out.println("Adding tile "+tile.getReferenceNumber()+" to bullpen.");
 			}
 			if(AM.updateAchievement_wheninvalidmove()){
 				AM.popUpScreen();

@@ -15,7 +15,7 @@ import javax.swing.border.Border;
 
 
 /**
- * 
+ * The view object of a lightning level. 
  * @author tuckerhaydon, dgwalder
  *
  */

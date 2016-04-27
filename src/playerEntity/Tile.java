@@ -76,12 +76,4 @@ public class Tile {
 	public void setAnchor(Anchor anchor){
 		this.anchor = anchor;
 	}
-
-	/**
-	 * @return
-	 */
-	public int getRefNum() {
-		// TODO Auto-generated method stub
-		return getReferenceNumber();
-	}
 }
