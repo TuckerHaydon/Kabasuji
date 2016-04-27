@@ -151,7 +151,7 @@ public class GameModel {
 			next = fileScanner.next();
 			if(next.equals("BeginLevel")){
 				Level lvl = parseLevel(fileScanner, levelNum);
-				lvl.setIsUnlocked(true);
+				lvl.setIsUnlocked(false);
 				lvls[levelNum - 1] = lvl;
 			}
 			else if(next.equals("EndLevel"))
@@ -162,6 +162,7 @@ public class GameModel {
 		}
 		while(!next.equals("EndGame"));
 		
+		lvls[0].setIsUnlocked(true);
 		setLevels(lvls);
 		
 	}
