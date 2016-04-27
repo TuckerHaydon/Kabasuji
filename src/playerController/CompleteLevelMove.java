@@ -23,7 +23,6 @@ public class CompleteLevelMove extends Move{
 			
 			JOptionPane.showMessageDialog(null, "Level Won!");
 			
-			m.getCurrentLevel().setLevelComplete(true);
 			int thisLevelIndex = m.getCurrentLevel().getLevelNum() - 1;
 			
 			// Ensure that by winning the last level it does not try and unlock an imaginary level
@@ -36,6 +35,7 @@ public class CompleteLevelMove extends Move{
 			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
 				m.getCurrentAM().popUpScreen();
 			}
+			
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Level Failed!");

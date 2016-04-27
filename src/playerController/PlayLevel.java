@@ -56,7 +56,6 @@ public class PlayLevel implements ActionListener {
 			 m.getGAM().setPreviousLevel(levelNum);
 			 m.selectCurrentAM(levelNum);
 			 
-
 		}
 		else{
 			System.err.println("Level not unlocked.");
