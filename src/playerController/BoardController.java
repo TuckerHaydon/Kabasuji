@@ -60,7 +60,7 @@ public class BoardController extends MouseAdapter{
 			
 			// If there is no tile at the location of the mouse press, do nothing
 			if(selectedTile == null){
-				System.out.println("No tile here.");
+				System.err.println("No tile here.");
 			}
 			// If there is a tile at this location, pick it up
 			else

@@ -24,7 +24,6 @@ public class TimerHandler implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent evt) {
-		System.out.println("running...");
     	this.level.updateTime(+1);
     	((LightningLevelView) app.getGameWindow().getLevelView()).refreshTimeLabel();
 

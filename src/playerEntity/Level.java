@@ -25,7 +25,9 @@ public abstract class Level {
 	}
 	*/
 	
-	abstract public boolean hasWon();
+	public boolean hasWon(){
+		return (this.getStars() == 3);
+	}
 	
 	public int getLevelNum(){
 		return this.levelNum;
@@ -36,6 +38,7 @@ public abstract class Level {
 	}
 	
 	public boolean getIsCompleted(){
+		isComplete = (getStars()>0);
 		return isComplete;
 	}
 	
@@ -61,6 +64,10 @@ public abstract class Level {
 	
 	public void setBullpen(Bullpen bp){
 	    this.bullpen = bp;
+	}
+	
+	public void setLevelComplete(boolean isComplete){
+		this.isComplete = isComplete;
 	}
 	
 	public abstract int getStars();

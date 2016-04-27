@@ -11,7 +11,7 @@ import playerEntity.Level;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public abstract class LevelView extends View {

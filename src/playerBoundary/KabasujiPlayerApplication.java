@@ -107,6 +107,7 @@ public class KabasujiPlayerApplication {
 		gameWindow.setVisible(false);
 		levelSelectionMenu.setVisible(true);
 		achievementsMenu.setVisible(false);
+		levelSelectionMenu.refreshView();
 	}
 	
 	public void displayAchievementsMenu(){

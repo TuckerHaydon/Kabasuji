@@ -53,7 +53,7 @@ public class PuzzleLevel extends Level {
 	public boolean isMoveUsedUp(){
 		return usedMove >= allowedMoves;
 	}
-
+	/*
 	@Override
 	public boolean hasWon() {
 		// TODO Finalize hasWon logic
@@ -63,7 +63,7 @@ public class PuzzleLevel extends Level {
 			return true;
 		}
 		return false;
-	}
+	}*/
 
 	/**
 	 * @param i
@@ -101,6 +101,10 @@ public class PuzzleLevel extends Level {
 			star = 2;
 		} else if( remScore == 0){
 			star = 3;
+		}
+		
+		if(star >0){
+			isComplete = true;
 		}
 		
 		return star;
