@@ -59,10 +59,16 @@ public class ReleaseLevelView extends LevelView{
 		
 		//3 stars hence that max and min
 		pBar = new JProgressBar(0,3);
-		pBar.setValue(level.getStars());
-		pBar.setStringPainted(true);
-		Border border = BorderFactory.createTitledBorder("Star Progress...");
+		Border border = BorderFactory.createTitledBorder("Star Progress");
 		pBar.setBorder(border);
+		if (lvl.getStars() == 0){
+			pBar.setIndeterminate(true);
+		}
+		else{
+			pBar.setValue(lvl.getStars());
+			pBar.setString(Integer.toString(lvl.getStars())+ "Star");
+			pBar.setStringPainted(true);
+		}	
 		pBar.setBounds(650, 500, 250, 50);
 		add(pBar);
 		

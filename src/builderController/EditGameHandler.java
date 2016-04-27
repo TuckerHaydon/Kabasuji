@@ -29,7 +29,7 @@ import builderEntity.UnplayableBoardElt;
 /**
  * 
  * @author jwilder
- *
+ * @author tuckerhaydon
  */
 public class EditGameHandler implements ActionListener {
 	KabasujiBuilderApplication app;
@@ -70,7 +70,7 @@ public class EditGameHandler implements ActionListener {
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			parseFile(fileScanner);
 		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
+			System.err.println("File does not exist in the EditGameHandler.");
 		}
 	}
 	

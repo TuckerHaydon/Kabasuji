@@ -18,6 +18,7 @@ public class CompleteLevelMove extends Move{
 	
 	@Override
 	public boolean doMove() {
+		System.out.println("Doing a completeLevelMove");
 		
 		if(m.getCurrentLevel().getStars() > 0){
 			

@@ -15,12 +15,15 @@ public class LevelParser {
 	public static Level getLevel(String path){
 		
 		Level parsedLevel = null;
+		Scanner fileScanner = null;
 		
-		try(Scanner fileScanner = new Scanner(new File(path));) {
+		try {
+			fileScanner = new Scanner(new File(path));
 			parsedLevel = parseFile(fileScanner);
+			fileScanner.close();
 		} catch (Exception e) {
 			System.err.println("Error parsing file in LevelParser.");
-			e.printStackTrace();
+			fileScanner.close();
 		}
 		
 		return parsedLevel;

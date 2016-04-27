@@ -87,7 +87,6 @@ public class BoardController extends MouseAdapter{
 				return;
 			}
 
-
 			
 			//TODO GAM need to know if the CompleteLevelMove is valid
 			//but IDK if we should put it into the move class
