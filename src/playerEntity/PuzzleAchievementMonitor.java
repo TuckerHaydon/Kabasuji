@@ -84,7 +84,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	/*Finished*/
 	private boolean checkNoRegrets(){
 		if(lv.hasWon()&& (this.toBullpenMove==0) && this.notEarnNoRegrets()){
-			achievements.get("NoRegrets ").setIsEarned(true);
+			achievements.get("NoRegrets").setIsEarned(true);
 			popingUp.push("NoRegrets");
 			return true;
 		}

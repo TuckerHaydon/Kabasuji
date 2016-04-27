@@ -1,11 +1,13 @@
 package playerController;
 
+import javax.swing.JOptionPane;
+
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
 /**
  * 
- * @author 
+ * @author dorothy, tuckerhaydon
  *
  */
 public class CompleteLevelMove extends Move{
@@ -17,9 +19,18 @@ public class CompleteLevelMove extends Move{
 	@Override
 	public boolean doMove() {
 		
-		if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
-			m.getCurrentAM().popUpScreen();
+		if(m.getCurrentLevel().getStars() > 0){
+			
+			JOptionPane.showMessageDialog(null, "Level Won!");
+			
+			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
+				m.getCurrentAM().popUpScreen();
+			}
 		}
+		else{
+			JOptionPane.showMessageDialog(null, "Level Failed!");
+		}
+
 		
 		app.displayLevelSelectionMenu();
 		app.getGameWindow().updateView();
@@ -28,10 +39,7 @@ public class CompleteLevelMove extends Move{
 
 	@Override
 	boolean isValid() {
-		if(m.getCurrentLevel().hasWon()){
-			return true;
-		}
-		return false;
+		return m.getCurrentLevel().hasWon() || m.getCurrentLevel().cannotContinue();
 	}
 	
 	@Override

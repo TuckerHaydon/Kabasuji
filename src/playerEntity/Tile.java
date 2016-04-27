@@ -19,7 +19,7 @@ public class Tile {
 	}
 	
 	public int getReferenceNumber() {
-		return this.getReferenceNumber();
+		return this.referenceNumber;
 	}
 	
 	public void rotateRight() {

@@ -51,7 +51,7 @@ public class PuzzleLevel extends Level {
 	
 	/*added by Dorothy for AM uses*/
 	public boolean isMoveUsedUp(){
-		return usedMove==allowedMoves;
+		return usedMove >= allowedMoves;
 	}
 
 	@Override
@@ -61,6 +61,10 @@ public class PuzzleLevel extends Level {
 		//Damani - trying to figure out logic
 		//if (!isMoveUsedUp) and board completed?
 		//for board completed - maybe that logic uses the score logic which is to be determined
+		if(this.getStars() == 3){
+			isComplete = true;
+			return true;
+		}
 		return false;
 	}
 
@@ -86,7 +90,7 @@ public class PuzzleLevel extends Level {
 		this.usedMove = levelData;
 	}
 	
-	public int getScore(){
+	public int getStars(){
 		int remScore = 0;
 		int star = 0;
 		
@@ -102,6 +106,11 @@ public class PuzzleLevel extends Level {
 			star = 3;
 		}
 		
-		return score;
+		return star;
 	}
+	
+	public boolean cannotContinue(){
+		return this.isMoveUsedUp();
+	}
+	
 }

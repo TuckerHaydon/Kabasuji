@@ -10,7 +10,10 @@ import java.util.Scanner;
 import playerEntity.LevelParser;
 
 /**
- * 
+ * Model Class containing features beyond the scope of Levels
+ * The Game Model class handles the initialization of the 
+ * achievements, the parsing of Tiles, Boards, and Levels after import,
+ * and contains levels and monitors
  * @author tuckerhaydon, dorothy
  *
  */

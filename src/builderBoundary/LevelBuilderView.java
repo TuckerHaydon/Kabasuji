@@ -138,7 +138,7 @@ public class LevelBuilderView extends JPanel{
 		
 		// Action listeners for the various 
 		boardEltNumBox.addActionListener(new SetBoardEltNumHandler(app, m, boardEltNumBox));
-		levelTypeBox.addActionListener(new SetLevelTypeHandler(app, m, lvl, levelTypeBox, this));
+		levelTypeBox.addActionListener(new SetLevelTypeHandler(app, m, levelTypeBox));
 		boardEltTypeBox.addActionListener(new SetBoardEltTypeHandler(app, m, boardEltTypeBox));
 		boardEltColorsBox.addActionListener(new SetBoardEltColorHandler(app, m, boardEltColorsBox));
 		hintBox.addActionListener(new SetHintHandler(app, m, hintBox));
@@ -176,14 +176,17 @@ public class LevelBuilderView extends JPanel{
 		case "playable":
 			boardEltNumBox.setVisible(false);
 			boardEltColorsBox.setVisible(false);
+			hintBox.setVisible(true);
 			break;
 		case "unplayable":
 			boardEltNumBox.setVisible(false);
 			boardEltColorsBox.setVisible(false);
+			hintBox.setVisible(false);
 			break;
 		case "numbered":
 			boardEltNumBox.setVisible(true);
 			boardEltColorsBox.setVisible(true);
+			hintBox.setVisible(true);
 			break;
 		default:
 			System.out.println("eltTYpe");

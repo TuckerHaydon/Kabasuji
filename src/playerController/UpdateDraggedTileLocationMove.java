@@ -16,7 +16,7 @@ public class UpdateDraggedTileLocationMove extends Move {
 
 	@Override
 	boolean doMove() {
-		
+		if(app.getGameWindow().getMousePosition() == null) return false;
 		double mouseLocationX = app.getGameWindow().getMousePosition().getX();
 		double mouseLocationY = app.getGameWindow().getMousePosition().getY();
 		

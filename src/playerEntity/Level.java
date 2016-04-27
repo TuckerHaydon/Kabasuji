@@ -63,6 +63,8 @@ public abstract class Level {
 	    this.bullpen = bp;
 	}
 	
+	public abstract int getStars();
+	
 	public void updateScore(int delta) {
 		this.score += delta;
 	}
@@ -79,4 +81,6 @@ public abstract class Level {
 	public abstract int getLevelData();
 	
 	public abstract void setLevelData(int levelData);
+	
+	public abstract boolean cannotContinue();
 }

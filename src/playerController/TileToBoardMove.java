@@ -84,19 +84,24 @@ public class TileToBoardMove extends Move{
 		if (m.getCurrentLevel() instanceof PuzzleLevel){
 			((PuzzleLevel) m.getCurrentLevel()).updateMoves(+1);
 			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
-			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
 		}
 		
 		if(AM.updateAchievement_releaseonboard()){
 			AM.popUpScreen();
 		}
 		
-		//update score
-		m.getCurrentLevel().updateScore(6);
-		((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshScoreLabel();
+		//refresh progress bar
+		app.getGameWindow().getLevelView().refreshProgressBar();
+		
+		
 		// Update the GUI
 		app.getGameWindow().getLevelView().getBoardView().repaint();
 		app.getGameWindow().getLevelView().repaint();
+		
+		// Check to see if the level has won
+		CompleteLevelMove move = new CompleteLevelMove(app, m);
+		move.execute();
+		
 		return true;
 	}
 
@@ -136,13 +141,13 @@ public class TileToBoardMove extends Move{
 				
 				// Check to see if the elt is already covered
 				if(playableElt.getCovered()){
-					System.err.println("TTBM:isValid(): trying to cover a covered elt.");
+					//System.err.println("TTBM:isValid(): trying to cover a covered elt.");
 					return false;
 				}
 			} 
 			// If it is not a playable elt, the move is not valid
 			else {
-				System.err.println("TTBM:isValid(): trying to cover an unplayable elt.");
+				//System.err.println("TTBM:isValid(): trying to cover an unplayable elt.");
 				return false;
 			}
 		}
