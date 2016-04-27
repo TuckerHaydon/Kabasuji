@@ -74,8 +74,9 @@ public class GameEditor extends JFrame {
 		// Add the buttons
 		
 		for(int i = 0; i < 15; i++){
-			
-			levelButtons[i].setBackground(new Color(128, 128, 128));
+			levelButtons[i].setBackground(Color.WHITE);
+			levelButtons[i].setOpaque(true);
+			levelButtons[i].setBorderPainted(false);
 			levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		}
 		exportGameButton.setBackground(new Color(128, 128, 128));
@@ -113,25 +114,37 @@ public class GameEditor extends JFrame {
 			if(currLevs[i] == null){
 				this.remove(levelButtons[i]);
 				levelButtons[i] = new JButton("Level" + (i+1));
-				levelButtons[i].setBackground(Color.RED);
+				levelButtons[i].setBackground(Color.WHITE);
 				levelButtons[i].setOpaque(true);
 				levelButtons[i].setBorderPainted(false);
 				levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 				this.add(levelButtons[i]);
 				levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
 			}
+			else{
+				levelButtons[i].setBackground(Color.RED);
+				levelButtons[i].setOpaque(true);
+				levelButtons[i].setBorderPainted(false);
+				levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+				refreshLevel(i);
+
+			}
 		}
-		}
+	}
 		
 	public void refreshLevel(int i){
-		//this.remove(levelButtons[i]);
-		//levelButtons[i] = new JButton("Level" + (i+1));
+
 		levelButtons[i].setBackground(Color.RED);
+		
+		Level[] currLevs = m.getGame().getLevels();
+		levelButtons[i].setBackground(Color.GREEN);
+
 		levelButtons[i].setOpaque(true);
 		levelButtons[i].setBorderPainted(false);
-		levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
-		//this.add(levelButtons[i]);
-		//levelButtons[i].addActionListener(new AddLevelToGameHandler(app, m, i));
+
+		levelButtons[i].setText(currLevs[i].getLevelName());
+		levelButtons[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 15));
+
 	}
 	
 }

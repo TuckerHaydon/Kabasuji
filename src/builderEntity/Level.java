@@ -12,6 +12,7 @@ public class Level {
 	int levelNum;
 	String levelType;
 	int levelData;
+	String levelName;
 	
 	public static String PUZZLE = "Puzzle";
 	public static String LIGHTNING = "Lightning";
@@ -39,6 +40,14 @@ public class Level {
 	
 	public void setBullpen(Bullpen bp){
 		this.bullpen = bp;
+	}
+	
+	public void setLevelName(String name){
+		this.levelName = name;
+	}
+	
+	public String getLevelName(){
+		return this.levelName;
 	}
 	
 	public Board getBoard(){
