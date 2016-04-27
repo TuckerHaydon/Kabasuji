@@ -59,11 +59,12 @@ public class LightningLevel extends Level{
 	public boolean isTimeUsedUp(){
 		return (this.allowedTime==this.usedTime);
 	}
-
+	
+	/*
 	@Override
 	public boolean hasWon() {
 		return (this.getStars() == 3);
-	}
+	}*/
 
 	/**
 	 * @param i

@@ -25,7 +25,9 @@ public abstract class Level {
 	}
 	*/
 	
-	abstract public boolean hasWon();
+	public boolean hasWon(){
+		return (this.getStars() == 3);
+	}
 	
 	public int getLevelNum(){
 		return this.levelNum;
