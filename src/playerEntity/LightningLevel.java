@@ -129,7 +129,7 @@ public class LightningLevel extends Level{
 		if(totalElts - coveredElts == 12){
 			stars = 1;
 		}
-
+		
 		return stars;
 	}
 

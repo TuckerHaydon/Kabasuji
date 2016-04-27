@@ -36,6 +36,7 @@ public abstract class Level {
 	}
 	
 	public boolean getIsCompleted(){
+		isComplete = (getStars()>0);
 		return isComplete;
 	}
 	

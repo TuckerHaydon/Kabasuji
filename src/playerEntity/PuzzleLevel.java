@@ -103,6 +103,10 @@ public class PuzzleLevel extends Level {
 			star = 3;
 		}
 		
+		if(star >0){
+			isComplete = true;
+		}
+		
 		return star;
 	}
 	
