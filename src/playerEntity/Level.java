@@ -63,6 +63,10 @@ public abstract class Level {
 	    this.bullpen = bp;
 	}
 	
+	public void setLevelComplete(boolean isComplete){
+		this.isComplete = isComplete;
+	}
+	
 	public abstract int getStars();
 	
 	/*

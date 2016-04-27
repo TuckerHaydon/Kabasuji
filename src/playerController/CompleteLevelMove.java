@@ -18,11 +18,12 @@ public class CompleteLevelMove extends Move{
 	
 	@Override
 	public boolean doMove() {
-		System.out.println("Doing a completeLevelMove");
 		
 		if(m.getCurrentLevel().getStars() > 0){
 			
 			JOptionPane.showMessageDialog(null, "Level Won!");
+			
+			m.getCurrentLevel().setLevelComplete(true);
 			
 			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
 				m.getCurrentAM().popUpScreen();

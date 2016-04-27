@@ -33,7 +33,22 @@ public class LevelSelectionMenu extends JFrame {
 		// Create the 15 level buttons
 		for(int i = 0; i < 15; i++){
 			levels[i] = new JButton("Level " + (i+1));
-			levels[i].setBackground(new Color(128, 128, 128));
+			try{
+				if(m.getLevels()[i].getIsCompleted()){
+					levels[i].setBackground(Color.GREEN);
+				}
+				else if(m.getLevels()[i].getIsUnlocked()){
+					levels[i].setBackground(Color.YELLOW);
+				}
+				else{
+					levels[i].setBackground(Color.RED);
+				}
+			}
+			catch(NullPointerException e){
+				levels[i].setBackground(Color.GRAY);
+			}
+			levels[i].setOpaque(true);
+			levels[i].setBorderPainted(false);
 			levels[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		}
 	}
@@ -65,6 +80,33 @@ public class LevelSelectionMenu extends JFrame {
 			levels[i].addActionListener(new PlayLevel(app, m, i + 1));
 		}
 
+	}
+	
+	public void refreshView(){
+		
+		for(int i = 0; i < 15; i++){
+			try{
+				if(m.getLevels()[i].getIsCompleted()){
+					levels[i].setBackground(Color.GREEN);
+				}
+				else if(m.getLevels()[i].getIsUnlocked()){
+					levels[i].setBackground(Color.YELLOW);
+				}
+				else{
+					levels[i].setBackground(Color.RED);
+				}
+			}
+			catch(NullPointerException e){
+				levels[i].setBackground(Color.GRAY);
+			}
+			levels[i].setOpaque(true);
+			levels[i].setBorderPainted(false);
+			levels[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+		}
+		
+		for(JButton button: levels){
+			button.repaint();
+		}
 	}
 }
 
