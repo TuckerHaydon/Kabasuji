@@ -22,7 +22,7 @@ public abstract class LevelView extends View {
 	BullpenView bullpenView;
 	BoardView boardView;
 	JLabel score;
-	JButton continueToMain;
+	JButton completeLevel;
 	JProgressBar pBar;
 	JScrollPane scrollPane;
 	Level lvl;
@@ -65,10 +65,12 @@ public abstract class LevelView extends View {
 	}
 	
 	public void competeLevelButton(){
-		continueToMain = new JButton("Continue to Main");
-		continueToMain.setBounds(650, 600, 250, 33);
-		continueToMain.setBackground(new Color(128, 128, 128));
-		this.add(continueToMain);
+		completeLevel = new JButton("Complete Level");
+		completeLevel.setBounds(650, 600, 250, 33);
+		completeLevel.setBackground(new Color(128, 128, 128));
+		//completeLevel.addActionListener(new CompleteLevelMove(app, m));
+		//TODO make new handler that unlocks next level, brings u to level selection menu
+		this.add(completeLevel);
 	}
 	
 }
