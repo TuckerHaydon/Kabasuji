@@ -88,7 +88,7 @@ public class LightningLevelView extends LevelView{
 		bullpenView.initControllers();
 		boardView.initControllers();
 		
-		level.setTimer(new Timer(ONE_SECOND, new TimerHandler(level, app)));
+		level.setTimer(new Timer(ONE_SECOND, new TimerHandler(level, app, m)));
 		
 		// Init own controllers
 		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
