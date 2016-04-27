@@ -86,11 +86,6 @@ public class BoardController extends MouseAdapter{
 				gw.releaseDraggedTile();
 				return;
 			}
-
-			// TODO consolidate this stuff in the completeLevelMove
-			//achievement stuff goes here!
-			CompleteLevelMove move = new CompleteLevelMove(app, m);
-			move.execute();	
 			
 			//TODO GAM need to know if the CompleteLevelMove is valid
 			//but IDK if we should put it into the move class
