@@ -13,7 +13,7 @@ import playerEntity.LevelParser;
  * Model Class containing features beyond the scope of Levels
  * The Game Model class handles the initialization of the 
  * achievements, the parsing of Tiles, Boards, and Levels after import,
- * and contains levels and monitors
+ * and contains levels and monitors.
  * @author tuckerhaydon, dorothy
  *
  */
@@ -28,6 +28,7 @@ public class GameModel {
 	
 	static GameModel model = null;
 	
+	/** Creates a single GameModel. */	
 	public static GameModel instance(){
 		
 		if(model == null){
@@ -37,11 +38,13 @@ public class GameModel {
 		return model;
 	}
 	
+	/** Each game contains 15 levels. */
 	GameModel(){
 		levels = new Level[15];
 		currentLevel = null;
 	}
 	
+	/** Initialize all achievements and achievement monitors. */
 	public void initModel(){
 		
 		achievements = new Hashtable<String, Achievement>();
@@ -68,31 +71,37 @@ public class GameModel {
 			
 	}
 	
-	
+	/** Set the current level by picking a level from the existing 15. */
 	public void setCurrentLevel(int levelNum){
 		this.currentLevel = levels[levelNum];
 	}
 	
+	/** Set the current level. */
 	public Level getCurrentLevel(){
 		return this.currentLevel;
 	}
 	
+	/** Get all of the levels. */
 	public Level[] getLevels(){
 		return this.levels;
 	}
 	
+	/** Set all of the levels. */	
 	public void setLevels(Level[] l){
 		this.levels = l;
 	}
 	
+	/** Get all of the achievements. */
 	public Hashtable<String, Achievement> getAchievements(){
 		return this.achievements;
 	}
 	
+	/** Get the achievement monitor in charge of all achievements in the game. */
 	public GameAchievementMonitor getGAM(){
 		return this.GAM;
 	}
 	
+	/** Assign the appropriate achievement monitor to the corresponding level. */
 	public void selectCurrentAM(int levelNum){
 		if(levelNum%3==0){
 			this.currentAMNum=1;
@@ -115,6 +124,7 @@ public class GameModel {
 		}
 	}
 	
+	/** Get the achievement monitor in charge of the level's achievement. */
 	public LevelAchievementMonitor getCurrentAM(){
 		if(this.currentAMNum==1){
 			return this.puzzleAM;
@@ -128,10 +138,12 @@ public class GameModel {
 		return null;
 	}
 	
+	/** Load an existing level. */
 	public void loadLevel(String path){
 		 this.levels[0] = LevelParser.getLevel(path);
 	}
 	
+	/** Load an existing game. */
 	public void loadGame(String path){
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			parseFile(fileScanner);
@@ -140,6 +152,10 @@ public class GameModel {
 		}
 	}
 	
+	/** Parses file to set up the levels on either 
+	 * 1) a loaded game or 
+	 * 2) the default game. 
+	 */
 	public void parseFile(Scanner fileScanner){
 		
 		Level lvls[] = new Level[15];
@@ -168,6 +184,10 @@ public class GameModel {
 		
 	}
 	
+	/** Parses an existing level file to set it up in either 
+	 * 1) a level created via the builder or 
+	 * 2) a level in the default game 
+	 */
 	Level parseLevel(Scanner fileScanner, int levelNum){
 		
 		String levelType = fileScanner.next();
@@ -196,6 +216,10 @@ public class GameModel {
 		}
 	}
 
+	/** Parses an existing file to set up the board elts in either
+	 * 1) an existing level created using the builder or
+	 * 2) the default game
+	 */
 	BoardElt[][] parseBoardElts(Scanner fileScanner) {
 		BoardElt elts[][] = new BoardElt[12][12];
 		
@@ -252,6 +276,7 @@ public class GameModel {
 		return elts;
 	}
 
+	/** Adds the hexominoes specified in a file to the appropriate level*/
 	ArrayList<Integer> parseHexominoes(Scanner fileScanner) {
 		
 		ArrayList<Integer> hexominoes = new ArrayList<>();
@@ -269,16 +294,14 @@ public class GameModel {
 		return hexominoes;
 	}
 	
-	/**
-	 * disable all achievement functionalities
-	 */
+    /** disable all achievement functionalities. */
 	public void disableAchievement(){
 		for(String key: achievements.keySet()){
 			achievements.get(key).setIsEarned(true);
 		}
 	}
 	
-	
+	/** Flag during builder testing to block certain features (ie achievements). */
 	public boolean IsTesting(){
 		return this.isTesting;
 	}
