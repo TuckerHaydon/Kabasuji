@@ -38,7 +38,7 @@ public class LightningLevel extends Level{
 
 	public void reset(){
 		// Set the score to 0
-		score = 0;
+		//score = 0;
 
 		// Set the usedTime to 0
 		usedTime = 0;
@@ -123,11 +123,9 @@ public class LightningLevel extends Level{
 		if(totalElts == coveredElts){
 			stars = 3;
 		}
-		
 		if(totalElts - coveredElts == 6){
 			stars = 2;
 		}
-		
 		if(totalElts - coveredElts == 12){
 			stars = 1;
 		}

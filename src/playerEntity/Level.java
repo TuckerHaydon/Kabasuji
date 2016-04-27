@@ -9,7 +9,6 @@ public abstract class Level {
 	
 	Bullpen bullpen;
 	Board board;
-	int score;
 	boolean isUnlocked;
 	int levelNum;
 	boolean isComplete;
@@ -18,12 +17,13 @@ public abstract class Level {
 		this.levelNum = levelNum;
 		this.bullpen = bp;
 		this.board = b;
-		this.score = 0;
+		//this.score = 0;
 	}
 	
-	public int getScore(){
+	/*public int getScore(){
 		return score;
 	}
+	*/
 	
 	abstract public boolean hasWon();
 	
@@ -65,18 +65,22 @@ public abstract class Level {
 	
 	public abstract int getStars();
 	
+	/*
 	public void updateScore(int delta) {
 		this.score += delta;
 	}
+	*/
 	
 	abstract public void reset();
 
 	/**
 	 * @param i
 	 */
+	/*
 	public void setScore(int i) {
 		this.score = i;
 	}
+	*/
 	
 	public abstract int getLevelData();
 	

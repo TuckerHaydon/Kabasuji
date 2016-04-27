@@ -26,7 +26,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	
 	@Override
 	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkSlowPoke()||this.checkVictoryLap()||this.checkSpeedyGonzales()){
+		if(this.checkSlowPoke()|this.checkVictoryLap()|this.checkSpeedyGonzales()){
 			return true;
 		}
 		return false;

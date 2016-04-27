@@ -131,8 +131,6 @@ public class LevelEditor extends JFrame implements KeyListener {
 	}
 	
 	public void refresh(){
-
-		System.out.println("Refreshing.");
 		
 		contentPane.remove(levelBuilderView);
 		levelBuilderView = new LevelBuilderView(m.getLevel(), app, m); 

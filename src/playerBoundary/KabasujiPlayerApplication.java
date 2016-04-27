@@ -54,7 +54,7 @@ public class KabasujiPlayerApplication {
 	}
 	
 	public void initModel(){
-		m.loadGame("src/resources/games/ExampleGame1");
+		m.loadGame("src/resources/games/TemplateGame");
 		m.setCurrentLevel(0);
 		m.initModel();
 	}

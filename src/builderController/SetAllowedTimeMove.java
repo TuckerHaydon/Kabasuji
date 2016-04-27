@@ -6,20 +6,18 @@ import builderEntity.Level;
 
 public class SetAllowedTimeMove extends Move {
 	
-	int minutes;
 	int seconds;
 	int prevSec;
 	
-	SetAllowedTimeMove(KabasujiBuilderApplication app, BuilderModel m, int min, int sec){
+	public SetAllowedTimeMove(KabasujiBuilderApplication app, BuilderModel m, int sec){
 		super(app, m);
-		this.minutes = min;
 		this.seconds = sec;
 	}
 
 	@Override
 	boolean doMove() {
 		prevSec = m.getLevel().getlevelData();
-		m.getLevel().setLevelData((minutes * 60) + seconds);
+		m.getLevel().setLevelData(seconds);
 		return true;
 	}
 
@@ -32,7 +30,9 @@ public class SetAllowedTimeMove extends Move {
 
 	@Override
 	boolean isValid() {
-		if(((minutes * 60) + seconds) >=  0 && (m.getLevel().getLevelType() == Level.LIGHTNING)) return true;
+		if(seconds >=  0) {
+			return true;
+		}
 		return false;
 	}
 }

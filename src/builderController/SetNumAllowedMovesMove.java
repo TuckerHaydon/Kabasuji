@@ -27,10 +27,6 @@ public class SetNumAllowedMovesMove extends Move{
 
 	@Override
 	boolean isValid() {
-		boolean valid = false;
-		if(m.getLevel().getLevelType() == Level.PUZZLE) {
-			valid = true;
-		}
-		return valid;
+		return true;
 	}
 }

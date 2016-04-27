@@ -154,10 +154,11 @@ public abstract class LevelAchievementMonitor {
 	 */
 	public void popUpScreen(){
 		if(popingUp.size()!=0){
-			String message = popingUp.getFirst()+"\n";
-			for(int i=1;i<popingUp.size();i++){
+			String message  ="";
+			for(int i=0;i<popingUp.size();i++){
 				message = message + popingUp.get(i)+"\n";
 			}
+			System.out.println(message);
 			JFrame frame = new JFrame();
 			JOptionPane.showMessageDialog(frame, message, "Achievement Unlocked:", JOptionPane.INFORMATION_MESSAGE);
 			popingUp.clear();

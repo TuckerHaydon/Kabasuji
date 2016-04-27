@@ -30,7 +30,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	//should be called when make a move to the board/bullpen/next level or quit
 	@Override
 	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkJustUnderTheWire()||this.checkNoRegrets()||this.checkVictoryLap()){
+		if(this.checkJustUnderTheWire()|this.checkNoRegrets()|this.checkVictoryLap()){
 			return true;
 		}
 		return false;

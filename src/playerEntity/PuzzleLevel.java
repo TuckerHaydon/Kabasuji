@@ -34,7 +34,7 @@ public class PuzzleLevel extends Level {
 	public void reset(){
 		
 		// Set the score to 0
-		score = 0;
+		//score = 0;
 		
 		// Set the number of moves used to 0
 		usedMove = 0;
@@ -56,11 +56,8 @@ public class PuzzleLevel extends Level {
 
 	@Override
 	public boolean hasWon() {
-		// TODO Auto-generated method stub
-		
-		//Damani - trying to figure out logic
-		//if (!isMoveUsedUp) and board completed?
-		//for board completed - maybe that logic uses the score logic which is to be determined
+		// TODO Finalize hasWon logic
+	
 		if(this.getStars() == 3){
 			isComplete = true;
 			return true;
@@ -95,7 +92,7 @@ public class PuzzleLevel extends Level {
 		int star = 0;
 		
 		remScore = this.bullpen.getTiles().size();
-		score = initScore - remScore;
+		//score = initScore - remScore;
 		
 		if (remScore == 2){
 			star = 1;

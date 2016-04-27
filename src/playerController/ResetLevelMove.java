@@ -29,7 +29,7 @@ public class ResetLevelMove extends Move{
 		Level l = m.getCurrentLevel();
 		
 		// Store the score in case of undo
-		data[0] = l.getScore();
+		//data[0] = l.getScore();
 		
 		// Store the level-specific data
 		data[1] = l.getLevelData();
@@ -64,7 +64,7 @@ public class ResetLevelMove extends Move{
 		Level l = m.getCurrentLevel();
 		
 		// Set the score back
-		l.setScore(data[0]);
+		//l.setScore(data[0]);
 		
 		// Set the level-specific data back
 		l.setLevelData(data[1]);
