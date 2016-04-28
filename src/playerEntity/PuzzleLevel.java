@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author tuckerhaydon, dorothy, ndiwakar, dgwalder
+ * @author tuckerhaydon, dorothy, ndiwakar, dgwalder, kacper puczydlowski
  *
  */
 public class PuzzleLevel extends Level {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 BeginLevel
 puzzle
 10
@@ -19,3 +20,26 @@ P U P P P P P U U P P P
 P U P P P U U P P P P P 
 EndElts
 EndLevel
+=======
+BeginLevel
+Release
+-1
+BeginHexomino
+1 1 2 
+EndHexomino
+BeginElts
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+>>>>>>> branch 'master' of https://github.com/TuckerHaydon/Kabasuji-Cebriones

@@ -12,11 +12,11 @@ import javax.swing.JOptionPane;
  */
 public class GameAchievementMonitor {
 	Hashtable<String, Achievement> achievements;
-	int previousLvNum;
+	int runningLvNum;
 	boolean isWonlst[];
 	
 	public GameAchievementMonitor(Hashtable<String, Achievement> ac){
-		previousLvNum=0;
+		runningLvNum=0;
 		achievements=ac;
 		isWonlst=new boolean[15];
 		for(int i=0;i<15;i++){
@@ -24,18 +24,24 @@ public class GameAchievementMonitor {
 		}
 	}
 	
-	//this one goes to playLevel Handler
-	public void setPreviousLevel(int num){
-		this.previousLvNum=num;
-		System.out.println("GAM::setPreviousLevel  "+num);
+	/**
+	 * Indicates the running level before play the level
+	 * @param Level number
+	 */
+	public void setRunningLevel(int num){
+		this.runningLvNum=num;
 	}
 	
-	//goes to complete level handler
+	/**
+	 * Check if the number unlocked any achievement
+	 * @param lvNum The number represents level
+	 * @return True if an achievement is unlocked
+	 */
 	public boolean updateAchievement(int lvNum){
 		if(!achievements.get("K-komboBreaker").getIsEarned()){
-			updateWonlst(lvNum);
-			for(int i=0;i<5;i++){
-				if(isWonlst[i] && isWonlst[i+5] && isWonlst[i+10]){
+			updateWonlst(lvNum-1);
+			for(int i=0;i<13;i++){
+				if(isWonlst[i] && isWonlst[i+1] && isWonlst[i+2]){
 					achievements.get("K-komboBreaker").setIsEarned(true);
 					return true;
 				}
@@ -45,7 +51,8 @@ public class GameAchievementMonitor {
 	}
 	
 	void updateWonlst(int lvNum){
-		if(this.previousLvNum==lvNum){
+		if(this.runningLvNum==lvNum){
+			System.out.println("I am here");
 			isWonlst[lvNum]=true;
 		}
 	}
@@ -60,6 +67,6 @@ public class GameAchievementMonitor {
 		for(int i=0;i<15;i++){
 			isWonlst[i]=false;
 		}
-		this.previousLvNum=0;
+		this.runningLvNum=0;
 	}
 }

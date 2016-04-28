@@ -29,10 +29,10 @@ public class testTileToBoardMove {
 		//get all the necessary elements for the move
 		ArrayList<Tile> tiles = gm.getCurrentLevel().getBullpen().getTiles();
 		Board board = gm.getCurrentLevel().getBoard();
-		TileView tv = new TileView(player, gm, tiles.get(0));
+		TileView tv = new TileView(player, gm, tiles.get(3));
 		PuzzleAchievementMonitor pam = new PuzzleAchievementMonitor(null);
 		gm.selectCurrentAM(1);
-		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(0), 3, 1);
+		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(3), 2, 2);
 		ttbm.setAM(pam);
 		player.getGameWindow().setDraggedTile(tv);
 		
@@ -64,7 +64,7 @@ public class testTileToBoardMove {
 		LightningAchievementMonitor lam = new LightningAchievementMonitor(null);
 		gm.selectCurrentAM(2);
 		
-		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(0), 3, 1);
+		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(0), 2, 0);
 		ttbm.setAM(lam);
 		player.getGameWindow().setDraggedTile(tv);
 		

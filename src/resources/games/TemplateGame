@@ -22,7 +22,7 @@ EndElts
 EndLevel
 BeginLevel
 Lightning
-30
+15
 BeginHexomino
 1 2 3 6 
 EndHexomino
@@ -45,19 +45,19 @@ BeginLevel
 Release
 -1
 BeginHexomino
-1 2 3 6 
+1 2 3 6 1 2 3 6 
 EndHexomino
 BeginElts
 N1R P P P P P P P P P P P 
 N2R P P P P P P P P P P P 
 N3R P P P N5R P P P P P P P 
-N4R P P P N6R P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
+N4R P P P N6R P N1G P P P P P 
+P P P P P P P P N2G P P P 
+P P P P N2B P P N3G P P P P 
+P P P P N4B P P N4G P P P P 
+P N1B P N5B P P N5G N6G P P P P 
+P P P P N6B P P P P P P P 
+P P P P P P P P N3B P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 EndElts

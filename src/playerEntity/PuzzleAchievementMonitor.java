@@ -38,11 +38,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	//should goes to bullpen handler when make a new move
 	@Override
 	public boolean updateAchievement_releaseonbullpen(){
-		this.moveCounter++;
 		this.toBullpenMove++;
-		if(this.checkBabySteps()){
-			return true;
-		}
 		return false;
 	}
 	//should goes to move class //

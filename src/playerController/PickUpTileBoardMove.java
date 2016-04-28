@@ -14,8 +14,12 @@ import playerEntity.Square;
 import playerEntity.Tile;
 
 /**
- * 
- * @author tuckerhaydon, ndiwakar, dgwalder
+ * Picks up a Tile from the Board
+ * This class is instantiated in the Board Controller
+ * and used to pick up Tiles in Release Levels
+ * @see BoardController
+ * @see Board
+ * @author tuckerhaydon, ndiwakar, dgwalder, kacper puczydlowski
  *
  */
 public class PickUpTileBoardMove extends Move{
@@ -24,6 +28,13 @@ public class PickUpTileBoardMove extends Move{
 	Board board;
 	int[] rowcol;
 	
+	/**
+	 * PickUp Tile Board Move Constructor
+	 * @param app application
+	 * @param m game model
+	 * @param tile tile being removed from the board
+	 * @param board 
+	 */
 	public PickUpTileBoardMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Board board){
 		super(app, m);
 		this.tile=tile;
