@@ -1,21 +1,45 @@
+<<<<<<< HEAD
 BeginLevel
-lightning
--1
+puzzle
+10
 BeginHexomino
-1 2 3 4 
+1 2 4 3 6 
 EndHexomino
 BeginElts
-U U U U U U U U U U U U 
-P U P U P P U P P P P U 
-P U P U P P P P P P P U 
-P U P P P P P P P P P U 
-P U P P P PH P PH PH PH P U 
-P U P PH PH PH PH PH PH PH P U 
-P U P PH PH PH PH PH PH P P U 
-P P P P PH PH PH PH PH P P U 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P U P P P P P P P P P P 
+P U P P P P U P P P P P 
+P U P P P P U P P P P P 
+P U U U P P U P P P P P 
+P P P U U U U P P P P P 
+P U P P P P P P P P U U 
+P U P P P P P P P P U P 
+P U P P P P P P P U U P 
+P U P P P P P U U P P P 
+P U P P P U U P P P P P 
+EndElts
+EndLevel
+=======
+BeginLevel
+Release
+-1
+BeginHexomino
+1 1 2 
+EndHexomino
+BeginElts
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 EndElts
 EndLevel
+>>>>>>> branch 'master' of https://github.com/TuckerHaydon/Kabasuji-Cebriones

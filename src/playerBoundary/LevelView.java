@@ -9,6 +9,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 
+import playerController.PrematureCompleteLevelMove;
 import playerEntity.GameModel;
 import playerEntity.Level;
 
@@ -68,7 +69,7 @@ public abstract class LevelView extends View {
 		completeLevel = new JButton("Complete Level");
 		completeLevel.setBounds(650, 600, 250, 33);
 		completeLevel.setBackground(new Color(128, 128, 128));
-		//completeLevel.addActionListener(new CompleteLevelMove(app, m));
+		completeLevel.addActionListener(new PrematureCompleteLevelMove(app, m));
 		//TODO make new handler that unlocks next level, brings u to level selection menu
 		this.add(completeLevel);
 	}

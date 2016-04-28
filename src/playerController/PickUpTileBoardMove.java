@@ -14,8 +14,12 @@ import playerEntity.Square;
 import playerEntity.Tile;
 
 /**
- * 
- * @author tuckerhaydon, ndiwakar, dgwalder
+ * Picks up a Tile from the Board
+ * This class is instantiated in the Board Controller
+ * and used to pick up Tiles in Release Levels
+ * @see BoardController
+ * @see Board
+ * @author tuckerhaydon, ndiwakar, dgwalder, kacper puczydlowski
  *
  */
 public class PickUpTileBoardMove extends Move{
@@ -24,6 +28,13 @@ public class PickUpTileBoardMove extends Move{
 	Board board;
 	int[] rowcol;
 	
+	/**
+	 * PickUp Tile Board Move Constructor
+	 * @param app application
+	 * @param m game model
+	 * @param tile tile being removed from the board
+	 * @param board 
+	 */
 	public PickUpTileBoardMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Board board){
 		super(app, m);
 		this.tile=tile;
@@ -63,7 +74,7 @@ public class PickUpTileBoardMove extends Move{
 		//hack, update the number of moves but dont repaint the window until you've placed the tile
 		//this works because the only actions you can do are reset the level, exit, or place the tile
 		//all of which will update to the correct number of moves
-		((PuzzleLevel) m.getCurrentLevel()).updateMoves(-1);
+		//((PuzzleLevel) m.getCurrentLevel()).updateMoves(-1);
 		//update puzzle level moves and repaint the label
 		//((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
 		

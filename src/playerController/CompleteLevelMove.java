@@ -3,7 +3,9 @@ package playerController;
 import javax.swing.JOptionPane;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
+import playerEntity.LightningLevel;
 
 /**
  * 
@@ -37,16 +39,34 @@ public class CompleteLevelMove extends Move{
 				m.getCurrentAM().popUpScreen();
 			}
 			
-			m.getCurrentLevel().setLevelComplete(true);
+			
+			if(m.getCurrentLevel().hasWon()){
+				m.getCurrentLevel().setLevelComplete(true);
+			}
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Level Failed!");
+			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
+				m.getCurrentAM().popUpScreen();
+			}
 		}
 
 		if(!app.getGameModel().IsTesting()){
 			app.displayLevelSelectionMenu();
 			app.getGameWindow().updateView();
+			
+			GameAchievementMonitor GAM = m.getGAM();
+			if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
+				GAM.pop();
+			}
 		}
+		
+		if(m.getCurrentLevel() instanceof LightningLevel){
+			if(app.getGameWindow().getDraggedTile()!=null){
+				app.getGameWindow().releaseDraggedTile();
+			}
+		}
+		
 		return true;
 	}
 
