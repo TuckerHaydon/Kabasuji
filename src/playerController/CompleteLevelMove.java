@@ -40,7 +40,7 @@ public class CompleteLevelMove extends Move{
 			}
 			
 			
-			if(m.getCurrentLevel().hasWon()){
+			if(m.getCurrentLevel().getStars() == 3){
 				m.getCurrentLevel().setLevelComplete(true);
 			}
 		}
@@ -72,7 +72,7 @@ public class CompleteLevelMove extends Move{
 
 	@Override
 	boolean isValid() {
-		return m.getCurrentLevel().hasWon() || m.getCurrentLevel().cannotContinue();
+		return m.getCurrentLevel().getStars() == 3 || m.getCurrentLevel().cannotContinue();
 	}
 	
 	@Override

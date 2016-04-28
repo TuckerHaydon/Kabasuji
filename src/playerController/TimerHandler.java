@@ -32,12 +32,14 @@ public class TimerHandler implements ActionListener{
     }
 	
 	void processAction(){
+		
+        if (level.getIsCompleted()) {
+        	level.stopTimer();
+        	return;
+        }
+		
 		this.level.updateTime(+1);
     	((LightningLevelView) app.getGameWindow().getLevelView()).refreshTimeLabel();
-
-        if (level.hasWon()) {
-        	level.stopTimer();
-        }
         
         if(level.isTimeUsedUp()){
         	level.stopTimer();

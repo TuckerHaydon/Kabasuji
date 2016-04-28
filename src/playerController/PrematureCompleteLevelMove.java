@@ -57,6 +57,7 @@ public class PrematureCompleteLevelMove implements ActionListener {
 //		if(m.getCurrentLevel() instanceof LightningLevel){
 //			app.getGameWindow().releaseDraggedTile();
 //		}
+		m.getCurrentLevel().setLevelComplete(true);
 		Move move = new CompleteLevelMove(app,m);
 		move.doMove();
 	}

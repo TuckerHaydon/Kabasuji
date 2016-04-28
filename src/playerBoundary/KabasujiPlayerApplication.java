@@ -40,7 +40,7 @@ public class KabasujiPlayerApplication {
 		initView();
 		initControllers();
 		
-		displaySplashScreen();
+//		displaySplashScreen();
 		playThemeSong();
 		displayMainMenu();
 	}
@@ -97,6 +97,7 @@ public class KabasujiPlayerApplication {
 		gameWindow.setVisible(false);
 		levelSelectionMenu.setVisible(false);
 		achievementsMenu.setVisible(false);
+		instructionsPage.setVisible(false);
 	}
 	
 	public void displayGameWindow(){
@@ -104,6 +105,7 @@ public class KabasujiPlayerApplication {
 		gameWindow.setVisible(true);
 		levelSelectionMenu.setVisible(false);
 		achievementsMenu.setVisible(false);
+		instructionsPage.setVisible(false);
 	}
 	
 	public void displayLevelSelectionMenu(){
@@ -111,6 +113,7 @@ public class KabasujiPlayerApplication {
 		gameWindow.setVisible(false);
 		levelSelectionMenu.setVisible(true);
 		achievementsMenu.setVisible(false);
+		instructionsPage.setVisible(false);
 		levelSelectionMenu.refreshView();
 	}
 	
@@ -119,6 +122,7 @@ public class KabasujiPlayerApplication {
 		gameWindow.setVisible(false);
 		levelSelectionMenu.setVisible(false);
 		achievementsMenu.setVisible(true);
+		instructionsPage.setVisible(false);
 		achievementsMenu.updateView();
 	}
 	

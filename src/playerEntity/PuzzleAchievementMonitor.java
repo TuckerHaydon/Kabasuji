@@ -69,7 +69,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	/*Finished*/
 	private boolean checkJustUnderTheWire(){
-		if(lv.isMoveUsedUp() && lv.hasWon() && this.notEarnJustUnderTheWire()){
+		if(lv.isMoveUsedUp() && lv.getIsCompleted() && this.notEarnJustUnderTheWire()){
 			achievements.get("JustUnderTheWire").setIsEarned(true);
 			popingUp.push("JustUnderTheWire");
 			return true;
@@ -79,7 +79,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	/*Finished*/
 	private boolean checkNoRegrets(){
-		if(this.notEarnNoRegrets() && lv.hasWon()&& (this.toBullpenMove==0)){
+		if(this.notEarnNoRegrets() && lv.getIsCompleted() && (this.toBullpenMove==0)){
 			achievements.get("NoRegrets").setIsEarned(true);
 			popingUp.push("NoRegrets");
 			return true;
@@ -89,7 +89,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	@Override
 	boolean checkRageQuit(){
-		if(this.notEarnRageQuit() && !(lv.hasWon())){
+		if(this.notEarnRageQuit() && !(lv.getIsCompleted())){
 			achievements.get("RageQuit").setIsEarned(true);
 			popingUp.push("RageQuit");
 			return true;
@@ -99,7 +99,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 
 	@Override
 	protected boolean checkVictoryLap() {
-		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
+		if(this.notEarnVictoryLap() && lv.getIsCompleted() && lv.getIsCompleted()){
 			achievements.get("VictoryLap").setIsEarned(true);
 			popingUp.push("VictoryLap");
 			return true;
