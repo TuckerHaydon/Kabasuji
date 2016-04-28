@@ -1,5 +1,6 @@
 package builderEntity;
 
+
 /**
  * 
  * @author tuckerhaydon
@@ -9,7 +10,7 @@ public class Board {
 	
 	BoardElt elts[][];
 	
-	public Board(BoardElt elts[][]){
+	public Board(BoardElt[][] elts){
 		this.elts = elts;
 	}
 	
@@ -47,5 +48,16 @@ public class Board {
 		}
 			
 		return output;
+	}
+	
+	public void resetAfterRelease() {
+		for(int i = 0; i < 12; i++) {
+			for(int j = 0; j < 12; j++) {
+				if(elts[i][j] instanceof NumberedBoardElt) {
+					NumberedBoardElt n = (NumberedBoardElt) elts[i][j] ;
+					elts[i][j] = new PlayableBoardElt(n.getRowCol()[0],n.getRowCol()[1],n.isHint());
+				}
+			}
+		}
 	}
 }

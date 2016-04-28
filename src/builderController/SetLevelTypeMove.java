@@ -26,8 +26,9 @@ public class SetLevelTypeMove extends Move {
 		m.setSelectedBoardEltType("playable");
 		m.setHintSelected(false);
 		m.getLevel().setLevelType(levelType);
-		m.getLevel().setBoard(new Board());
+		if(prev.equals("release") && !levelType.equals("release")) m.getLevel().getBoard().resetAfterRelease();
 		app.getLevelEditor().refresh();
+		app.getLevelEditor().getLevelBuilderView().getBoardView().repaint();
 		app.getLevelEditor().getLevelBuilderView().changeViewLevelType(levelType);
 
 		
