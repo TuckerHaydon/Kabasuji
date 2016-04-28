@@ -73,7 +73,7 @@ public class AchievementsMenu extends JFrame {
 		
 		pics.put("VictoryLap", new JLabel("VictoryLap"));
 		pics.get("VictoryLap").setBounds(719, 647, 80, 80);
-		pics.get("VictoryLap").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
+		pics.get("VictoryLap").setIcon(new ImageIcon("src/resources/pictures/VictoryLap.jpg"));
 		contentPane.add(pics.get("VictoryLap"));
 		
 		pics.put("SpeedyGonzales", new JLabel("SpeedyGonzales"));
@@ -93,7 +93,7 @@ public class AchievementsMenu extends JFrame {
 		
 		pics.put("SlowPoke", new JLabel("SlowPoke"));
 		pics.get("SlowPoke").setBounds(148, 220, 80, 80);
-		pics.get("SlowPoke").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
+		pics.get("SlowPoke").setIcon(new ImageIcon("src/resources/pictures/SlowPoke.jpg"));
 		contentPane.add(pics.get("SlowPoke"));
 		
 		pics.put("JustUnderTheWire", new JLabel("JustUnderTheWire"));
