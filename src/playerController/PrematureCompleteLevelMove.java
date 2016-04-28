@@ -25,7 +25,6 @@ public class PrematureCompleteLevelMove implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-//		System.out.println("PrematureCompleteLevelMove    lv.getIsComplete:  "+m.getCurrentLevel().getIsCompleted());
 //		
 //		if(m.getCurrentLevel().getStars() > 0){
 //			

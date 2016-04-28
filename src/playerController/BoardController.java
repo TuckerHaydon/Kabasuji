@@ -51,9 +51,7 @@ public class BoardController extends MouseAdapter{
 		
 		// If no tile is currently picked up
 		if(app.getGameWindow().getDraggedTile() == null){
-			
-			//BoardElt elt = b.getBoardElt(row, col);
-//			System.out.println(row + " " + col);
+
 			
 			// Determine if there is a tile at the location of the mouse click
 			Tile selectedTile = b.getTile(row, col);
