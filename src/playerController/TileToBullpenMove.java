@@ -11,8 +11,8 @@ import playerEntity.PuzzleLevel;
 import playerEntity.Tile;
 
 /**
- * 
- * @author tuckerhaydon, dgwalder
+ * Adds a Tile to the Bullpen 
+ * @author tuckerhaydon, dgwalder, kacper puczydlowski
  *
  */
 public class TileToBullpenMove extends Move{
