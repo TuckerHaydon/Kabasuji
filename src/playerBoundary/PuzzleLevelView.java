@@ -95,7 +95,6 @@ public class PuzzleLevelView extends LevelView{
 		boardView.initControllers();
 		
 		// Init own controllers
-		System.out.println(app == null);
 		setMouseAdapter(new LevelController(app, m, app.getGameWindow().getLevelView()));
 
 	}

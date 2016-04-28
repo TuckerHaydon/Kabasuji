@@ -49,7 +49,6 @@ public class GameWindowNavigateMainMenu implements ActionListener{
 		}
 		m.getGAM().reset();
 		
-//		System.out.println("AM is checking stuff");
 		app.displayMainMenu();
 	}
 	

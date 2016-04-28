@@ -35,7 +35,6 @@ public class ResetAchievementMove extends Move{
 		isReset[7] = this.achievements.get("RageQuit").reset();
 		isReset[8] = this.achievements.get("K-komboBreaker").reset();
 		isReset[9] = this.achievements.get("VictoryLap").reset();
-		System.out.println("ResetAchievementMove::doMove");
 		return true;
 	}
 	
