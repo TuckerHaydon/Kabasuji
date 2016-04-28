@@ -108,7 +108,7 @@ public class TileToBoardMove extends Move{
 		app.getGameWindow().getLevelView().refreshProgressBar();
 		
 		//if level is completed, complete to main button appears
-		if((m.getCurrentLevel().getStars()>1)){
+		if((m.getCurrentLevel().getStars()>=1)){
 			app.getGameWindow().getLevelView().competeLevelButton();
 		}
 		

@@ -30,6 +30,11 @@ public class ExportGameHandler implements ActionListener{
 		// Create the filepath
 		String name = JOptionPane.showInputDialog("Name the game.");
 		
+		// If cancel was hit or no name was typed, do nothing
+		if(name == null){
+			return;
+		}
+		
 		String path = "src/resources/games/"+name;
 				
 		// Create an export move and do it
