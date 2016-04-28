@@ -77,6 +77,10 @@ public class EditLevelHandler implements ActionListener {
 		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to load", "Level Loader",
 		        JOptionPane.QUESTION_MESSAGE, null, levelNames.toArray(), levelNames.get(0));
 
+		if(chosenLevelName == null){
+			return;
+		}
+		
 		// Determine which type of level it is.
 		Level editLevel = null;
 		

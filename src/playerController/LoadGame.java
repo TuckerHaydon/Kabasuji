@@ -46,6 +46,11 @@ public class LoadGame implements ActionListener{
 		
 		String chosenGameName = (String) JOptionPane.showInputDialog(null, "Choose a game to load", "Game Loader",
 		        JOptionPane.QUESTION_MESSAGE, null, gameNames.toArray(), gameNames.get(0));
+		
+		// if cancel was hit, do nothing. 
+		if(chosenGameName == null){
+			return;
+		}
 
 		String path = "src/resources/games/"+chosenGameName;
 		parseGame(path);

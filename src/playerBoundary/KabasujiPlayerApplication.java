@@ -75,7 +75,7 @@ public class KabasujiPlayerApplication {
 		mainMenu = new MainMenu(this, m);
 		levelSelectionMenu = new LevelSelectionMenu(this, m);
 		achievementsMenu = new AchievementsMenu(this, m);
-		instructionsPage = new InstructionsPage();
+		instructionsPage = new InstructionsPage(this, m);
 		
 		// Initialize all the views in the various frames
 		gameWindow.initView();
@@ -91,6 +91,7 @@ public class KabasujiPlayerApplication {
 		mainMenu.initControllers();
 		levelSelectionMenu.initControllers();
 		achievementsMenu.initControllers();
+		instructionsPage.initControllers();
 	}
 	
 	public void displayMainMenu(){
