@@ -32,7 +32,13 @@ public class LevelSelectionMenu extends JFrame {
 		levels = new JButton[15];
 		// Create the 15 level buttons
 		for(int i = 0; i < 15; i++){
-			levels[i] = new JButton("Level " + (i+1));
+			String buttonName = "";
+			if(i %3 == 0) buttonName+="Puzzle "; 
+			else if(i%3 == 1) buttonName+="Lightning ";
+			else buttonName+="Release ";
+			buttonName+="Level ";
+			buttonName+=(i/3) + 1;
+			levels[i] = new JButton(buttonName);
 			try{
 				if(m.getLevels()[i].getIsCompleted()){
 					levels[i].setBackground(Color.GREEN);
@@ -49,7 +55,6 @@ public class LevelSelectionMenu extends JFrame {
 			}
 			levels[i].setOpaque(true);
 			levels[i].setBorderPainted(false);
-			levels[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		}
 	}
 	
@@ -101,7 +106,7 @@ public class LevelSelectionMenu extends JFrame {
 			}
 			levels[i].setOpaque(true);
 			levels[i].setBorderPainted(false);
-			levels[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+			levels[i].setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 15));
 		}
 		
 		for(JButton button: levels){
