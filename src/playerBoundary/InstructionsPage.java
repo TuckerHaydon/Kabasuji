@@ -37,6 +37,7 @@ public class InstructionsPage extends JFrame {
 		instructions.add(new JLabel("Hello Friend!"));
 		instructions.add(new JLabel("Welcome to Kabasuji"));
 		instructions.add(new JLabel("To rotate a tile, hold control and either right-click or left-click on a tile in the bullpen."));
+		instructions.add(new JLabel("To mirror a tile, hold shift and either right-click or left-click on a tile in the bullpen."));
 		
 		
 		
