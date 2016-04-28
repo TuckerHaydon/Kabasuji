@@ -30,7 +30,6 @@ public class GameAchievementMonitor {
 	 */
 	public void setRunningLevel(int num){
 		this.runningLvNum=num;
-		System.out.println("GAM::setPreviousLevel  "+num);
 	}
 	
 	/**
@@ -40,7 +39,7 @@ public class GameAchievementMonitor {
 	 */
 	public boolean updateAchievement(int lvNum){
 		if(!achievements.get("K-komboBreaker").getIsEarned()){
-			updateWonlst(lvNum);
+			updateWonlst(lvNum-1);
 			for(int i=0;i<13;i++){
 				if(isWonlst[i] && isWonlst[i+1] && isWonlst[i+2]){
 					achievements.get("K-komboBreaker").setIsEarned(true);
@@ -53,6 +52,7 @@ public class GameAchievementMonitor {
 	
 	void updateWonlst(int lvNum){
 		if(this.runningLvNum==lvNum){
+			System.out.println("I am here");
 			isWonlst[lvNum]=true;
 		}
 	}
