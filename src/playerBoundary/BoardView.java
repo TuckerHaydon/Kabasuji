@@ -8,8 +8,11 @@ import playerController.BoardController;
 import playerEntity.Board;
 import playerEntity.BoardElt;
 import playerEntity.GameModel;
+import playerEntity.LightningLevel;
 import playerEntity.NumberedBoardElt;
 import playerEntity.PlayableBoardElt;
+import playerEntity.Square;
+import playerEntity.Tile;
 import playerEntity.UnplayableBoardElt;
 
 /**
@@ -96,6 +99,12 @@ public class BoardView extends View{
 				g.setColor(Color.BLACK);
 				g.drawRect(SQUARE_WIDTH * col, SQUARE_WIDTH * row, SQUARE_WIDTH, SQUARE_WIDTH);
 				
+				if(!(m.getCurrentLevel() instanceof LightningLevel)){
+					for(Tile t: m.getCurrentLevel().getBoard().getTiles()){
+						drawTile(g, t);
+					}
+				}
+				
 				if(elts[row][col] instanceof NumberedBoardElt){
 					int num = ((NumberedBoardElt) elts[row][col]).getNum();
 					Color numberColor =  ((NumberedBoardElt) elts[row][col]).getColor();
@@ -107,5 +116,15 @@ public class BoardView extends View{
 			}
 		} 
 	
+	}
+	
+	void drawTile(Graphics g, Tile t){
+		Color tileColor = new Color(((int)(255*Math.random())), ((int)(255*Math.random())), ((int)(255*Math.random())));
+		g.setColor(tileColor);
+		for(Square s:t.getSquares()){
+			int row = t.getAnchor().getRowCol()[0] - s.getRelY();
+			int col = t.getAnchor().getRowCol()[1] + s.getRelX();
+			g.fillRect(SQUARE_WIDTH * col, SQUARE_WIDTH * row, SQUARE_WIDTH, SQUARE_WIDTH);
+		}
 	}
 }
