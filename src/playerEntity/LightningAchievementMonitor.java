@@ -25,8 +25,8 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	@Override
-	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkSlowPoke()|this.checkVictoryLap()|this.checkSpeedyGonzales()){
+	public boolean updateAchievement_whencompletelevel(){
+		if(this.checkSlowPoke()|this.checkSpeedyGonzales()){
 			return true;
 		}
 		return false;
@@ -65,7 +65,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	 * @return true if "SlowPoke" was just unlocked
 	 */
 	private boolean checkSlowPoke(){
-		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && !(lv.hasWon())){
+		if(this.notEarnSlowPoke() && lv.isTimeUsedUp() && !(lv.getIsCompleted())){
 			achievements.get("SlowPoke").setIsEarned(true);
 			popingUp.push("SlowPoke");
 			return true;
@@ -78,7 +78,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	 * @return true if "SpeedyGonzales" was just unlocked
 	 */
 	private boolean checkSpeedyGonzales(){
-		if(this.notEarnSpeedyGonzales() && (lv.getUsedTime()<=(lv.getAllowedTime()*0.5)) && lv.hasWon()){
+		if(this.notEarnSpeedyGonzales() && (lv.getUsedTime()<=(lv.getAllowedTime()*0.5)) && lv.getIsCompleted()){
 			achievements.get("SpeedyGonzales").setIsEarned(true);
 			popingUp.push("SpeedyGonzales");
 			return true;
@@ -88,19 +88,9 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 
 	@Override
 	boolean checkRageQuit(){
-		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && !(lv.hasWon())){
+		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && !(lv.getIsCompleted())){
 			achievements.get("RageQuit").setIsEarned(true);
 			popingUp.push("RageQuit");
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	protected boolean checkVictoryLap() {
-		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
-			achievements.get("VictoryLap").setIsEarned(true);
-			popingUp.push("VictoryLap");
 			return true;
 		}
 		return false;

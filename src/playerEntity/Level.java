@@ -26,10 +26,6 @@ public abstract class Level {
 	}
 	*/
 	
-	public boolean hasWon(){
-		return (this.getStars() == 3);
-	}
-	
 	public int getLevelNum(){
 		return this.levelNum;
 	}
@@ -39,7 +35,6 @@ public abstract class Level {
 	}
 	
 	public boolean getIsCompleted(){
-//		return (getStars()>0);
 		return isComplete;
 	}
 	

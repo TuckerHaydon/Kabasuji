@@ -28,7 +28,6 @@ public class ResetAchievementController implements ActionListener{
 		if(move.execute()){
 			app.getGameWindow().updateView();
 			app.getAchievementsMenu().updateView();
-			System.out.println("ResetAchievementController::actionPerformed");
 		}
 		
 		

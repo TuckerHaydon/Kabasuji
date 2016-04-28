@@ -23,7 +23,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	@Override
-	public boolean updateAchievement_whengotonextlevel(){
+	public boolean updateAchievement_whencompletelevel(){
 		if(this.checkVictoryLap()|this.checkOverAchiever()|this.checkOverAchiever()){
 			return true;
 		}
@@ -58,7 +58,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	
 	/*Finished*/
 	private boolean checkOverAchiever(){
-		if(this.notEarnOverAchiever() && lv.hasWon() && lv.isCoverAll()){
+		if(this.notEarnOverAchiever() && lv.getIsCompleted() && lv.isCoverAll()){
 			achievements.get("OverAchiever").setIsEarned(true);
 			popingUp.push("OverAchiever");
 			return true;
@@ -68,7 +68,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	
 	@Override
 	boolean checkRageQuit(){
-		if(this.notEarnRageQuit() && !(lv.hasWon())){
+		if(this.notEarnRageQuit() && !(lv.getIsCompleted())){
 			achievements.get("RageQuit").setIsEarned(true);
 			popingUp.push("RageQuit");
 			return true;
@@ -77,7 +77,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	protected boolean checkVictoryLap() {
-		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
+		if(this.notEarnVictoryLap() && lv.getIsCompleted() && lv.getIsCompleted()){
 			achievements.get("VictoryLap").setIsEarned(true);
 			popingUp.push("VictoryLap");
 			return true;

@@ -91,16 +91,16 @@ public class PuzzleLevel extends Level {
 		}
 		
 		tilesPlaceable = totalPbElts/6;
-		
-		if(board.getTiles().size() - tilesPlaceable == 0){
+				
+		if(tilesPlaceable - board.getTiles().size() == 0){
 			stars = 3;
 		}
 		
-		if(board.getTiles().size() - tilesPlaceable == 1){
+		if(tilesPlaceable - board.getTiles().size() == 1){
 			stars = 2;
 		}
 		
-		if(board.getTiles().size() - tilesPlaceable == 2){
+		if(tilesPlaceable - board.getTiles().size()  == 2){
 			stars = 1;
 		}
 		

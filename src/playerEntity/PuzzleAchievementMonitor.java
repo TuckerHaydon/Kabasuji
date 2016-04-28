@@ -26,16 +26,13 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		reset();
 		this.lv=(PuzzleLevel) lv;
 	}
-	
-	//should be called when make a move to the board/bullpen/next level or quit
 	@Override
-	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkJustUnderTheWire()|this.checkNoRegrets()|this.checkVictoryLap()){
+	public boolean updateAchievement_whencompletelevel(){
+		if(this.checkJustUnderTheWire()|this.checkNoRegrets()){
 			return true;
 		}
 		return false;
 	}
-	//should goes to bullpen handler when make a new move
 	@Override
 	public boolean updateAchievement_releaseonbullpen(){
 		this.toBullpenMove++;
@@ -69,7 +66,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	/*Finished*/
 	private boolean checkJustUnderTheWire(){
-		if(lv.isMoveUsedUp() && lv.hasWon() && this.notEarnJustUnderTheWire()){
+		if(lv.isMoveUsedUp() && lv.getIsCompleted() && this.notEarnJustUnderTheWire()){
 			achievements.get("JustUnderTheWire").setIsEarned(true);
 			popingUp.push("JustUnderTheWire");
 			return true;
@@ -79,7 +76,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	/*Finished*/
 	private boolean checkNoRegrets(){
-		if(this.notEarnNoRegrets() && lv.hasWon()&& (this.toBullpenMove==0)){
+		if(this.notEarnNoRegrets() && lv.getIsCompleted() && (this.toBullpenMove==0)){
 			achievements.get("NoRegrets").setIsEarned(true);
 			popingUp.push("NoRegrets");
 			return true;
@@ -89,19 +86,9 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	@Override
 	boolean checkRageQuit(){
-		if(this.notEarnRageQuit() && !(lv.hasWon())){
+		if(this.notEarnRageQuit() && !(lv.getIsCompleted())){
 			achievements.get("RageQuit").setIsEarned(true);
 			popingUp.push("RageQuit");
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	protected boolean checkVictoryLap() {
-		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
-			achievements.get("VictoryLap").setIsEarned(true);
-			popingUp.push("VictoryLap");
 			return true;
 		}
 		return false;
