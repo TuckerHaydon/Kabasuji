@@ -46,6 +46,9 @@ public class CompleteLevelMove extends Move{
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Level Failed!");
+			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
+				m.getCurrentAM().popUpScreen();
+			}
 		}
 
 		if(!app.getGameModel().IsTesting()){
