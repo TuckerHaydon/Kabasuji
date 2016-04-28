@@ -62,7 +62,7 @@ public class BankView extends View{
 		Square[] squares = t.getSquares();
 		
 		for(Square s: squares){
-			g.setColor(Color.GREEN);
+			g.setColor(Color.PINK);
 			g.fillRect(SQUARE_WIDTH*s.getAnchorRelX()+anchorLocationX, SQUARE_WIDTH*s.getAnchorRelY()+anchorLocationY, SQUARE_WIDTH, SQUARE_WIDTH);
 			g.setColor(Color.BLACK);
 			g.drawRect(SQUARE_WIDTH*s.getAnchorRelX()+anchorLocationX, SQUARE_WIDTH*s.getAnchorRelY()+anchorLocationY, SQUARE_WIDTH, SQUARE_WIDTH);
