@@ -41,12 +41,16 @@ public class LoadGame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		ArrayList<String> gameNames = this.getGameNames();
-		
+				
 		String chosenGameName = (String) JOptionPane.showInputDialog(null, "Choose a game to load", "Game Loader",
-		        JOptionPane.QUESTION_MESSAGE, null, gameNames.toArray(), gameNames.get(0));
+		        JOptionPane.QUESTION_MESSAGE, null, this.getGameNames().toArray(), this.getGameNames().get(0));
 		
+		this.processAction(chosenGameName);
+		
+	}
+	
+	void processAction(String chosenGameName){
+
 		// if cancel was hit, do nothing. 
 		if(chosenGameName == null){
 			return;
@@ -54,9 +58,12 @@ public class LoadGame implements ActionListener{
 
 		String path = "src/resources/games/"+chosenGameName;
 		parseGame(path);
+		
+		ResetAchievementMove move = new ResetAchievementMove(app, m, m.getAchievements());
+		move.execute();
 	}
 	
-	public void parseGame(String path){
+	void parseGame(String path){
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			m.parseFile(fileScanner);
 		} catch (FileNotFoundException e1) {
@@ -64,7 +71,7 @@ public class LoadGame implements ActionListener{
 		}
 	}
 	
-	public ArrayList<String> getGameNames(){
+	ArrayList<String> getGameNames(){
 		File folder = new File("src/resources/games/");
 		File[] listOfFiles = folder.listFiles();
 		ArrayList<String> gameNames = new ArrayList<>();
