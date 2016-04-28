@@ -1,11 +1,8 @@
 package playerController;
 
-import java.util.ArrayList;
 import java.util.Random;
-
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.PuzzleLevelView;
-import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.BoardElt;
 import playerEntity.GameModel;
@@ -15,7 +12,6 @@ import playerEntity.PlayableBoardElt;
 import playerEntity.PuzzleLevel;
 import playerEntity.Square;
 import playerEntity.Tile;
-import playerEntity.UnplayableBoardElt;
 
 /**
  * Adds a Tile to the board
@@ -23,7 +19,10 @@ import playerEntity.UnplayableBoardElt;
  * In the case of a Lightning Level, a valid move 
  * adds a random Tile to the Bullpen, and an invalid one
  * adds the Tile being moved by the player back.
- * @author tuckerhaydon, dgwalder, jwilder, kacper puczydlowski
+ * @author tuckerhaydon, 
+ * @author dgwalder
+ * @author jwilder
+ * @author kacper puczydlowski
  *
  */
 public class TileToBoardMove extends Move{
@@ -75,7 +74,7 @@ public class TileToBoardMove extends Move{
 	}
 	
 	@Override
-	public boolean doMove() {
+	boolean doMove() {
 		
 		// Set the location of the anchor
 		tile.getAnchor().setRowCol(row, col);
@@ -174,7 +173,7 @@ public class TileToBoardMove extends Move{
 	}
 
 	@Override
-	public boolean undo() {
+	boolean undo() {
 		if(m.getCurrentLevel() instanceof LightningLevel) {
 			return false;
 		}

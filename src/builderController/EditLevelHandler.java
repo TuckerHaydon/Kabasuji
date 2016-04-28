@@ -84,41 +84,27 @@ public class EditLevelHandler implements ActionListener {
 		// Determine which type of level it is.
 		Level editLevel = null;
 		
-		try{
+		if(editLevel == null){
 			String path = "src/resources/levels/puzzle/"+chosenLevelName;
 			editLevel = LevelParser.getLevel(path);
-			if(editLevel == null){
-				throw new RuntimeException();
-			}
 		}
-		catch(Exception e){};
-		try{
+		if(editLevel == null){
 			String path = "src/resources/levels/lightning/"+chosenLevelName;
 			editLevel = LevelParser.getLevel(path);
-			if(editLevel == null){
-				throw new RuntimeException();
-			}
 		}
-		catch(Exception e){};
-		try{
+		if(editLevel == null){
 			String path = "src/resources/levels/release/"+chosenLevelName;
 			editLevel = LevelParser.getLevel(path);
-			if(editLevel == null){
-				throw new RuntimeException();
-			}
 		}
-		catch(Exception e){};
-		
 		if(editLevel == null){
 			System.err.println("Error in EditLevelHandler");
 		}
 		
 		m.setLevel(editLevel);
 		
+		
 		LevelEditor le = app.getLevelEditor();
 		LevelBuilderView lbv = le.getLevelBuilderView();
-		Level oldLevel = lbv.getLevel();
-		oldLevel.setBoard(editLevel.getBoard());
 		BoardView bv = new BoardView(editLevel.getBoard());
 		BullpenView bpv = new BullpenView(editLevel.getBullpen());
 		lbv.setBoardView(bv);
