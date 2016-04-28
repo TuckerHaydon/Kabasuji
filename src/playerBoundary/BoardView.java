@@ -73,7 +73,7 @@ public class BoardView extends View{
 				
 				if(elts[row][col] instanceof PlayableBoardElt){
 					if(((PlayableBoardElt)elts[row][col]).getCovered()){
-						squareColor = Color.GREEN;
+						squareColor = Color.PINK;
 					}
 					else if(((PlayableBoardElt)elts[row][col]).isHint()){
 						squareColor = Color.YELLOW;

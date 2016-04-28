@@ -73,9 +73,6 @@ public class BoardController extends MouseAdapter{
 		// If a tile is picked up, try and place it on the board
 		else{
 
-			
-			
-			
 			// Get the TileView and Tile
 			TileView tileview = gw.getDraggedTile();
 			Tile selectedTile = tileview.getTile();
@@ -88,8 +85,12 @@ public class BoardController extends MouseAdapter{
 			}
 
 			
-			
-			
+			//TODO GAM need to know if the CompleteLevelMove is valid
+			//but IDK if we should put it into the move class
+			GameAchievementMonitor GAM = m.getGAM();
+			if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
+				GAM.pop();
+			}
 
 
 			TileToBoardMove move2 = new TileToBoardMove(app, m, b,selectedTile,row,col);
