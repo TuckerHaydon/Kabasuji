@@ -1,18 +1,18 @@
 BeginLevel
-lightning
-300
+puzzle
+10
 BeginHexomino
-1 2 3 6 
+1 4 4 
 EndHexomino
 BeginElts
-P U P U U P U U P U U U 
-P U P U U P U U P U U U 
-P U P U U P U U P P U U 
-P U P U U P P U P P U U 
-P U P P U P U U U U U U 
-P U U U U U U U U U U U 
 U U U U U U U U U U U U 
 U U U U U U U U U U U U 
+U U PH U U P U P U U U U 
+U U PH U U P U P U U U U 
+U U PH PH P P U P U U U U 
+U U PH U U P U P U U U U 
+U U PH U U P U P U U U U 
+U U U U U U U P U U U U 
 U U U U U U U U U U U U 
 U U U U U U U U U U U U 
 U U U U U U U U U U U U 

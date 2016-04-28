@@ -29,7 +29,7 @@ public class CompleteLevelMove extends Move{
 			
 			// Ensure that by winning the last level it does not try and unlock an imaginary level
 			try{
-				m.getLevels()[thisLevelIndex+1].setIsUnlocked(true);
+				m.getLevels()[thisLevelIndex+3].setIsUnlocked(true);
 			}
 			catch(Exception e){} 
 			

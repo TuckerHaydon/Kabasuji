@@ -107,20 +107,17 @@ public class GameModel {
 			this.currentAMNum=1;
 			this.puzzleAM.reset();
 			this.puzzleAM.setLevel(levels[levelNum]);
-//			System.out.println("SelectingAM:puzzle:lv num:"+levelNum);
 		}
 		if(levelNum%3==1){
 			this.currentAMNum=2;
 			this.lightningAM.reset();
 			this.lightningAM.setLevel(levels[levelNum]);
-//			System.out.println("SelectingAM:lightning:lv num:"+levelNum);
 		}
 		if(levelNum%3==2){
 
 			this.currentAMNum=3;
 			this.releaseAM.reset();
 			this.releaseAM.setLevel(levels[levelNum]);
-//			System.out.println("SelectingAM:release:lv num:"+levelNum);
 		}
 	}
 	
@@ -182,8 +179,14 @@ public class GameModel {
 			
 		}
 		while(!next.equals("EndGame"));
-		if(lvls[0] == null)return;
-		lvls[0].setIsUnlocked(true);
+		if(lvls[0] == null){
+			return;
+		}
+		try{
+			lvls[0].setIsUnlocked(true);
+			lvls[1].setIsUnlocked(true);
+			lvls[2].setIsUnlocked(true);}
+		catch(Exception e){} // NOOP
 		setLevels(lvls);
 		
 	}
