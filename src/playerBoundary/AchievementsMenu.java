@@ -88,7 +88,7 @@ public class AchievementsMenu extends JFrame {
 		
 		pics.put("RageQuit", new JLabel("RageQuit"));
 		pics.get("RageQuit").setBounds(719, 220, 80, 80);
-		pics.get("RageQuit").setIcon(new ImageIcon("src/resources/pictures/Baby_Step.png"));
+		pics.get("RageQuit").setIcon(new ImageIcon("src/resources/pictures/RageQuit.jpg"));
 		contentPane.add(pics.get("RageQuit"));
 		
 		pics.put("SlowPoke", new JLabel("SlowPoke"));
@@ -109,7 +109,7 @@ public class AchievementsMenu extends JFrame {
 		contentPane.add(mainMenuButton);
 		
 
-		resetButton= new JButton("Reset Achievement");
+		resetButton= new JButton("Reset All");
 		resetButton.setBounds(763, 13, 207, 47);
 		resetButton.setBackground(new Color(128, 128, 128));
 		resetButton.setFont(new Font("Snap ITC", Font.PLAIN, 16));
