@@ -40,8 +40,8 @@ public class KabasujiPlayerApplication {
 		initView();
 		initControllers();
 		
-		displaySplashScreen();
-		playThemeSong();
+		//displaySplashScreen();
+		//playThemeSong();
 		displayMainMenu();
 	}
 	

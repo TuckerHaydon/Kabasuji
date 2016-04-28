@@ -20,14 +20,20 @@ public class testCompleteLevelMove {
 		
 		CompleteLevelMove clm = new CompleteLevelMove(player, gm);
 		
+		gm.getCurrentLevel().getBullpen().removeAllTiles();
+		gm.getCurrentLevel().getStars();
+		
+		gm.selectCurrentAM(2);
+		
 		//this should be a valid move
 		//assertTrue(clm.isValid());
-		//clm.doMove();
+		clm.doMove();
 		
 		//undo should always be false
-		//assertFalse(clm.undo());
+		assertFalse(clm.undo());
 	}
 	
+	//this is broken now, need to fix conditions for three stars
 	@Test
 	public void testLevelComplete() {
 		GameModel gm = GameModel.instance();
@@ -45,10 +51,10 @@ public class testCompleteLevelMove {
 		CompleteLevelMove clm = new CompleteLevelMove(player, gm);
 		
 		//move should be valid
-		//assertTrue(clm.isValid());
+		clm.isValid();
 		
 		//ensure that the move executes
-		//assertTrue(clm.doMove());
+		clm.doMove();
 	
 	}
 	
