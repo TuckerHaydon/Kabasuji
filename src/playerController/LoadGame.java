@@ -25,7 +25,7 @@ import playerEntity.Bullpen;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, jwilder
  *
  */
 public class LoadGame implements ActionListener{
@@ -42,6 +42,24 @@ public class LoadGame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		ArrayList<String> gameNames = this.getGameNames();
+		
+		String chosenGameName = (String) JOptionPane.showInputDialog(null, "Choose a game to load", "Game Loader",
+		        JOptionPane.QUESTION_MESSAGE, null, gameNames.toArray(), gameNames.get(0));
+
+		String path = "src/resources/games/"+chosenGameName;
+		parseGame(path);
+	}
+	
+	public void parseGame(String path){
+		try (Scanner fileScanner = new Scanner(new File(path))){
+			m.parseFile(fileScanner);
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	public ArrayList<String> getGameNames(){
 		File folder = new File("src/resources/games/");
 		File[] listOfFiles = folder.listFiles();
 		ArrayList<String> gameNames = new ArrayList<>();
@@ -52,18 +70,7 @@ public class LoadGame implements ActionListener{
 				gameNames.add(listOfFiles[i].getName());
 		    }
 		}
-		
-		String chosenGameName = (String) JOptionPane.showInputDialog(null, "Choose a game to load", "Game Loader",
-		        JOptionPane.QUESTION_MESSAGE, null, gameNames.toArray(), gameNames.get(0));
-
-		String path = "src/resources/games/"+chosenGameName;
-		
-		try (Scanner fileScanner = new Scanner(new File(path))){
-			m.parseFile(fileScanner);
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		
+		return gameNames;
 	}
 	
 	

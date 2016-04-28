@@ -2,6 +2,8 @@ package playerController;
 
 import static org.junit.Assert.*;
 
+import java.awt.event.MouseEvent;
+
 import org.junit.Test;
 
 import playerBoundary.BoardView;
@@ -13,6 +15,7 @@ import playerEntity.Bullpen;
 import playerEntity.GameModel;
 import playerEntity.PuzzleAchievementMonitor;
 
+//NEEDS ASSERT STATEMENTS
 public class testBoardController {
 
 	@Test
@@ -32,6 +35,14 @@ public class testBoardController {
 		Board b = gm.getCurrentLevel().getBoard();
 		BoardView bv = player.getGameWindow().getLevelView().getBoardView();
 		BoardController bc = new BoardController(player, gm, b, 100);
+		MouseEvent meBP = new MouseEvent(bv, 0, 0, 0, 0, 0, 0, false);
+		bc.mousePressed(meBP);
+		bc.mouseMoved(meBP);
+		
+		//ctrl + left click
+		bc.processMousePressed(0, 0);
+		
+		
 	}
 
 }
