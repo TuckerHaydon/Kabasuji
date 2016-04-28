@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 
+import playerController.ResetAchievementMove;
 import playerEntity.LevelParser;
 
 /**
