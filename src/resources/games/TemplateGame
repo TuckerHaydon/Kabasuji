@@ -53,11 +53,11 @@ N2R P P P P P P P P P P P
 N3R P P P N5R P P P P P P P 
 N4R P P P N6R P P P P P P P 
 P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
-P P P P P P P P P P P P 
+P P P P N2B P P P P P P P 
+P P P P N4B P P P P P P P 
+P N1B P N5B P P P P P P P P 
+P P P P N6B P P P P P P P 
+P P P P P P P P N3B P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 EndElts
