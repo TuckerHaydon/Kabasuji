@@ -77,22 +77,34 @@ public class PuzzleLevel extends Level {
 	}
 	
 	public int getStars(){
-		int remScore = 0;
-		int star = 0;
-		
-		remScore = this.bullpen.getTiles().size();
-		//score = initScore - remScore;
-		
-		if (remScore == 2){
-			star = 1;
-		}
-		else if (remScore == 1){
-			star = 2;
-		} else if( remScore == 0){
-			star = 3;
+		int stars= 0;
+		int coveredElts = 0;
+		int totalPbElts = 0;
+		int tilesPlaceable = 0;
+
+		for(int i=0; i< board.elts.length; i++){
+			for(int j=0; j< board.elts[0].length; j++){
+				if(board.elts[i][j] instanceof PlayableBoardElt){
+					totalPbElts++;
+				}
+			}
 		}
 		
-		return star;
+		tilesPlaceable = totalPbElts/6;
+		
+		if(board.getTiles().size() - tilesPlaceable == 0){
+			stars = 3;
+		}
+		
+		if(board.getTiles().size() - tilesPlaceable == 1){
+			stars = 2;
+		}
+		
+		if(board.getTiles().size() - tilesPlaceable == 2){
+			stars = 1;
+		}
+		
+		return stars;
 	}
 	
 	public boolean cannotContinue(){
