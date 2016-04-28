@@ -11,10 +11,10 @@ import playerEntity.GameModel;
 import playerEntity.Tile;
 
 /**
- * 
+ * Controls all of the mouse events that occur over the Board
  * @author tuckerhaydon, ndiwakar
- *
  */
+
 public class BoardController extends MouseAdapter{
 	KabasujiPlayerApplication app;
 	GameModel m;
