@@ -12,14 +12,22 @@ import playerEntity.LightningLevel;
 import playerEntity.Tile;
 
 /**
- * 
- * @author 
+ * Removes a Tile from the Bullpen
+ * and creates a DraggedTile object
+ * @author kacper puczydlowski
  *
  */
 public class PickUpTileBullpenMove extends Move{
 	Tile tile;
 	Bullpen bullpen;
 	
+	/**
+	 * Pick Up Tile Bullpen Move Constructor
+	 * @param app
+	 * @param m
+	 * @param tile
+	 * @param bullpen
+	 */
 	public PickUpTileBullpenMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Bullpen bullpen){
 		super(app, m);
 		this.tile=tile;

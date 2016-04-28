@@ -34,6 +34,8 @@ public class PlayLevel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+
+		System.out.println("PlayLevel    lv.getIsComplete:  "+m.getCurrentLevel().getIsCompleted());
 		processAction();
 	}
 	
@@ -53,10 +55,9 @@ public class PlayLevel implements ActionListener {
 			app.displayGameWindow();
 			
 			//achievement stuff 
-			 m.getGAM().setPreviousLevel(levelNum);
+			 m.getGAM().setRunningLevel(levelNum);
 			 m.selectCurrentAM(levelNum);
 			 
-
 		}
 		else{
 			System.err.println("Level not unlocked.");

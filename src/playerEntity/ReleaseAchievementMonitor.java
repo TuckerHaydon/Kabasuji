@@ -31,7 +31,6 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	}
 	@Override
 	public boolean updateAchievement_releaseonbullpen(){
-		this.moveCounter++;
 		return false;
 	}
 	@Override
@@ -76,9 +75,8 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
-
-	@Override
-	boolean checkVictoryLap() {
+	
+	protected boolean checkVictoryLap() {
 		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
 			achievements.get("VictoryLap").setIsEarned(true);
 			popingUp.push("VictoryLap");
@@ -86,7 +84,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
-
+	
 	@Override
 	public void reset() {
 		this.lv=null;

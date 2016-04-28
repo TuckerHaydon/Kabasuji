@@ -11,8 +11,8 @@ import playerEntity.PuzzleLevel;
 import playerEntity.Tile;
 
 /**
- * 
- * @author tuckerhaydon, dgwalder
+ * Adds a Tile to the Bullpen 
+ * @author tuckerhaydon, dgwalder, kacper puczydlowski
  *
  */
 public class TileToBullpenMove extends Move{
@@ -29,7 +29,6 @@ public class TileToBullpenMove extends Move{
 	@Override 
 	public boolean execute(){
 		
-		AM = m.getCurrentAM();
 		
 		if(!this.isValid()){
 			return false;
@@ -50,6 +49,9 @@ public class TileToBullpenMove extends Move{
 		// Repaint the bullpen
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		
+
+		AM = m.getCurrentAM();
+		
 		if(AM.updateAchievement_releaseonbullpen()){
 			AM.popUpScreen();
 		}
@@ -59,7 +61,7 @@ public class TileToBullpenMove extends Move{
 
 	@Override
 	boolean isValid() {
-		if(m.getCurrentLevel() instanceof LightningLevel) {
+		if(m.getCurrentLevel() instanceof LightningLevel && app.getGameWindow().getDraggedTile()==null) {
 			return false;
 		}
 		return true;

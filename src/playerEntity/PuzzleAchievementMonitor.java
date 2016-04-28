@@ -38,11 +38,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	//should goes to bullpen handler when make a new move
 	@Override
 	public boolean updateAchievement_releaseonbullpen(){
-		this.moveCounter++;
 		this.toBullpenMove++;
-		if(this.checkBabySteps()){
-			return true;
-		}
 		return false;
 	}
 	//should goes to move class //
@@ -102,7 +98,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	}
 
 	@Override
-	boolean checkVictoryLap() {
+	protected boolean checkVictoryLap() {
 		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
 			achievements.get("VictoryLap").setIsEarned(true);
 			popingUp.push("VictoryLap");
@@ -110,7 +106,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
-
+	
 	@Override
 	public void reset() {
 		this.lv=null;

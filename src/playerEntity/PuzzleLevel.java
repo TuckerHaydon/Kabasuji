@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author tuckerhaydon, dorothy, ndiwakar, dgwalder
+ * @author tuckerhaydon, dorothy, ndiwakar, dgwalder, kacper puczydlowski
  *
  */
 public class PuzzleLevel extends Level {
@@ -90,10 +90,6 @@ public class PuzzleLevel extends Level {
 			star = 2;
 		} else if( remScore == 0){
 			star = 3;
-		}
-		
-		if(star >0){
-			isComplete = true;
 		}
 		
 		return star;

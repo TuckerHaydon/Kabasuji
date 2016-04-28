@@ -144,7 +144,7 @@ public class KabasujiPlayerApplication {
 	
 	void playThemeSong(){
 		try {
-			File f = new File("src/resources/audio/rainbow_bunchie.wav");
+			File f = new File("src/resources/audio/recorder.wav");
 			//File f = new File("src/resources/audio/themesong.wav");
 			Clip clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(f));

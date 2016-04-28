@@ -18,8 +18,12 @@ import playerEntity.Tile;
 import playerEntity.UnplayableBoardElt;
 
 /**
- * 
- * @author tuckerhaydon, dgwalder, jwilder
+ * Adds a Tile to the board
+ * setting the dragged TileView to null 
+ * In the case of a Lightning Level, a valid move 
+ * adds a random Tile to the Bullpen, and an invalid one
+ * adds the Tile being moved by the player back.
+ * @author tuckerhaydon, dgwalder, jwilder, kacper puczydlowski
  *
  */
 public class TileToBoardMove extends Move{
@@ -29,6 +33,15 @@ public class TileToBoardMove extends Move{
 	Tile tile;
 	LevelAchievementMonitor AM;
 	
+	/**
+	 * Tile To Board Move constructor
+	 * @param app application
+	 * @param m model
+	 * @param b board
+	 * @param tile tile
+	 * @param row
+	 * @param col
+	 */
 	public TileToBoardMove(KabasujiPlayerApplication app, GameModel m, Board b, Tile tile, int row, int col){
 		super(app, m);
 		this.row=row;
@@ -95,7 +108,7 @@ public class TileToBoardMove extends Move{
 		app.getGameWindow().getLevelView().refreshProgressBar();
 		
 		//if level is completed, complete to main button appears
-		if((m.getCurrentLevel().getIsCompleted())){
+		if((m.getCurrentLevel().getStars()>1)){
 			app.getGameWindow().getLevelView().competeLevelButton();
 		}
 		

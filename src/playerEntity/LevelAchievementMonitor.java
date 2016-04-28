@@ -14,7 +14,7 @@ public abstract class LevelAchievementMonitor {
 	int moveCounter;
 	LinkedList<String> popingUp;
 	Hashtable<String, Achievement> achievements;
-	
+	Level lv;
 	/**
 	 * 
 	 * @return true if any achievement was just unlocked
@@ -158,7 +158,6 @@ public abstract class LevelAchievementMonitor {
 			for(int i=0;i<popingUp.size();i++){
 				message = message + popingUp.get(i)+"\n";
 			}
-			System.out.println(message);
 			JFrame frame = new JFrame();
 			JOptionPane.showMessageDialog(frame, message, "Achievement Unlocked:", JOptionPane.INFORMATION_MESSAGE);
 			popingUp.clear();

@@ -97,8 +97,10 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	}
 
 	@Override
-	boolean checkVictoryLap() {
+	protected boolean checkVictoryLap() {
 		if(this.notEarnVictoryLap() && lv.hasWon() && lv.getIsCompleted()){
+			achievements.get("VictoryLap").setIsEarned(true);
+			popingUp.push("VictoryLap");
 			return true;
 		}
 		return false;
