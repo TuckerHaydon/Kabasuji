@@ -25,8 +25,8 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	@Override
-	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkSlowPoke()|this.checkVictoryLap()|this.checkSpeedyGonzales()){
+	public boolean updateAchievement_whencompletelevel(){
+		if(this.checkSlowPoke()|this.checkSpeedyGonzales()){
 			return true;
 		}
 		return false;
@@ -91,16 +91,6 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && !(lv.getIsCompleted())){
 			achievements.get("RageQuit").setIsEarned(true);
 			popingUp.push("RageQuit");
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	protected boolean checkVictoryLap() {
-		if(this.notEarnVictoryLap() && lv.getIsCompleted() && lv.getIsCompleted()){
-			achievements.get("VictoryLap").setIsEarned(true);
-			popingUp.push("VictoryLap");
 			return true;
 		}
 		return false;

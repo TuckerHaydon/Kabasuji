@@ -64,4 +64,10 @@ public class Bullpen {
 	public ArrayList<Tile> getTiles(){
 		return tiles;
 	}
+	
+	public void removeAllTiles(){
+		for(int i = 0; i<tiles.size(); i++){
+			removeTile(tiles.get(i));
+		}
+	}
 }

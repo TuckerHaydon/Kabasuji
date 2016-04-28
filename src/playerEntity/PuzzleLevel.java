@@ -107,6 +107,7 @@ public class PuzzleLevel extends Level {
 		return stars;
 	}
 	
+	
 	public boolean cannotContinue(){
 		return this.isMoveUsedUp();
 	}
