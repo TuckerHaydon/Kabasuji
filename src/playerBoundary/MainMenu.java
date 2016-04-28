@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 
 import playerController.LoadGame;
 import playerController.NavigateAchievementMenu;
+import playerController.NavigateInstructionsMenu;
 import playerController.NavigateLevelSelectionMenu;
 import playerEntity.GameModel;
 
@@ -22,6 +23,7 @@ public class MainMenu extends JFrame {
 	JButton loadGame;
 	JButton playGame;
 	JButton viewAchievements;
+	JButton instructions;
 	KabasujiPlayerApplication app;
 	GameModel m;
 	
@@ -33,6 +35,7 @@ public class MainMenu extends JFrame {
 		loadGame = new JButton("Load Game");
 		playGame = new JButton("Play Game");
 		viewAchievements = new JButton("View Achievements");
+		instructions = new JButton("Instructions");
 		
 	}
 	
@@ -54,17 +57,21 @@ public class MainMenu extends JFrame {
 		playGame.setBackground(new Color(128, 128, 128));
 		playGame.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
 		viewAchievements.setBackground(new Color(128, 128, 128));
-		viewAchievements.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));this.add(loadGame);
+		viewAchievements.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		instructions.setBackground(new Color(128, 128, 128));
+		instructions.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		
 		this.add(loadGame);
 		this.add(playGame);
 		this.add(viewAchievements);
+		this.add(instructions);
 	}
 	
 	public void initControllers(){
 		viewAchievements.addActionListener(new NavigateAchievementMenu(app));
 		playGame.addActionListener(new NavigateLevelSelectionMenu(app,m));
 		loadGame.addActionListener(new LoadGame(m, app));
-		// TODO add a loadGame controller
+		instructions.addActionListener(new NavigateInstructionsMenu(app, m));
 	}
 
 }
