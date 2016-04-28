@@ -26,16 +26,13 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		reset();
 		this.lv=(PuzzleLevel) lv;
 	}
-	
-	//should be called when make a move to the board/bullpen/next level or quit
 	@Override
-	public boolean updateAchievement_whengotonextlevel(){
-		if(this.checkJustUnderTheWire()|this.checkNoRegrets()|this.checkVictoryLap()){
+	public boolean updateAchievement_whencompletelevel(){
+		if(this.checkJustUnderTheWire()|this.checkNoRegrets()){
 			return true;
 		}
 		return false;
 	}
-	//should goes to bullpen handler when make a new move
 	@Override
 	public boolean updateAchievement_releaseonbullpen(){
 		this.toBullpenMove++;
@@ -92,16 +89,6 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 		if(this.notEarnRageQuit() && !(lv.getIsCompleted())){
 			achievements.get("RageQuit").setIsEarned(true);
 			popingUp.push("RageQuit");
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	protected boolean checkVictoryLap() {
-		if(this.notEarnVictoryLap() && lv.getIsCompleted() && lv.getIsCompleted()){
-			achievements.get("VictoryLap").setIsEarned(true);
-			popingUp.push("VictoryLap");
 			return true;
 		}
 		return false;

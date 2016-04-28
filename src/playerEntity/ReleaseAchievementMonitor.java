@@ -23,7 +23,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	@Override
-	public boolean updateAchievement_whengotonextlevel(){
+	public boolean updateAchievement_whencompletelevel(){
 		if(this.checkVictoryLap()|this.checkOverAchiever()|this.checkOverAchiever()){
 			return true;
 		}

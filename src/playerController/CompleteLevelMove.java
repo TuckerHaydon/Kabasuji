@@ -20,7 +20,6 @@ public class CompleteLevelMove extends Move{
 	
 	@Override
 	public boolean doMove() {
-		System.out.println("CompleteLevelMove    lv.getIsComplete:  "+m.getCurrentLevel().getIsCompleted());
 		
 		if(m.getCurrentLevel().getStars() > 0){
 			
@@ -35,7 +34,7 @@ public class CompleteLevelMove extends Move{
 			catch(Exception e){} 
 			
 			
-			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
+			if(m.getCurrentAM().updateAchievement_whencompletelevel()){
 				m.getCurrentAM().popUpScreen();
 			}
 			
@@ -46,7 +45,7 @@ public class CompleteLevelMove extends Move{
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Level Failed!");
-			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
+			if(m.getCurrentAM().updateAchievement_whencompletelevel()){
 				m.getCurrentAM().popUpScreen();
 			}
 		}

@@ -16,27 +16,27 @@ public abstract class LevelAchievementMonitor {
 	Hashtable<String, Achievement> achievements;
 	Level lv;
 	/**
-	 * 
+	 * Update the achievement status when the user complete a level
 	 * @return true if any achievement was just unlocked
 	 */
-	public abstract boolean updateAchievement_whengotonextlevel();
+	public abstract boolean updateAchievement_whencompletelevel();
 	/**
-	 * 
+	 * Update the achievement status when the user release a tile on the bullpen
 	 * @return true if any achievement was just unlocked
 	 */
 	public abstract boolean updateAchievement_releaseonbullpen();
 	/**
-	 * 
+	 * Update the achievement status when the user release a tile on the board
 	 * @return true if any achievement was just unlocked
 	 */
 	public abstract boolean updateAchievement_releaseonboard();
 	/**
-	 * 
+	 * Update the achievement status when the user 
 	 * @return true if any achievement was just unlocked
 	 */
 	public abstract boolean updateAchievement_wheninvalidmove();
 	/**
-	 * 
+	 * Update the achievement status when the user quit the game
 	 * @return true if any achievement was just unlocked
 	 */
 	public abstract boolean updateAchievement_whenquit();
@@ -50,17 +50,12 @@ public abstract class LevelAchievementMonitor {
 	 */
 	public abstract void reset();
 	/**
-	 * 
+	 * Check if "RageQuit" achievement was just unlocked
 	 * @return true if "RageQuit" was just unlocked
 	 */
 	abstract boolean checkRageQuit();
 	/**
-	 * 
-	 * @return true if "VictoryLap" was just unlocked
-	 */
-	abstract boolean checkVictoryLap();
-	/**
-	 * 
+	 * Check if "BabyStep" achievement was just unlocked
 	 * @return true if "BabyStep" was just unlocked
 	 */
 	protected boolean checkBabySteps(){
@@ -73,7 +68,7 @@ public abstract class LevelAchievementMonitor {
 	}
 	
 	/**
-	 * 
+	 * Check if "Rebel" achievement was just unlocked
 	 * @return true if "Rebel" was just unlocked
 	 */
 	protected boolean checkRebel(){
@@ -86,21 +81,21 @@ public abstract class LevelAchievementMonitor {
 	}
 	
 	/**
-	 * 
+	 * Check the earned status of BabyStep achievement
 	 * @return true if "BabyStep" was earned
 	 */
 	protected boolean notEarnBabyStep() {
 		return !(achievements.get("SpeedyGonzales").getIsEarned());
 	}
 	/**
-	 * 
+	 * Check the earned status of Rebel achievement
 	 * @return true if "Rebel" was earned
 	 */
 	protected boolean notEarnRebel() {
 		return !(achievements.get("Rebel").getIsEarned());
 	}
 	/**
-	 * 
+	 * Check the earned status of OverAchiever achievement
 	 * @return true if "OverAchiever" was earned
 	 */
 	protected boolean notEarnOverAchiever() {
@@ -114,36 +109,36 @@ public abstract class LevelAchievementMonitor {
 		return !(achievements.get("SlowPoke").getIsEarned());
 	}
 	/**
-	 * 
+	 * Check the earned status of SpeedyGonzales achievement
 	 * @return true if "SpeedyGonzales" was earned
 	 */
 	protected boolean notEarnSpeedyGonzales() {
 		return !(achievements.get("SpeedyGonzales").getIsEarned());
 	}
 	/**
-	 * 
-	 * @return true if "JustUnderTheWire" was earned
+	 * Check the earned status of JustUnderTheWire achievement
+	 * @return true if "JustUnderTheWire" was not earned
 	 */
 	protected boolean notEarnJustUnderTheWire() {
 		return !(achievements.get("JustUnderTheWire").getIsEarned());
 	}
 	/**
-	 * 
-	 * @return true if "NoRegrets" was earned
+	 * Check the earned status of NoRegrets achievement
+	 * @return true if "NoRegrets" was not earned
 	 */
 	protected boolean notEarnNoRegrets() {
 		return !(achievements.get("NoRegrets").getIsEarned());
 	}
 	/**
-	 * 
-	 * @return true if "RageQuit" was earned
+	 * Check the earned status of RageQuit achievement
+	 * @return true if "RageQuit" was not earned
 	 */
 	protected boolean notEarnRageQuit() {
 		return !(achievements.get("RageQuit").getIsEarned());
 	}
 	/**
-	 * 
-	 * @return true if "VictoryLap" was earned
+	 * Check the earned status of VictoryLap achievement 
+	 * @return true if "VictoryLap" was not earned
 	 */
 	protected boolean notEarnVictoryLap(){
 		return !(achievements.get("VictoryLap").getIsEarned());
