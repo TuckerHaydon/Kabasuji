@@ -182,13 +182,9 @@ public class GameModel {
 			
 		}
 		while(!next.equals("EndGame"));
-		try{
+		if(lvls[0] == null)return;
 		lvls[0].setIsUnlocked(true);
 		setLevels(lvls);
-		} catch (Exception e) {
-			//Cancel was pressed, or the level could not be loaded.
-			//System.err.println("Trying to cancel/load null level");
-		}
 		
 	}
 	
