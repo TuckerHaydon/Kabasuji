@@ -30,7 +30,7 @@ public abstract class BoardElt {
 	 * Returns the row and column as a 2x1 array
 	 * @return
 	 */
-	int[] getRowCol() {
+	public int[] getRowCol() {
 		int[] ints = {row, col};
 		return ints;
 	}
