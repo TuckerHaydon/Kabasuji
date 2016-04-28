@@ -14,7 +14,7 @@ import playerEntity.LevelParser;
  * The Game Model class handles the initialization of the 
  * achievements, the parsing of Tiles, Boards, and Levels after import,
  * and contains levels and monitors
- * @author tuckerhaydon, dorothy,
+ * @author tuckerhaydon, dorothy, kacper puczydlowski
  *
  */
 public class GameModel {
@@ -158,6 +158,10 @@ public class GameModel {
 	 */
 	public void parseFile(Scanner fileScanner){
 		
+		if(fileScanner == null) {
+			System.err.println("lol");
+		}
+		
 		Level lvls[] = new Level[15];
 		
 		String next;
@@ -178,9 +182,13 @@ public class GameModel {
 			
 		}
 		while(!next.equals("EndGame"));
-		
+		try{
 		lvls[0].setIsUnlocked(true);
 		setLevels(lvls);
+		} catch (Exception e) {
+			//Cancel was pressed, or the level could not be loaded.
+			//System.err.println("Trying to cancel/load null level");
+		}
 		
 	}
 	

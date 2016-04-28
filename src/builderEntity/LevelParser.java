@@ -22,8 +22,11 @@ public class LevelParser {
 			parsedLevel = parseFile(fileScanner);
 			fileScanner.close();
 		} catch (Exception e) {
+			
+			if(fileScanner != null){
 			System.err.println("Error parsing file in LevelParser.");
 			fileScanner.close();
+			}
 		}
 		
 		return parsedLevel;
