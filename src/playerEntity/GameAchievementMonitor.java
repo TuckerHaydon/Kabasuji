@@ -40,15 +40,12 @@ public class GameAchievementMonitor {
 	
 	/**
 	 * Check if the number unlocked any achievements
-	 * @param lvNum The number represents level
-	 * @return True if an achievement is unlocked
+	 *
 	 */
-	public boolean updateAchievement(int lvNum){
+	public void updateAchievement(int lvNum){
 			updateWonlst(lvNum-1);
-			if(this.checkKomboBreaker()|this.checkVictoryLap()){
-				return true;
-			}	
-		return false;
+			this.checkKomboBreaker();
+			this.checkVictoryLap();
 	}
 	
 	/**
@@ -112,9 +109,6 @@ public class GameAchievementMonitor {
 			JFrame frame = new JFrame();
 			JOptionPane.showMessageDialog(frame, message, "Achievement Unlocked:", JOptionPane.INFORMATION_MESSAGE);
 			popingUp.clear();
-		}
-		else{
-			System.err.println("LevelAchievementMonitor::popUpScreen :You should NOT popup things without call UpdateAchievement function");
 		}
 	}
 		

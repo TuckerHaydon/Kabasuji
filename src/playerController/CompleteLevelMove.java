@@ -38,10 +38,10 @@ public class CompleteLevelMove extends Move{
 				m.getCurrentAM().popUpScreen();
 			}
 			
+			m.getCurrentLevel().setLevelComplete(true);
 			
-			if(m.getCurrentLevel().getStars() == 3){
-				m.getCurrentLevel().setLevelComplete(true);
-			}
+			
+			m.getGAM().updateAchievement(m.getCurrentLevel().getLevelNum());
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Level Failed!");
@@ -53,11 +53,8 @@ public class CompleteLevelMove extends Move{
 		if(!app.getGameModel().IsTesting()){
 			app.displayLevelSelectionMenu();
 			app.getGameWindow().updateView();
+			m.getGAM().pop();
 			
-			GameAchievementMonitor GAM = m.getGAM();
-			if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
-				GAM.pop();
-			}
 		}
 		
 		if(m.getCurrentLevel() instanceof LightningLevel){

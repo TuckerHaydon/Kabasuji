@@ -83,14 +83,7 @@ public class BoardController extends MouseAdapter{
 			}
 
 			
-			//TODO GAM need to know if the CompleteLevelMove is valid
-			//but IDK if we should put it into the move class
-			GameAchievementMonitor GAM = m.getGAM();
-			if(GAM.updateAchievement(m.getCurrentLevel().getLevelNum())){
-				GAM.pop();
-			}
-
-
+			
 			TileToBoardMove move2 = new TileToBoardMove(app, m, b,selectedTile,row,col);
 			move2.execute();
 			
