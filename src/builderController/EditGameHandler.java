@@ -60,17 +60,18 @@ public class EditGameHandler implements ActionListener {
 		String path = "src/resources/games/"+chosenLevelName;
 		
 		loadGame(path);
+		if(m.getGame() != null){
 		m.getGame().setName(chosenLevelName);
 		ge.refreshAll();
 		app.displayGameEditor();
-		
+		}
 	}
 	
 	public void loadGame(String path){
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			parseFile(fileScanner);
 		} catch (FileNotFoundException e1) {
-			System.err.println("File does not exist in the EditGameHandler.");
+			//System.err.println("File does not exist in the EditGameHandler.");
 		}
 	}
 	
@@ -96,6 +97,7 @@ public class EditGameHandler implements ActionListener {
 		}
 		while(!next.equals("EndGame"));
 		
+		if(lvls != null)
 		m.setGame(new Game("unnamed", lvls));
 		
 	}
