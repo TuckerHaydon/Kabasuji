@@ -20,7 +20,7 @@ public class ResetLevelController implements ActionListener{
 		this.m=m;
 	}
 	
-	/*Finished*/
+	
 	public void actionPerformed(ActionEvent e) {
 		ResetLevelMove move = new ResetLevelMove(app,m);
 		move.execute();
