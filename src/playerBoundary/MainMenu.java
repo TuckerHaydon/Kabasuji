@@ -48,8 +48,8 @@ public class MainMenu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Set the layout
-		getContentPane().setLayout(new GridLayout(3,1));
-		
+		getContentPane().setLayout(new GridLayout(4,1));
+		getContentPane().setBackground(new Color(255, 228, 225));
 		// Add the buttons to the frame
 
 		loadGame.setBackground(new Color(128, 128, 128));
