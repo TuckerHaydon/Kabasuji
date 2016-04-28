@@ -55,7 +55,7 @@ public class PlayLevel implements ActionListener {
 			app.displayGameWindow();
 			
 			//achievement stuff 
-			 m.getGAM().setPreviousLevel(levelNum);
+			 m.getGAM().setRunningLevel(levelNum);
 			 m.selectCurrentAM(levelNum);
 			 
 		}
