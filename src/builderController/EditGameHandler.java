@@ -48,19 +48,19 @@ public class EditGameHandler implements ActionListener {
 	public void processAction(){
 		ArrayList<String> gameNames = addGames();
 		
-		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a Game to load", "Game Loader",
+		String chosenGameName = (String) JOptionPane.showInputDialog(null, "Choose a Game to load", "Game Loader",
 		        JOptionPane.QUESTION_MESSAGE, null, gameNames.toArray(), gameNames.get(0));
 
-		String path = "src/resources/games/"+chosenLevelName;
+		String path = "src/resources/games/"+chosenGameName;
 		
-		attemptLoadGame(path, chosenLevelName);
+		attemptLoadGame(path, chosenGameName);
 		}
 	
-	private void attemptLoadGame(String path, String chosenLevelName) {
+	public void attemptLoadGame(String path, String chosenGameName) {
 		GameEditor ge = app.getGameEditor();
 		loadGame(path);
 		if(m.getGame() != null){
-		m.getGame().setName(chosenLevelName);
+		m.getGame().setName(chosenGameName);
 		ge.refreshAll();
 		app.displayGameEditor();
 		}

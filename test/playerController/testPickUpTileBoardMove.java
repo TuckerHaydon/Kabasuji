@@ -26,7 +26,7 @@ public class testPickUpTileBoardMove {
 		//get entities
 		Board b = gm.getCurrentLevel().getBoard();
 		ArrayList<Tile> allTiles = gm.getCurrentLevel().getBullpen().getTiles();
-		Tile selectTile = allTiles.get(3);
+		Tile selectTile = allTiles.get(2);
 		
 		//get boundaries
 		TileView tv = new TileView(player, gm, selectTile);
@@ -34,7 +34,7 @@ public class testPickUpTileBoardMove {
 		//first have to add a tile to the board
 		PuzzleAchievementMonitor pam = new PuzzleAchievementMonitor(null);
 		gm.selectCurrentAM(1);
-		TileToBoardMove ttbm = new TileToBoardMove(player, gm, b, allTiles.get(3), 2, 2);
+		TileToBoardMove ttbm = new TileToBoardMove(player, gm, b, allTiles.get(2), 1, 1);
 		ttbm.setAM(pam);
 		player.getGameWindow().setDraggedTile(tv);
 		ttbm.execute();
