@@ -2,9 +2,12 @@ package playerController;
 
 import static org.junit.Assert.*;
 
+import java.awt.event.ActionEvent;
+
 import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;
+import playerEntity.Achievement;
 import playerEntity.GameModel;
 
 public class testResetAchievementMove {
@@ -26,6 +29,14 @@ public class testResetAchievementMove {
 		//(why do we need this?)
 		ram.undo();
 		assertFalse(ram.undo());
+		Achievement m = new Achievement("test");
+		assertEquals(m.getIsEarned(), false);
+		m.setIsEarned(true);
+		gm.getAchievements().put("test", m);
+		ResetAchievementController rac = new ResetAchievementController(player, gm);
+		rac.actionPerformed(new ActionEvent(gm, 0, null));
+		
+		assertTrue(gm.getAchievements().isEmpty());
 	}
 
 }

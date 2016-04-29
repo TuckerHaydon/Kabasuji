@@ -26,6 +26,7 @@ public class ResetLevelMove extends Move{
 	boolean doMove() {
 		
 		// Get the current level
+		if(!isValid()) return false;
 		Level l = m.getCurrentLevel();
 		
 		// Store the score in case of undo

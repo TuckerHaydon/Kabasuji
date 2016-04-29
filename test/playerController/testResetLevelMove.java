@@ -2,6 +2,8 @@ package playerController;
 
 import static org.junit.Assert.*;
 
+import java.awt.event.ActionEvent;
+
 import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;
@@ -25,6 +27,10 @@ public class testResetLevelMove {
 		assertEquals(gm.getCurrentLevel().getBoard().getTiles().size(), 0);
 		
 		assertTrue(rlm.undo());
+		
+		ResetLevelController rlc = new ResetLevelController(player, gm);
+		rlc.actionPerformed(new ActionEvent(player.getGameWindow(), 0, null));
+		assertEquals(gm.getCurrentLevel().getBoard().getTiles().size(), 0);
 		
 	}
 	
