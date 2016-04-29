@@ -1,21 +1,21 @@
 BeginGame
 BeginLevel
 Puzzle
-10
+-1
 BeginHexomino
-1 4 4 
+8 1 6 6 2 
 EndHexomino
 BeginElts
 U U U U U U U U U U U U 
-U U U U U U U U U U U U 
-U U PH U U P U P U U U U 
-U U PH U U P U P U U U U 
-U U PH PH P P U P U U U U 
-U U PH U U P U P U U U U 
-U U PH U U P U P U U U U 
-U U U U U U U P U U U U 
-U U U U U U U U U U U U 
-U U U U U U U U U U U U 
+U U U U U U U PH PH U U U 
+U U U U P PH PH PH PH U U U 
+U U U U P P P P U U U U 
+U U U P P P P U U U U U 
+PH PH PH PH P P U U U U U U 
+U U PH PH P P U U U U U U 
+U U U U P U U U U U U U 
+U U U U P P U U U U U U 
+U U U U P U U U U U U U 
 U U U U U U U U U U U U 
 U U U U U U U U U U U U 
 EndElts
