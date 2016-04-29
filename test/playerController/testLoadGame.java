@@ -19,6 +19,7 @@ public class testLoadGame {
 		LoadGame lg = new LoadGame(gm, player);
 		lg.getGameNames();
 		lg.parseGame("src/resources/games/ExampleGame1");
+		lg.processAction("ExampleGame1");
 		
 		//the game should have levels now
 		assertNotSame(player.getGameModel().getLevels(), null);
