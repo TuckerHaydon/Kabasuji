@@ -157,7 +157,7 @@ public class TileToBoardMove extends Move{
 				PlayableBoardElt playableElt = (PlayableBoardElt) elt;
 				
 				// Check to see if the elt is already covered
-				if(playableElt.getCovered()){
+				if(playableElt.getCovered() && !(m.getCurrentLevel() instanceof LightningLevel)){
 					//System.err.println("TTBM:isValid(): trying to cover a covered elt.");
 					return false;
 				}

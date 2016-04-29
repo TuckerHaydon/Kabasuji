@@ -48,6 +48,14 @@ public class GameAchievementMonitor {
 			this.checkVictoryLap();
 	}
 	
+	public void unlockWhatANerd(){
+		if(!achievements.get("WhatANerd").getIsEarned()){
+			achievements.get("WhatANerd").setIsEarned(true);
+			popingUp.add("WHAT A NERDDDDDDDDD");
+		}
+	}
+	
+	
 	/**
 	 * Check K-komboBreaker achievement was just earned
 	 * @return true if K-komboBreaker achievement was earned 

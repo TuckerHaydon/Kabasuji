@@ -1,15 +1,15 @@
 BeginLevel
 puzzle
--1
+3
 BeginHexomino
 1 2 6 
 EndHexomino
 BeginElts
-PH PH PH PH U U U U U U U U 
-PH PH PH PH U U U U U U U U 
-PH PH PH U U U U U U U U U 
-PH PH PH U U U U U U U U U 
-PH PH PH U U U U U U U U U 
+PH P PH PH U U U U U U U U 
+PH P PH PH U U U U U U U U 
+PH P PH U U U U U U U U U 
+PH P PH U U U U U U U U U 
+PH P P U U U U U U U U U 
 PH U U U U U U U U U U U 
 U U U U U U U U U U U U 
 U U U U U U U U U U U U 

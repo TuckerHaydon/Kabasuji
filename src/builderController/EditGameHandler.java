@@ -42,6 +42,31 @@ public class EditGameHandler implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		processAction();
+	}
+	
+	public void processAction(){
+		ArrayList<String> gameNames = addGames();
+		
+		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a Game to load", "Game Loader",
+		        JOptionPane.QUESTION_MESSAGE, null, gameNames.toArray(), gameNames.get(0));
+
+		String path = "src/resources/games/"+chosenLevelName;
+		
+		attemptLoadGame(path, chosenLevelName);
+		}
+	
+	private void attemptLoadGame(String path, String chosenLevelName) {
+		GameEditor ge = app.getGameEditor();
+		loadGame(path);
+		if(m.getGame() != null){
+		m.getGame().setName(chosenLevelName);
+		ge.refreshAll();
+		app.displayGameEditor();
+		}
+	}
+
+	public ArrayList<String> addGames(){
 		File folder = new File("src/resources/games/");
 		File[] listOfFiles = folder.listFiles();
 		ArrayList<String> gameNames = new ArrayList<>();
@@ -54,17 +79,7 @@ public class EditGameHandler implements ActionListener {
 		    }
 		}
 		
-		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a Game to load", "Game Loader",
-		        JOptionPane.QUESTION_MESSAGE, null, gameNames.toArray(), gameNames.get(0));
-
-		String path = "src/resources/games/"+chosenLevelName;
-		
-		loadGame(path);
-		if(m.getGame() != null){
-		m.getGame().setName(chosenLevelName);
-		ge.refreshAll();
-		app.displayGameEditor();
-		}
+		return gameNames;
 	}
 	
 	public void loadGame(String path){
