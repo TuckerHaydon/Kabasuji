@@ -6,9 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * This class is in charge of monitor levels
+ * This abstract class is in charge of monitor levels
  * @author dorothy
- *
+ * @see LightningAchievementMonitor
+ * @see ReleaseAchievementMonitor
+ * @see PuzzleAchievementMonitor
  */
 public abstract class LevelAchievementMonitor {
 	int moveCounter;
