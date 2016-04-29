@@ -1,0 +1,21 @@
+BeginLevel
+release
+30
+BeginHexomino
+2 14 20 26 25 28 29 32 33 
+EndHexomino
+BeginElts
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U N3B U U U U U U 
+U U U U N3B N5B U U U U U U 
+U U U U U N5B U U U U U U 
+U U U U U N3B N3B U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U P P P P P P P P U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel

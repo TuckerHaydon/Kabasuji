@@ -1,0 +1,317 @@
+BeginGame
+BeginLevel
+Puzzle
+3
+BeginHexomino
+1 2 6 
+EndHexomino
+BeginElts
+PH P PH PH U U U U U U U U 
+PH P PH PH U U U U U U U U 
+PH P PH U U U U U U U U U 
+PH P PH U U U U U U U U U 
+PH P P U U U U U U U U U 
+PH U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel
+BeginLevel
+Lightning
+60
+BeginHexomino
+1 2 6 1 8 13 17 
+EndHexomino
+BeginElts
+P U P P U P P P P P P P 
+P U P P U P P P P P P P 
+P U U PH U U P P P P P P 
+P P U PH PH U P P P P P P 
+P U U PH U U P P P P P P 
+P P P PH P P P P P P P P 
+U U U U U U P P P P P P 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U P U U U U U U 
+U P P P P P U U U U U U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel
+BeginLevel
+Release
+-1
+BeginHexomino
+8 9 
+EndHexomino
+BeginElts
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P N4B N2R N2B P P P P P 
+P P P P N4B N6B N4B P P P P P 
+P P P P N4B N4B N4B P P P P P 
+P P P P N4B N4B N2B P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+BeginLevel
+Puzzle
+18
+BeginHexomino
+2 1 1 2 6 1 1 2 2 2
+EndHexomino
+BeginElts
+U U U U U U U U U U U U 
+U P P P P P P P P P P U 
+U P U U U U U U U U P U 
+U P U P P P P P P P P U 
+U P U P U U U U U U P U 
+U P U P U P P P P U P U 
+U P U P U P P U U U P U 
+U P U P U U U U P U P U 
+U P U P P P P P P U P U 
+U P U U U U U U U U P U 
+U P P P P P P P P P P U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel
+BeginLevel
+Lightning
+40
+BeginHexomino
+2 1 1 2 6 1 1 2 2 8 8 
+EndHexomino
+BeginElts
+U U U U U U U U U U U U 
+U P P P P PH PH P P P P U 
+U P U P P PH P P P U P U 
+U P P U P PH P P U P P U 
+U P P P U PH PH U P P P U 
+U P P P P U U P P P P U 
+U P P P P U U P P P P U 
+U P P P U P P U P P P U 
+U P P U P P P P U P P U 
+U P U P P P P P P U P U 
+U P P P P P P P P P P U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel
+BeginLevel
+Release
+-1
+BeginHexomino
+8 
+EndHexomino
+BeginElts
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U N1R N1R PH U U U U 
+U U U U U N1R PH PH U U U U 
+U U U U U N2R N1R PH U U U U 
+U U U U U U U PH U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U N2R U 
+U U U U U U U U U U N2R U 
+U U U U U U U U U U N2R U 
+U U U U U U U U U N2R N2R N2R 
+EndElts
+EndLevel
+BeginLevel
+Puzzle
+8
+BeginHexomino
+8 1 6 6 2 
+EndHexomino
+BeginElts
+U U U U U U U U U U U U 
+U U U U U U U PH PH U U U 
+U U U U P PH PH PH PH U U U 
+U U U U P P P P U U U U 
+U U U P P P P U U U U U 
+PH PH PH PH P P U U U U U U 
+U U PH PH P P U U U U U U 
+U U U U P U U U U U U U 
+U U U U P P U U U U U U 
+U U U U P U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel
+BeginLevel
+Lightning
+40
+BeginHexomino
+16 17 20 
+EndHexomino
+BeginElts
+U U U U U U U U U U U U 
+U U U P P P P P P U U U 
+U U U P P P P P P U P U 
+U U U P P P P P U P PH U 
+U U P P P P P U U P PH P 
+P P P P P P U U U P PH PH 
+U U P P P P U U U P PH PH 
+U P P P P U U U U U U U 
+U P P P P P U U U U U U 
+U U U U P U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel
+BeginLevel
+Release
+-1
+BeginHexomino
+
+EndHexomino
+BeginElts
+P P P P P P P P P N3R U U 
+P P P P P P P P N3R U U U 
+P P P P P P P N3R U U U N2R 
+P P P P P P N3R U U U N2R P 
+P P P P P N3R U U U N2R P P 
+P P P P N3R U U U N2R P P P 
+P P P N3R U U U N2R P P P P 
+P P N3R U U U N2R P P P P P 
+P N3R U U U N2R P P P P P P 
+N3R U U U N2R P P P P P P P 
+U U U N2R P P P P P P P P 
+U U N2R P P P P P P P P P 
+EndElts
+EndLevel
+BeginLevel
+Puzzle
+30
+BeginHexomino
+1 1 1 1 2 15 11 1 2 2 1 17 16 
+EndHexomino
+BeginElts
+U U U U U U U U U U U U 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+U U U U U U U U U U U U 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+U U U U U U U U U U U U 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+U U U U U U U U U U U U 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+BeginLevel
+Lightning
+40
+BeginHexomino
+1 1 1 1 2 15 11 1 2 2 1 17 16 8 13 34 30 
+EndHexomino
+BeginElts
+U U U U U U U U U U P U 
+P P U U U U U U U U P P 
+P P P P P P P P P P P P 
+P P P U U U U U U P P P 
+U P P P P P P P P P P U 
+U P P P U U U P P U P U 
+U P P P U U U U U U P U 
+P P P P U U U U U U P U 
+P P P P U U U U U P P U 
+U P P P U U U U U P P U 
+P P P U U U U P U P P P 
+P P P U U U U P P P U P 
+EndElts
+EndLevel
+BeginLevel
+Release
+-1
+BeginHexomino
+5 6 18 
+EndHexomino
+BeginElts
+U U U U P P P N1R N1R N2R N4R P 
+U U U U P P P P P N2R N4R P 
+U U U U P P P P U N2R U P 
+P P P P P P P U N2R N2R N2R N2R 
+P P P P P P P P U N2R P P 
+P P U U N2R N2R N2R N4R N4R P P P 
+P P N3B P U P P P P P P P 
+P P N1B P P P P P P P P P 
+P P N1B N3B N3B P P P P P P P 
+P P P N3B P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+BeginLevel
+Puzzle
+30
+BeginHexomino
+1 2 14 20 26 25 28 29 32 33 
+EndHexomino
+BeginElts
+P P P P P P P P P P P P 
+P P P P P P P U U P P P 
+P P P P P P P U U P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P U U P P P P P P P 
+P P P U U P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+BeginLevel
+Lightning
+30
+BeginHexomino
+2 14 20 26 25 28 29 32 33 
+EndHexomino
+BeginElts
+P P P P P P P P P U U U 
+P P P P P P U U U U U U 
+P P P U U U U U U U U U 
+P P P U U U U U U U U P 
+P P U U U U U U U U P P 
+P P U U U U U U U U P P 
+P P U U U U U U U U P P 
+P P U U U U U U U P P P 
+P P U U U U U P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel
+BeginLevel
+Release
+-1
+BeginHexomino
+2 14 20 26 25 28 29 32 33 
+EndHexomino
+BeginElts
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U N3B U U U U U U 
+U U U U N3B N5B U U U U U U 
+U U U U U N5B U U U U U U 
+U U U U U N3B N3B U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U P P P P P P P P U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel
+EndGame

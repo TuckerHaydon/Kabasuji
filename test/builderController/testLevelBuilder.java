@@ -40,11 +40,13 @@ public class testLevelBuilder {
 		//initialize the builder
 		BuilderModel m = BuilderModel.instance();
 		KabasujiBuilderApplication builder = new KabasujiBuilderApplication(m);
+		builder.init();
 		builder.displaySplashScreen();
 		builder.displayLevelEditor();
 
 		//instantiate entities/views for testing
 		LevelEditor le = builder.getLevelEditor();
+		
 		LevelBuilderView lbv = le.getLevelBuilderView();
 		BullpenView bpv = lbv.getBullpenView();
 		BoardView bv = lbv.getBoardView();
@@ -126,14 +128,6 @@ public class testLevelBuilder {
 		ChangeBoardEltMove cbem3 = new ChangeBoardEltMove(builder, m, board, 1, 3);
 		cbem3.execute();
 		cbem3.executeUndo();
-		
-		//make sure that drawTileBank, drawTile, drawBoard works
-		Graphics bankg = bankview.getGraphics();
-		bankview.paintComponent(bankg);
-		Graphics g = bpv.getGraphics();
-		bpv.paintComponent(g);
-		Graphics boardg = bv.getGraphics();
-		bv.paintComponent(boardg);
 		
 		//test toString method on builderModel and board
 		String bmstring = m.toString();

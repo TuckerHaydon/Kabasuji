@@ -1,0 +1,21 @@
+BeginLevel
+lightning
+30
+BeginHexomino
+2 14 20 26 25 28 29 32 33 
+EndHexomino
+BeginElts
+P P P P P P P P P U U U 
+P P P P P P U U U U U U 
+P P P U U U U U U U U U 
+P P P U U U U U U U U P 
+P P U U U U U U U U P P 
+P P U U U U U U U U P P 
+P P U U U U U U U U P P 
+P P U U U U U U U P P P 
+P P U U U U U P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+EndElts
+EndLevel

@@ -1,0 +1,21 @@
+BeginLevel
+puzzle
+3
+BeginHexomino
+1 2 6 
+EndHexomino
+BeginElts
+PH P PH PH U U U U U U U U 
+PH P PH PH U U U U U U U U 
+PH P PH U U U U U U U U U 
+PH P PH U U U U U U U U U 
+PH P P U U U U U U U U U 
+PH U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+U U U U U U U U U U U U 
+EndElts
+EndLevel
