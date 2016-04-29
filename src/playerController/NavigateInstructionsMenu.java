@@ -23,5 +23,7 @@ public class NavigateInstructionsMenu implements ActionListener {
 	
 	void processAction(){
 		app.displayInstructionsPage();
+		m.getGAM().unlockWhatANerd();
+		m.getGAM().pop();
 	}
 }
