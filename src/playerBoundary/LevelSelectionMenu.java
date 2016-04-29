@@ -84,21 +84,23 @@ public class LevelSelectionMenu extends JFrame {
 		// Add the buttons
 		this.add(goToMainMenu);
 		
-		for(int i=0;i<4;i++){
+		for(int i=0;i<5;i++){
 			this.add(levels[i]);
 		}
 			
 		this.add(consolee);
 		
-		for(int i=4;i<8;i++){
+		for(int i=5;i<10;i++){
 			this.add(levels[i]);
 		}
 		this.add(console);
 		
-		for(int i=8;i<12;i++){
+		for(int i=10;i<15;i++){
 			this.add(levels[i]);
 		}
 	}
+	
+	
 	
 	public void initControllers(){
 		goToMainMenu.addActionListener(new NavigateMainMenu(app,m));

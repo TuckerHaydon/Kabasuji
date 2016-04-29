@@ -5,6 +5,11 @@ import builderEntity.BuilderModel;
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
+/**
+ * A controller object that permits that testing of a built level. The move greates a new GameModel
+ * @author tuckerhaydon
+ *
+ */
 public class TestLevelMove extends Move{
 	
 	public TestLevelMove(KabasujiBuilderApplication app, BuilderModel m) {
