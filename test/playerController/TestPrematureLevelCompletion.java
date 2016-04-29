@@ -25,7 +25,7 @@ public class TestPrematureLevelCompletion {
 		GameModel m = GameModel.instance();
 		
 		KabasujiPlayerApplication app = new KabasujiPlayerApplication(m);
-		
+		m.loadGame("src/resources/games/Game 1");
 		m.setCurrentLevel(0);
 		PrematureCompleteLevelMove pclm = new PrematureCompleteLevelMove(app, m);
 		PuzzleAchievementMonitor pam = new PuzzleAchievementMonitor(null);
@@ -34,11 +34,9 @@ public class TestPrematureLevelCompletion {
 		CompleteLevelMove clm = new CompleteLevelMove(app, m);
 		
 		assertFalse(clm.execute());
-		m.getCurrentLevel().getBoard().addTile(new Tile(4, "board"),2,2);
-		m.getCurrentLevel().getBoard().addTile(new Tile(4, "board"),2,2);
-		m.getCurrentLevel().getBoard().addTile(new Tile(4, "board"),2,2);
-		m.getCurrentLevel().getBoard().addTile(new Tile(4, "board"),2,2);
-		m.getCurrentLevel().getBoard().addTile(new Tile(4, "board"),2,2);
+		m.getCurrentLevel().getBoard().addTile(new Tile(1, "board"),2,0);
+		m.getCurrentLevel().getBoard().addTile(new Tile(2, "board"),2,1);
+		m.getCurrentLevel().getBoard().addTile(new Tile(2, "board"),2,2);
 		assertEquals(3,m.getCurrentLevel().getStars());
 		pclm.actionPerformed(new ActionEvent(m,0,null));
 		assertTrue(m.getCurrentLevel().getIsCompleted());
