@@ -41,7 +41,7 @@ public class KabasujiPlayerApplication {
 		initControllers();
 		
 //		displaySplashScreen();
-		playThemeSong();
+//		playThemeSong();
 
 		displayMainMenu();
 	}
@@ -57,7 +57,7 @@ public class KabasujiPlayerApplication {
 	}
 	
 	public void initModel(){
-		m.loadGame("src/resources/games/Game 1");
+		m.loadGame("src/resources/games/DefaultGame");
 		m.setCurrentLevel(0);
 		m.initModel();
 	}
