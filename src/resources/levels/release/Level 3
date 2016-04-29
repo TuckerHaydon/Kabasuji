@@ -6,9 +6,9 @@ BeginHexomino
 EndHexomino
 BeginElts
 U U U U U U U P P P P P 
-U N1R PH N3R PH N5R U P P P P P 
+U N1R PH N3R PH N5R P U P P P P 
 U U U U U U U P P P P P 
-U N2R PH N4R PH N6R U P P P P P 
+U N2R PH N4R PH N6R P U P P P P 
 U U U U U U U P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
