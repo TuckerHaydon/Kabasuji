@@ -33,13 +33,11 @@ public class CompleteLevelMove extends Move{
 			}
 			catch(Exception e){} 
 			
+			m.getCurrentLevel().setLevelComplete(true);
 			
 			if(m.getCurrentAM().updateAchievement_whencompletelevel()){
 				m.getCurrentAM().popUpScreen();
 			}
-			
-			m.getCurrentLevel().setLevelComplete(true);
-			
 			
 			m.getGAM().updateAchievement(m.getCurrentLevel().getLevelNum());
 		}
