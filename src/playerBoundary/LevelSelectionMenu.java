@@ -5,6 +5,9 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import playerController.NavigateAchievementMenu;
+import playerController.NavigateInstructionsMenu;
 import playerController.NavigateMainMenu;
 import playerController.PlayLevel;
 import playerEntity.GameModel;
@@ -18,6 +21,8 @@ public class LevelSelectionMenu extends JFrame {
 	
 	JButton levels[];
 	JButton goToMainMenu;
+	JButton consolee;
+	JButton console;
 	KabasujiPlayerApplication app;
 	GameModel m;
 	
@@ -28,6 +33,12 @@ public class LevelSelectionMenu extends JFrame {
 		goToMainMenu = new JButton("Main Menu");
 		goToMainMenu.setBackground(new Color(128, 128, 128));
 		goToMainMenu.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+		consolee = new JButton();
+		consolee.setBackground(new Color(128, 128, 128));
+		consolee.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+		console = new JButton();
+		console.setBackground(new Color(128, 128, 128));
+		console.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		
 		levels = new JButton[15];
 		// Create the 15 level buttons
@@ -73,8 +84,19 @@ public class LevelSelectionMenu extends JFrame {
 		// Add the buttons
 		this.add(goToMainMenu);
 		
-		for(JButton b:levels){
-			this.add(b);
+		for(int i=0;i<4;i++){
+			this.add(levels[i]);
+		}
+			
+		this.add(consolee);
+		
+		for(int i=4;i<8;i++){
+			this.add(levels[i]);
+		}
+		this.add(console);
+		
+		for(int i=8;i<12;i++){
+			this.add(levels[i]);
 		}
 	}
 	
@@ -84,7 +106,7 @@ public class LevelSelectionMenu extends JFrame {
 		for(int i = 0; i < 15; i++){
 			levels[i].addActionListener(new PlayLevel(app, m, i + 1));
 		}
-
+		
 	}
 	
 	public void refreshView(){

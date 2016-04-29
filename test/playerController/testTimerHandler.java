@@ -2,29 +2,27 @@ package playerController;
 
 import static org.junit.Assert.*;
 
-import java.awt.event.ActionEvent;
-
 import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
+import playerEntity.LightningLevel;
 
-public class testLoadGame {
+//WHY ISNT THIS ONE WORKING
+public class testTimerHandler {
 
 	@Test
 	public void test() {
 		GameModel gm = GameModel.instance();
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
-		LoadGame lg = new LoadGame(gm, player);
-		lg.getGameNames();
-		lg.parseGame("src/resources/games/ExampleGame1");
-		lg.processAction("ExampleGame1");
+		//setup lightning level
+		gm.setCurrentLevel(1);
+		//gm.selectCurrentAM(2);
 		
-		//the game should have levels now
-		assertNotSame(player.getGameModel().getLevels(), null);
+		TimerHandler th = new TimerHandler((LightningLevel)gm.getCurrentLevel(), player, gm);
+		//th.processAction();
+		
 	}
-	
-	
 
 }
