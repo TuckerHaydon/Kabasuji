@@ -5,7 +5,7 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JPanel;
 
 /**
- * 
+ * Abstract class for all builder windows.
  * @author tuckerhaydon
  *
  */
