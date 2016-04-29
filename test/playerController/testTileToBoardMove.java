@@ -24,6 +24,7 @@ public class testTileToBoardMove {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(0);
 		
 		//get all the necessary elements for the move

@@ -7,7 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * 
+ * Achievement monitor for the whole game
+ * Keeps track of all achievements
  * @author dorothy
  *
  */

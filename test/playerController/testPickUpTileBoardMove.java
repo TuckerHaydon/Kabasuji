@@ -21,6 +21,7 @@ public class testPickUpTileBoardMove {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(0);
 		
 		//get entities

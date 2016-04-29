@@ -4,13 +4,18 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 
 /**
- * 
+ * Achievement monitor solely for lightning levels
+ * Keeps track of Speedy Gonzales, Slowpoke, Baby Steps, Rage Quit
  * @author dorothy
  *
  */
 public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	LightningLevel lv;
 	
+	/**
+	 * Constructor for lightning achievement monitor
+	 * @param achievements - achievements relevant to the level
+	 */
 	public LightningAchievementMonitor(Hashtable<String,Achievement> achievements){
 		super();
 		this.achievements=achievements;
@@ -18,12 +23,18 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		this.popingUp=new LinkedList<String>();
 	}
 	
+	/**
+	 * set the level that the achievement monitor is in charge of
+	 */
 	@Override
 	public void setLevel(Level lv) {
 		reset();
 		this.lv=(LightningLevel) lv;
 	}
 	
+	/**
+	 * Check to see if either SlowPoke or SpeedyGonzales has been reached upon level completion
+	 */
 	@Override
 	public boolean updateAchievement_whencompletelevel(){
 		if(this.checkSlowPoke()|this.checkSpeedyGonzales()){
@@ -31,10 +42,18 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
+	
+	/**
+	 * Check if anything has been released on bullpen (achievement: No Regrets)
+	 */
 	@Override
 	public boolean updateAchievement_releaseonbullpen(){
 		return false;
 	}
+	
+	/**
+	 * Check if any invalid moves have been made (achievement: Rebel)
+	 */
 	@Override
 	public boolean updateAchievement_wheninvalidmove(){
 		if(this.checkRebel()){
@@ -42,6 +61,10 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
+	
+	/**
+	 * Check if 10 tiles have been released on the board (achievement: BabySteps)
+	 */
 	@Override
 	public boolean updateAchievement_releaseonboard(){
 		this.moveCounter++;
@@ -50,6 +73,10 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
+	
+	/**
+	 * Check to see if player quit in the middle of the game (achievement: RageQuit)
+	 */
 	@Override
 	public boolean updateAchievement_whenquit(){
 		if(this.checkRageQuit()){
@@ -86,6 +113,9 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 
+	/**
+	 * Check if Rage Quit has been accomplished
+	 */
 	@Override
 	boolean checkRageQuit(){
 		if(this.notEarnRageQuit() && !(lv.isTimeUsedUp()) && !(lv.getIsCompleted())){
@@ -95,7 +125,10 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 		}
 		return false;
 	}
-
+	
+	/**
+	 * Reset achievements
+	 */
 	@Override
 	public void reset() {
 		this.lv=null;

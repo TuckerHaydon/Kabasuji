@@ -150,6 +150,7 @@ public class AchievementsMenu extends JFrame {
 		lblBabysteps.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblBabysteps.setBounds(820, 902, 140, 16);
 		contentPane.add(lblBabysteps);
+		lbs.put("BabySteps", lblBabysteps);
 		
 		JLabel lblOverachiever = new JLabel("??????");
 		lblOverachiever.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
@@ -163,13 +164,13 @@ public class AchievementsMenu extends JFrame {
 		contentPane.add(labelRageQuit);
 		lbs.put("RageQuit", labelRageQuit);
 		
-		JLabel lblKkombobreaker = new JLabel("?????????????");
+		JLabel lblKkombobreaker = new JLabel("???????????????");
 		lblKkombobreaker.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblKkombobreaker.setBounds(84, 509, 150, 16);
 		contentPane.add(lblKkombobreaker);
 		lbs.put("K-komboBreaker", lblKkombobreaker);
 		
-		JLabel lblJustunderthewire = new JLabel("???????????");
+		JLabel lblJustunderthewire = new JLabel("????????????????");
 		lblJustunderthewire.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblJustunderthewire.setBounds(432, 310, 150, 16);
 		contentPane.add(lblJustunderthewire);
@@ -182,7 +183,7 @@ public class AchievementsMenu extends JFrame {
 		lbs.put("VictoryLap", lblVictorylap);
 		
 		
-		JLabel lblWhatANerd = new JLabel("???");
+		JLabel lblWhatANerd = new JLabel("??????");
 		lblWhatANerd.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblWhatANerd.setBounds(462, 654, 140, 16);
 		contentPane.add(lblWhatANerd);
