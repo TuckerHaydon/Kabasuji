@@ -1,6 +1,6 @@
 BeginLevel
 lightning
--1
+60
 BeginHexomino
 16 17 20 
 EndHexomino
@@ -8,10 +8,10 @@ BeginElts
 U U U U U U U U U U U U 
 U U U P P P P P P U U U 
 U U U P P P P P P U P U 
-U U U P P P P P U P PH U 
-U U P P P P P U U P PH P 
-P P P P P P U U U P PH PH 
-U U P P P P U U U P PH PH 
+U U U P P P P P U P P U 
+U U P P P P P U U P P P 
+P P P P P P U U U P P P 
+U U P P P P U U U P P P 
 U P P P P U U U U U U U 
 U P P P P P U U U U U U 
 U U U U P U U U U U U U 

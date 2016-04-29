@@ -119,10 +119,10 @@ public class LightningLevel extends Level{
 		if(totalElts == coveredElts){
 			stars = 3;
 		}
-		if(totalElts - coveredElts == 6){
+		else if(totalElts - coveredElts <= 6){
 			stars = 2;
 		}
-		if(totalElts - coveredElts == 12){
+		else if(totalElts - coveredElts <= 12){
 			stars = 1;
 		}
 		
