@@ -41,7 +41,8 @@ public class UnplayableBoardEltController extends java.awt.event.MouseAdapter {
 		
 		GameWindow gw = app.getGameWindow();
 		
-		gw.setDraggedTile(null);
+		//gw.setDraggedTile(null);
+		gw.releaseDraggedTile();
 		
 		
 	}
