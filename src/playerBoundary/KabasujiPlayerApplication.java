@@ -145,6 +145,10 @@ public class KabasujiPlayerApplication {
 		return this.achievementsMenu;
 	}
 	
+	public InstructionsPage getInstructionsPage(){
+		return this.instructionsPage;
+	}
+	
 	void displaySplashScreen(){
 		
 		Clip clip = null;
