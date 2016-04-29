@@ -11,7 +11,7 @@ import builderController.NavigateGameEditorMenu;
 import builderController.NavigateLevelEditorMenu;
 
 /**
- * 
+ * The window for the main builder menu. Contains a level editor button and a game editor button.
  * @author tuckerhaydon
  *
  */
@@ -21,6 +21,10 @@ public class MainMenu extends JFrame {
 	JButton levelEditorButton;
 	JButton gameEditorButton;
 	
+	/**
+	 * Constructor for main menu. 	
+	 * @param app - top level Kabasuji builder application
+	 */
 	public MainMenu(KabasujiBuilderApplication app){
 		super();
 		this.app = app;
@@ -31,6 +35,9 @@ public class MainMenu extends JFrame {
 
 	}
 	
+	/**
+	 * Initializes main menu. Adds in all of the buttons and other window features.
+	 */
 	public void initView(){
 		
 		// Set frame properties
@@ -53,6 +60,9 @@ public class MainMenu extends JFrame {
 		
 	}
 	
+	/**
+	 * Registers controllers to main menu buttons.
+	 */	
 	public void initControllers(){
 		levelEditorButton.addActionListener(new NavigateLevelEditorMenu(app));
 		gameEditorButton.addActionListener(new NavigateGameEditorMenu(app));

@@ -25,37 +25,7 @@ public class PrematureCompleteLevelMove implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-//		
-//		if(m.getCurrentLevel().getStars() > 0){
-//			
-//			JOptionPane.showMessageDialog(null, "Level Won!");
-//			
-//			int thisLevelIndex = m.getCurrentLevel().getLevelNum() - 1;
-//			
-//			// Ensure that by winning the last level it does not try and unlock an imaginary level
-//			try{
-//				m.getLevels()[thisLevelIndex+1].setIsUnlocked(true);
-//			}
-//			catch(Exception e){} 
-//			
-//			
-//			if(m.getCurrentAM().updateAchievement_whengotonextlevel()){
-//				m.getCurrentAM().popUpScreen();
-//			}
-//			
-//			if(m.getCurrentLevel().hasWon()){
-//				m.getCurrentLevel().setLevelComplete(true);
-//			}
-//		}
-//		
-//		if(!app.getGameModel().IsTesting()){
-//			app.displayLevelSelectionMenu();
-//			app.getGameWindow().updateView();
-//		}
-//		
-//		if(m.getCurrentLevel() instanceof LightningLevel){
-//			app.getGameWindow().releaseDraggedTile();
-//		}
+
 		Move move = new CompleteLevelMove(app,m);
 		move.doMove();
 	}
