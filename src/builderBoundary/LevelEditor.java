@@ -17,7 +17,7 @@ import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * A window for the level editor. Contains an export game button, go to menu button, and test level button.
  * @author tuckerhaydon
  *
  */
@@ -29,7 +29,12 @@ public class LevelEditor extends JFrame implements KeyListener {
 	LevelBuilderView levelBuilderView;
 	JPanel contentPane;	
 	boolean isControlPressed = false;
-	
+
+	/**
+	 * Constructor for the level editor. Initializes the various buttons.
+	 * @param app - the top-level Kabasuji builder application
+	 * @param m - the top-level builder model
+	 */
 	public LevelEditor(KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		this.setFocusable(true);
@@ -46,6 +51,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 				
 	}
 	
+	/**
+	 * Initializes all of the buttons and window features on the level editor.
+	 */
 	public void initView(){
 		
 		exportGameButton.setBackground(new Color(128, 128, 128));
@@ -89,6 +97,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 		
 	}
 	
+	/**
+	 * Registers all of the controllers to their respective buttons/views.
+	 */
 	public void initControllers(){
 		levelBuilderView.initControllers();
 		goToMenuButton.addActionListener(new NavigateMainMenu(app));
@@ -100,7 +111,10 @@ public class LevelEditor extends JFrame implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {} // NOOP
-
+	
+	/**
+	 * Ctrl+Z to undo 
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 				
@@ -126,10 +140,17 @@ public class LevelEditor extends JFrame implements KeyListener {
 		
 	}
 	
+	/**
+	 * Get current level builder view
+	 * @return - the current level builder view
+	 */
 	public LevelBuilderView getLevelBuilderView(){
 		return this.levelBuilderView;
 	}
 	
+	/**
+	 * Refreshes the window to reflect changes
+	 */
 	public void refresh(){
 		
 		contentPane.remove(levelBuilderView);
@@ -150,6 +171,9 @@ public class LevelEditor extends JFrame implements KeyListener {
 		
 	}
 	
+	/**
+	 * Repaints the level editor window
+	 */
 	public void repaintLevelEditor(){	
 		// Bring to focus for the key listener
 		this.toFront();

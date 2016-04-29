@@ -164,5 +164,20 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Equips a Board with a pair of coveralls
+	 */
+	public void coverAll() {
+		// Make sure all of the elements are uncovered
+				for(int row = 0; row < YELTS; row++){
+					for(int col = 0; col < XELTS; col++){
+						BoardElt elt = ((BoardElt)elts[row][col]);
+						if(!(elt instanceof UnplayableBoardElt)) {
+							((PlayableBoardElt) elt).setCovered(true);
+						}
+					}
+				}
+	}
+	
 
 }

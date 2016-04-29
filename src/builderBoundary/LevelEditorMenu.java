@@ -16,7 +16,8 @@ import builderController.NavigateMainMenu;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * The window for the LevelEditor's menu. Contains buttons that allow the user to either 
+ * create or edit a level and return to the main menu.
  * @author tuckerhaydon
  *
  */
@@ -28,16 +29,21 @@ public class LevelEditorMenu extends JFrame {
 	JButton editLevelButton;
 	JButton goToMenuButton;
 	
-	
+	/**
+	 * Constructor for the LevelEditorMenu.
+	 * @param app - The top-level Kabasuji builder application
+	 * @param m - The top-level builder model
+	 */
 	public LevelEditorMenu(KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		
 		this.app = app;
 		this.m = m;
-		
-	
 	}
 	
+	/**
+	 * Initializes features of the window and adds buttons to the menu.
+	 */
 	public void initView(){
 		
 		// Set frame properties
@@ -72,6 +78,9 @@ public class LevelEditorMenu extends JFrame {
 		
 	}
 	
+	/**
+	 * Initializes the controllers for each of the menu buttons.
+	 */
 	public void initControllers(){
 		createLevelButton.addActionListener(new CreateLevelHandler(app, m));
 		// TODO set the editLevel controller
