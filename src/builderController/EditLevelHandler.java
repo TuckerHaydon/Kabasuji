@@ -41,6 +41,14 @@ public class EditLevelHandler implements ActionListener {
 	}
 	
 	void processAction(){
+		ArrayList<String> levelNames = addLevels();
+		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to load", "Level Loader",
+		        JOptionPane.QUESTION_MESSAGE, null, levelNames.toArray(), levelNames.get(0));
+		parseLevel(chosenLevelName);
+
+	}
+	
+	public ArrayList<String> addLevels(){
 		ArrayList<String> levelNames = new ArrayList<>();
 		
 		File folder = new File("src/resources/levels/lightning/");
@@ -74,8 +82,9 @@ public class EditLevelHandler implements ActionListener {
 		    }
 		}
 		
-		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to load", "Level Loader",
-		        JOptionPane.QUESTION_MESSAGE, null, levelNames.toArray(), levelNames.get(0));
+		return levelNames;
+	}
+	void parseLevel(String chosenLevelName){
 
 		if(chosenLevelName == null){
 			return;
