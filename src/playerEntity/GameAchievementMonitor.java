@@ -81,7 +81,7 @@ public class GameAchievementMonitor {
 	private boolean checkVictoryLap(){
 		if(!achievements.get("VictoryLap").getIsEarned()){
 			for(int i=0;i<15;i++){
-				if(isWonlst[i] && doubleWonlst[i]){
+				if(doubleWonlst[i] && isWonlst[i]){
 					achievements.get("VictoryLap").setIsEarned(true);
 					popingUp.add("VictoryLap");
 					return true;

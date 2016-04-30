@@ -138,13 +138,7 @@ public abstract class LevelAchievementMonitor {
 	protected boolean notEarnRageQuit() {
 		return !(achievements.get("RageQuit").getIsEarned());
 	}
-	/**
-	 * Check the earned status of VictoryLap achievement 
-	 * @return true if "VictoryLap" was not earned
-	 */
-	protected boolean notEarnVictoryLap(){
-		return !(achievements.get("VictoryLap").getIsEarned());
-	}
+
 	
 	/**
 	 * pop up the achievements just earned

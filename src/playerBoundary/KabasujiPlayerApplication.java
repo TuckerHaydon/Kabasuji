@@ -154,7 +154,7 @@ public class KabasujiPlayerApplication {
 		Clip clip = null;
 		try {
 			File f = new File("src/resources/audio/intro.wav");
-			//File f = new File("src/resources/audio/themesong.wav");
+//			File f = new File("src/resources/audio/themesong.wav");
 			clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(f));
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
@@ -189,7 +189,7 @@ public class KabasujiPlayerApplication {
 	void playThemeSong(){
 		try {
 			File f = new File("src/resources/audio/recorder.wav");
-			//File f = new File("src/resources/audio/themesong.wav");
+//			File f = new File("src/resources/audio/themesong.wav");
 			Clip clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(f));
 			clip.loop(Clip.LOOP_CONTINUOUSLY);

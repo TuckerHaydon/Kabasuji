@@ -36,7 +36,7 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 	 */
 	@Override
 	public boolean updateAchievement_whencompletelevel(){
-		if(this.checkVictoryLap()|this.checkOverAchiever()|this.checkOverAchiever()){
+		if(this.checkOverAchiever()|this.checkOverAchiever()){
 			return true;
 		}
 		return false;
@@ -109,17 +109,6 @@ public class ReleaseAchievementMonitor extends LevelAchievementMonitor{
 		return false;
 	}
 	
-	/**
-	 * Check to see if player has rewon a level (VictoryLap)
-	 */
-	protected boolean checkVictoryLap() {
-		if(this.notEarnVictoryLap() && lv.getIsCompleted() && lv.getIsCompleted()){
-			achievements.get("VictoryLap").setIsEarned(true);
-			popingUp.push("VictoryLap");
-			return true;
-		}
-		return false;
-	}
 	
 	/**
 	 * Reset level achievement data

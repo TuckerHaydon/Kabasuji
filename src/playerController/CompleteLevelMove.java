@@ -33,6 +33,8 @@ public class CompleteLevelMove extends Move{
 			}
 			catch(Exception e){} 
 			
+			
+			
 			m.getCurrentLevel().setLevelComplete(true);
 			
 			if(m.getCurrentAM().updateAchievement_whencompletelevel()){
@@ -40,6 +42,7 @@ public class CompleteLevelMove extends Move{
 			}
 			
 			m.getGAM().updateAchievement(m.getCurrentLevel().getLevelNum());
+			
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Level Failed!");

@@ -121,69 +121,69 @@ public class AchievementsMenu extends JFrame {
 		resetButton.setFont(new Font("Snap ITC", Font.PLAIN, 16));
 		contentPane.add(resetButton);
 		
-		JLabel lblNoRegrets = new JLabel("????????");
-		lblNoRegrets.setBounds(828, 310, 140, 16);
+		JLabel lblNoRegrets = new JLabel("???");
+		lblNoRegrets.setBounds(823, 310, 140, 16);
 		lblNoRegrets.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		contentPane.add(lblNoRegrets);
 		lbs.put("NoRegrets", lblNoRegrets);
 		
 		
-		JLabel lblRebel = new JLabel("?????");
+		JLabel lblRebel = new JLabel("???");
 		lblRebel.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblRebel.setBounds(830, 509, 140, 16);
 		contentPane.add(lblRebel);
 		lbs.put("Rebel", lblRebel);
 		
-		JLabel lblSpeedygonzales = new JLabel("?????????????");
+		JLabel lblSpeedygonzales = new JLabel("???");
 		lblSpeedygonzales.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblSpeedygonzales.setBounds(800, 718, 140, 16);
 		contentPane.add(lblSpeedygonzales);
 		lbs.put("SpeedyGonzales", lblSpeedygonzales);
 		
-		JLabel lblSlowpoke = new JLabel("??????");
+		JLabel lblSlowpoke = new JLabel("???");
 		lblSlowpoke.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblSlowpoke.setBounds(468, 902, 140, 16);
 		contentPane.add(lblSlowpoke);
 		lbs.put("SlowPoke", lblSlowpoke);
 		
-		JLabel lblBabysteps = new JLabel("??????");
+		JLabel lblBabysteps = new JLabel("???");
 		lblBabysteps.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblBabysteps.setBounds(820, 902, 140, 16);
 		contentPane.add(lblBabysteps);
 		lbs.put("BabySteps", lblBabysteps);
 		
-		JLabel lblOverachiever = new JLabel("??????");
+		JLabel lblOverachiever = new JLabel("???");
 		lblOverachiever.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblOverachiever.setBounds(84, 310, 140, 16);
 		contentPane.add(lblOverachiever);
 		lbs.put("OverAchiever", lblOverachiever);
 		
-		JLabel labelRageQuit = new JLabel("???????");
+		JLabel labelRageQuit = new JLabel("???");
 		labelRageQuit.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		labelRageQuit.setBounds(90, 902, 140, 16);
 		contentPane.add(labelRageQuit);
 		lbs.put("RageQuit", labelRageQuit);
 		
-		JLabel lblKkombobreaker = new JLabel("???????????????");
+		JLabel lblKkombobreaker = new JLabel("???");
 		lblKkombobreaker.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblKkombobreaker.setBounds(84, 509, 150, 16);
 		contentPane.add(lblKkombobreaker);
 		lbs.put("K-komboBreaker", lblKkombobreaker);
 		
-		JLabel lblJustunderthewire = new JLabel("????????????????");
+		JLabel lblJustunderthewire = new JLabel("???");
 		lblJustunderthewire.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblJustunderthewire.setBounds(432, 310, 150, 16);
 		contentPane.add(lblJustunderthewire);
 		lbs.put("JustUnderTheWire", lblJustunderthewire);
 		
-		JLabel lblVictorylap = new JLabel("??????");
+		JLabel lblVictorylap = new JLabel("???");
 		lblVictorylap.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblVictorylap.setBounds(84, 718, 140, 16);
 		contentPane.add(lblVictorylap);
 		lbs.put("VictoryLap", lblVictorylap);
 		
 		
-		JLabel lblWhatANerd = new JLabel("??????");
+		JLabel lblWhatANerd = new JLabel("???");
 		lblWhatANerd.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		lblWhatANerd.setBounds(462, 654, 140, 16);
 		contentPane.add(lblWhatANerd);
@@ -197,6 +197,9 @@ public class AchievementsMenu extends JFrame {
 		for(String key: this.lbs.keySet()){
 			if(this.m.getAchievements().get(key).getIsEarned()){
 				this.lbs.get(key).setText(key);
+			}
+			else{
+				this.lbs.get(key).setText("???");
 			}
 		}
 	}
