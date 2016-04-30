@@ -56,6 +56,7 @@ public class testTileToBoardMove {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(1);
 		
 		//get all the necessary elements for the move
@@ -65,7 +66,7 @@ public class testTileToBoardMove {
 		LightningAchievementMonitor lam = new LightningAchievementMonitor(null);
 		gm.selectCurrentAM(2);
 		
-		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(0), 2, 0);
+		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(0), 3, 1);
 		ttbm.setAM(lam);
 		player.getGameWindow().setDraggedTile(tv);
 		
@@ -88,6 +89,7 @@ public class testTileToBoardMove {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(1);
 		
 		//get all the necessary elements for the move
