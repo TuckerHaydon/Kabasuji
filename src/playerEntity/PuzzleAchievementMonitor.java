@@ -15,7 +15,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	
 	/**
 	 * Constructor for puzzle level achievement monitor
-	 * @param achievements - all of the achievements 
+	 * @param achievements - all of the achievements possible
 	 */
 	public PuzzleAchievementMonitor(Hashtable<String, Achievement> achievements){
 		super();
@@ -57,7 +57,6 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	/**
 	 * Check if any invalid moves have been made (achievement: Rebel)
 	 */
-	//should go to move class //
 	@Override
 	public boolean updateAchievement_wheninvalidmove(){
 		if(this.checkRebel()){
@@ -69,7 +68,6 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	/**
 	 * Check if 10 tiles have been released on the board (achievement: BabySteps)
 	 */
-	//should go to board handler
 	@Override
 	public boolean updateAchievement_releaseonboard(){
 		this.moveCounter++;
@@ -82,7 +80,6 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	/**
 	 * Check to see if player quit in the middle of the game (achievement: RageQuit)
 	 */
-	//should goes to Jbutton mainmenu handler
 	@Override
 	public boolean updateAchievement_whenquit(){
 		if(this.checkRageQuit()){
@@ -94,7 +91,6 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	/**
 	 * When the game is finished, check to see if JustUnderTheWire has been reached
 	 */
-	/*Finished*/
 	private boolean checkJustUnderTheWire(){
 		if(lv.isMoveUsedUp() && lv.getIsCompleted() && this.notEarnJustUnderTheWire()){
 			achievements.get("JustUnderTheWire").setIsEarned(true);
@@ -107,7 +103,6 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	/**
 	 * When the game is finished, check to see if No Regrets (never having returned anything to the bullpen) has been reached
 	 */
-	/*Finished*/
 	private boolean checkNoRegrets(){
 		if(this.notEarnNoRegrets() && lv.getIsCompleted() && (this.toBullpenMove==0)){
 			achievements.get("NoRegrets").setIsEarned(true);
@@ -131,7 +126,7 @@ public class PuzzleAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	/**
-	 * Reset level
+	 * Reset level achievement data
 	 */
 	@Override
 	public void reset() {

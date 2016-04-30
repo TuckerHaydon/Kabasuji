@@ -14,7 +14,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	
 	/**
 	 * Constructor for lightning achievement monitor
-	 * @param achievements - achievements relevant to the level
+	 * @param achievements - all of the achievements possible
 	 */
 	public LightningAchievementMonitor(Hashtable<String,Achievement> achievements){
 		super();
@@ -86,7 +86,6 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	
-	/*Finished*/ /*Have questions about isLevelDone */
 	/**
 	 * 
 	 * @return true if "SlowPoke" was just unlocked
@@ -127,7 +126,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	}
 	
 	/**
-	 * Reset achievements
+	 * Reset level achievement data
 	 */
 	@Override
 	public void reset() {
