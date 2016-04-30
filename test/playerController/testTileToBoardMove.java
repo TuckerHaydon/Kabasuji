@@ -33,6 +33,7 @@ public class testTileToBoardMove {
 		TileView tv = new TileView(player, gm, tiles.get(3));
 		PuzzleAchievementMonitor pam = new PuzzleAchievementMonitor(null);
 		gm.selectCurrentAM(1);
+		Tile t = tiles.get(3);
 		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(3), 2, 2);
 		ttbm.setAM(pam);
 		player.getGameWindow().setDraggedTile(tv);
@@ -48,6 +49,13 @@ public class testTileToBoardMove {
 		//after the move is undone, the board should have zero tiles again
 		ttbm.undo();
 		assertEquals(gm.getCurrentLevel().getBoard().getTiles().size(), 0);
+		
+		ttbm.execute();
+		TileToBullpenMove ttbpm = new TileToBullpenMove(player, gm, t, gm.getCurrentLevel().getBullpen());
+		player.getGameWindow().setDraggedTile(new TileView(player,gm,t));
+		assertTrue(ttbpm.execute());
+		assertFalse(ttbpm.execute());
+		assertTrue(ttbpm.undo());
 	}
 	
 	@Test
@@ -116,5 +124,4 @@ public class testTileToBoardMove {
 		ttbm.undo();
 		assertEquals(gm.getCurrentLevel().getBoard().getTiles().size(), 0);
 	}
-
 }

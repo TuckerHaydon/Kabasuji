@@ -23,7 +23,7 @@ abstract class Move {
 		if(!this.isValid()){
 			return false;
 		}
-		
+		UndoManager.pushMove(this);
 		return this.doMove();
 	}
 	

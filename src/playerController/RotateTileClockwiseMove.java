@@ -32,6 +32,7 @@ public class RotateTileClockwiseMove extends Move{
 	
 	@Override
 	public boolean undo() {
+		if(UndoManager.peekMove() == null) return false;
 		tile.rotateLeft();
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;

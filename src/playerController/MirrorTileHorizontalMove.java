@@ -32,6 +32,7 @@ public class MirrorTileHorizontalMove extends Move{
 	
 	@Override
 	public boolean undo() {
+		if(UndoManager.peekMove() == null) return false;
 		tile.flipHorizontal();
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;

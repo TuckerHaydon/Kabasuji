@@ -103,6 +103,7 @@ public class GameWindow extends JFrame {
 	}
 	
 	public void releaseDraggedTile(){
+		if(draggedTile == null) return;
 		this.remove(draggedTile);
 		draggedTile = null;
 	}
