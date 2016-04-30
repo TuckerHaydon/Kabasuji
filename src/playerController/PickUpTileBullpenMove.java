@@ -56,7 +56,7 @@ public class PickUpTileBullpenMove extends Move{
 	
 	@Override
 	public boolean undo() {
-		return bullpen.addTile(tile.getReferenceNumber());
+		return bullpen.addTile(tile);
 	}
 
 }

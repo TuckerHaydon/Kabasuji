@@ -40,16 +40,18 @@ public class testPickupTileBullpenMove {
 		player.getGameWindow().setDraggedTile(tv);
 		
 		//before the move, there is 4 tiles in the bullpen
-		assertEquals(4, bp.getTiles().size());
+		assertEquals(35, bp.getTiles().size());
 		
 		//this is a valid move
 		assertTrue(putbm.isValid());
 		
 		//after the move, there is only three tiles in the bullpen
 		putbm.doMove();
+		assertEquals(34, bp.getTiles().size());
 
 		//after undo, there should be 4 tiles once again and no selected tile
 		putbm.undo();
+		assertEquals(35, bp.getTiles().size());
 		
 	}
 
