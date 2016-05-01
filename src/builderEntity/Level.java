@@ -2,6 +2,16 @@ package builderEntity;
 
 /**
  * 
+ * Level class
+ * 
+ * Abstract class used to construct Levels of a game.
+ * There are 15 of these in a game.
+ * 
+ * @see LevelView
+ * @see LightningLevel
+ * @see PuzzleLevel
+ * @see ReleaseLevel
+ * 
  * @author tuckerhaydon
  *
  */

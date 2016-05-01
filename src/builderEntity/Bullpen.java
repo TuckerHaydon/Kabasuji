@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 /**
  * 
+ * Bullpen class
+ * 
+ * Used to store Tiles that are playable within a Level.
+ * Each type of Level uses this Bullpen class to display tiles in the 
+ * BullpenView boundary. Tiles are added using the corresponding reference number
+ * 
+ * @see BullpenView
+ * @see BullpenController
+ * 
  * @author tuckerhaydon
  *
  */
+
 public class Bullpen {
 
 	ArrayList<Integer> tileReferenceNumbers;

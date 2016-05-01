@@ -1,6 +1,15 @@
 package builderEntity;
 
 /**
+ * BoardElt class
+ * 
+ * Abstract class used to construct Board Elements.  
+ * These are used as a 12x12 array to construct a Board
+ * 
+ * @see Board
+ * @see UnplaybleBoardElt
+ * @see PlayableBoardElt
+ * @see NumberedBoardElt
  * 
  * @author tuckerhaydon
  *

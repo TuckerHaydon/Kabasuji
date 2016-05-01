@@ -3,6 +3,18 @@ package builderEntity;
 
 /**
  * 
+ * Board class
+ * 
+ * Contains all the BoardElts of the level being built. 
+ * BoardElts are deemed playable or unplayable by the Builder. 
+ * Playable BoardElts may also be hints or numbered (if a release level is 
+ * being built). 
+ * The player interacts with this class through the BoardView Boundry class 
+ * 
+ * @see BoardView
+ * @see BoardElt
+ * @see BoardController
+ * 
  * @author tuckerhaydon
  *
  */

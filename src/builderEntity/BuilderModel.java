@@ -2,9 +2,16 @@ package builderEntity;
 
 /**
  * 
+ * BuilderModel class
+ * 
+ * Contains features beyond the scope of Levels
+ * This includes the Bank, selectedBoardEltType (Playable or Unplayable),
+ * isHint, selectedColor, selectedNumber. 
+ * 
  * @author tuckerhaydon
  *
  */
+
 public class BuilderModel {
 	
 	Level level;

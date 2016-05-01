@@ -7,6 +7,12 @@ import java.util.Scanner;
 
 /**
  * 
+ * LevelParser class
+ * 
+ * Used to parse a level which has been imported from file. 
+ * 
+ * @see Level
+ * 
  * @author tuckerhaydon
  *
  */

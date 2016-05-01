@@ -1,9 +1,13 @@
-/**
- * 
- */
 package builderEntity;
 
 /**
+ *
+ * Anchor Class
+ * 
+ * Used to store the relative position of squares in a tile.
+ * Also used to add a tile to a board, or rotate it.
+ * An anchor stores its board position in row and col.
+ * 
  * @author kacper
  *
  */
