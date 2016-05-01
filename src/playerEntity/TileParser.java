@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
+ * Parses a file containing information about the configuration of the hexominoes used
+ * in Kabasuji game play
  * 
  * @author tuckerhaydon
  *

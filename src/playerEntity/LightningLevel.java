@@ -5,9 +5,14 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 
 /**
- * Ths is a type of level in Kabasuji.
+ * This is a type of level in Kabasuji.
  * The lightning level has a time limit (seconds)
- * and pieces can be placed on the board in an overlapping fashion
+ * and tiles can be placed on the board in an overlapping fashion.
+ * Once placed, the tile disappears and simply leaves its trace.
+ * 
+ * Acceptable moves:
+ * Bullpen -> board
+ * 
  * @author tuckerhaydon, ndiwakar, dgwalder, kacper puczydlowski
  *
  */

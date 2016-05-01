@@ -4,6 +4,11 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 /**
+ * This is a type of level in Kabasuji.
+ * Pieces are placed on the board with the aim of covering the numbered squares.
+ * 
+ * Acceptable moves:
+ * Bullpen -> board
  * 
  * @author tuckerhaydon, dorothy, ndiwakar, dgwalder
  *
@@ -11,15 +16,21 @@ import java.util.ArrayList;
 public class ReleaseLevel extends Level {
 
 	int numEltLeft;
-
+	
+	/**
+	 * Constructor for release level
+	 * @param levelNum - number of the level in the game
+	 * @param b - the level's board
+	 * @param bp - the level's bullpen
+	 */
 	public ReleaseLevel(int levelNum, Board b, Bullpen bp){
 		super(levelNum, b, bp);
-		// this.numEltLeft = numEltLeft;
 	}
 
+	/**
+	 * Reset the level and its data
+	 */
 	public void reset(){
-		// Set the score to 0
-		//score = 0;
 
 		// Set the number of covered elts left to 0
 		numEltLeft = 0;
@@ -34,46 +45,68 @@ public class ReleaseLevel extends Level {
 		this.board.reset();	
 	}
 
-	//gets the count of numbered elements left 
+	/**
+	 * Gets the count of numbered elements left 
+	 * @return - the number of uncovered numbered elements left on the board
+	 */
 	public int getNumLeft() {
 		return this.numEltLeft;
 	}
 	
-	//decrements the count of numbered elements left 
-	/*added by Dorothy*/
+	/**
+	 * Decrements the count of numbered elements left 
+	 */
 	public void decrementNumElt(){
 		this.numEltLeft--;
 	}
 
-	//returns true if all numbered elements are covered
+	/**
+	 * Returns true if all numbered elements are covered
+	 * @return - boolean indicating number coverage
+	 */
 	public boolean isCoverAll(){
 		return this.numEltLeft==0;
 	}
 
 
 	/**
-	 * @param i
+	 * Sets the count of numbered elements left to the parameter i
+	 * @param i - the number of uncovered numbered elements left on the board
 	 */
-	//sets the count of numbered elements left to the parameter i
 	public void setNumLeft(int i) {
 		this.numEltLeft = i;
 	}
 
+	/**
+	 * Returns the name of the level
+	 */
 	@Override
 	public String toString(){
 		return "Release";
 	}
 
+	/**
+	 * Returns the number of uncovered board elements left
+	 */
 	@Override
 	public int getLevelData() {
 		return this.getNumLeft();
 	}
 
+	/**
+	 * Sets the number of uncovered board elements in the level
+	 */
 	@Override
 	public void setLevelData(int levelData) {
 		this.numEltLeft = levelData;
 	}
 
+	/**
+	 * Get the number of stars accumulated by the player in the level
+	 * 1 star: 1 set of numbers (1-6) has been covered
+	 * 2 stars: 2 sets of numbers have been covered
+	 * 3 stars: All numbers have been covered
+	 */
 	public int getStars(){
 		int stars= 0;
 		int coveredNumElts = 0;
@@ -116,7 +149,7 @@ public class ReleaseLevel extends Level {
 		
 		int a=1;
 		
-		while ( a<7) // && redFlag==0 && blueFlag ==0 && greenFlag ==0)
+		while ( a<7) 
 		{
 			if(redTracker[a] == 0){
 				redFlag = 1;
@@ -143,79 +176,6 @@ public class ReleaseLevel extends Level {
 		else if((redFlag+ blueFlag + greenFlag) == 2){
 			stars = 1;
 		}
-		
-		
-		/*
-		//////////////////////////////////////////////////////////////////////////
-		//if 1 set of 1 color of numbered boards elts is covered, stars = 1;
-		 * 		
-		int redSets = 0;
-		int blueSets = 0;
-		int greenSets = 0;
-		int redTwoStars = 0;
-		int blueTwoStars = 0;
-		int greenTwoStars = 0;
-		
-		for(int m = 1; m<7; m++){
-			if(redTracker[m] > 0){
-				redSets++;
-			}
-			if(redTracker[m] > 1){
-				redTwoStars ++;
-			}
-		}
-
-		for(int m = 1; m<7; m++){
-			if(blueTracker[m] > 0){
-				blueSets++;
-			}
-			if(blueTracker[m] > 1){
-				blueTwoStars ++;
-			}
-		}
-
-		for(int m = 1; m<7; m++){
-			if(greenTracker[m] > 0){
-				greenSets++;
-			}
-			if(greenTracker[m] > 1){
-				greenTwoStars ++;
-			}
-		}
-		
-		if(redSets == 6 || greenSets == 6 || blueSets == 6){
-			stars = 1;
-		}
-		
-		//////////////////////////////////////////////////////////////////
-		
-		//check for two-star condition: at least two sets released
-
-		if(redTwoStars == 6 || greenTwoStars == 6 || blueTwoStars == 6){
-			stars = 2;
-		}
-		
-		else if(redSets == 6 && greenSets == 6){
-			stars = 2;
-		}
-		
-		else if(redSets == 6 && blueSets == 6){
-			stars = 2;
-		}
-		
-		else if(greenSets == 6 && blueSets ==6){
-			stars = 2;
-		}
-		
-		///////////////////////////////////////////////////////////////////
-
-		//if all numbered board elts are covered, stars = 3
-		if(totalNumElts == coveredNumElts){
-			stars = 3;
-		}
-		
-		///////////////////////////////////////////////////////////////////
-		 */
 		
 		return stars;
 	}
