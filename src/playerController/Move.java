@@ -8,7 +8,7 @@ import playerEntity.GameModel;
  * @author tuckerhaydon
  *
  */
-abstract class Move {
+public abstract class Move {
 	
 	KabasujiPlayerApplication app;
 	GameModel m;
@@ -24,15 +24,20 @@ abstract class Move {
 			return false;
 		}
 		UndoManager.pushMove(this);
+		RedoManager.clear();
+		
 		return this.doMove();
 	}
 	
 	public boolean executeUndo(){
-//		boolean wasSuccessful = this.undoMove();
-//		app.refreshLevelEditor();
+		boolean wasSuccessful = this.undo();
 		
-//		return wasSuccessful;
-		return true;
+		if(wasSuccessful){
+			RedoManager.pushMove(this);
+		}
+		
+		app.repaintAll();		
+		return wasSuccessful;
 	}
 	
 	abstract boolean doMove();

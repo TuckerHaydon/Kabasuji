@@ -39,6 +39,11 @@ public abstract class Move {
 	
 	public boolean executeUndo(){
 		boolean wasSuccessful = this.undoMove();
+
+		if(wasSuccessful){
+			RedoManager.pushMove(this);
+		}
+		
 		app.refreshLevelEditor();
 		
 		return wasSuccessful;

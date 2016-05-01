@@ -108,6 +108,10 @@ public class KabasujiPlayerApplication {
 		levelSelectionMenu.setVisible(false);
 		achievementsMenu.setVisible(false);
 		instructionsPage.setVisible(false);
+		
+		// Bring to focus
+		gameWindow.toFront();
+		gameWindow.requestFocus();
 	}
 	
 	public void displayLevelSelectionMenu(){
@@ -147,6 +151,11 @@ public class KabasujiPlayerApplication {
 	
 	public InstructionsPage getInstructionsPage(){
 		return this.instructionsPage;
+	}
+	
+	public void repaintAll(){
+		this.getGameWindow().getLevelView().getScrollPane().repaint();
+		this.getGameWindow().getLevelView().getBoardView().repaint();
 	}
 	
 	void displaySplashScreen(){
