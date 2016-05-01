@@ -1,8 +1,8 @@
 BeginLevel
-Release
--1
+puzzle
+10
 BeginHexomino
-1 1 
+1 
 EndHexomino
 BeginElts
 P P P P P P P P P P P P 

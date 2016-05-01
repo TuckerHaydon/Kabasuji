@@ -129,4 +129,12 @@ public class Tile {
 	public void setAnchor(Anchor anchor){
 		this.anchor = anchor;
 	}
+	
+	/**
+	 * Sets the location of the tile.
+	 * @param location
+	 */
+	public void setLocation(String location){
+		this.location = location;
+	}
 }
