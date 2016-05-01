@@ -61,7 +61,7 @@ public abstract class LevelAchievementMonitor {
 	 * @return true if "BabyStep" was just unlocked
 	 */
 	protected boolean checkBabySteps(){
-		if(this.moveCounter==10 && this.notEarnBabyStep()){
+		if(this.moveCounter>=10 && this.notEarnBabyStep()){
 			achievements.get("BabySteps").setIsEarned(true);
 			popingUp.push("BabySteps");
 			return true;
@@ -84,10 +84,10 @@ public abstract class LevelAchievementMonitor {
 	
 	/**
 	 * Check the earned status of BabyStep achievement
-	 * @return true if "BabyStep" was earned
+	 * @return true if "BabySteps" was earned
 	 */
 	protected boolean notEarnBabyStep() {
-		return !(achievements.get("SpeedyGonzales").getIsEarned());
+		return !(achievements.get("BabySteps").getIsEarned());
 	}
 	/**
 	 * Check the earned status of Rebel achievement
