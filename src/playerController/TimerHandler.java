@@ -2,8 +2,6 @@ package playerController;
 
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
-import javax.swing.Timer;
-
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.LightningLevelView;
 
@@ -27,6 +25,9 @@ public class TimerHandler implements ActionListener{
 		this.m = m;
 	}
 	
+	/**
+	 * Make sure the timer performs
+	 */
 	public void actionPerformed(ActionEvent evt) {
     	processAction();
     }

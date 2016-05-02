@@ -1,7 +1,5 @@
 package builderController;
 
-import java.awt.Color;
-
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 

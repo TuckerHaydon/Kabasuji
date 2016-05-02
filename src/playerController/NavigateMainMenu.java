@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
-import playerEntity.LightningLevel;
 
 /**
  * Navigate to the main menu of the game; does not trigger RageQuit

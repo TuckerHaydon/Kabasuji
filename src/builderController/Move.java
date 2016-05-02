@@ -44,7 +44,7 @@ public abstract class Move {
 			RedoManager.pushMove(this);
 		}
 		
-		app.refreshLevelEditor();
+		app.repaintLevelEditor();
 		
 		return wasSuccessful;
 	}
@@ -52,4 +52,16 @@ public abstract class Move {
 	abstract boolean doMove();
 	abstract boolean isValid();
 	abstract boolean undoMove();
+	
+	public boolean redoMove(){
+		boolean wasSuccessful = this.doMove();
+
+		if(wasSuccessful){
+			UndoManager.pushMove(this);
+		}
+		
+		app.repaintLevelEditor();
+		
+		return wasSuccessful;
+	}
 }

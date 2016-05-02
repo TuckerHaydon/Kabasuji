@@ -2,7 +2,6 @@ package builderController;
 
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
-import builderEntity.Level;
 
 public class SetAllowedTimeMove extends Move {
 	

@@ -174,11 +174,9 @@ public class TileToBoardMove extends Move{
 		if(m.getCurrentLevel() instanceof LightningLevel) {
 			return false;
 		}
-		
-		
 		board.removeTile(tile);
 		m.getCurrentLevel().getBullpen().addTile(tile);
-		app.getGameWindow().getLevelView().getScrollPane().repaint();
+//		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;
 	}
 	

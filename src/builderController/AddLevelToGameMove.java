@@ -76,7 +76,7 @@ public class AddLevelToGameMove extends Move {
 	}
 
 	@Override
-	boolean doMove() {
+	public boolean doMove() {
 
 		String path = folderName+levelname;
 		Level lvl = LevelParser.getLevel(path);
@@ -104,9 +104,9 @@ public class AddLevelToGameMove extends Move {
 	@Override
 	public boolean undoMove() {
 		
-		m.getGame().setLevel(null, levelIndex);
+//		m.getGame().setLevel(null, levelIndex);
 		
-		return true;
+		return false;
 	}
 	
 	public void setLevelName(String name){

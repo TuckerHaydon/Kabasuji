@@ -36,20 +36,6 @@ public class PlayableBoardElt extends BoardElt {
 	}
 	
 	/**
-	 * Toggles the state of covered
-	 */
-	public void toggleCovered() {
-		isCovered = !isCovered;
-	}
-	
-	/**
-	 * Toggles the state of Hint
-	 */
-	public void toggleHint() {
-		isHint = !isHint;
-	}
-	
-	/**
 	 * Returns if this BoardElt is a hint
 	 * @return if isHint
 	 */

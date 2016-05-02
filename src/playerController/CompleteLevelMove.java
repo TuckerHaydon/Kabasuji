@@ -3,7 +3,6 @@ package playerController;
 import javax.swing.JOptionPane;
 
 import playerBoundary.KabasujiPlayerApplication;
-import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
 

@@ -15,6 +15,7 @@ public class testBoard {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup release level
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(0);
 		
 		//get the board and bullpen
@@ -47,7 +48,9 @@ public class testBoard {
 		//now make sure reset works
 		b.reset();
 		b.toString();
-		
+		int[] c = b.getBoardElt(1, 1).getRowCol();
+		assertEquals(c[0],1);
+		assertEquals(c[1],1);
 	}
 
 }

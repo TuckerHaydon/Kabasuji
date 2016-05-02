@@ -1,7 +1,5 @@
 package playerController;
 
-import static org.junit.Assert.*;
-
 import java.awt.event.MouseEvent;
 
 import org.junit.Test;

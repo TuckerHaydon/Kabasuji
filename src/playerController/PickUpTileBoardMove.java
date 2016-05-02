@@ -1,14 +1,12 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
-import playerBoundary.PuzzleLevelView;
 import playerBoundary.TileView;
 import playerEntity.Anchor;
 import playerEntity.Board;
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
 import playerEntity.PlayableBoardElt;
-import playerEntity.PuzzleLevel;
 import playerEntity.ReleaseLevel;
 import playerEntity.Square;
 import playerEntity.Tile;

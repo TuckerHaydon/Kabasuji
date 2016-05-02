@@ -3,6 +3,11 @@ package builderController;
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
+/**
+ * This move is in charged of setting hint elements
+ * @author 
+ *
+ */
 public class SetHintMove extends Move {
 	
 	boolean isHint;

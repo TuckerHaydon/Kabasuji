@@ -10,19 +10,14 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-import builderBoundary.BoardView;
-import builderBoundary.BullpenView;
 import builderBoundary.GameEditor;
 import builderBoundary.KabasujiBuilderApplication;
-import builderBoundary.LevelBuilderView;
-import builderBoundary.LevelEditor;
 import builderEntity.Board;
 import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
 import builderEntity.Bullpen;
 import builderEntity.Game;
 import builderEntity.Level;
-import builderEntity.LevelParser;
 import builderEntity.NumberedBoardElt;
 import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;

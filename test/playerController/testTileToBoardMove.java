@@ -7,13 +7,11 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import playerEntity.Board;
-import playerEntity.Bullpen;
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.GameModel;
 import playerEntity.LightningAchievementMonitor;
 import playerEntity.PuzzleAchievementMonitor;
-import playerEntity.PuzzleLevel;
 import playerEntity.Tile;
 
 public class testTileToBoardMove {

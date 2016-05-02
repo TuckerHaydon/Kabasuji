@@ -69,4 +69,16 @@ public abstract class Move {
 	abstract boolean doMove();
 	abstract boolean isValid();
 	abstract boolean undo();
+	
+	public boolean redoMove(){
+		boolean wasSuccessful = this.doMove();
+
+		if(wasSuccessful){
+			UndoManager.pushMove(this);
+		}
+		
+		app.repaintAll();
+		
+		return wasSuccessful;
+	}
 }

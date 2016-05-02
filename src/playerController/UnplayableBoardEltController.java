@@ -25,6 +25,9 @@ public class UnplayableBoardEltController extends java.awt.event.MouseAdapter {
 		this.m = m;
 	}
 	
+	/**
+	 * Update the dragged tile view on the board
+	 */
 	public void mouseDragged(MouseEvent me){
 		
 		GameWindow gw = app.getGameWindow();
@@ -37,6 +40,9 @@ public class UnplayableBoardEltController extends java.awt.event.MouseAdapter {
 
 	}
 	
+	/**
+	 * Release dragged tile if mouse released on an unplayable board element
+	 */
 	public void mouseReleased(MouseEvent me){
 		
 		GameWindow gw = app.getGameWindow();

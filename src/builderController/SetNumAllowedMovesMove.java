@@ -2,7 +2,6 @@ package builderController;
 
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
-import builderEntity.Level;
 
 public class SetNumAllowedMovesMove extends Move{
 	int moves, prev;
@@ -14,6 +13,7 @@ public class SetNumAllowedMovesMove extends Move{
 
 	@Override
 	boolean doMove() {
+		if(!isValid()) return false;
 		prev = m.getLevel().getlevelData();
 		m.getLevel().setLevelData(moves);
 		return true;

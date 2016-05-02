@@ -12,7 +12,9 @@ import playerEntity.Tile;
 
 /**
  * Adds a Tile to the Bullpen 
- * @author tuckerhaydon, dgwalder, kacper puczydlowski
+ * @author tuckerhaydon
+ * @author dgwalder
+ * @author kacper puczydlowski
  *
  */
 public class TileToBullpenMove extends Move{
@@ -37,6 +39,9 @@ public class TileToBullpenMove extends Move{
 		return this.doMove();
 	}
 	
+	/**
+	 * Return a tile to the bullpen
+	 */
 	@Override
 	boolean doMove() {
 		
@@ -73,7 +78,7 @@ public class TileToBullpenMove extends Move{
 
 	@Override
 	boolean isValid() {
-		if(m.getCurrentLevel() instanceof LightningLevel || app.getGameWindow().getDraggedTile()==null) {
+		if((m.getCurrentLevel() instanceof LightningLevel && tile.getLocation().equals("board")) || app.getGameWindow().getDraggedTile()==null) {
 			return false;
 		}
 		return true;

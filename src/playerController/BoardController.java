@@ -6,7 +6,6 @@ import playerBoundary.GameWindow;
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.Board;
-import playerEntity.GameAchievementMonitor;
 import playerEntity.GameModel;
 import playerEntity.Tile;
 

@@ -2,21 +2,11 @@ package playerController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
-import playerBoundary.GameWindow;
 import playerBoundary.KabasujiPlayerApplication;
-import playerBoundary.LightningLevelView;
-import playerBoundary.PuzzleLevelView;
-import playerBoundary.ReleaseLevelView;
 import playerEntity.GameModel;
-import playerEntity.Level;
-import playerEntity.LightningLevel;
-import playerEntity.PuzzleLevel;
 
 /**
- * 
+ * Play the level
  * @author tuckerhaydon
  *
  */
@@ -37,6 +27,9 @@ public class PlayLevel implements ActionListener {
 		processAction();
 	}
 	
+	/**
+	 * Set current level to be the level that correspond with the level button Player clicked
+	 */
 	void processAction(){
 		// Check to make sure the level you clicked on is unlocked
 		if(m.getLevels()[levelNum].getIsUnlocked()){	

@@ -6,8 +6,6 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import playerController.NavigateAchievementMenu;
-import playerController.NavigateInstructionsMenu;
 import playerController.NavigateMainMenu;
 import playerController.PlayLevel;
 import playerEntity.GameModel;

@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 import builderBoundary.KabasujiBuilderApplication;
 import playerController.GameWindowNavigateMainMenu;
+import playerController.RedoManager;
 import playerController.ResetLevelController;
 import playerController.TestLevelNavigateLevelEditorMove;
 import playerController.UndoManager;
@@ -35,7 +36,7 @@ public class GameWindow extends JFrame implements KeyListener{
 	JButton menuButton;
 	JButton resetButton;
 	JPanel contentPane;
-	boolean isControlPressed = false;
+	boolean isControlPressed = false, isShiftPressed = false;
 	
 	public GameWindow(KabasujiPlayerApplication app, GameModel m)
 	{
@@ -198,12 +199,28 @@ public class GameWindow extends JFrame implements KeyListener{
 			isControlPressed = true;
 		}
 		
-		if(e.getKeyCode() == 90 && isControlPressed){
+		if(e.isShiftDown()){
+			isShiftPressed = true;
+		}
+		
+		if(e.getKeyCode() == 90 && isControlPressed && !isShiftPressed){
 			try{
-				UndoManager.popMove().executeUndo();
+				while(true){
+					if(UndoManager.popMove().executeUndo()){
+						break;
+					}
+				}
 				System.out.println("Undo");
 			}
-			catch(EmptyStackException ex){} // NOOP
+			catch(EmptyStackException ex){System.out.println("No moves to undo");} // NOOP
+		}
+		
+		if(e.getKeyCode() == 90 && isControlPressed && isShiftPressed){
+			try{
+				RedoManager.popMove().redoMove();
+				System.out.println("Redo");
+			}
+			catch(EmptyStackException ex){System.out.println("No moves to redo");} // NOOP
 		}
 		
 	}
@@ -212,6 +229,10 @@ public class GameWindow extends JFrame implements KeyListener{
 	public void keyReleased(KeyEvent e) {
 		if(!e.isControlDown()){
 			isControlPressed = false;
+		}
+		
+		if(!e.isShiftDown()){
+			isShiftPressed = false;
 		}
 		
 	}

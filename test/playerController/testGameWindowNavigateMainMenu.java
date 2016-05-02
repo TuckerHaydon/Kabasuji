@@ -5,9 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;
-import playerBoundary.TileView;
 import playerEntity.GameModel;
-import playerEntity.PuzzleAchievementMonitor;
 
 public class testGameWindowNavigateMainMenu {
 
