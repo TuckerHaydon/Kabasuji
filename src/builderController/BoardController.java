@@ -18,6 +18,12 @@ public class BoardController extends MouseAdapter {
 	BuilderModel model;
 	BoardView bv;
 	
+	/**
+	 * BoardController Constructor
+	 * @param app
+	 * @param model
+	 * @param bv
+	 */
 	public BoardController(KabasujiBuilderApplication app, BuilderModel model, BoardView bv){
 		super();
 		
@@ -41,6 +47,11 @@ public class BoardController extends MouseAdapter {
 		
 	}
 	
+	/**
+	 * processes what happens on a mouse pressed on the board 
+	 * @param x
+	 * @param y
+	 */
 	void processMousePressed(int x, int y){
 
 		// Determine the row/col where the mouse was clicked.
