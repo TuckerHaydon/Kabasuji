@@ -21,7 +21,10 @@ public class ResetLevelMove extends Move{
 		super(app, m);
 		data = new int[2]; // Contains the score and the level-specific data
 	}
-
+	
+	/**
+	 * Reset the level, every tiles goes back to where it was 
+	 */
 	@Override
 	boolean doMove() {
 		
@@ -64,8 +67,6 @@ public class ResetLevelMove extends Move{
 		// Get the current level
 		Level l = m.getCurrentLevel();
 		
-		// Set the score back
-		//l.setScore(data[0]);
 		
 		// Set the level-specific data back
 		l.setLevelData(data[1]);
