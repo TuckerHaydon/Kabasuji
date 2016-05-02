@@ -23,10 +23,10 @@ public class PickUpTileBullpenMove extends Move{
 	
 	/**
 	 * Pick Up Tile Bullpen Move Constructor
-	 * @param app
-	 * @param m
-	 * @param tile
-	 * @param bullpen
+	 * @param app - top level Kabasuji player application 
+	 * @param m - top level game model
+	 * @param tile - tile being picked up
+	 * @param bullpen - bullpen of the level
 	 */
 	public PickUpTileBullpenMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Bullpen bullpen){
 		super(app, m);
@@ -34,6 +34,9 @@ public class PickUpTileBullpenMove extends Move{
 		this.bullpen=bullpen;
 	}
 	
+	/**
+	 * Set the picked up tile as being the dragged tile and update the bullpen
+	 */
 	@Override
 	boolean doMove() {
 		
@@ -48,7 +51,7 @@ public class PickUpTileBullpenMove extends Move{
 		
 		return true;
 	}
-
+	
 	@Override
 	boolean isValid() {
 		return true;

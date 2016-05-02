@@ -24,7 +24,7 @@ import playerEntity.BoardElt;
 import playerEntity.Bullpen;
 
 /**
- * 
+ * Loads a game into the player application
  * @author tuckerhaydon, jwilder
  *
  */
@@ -33,6 +33,11 @@ public class LoadGame implements ActionListener{
 	GameModel m;
 	KabasujiPlayerApplication app;
 	
+	/**
+	 * Constructor for load game
+	 * @param m - top level game model
+	 * @param app - top level Kabasuji player application
+	 */
 	public LoadGame(GameModel m, KabasujiPlayerApplication app){
 		
 		this.m = m;
