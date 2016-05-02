@@ -25,6 +25,7 @@ public class Anchor extends Square {
 		this.col = col;
 	}
 	
+	/** returns the row and col of the anchor */
 	int[] getRowCol() {
 		int[] ints = {this.row, this.col};
 		return ints;

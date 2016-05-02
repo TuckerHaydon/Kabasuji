@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Parses a file containing information about the configuration of the hexominoes (tiles) used
  * in Kabasuji game play
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class TileParser {

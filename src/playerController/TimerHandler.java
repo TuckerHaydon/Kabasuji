@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /***
- * 
+ * Handles the logic of the timer associated with the lightning level
  * @author dgwalder
  * @author tuckerhaydon
  *

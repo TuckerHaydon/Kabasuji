@@ -13,6 +13,7 @@ import java.util.Scanner;
  * @see Level
  * 
  * @author tuckerhaydon
+ * @author dgwalder
  *
  */
 public class LevelParser {

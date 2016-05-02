@@ -12,8 +12,13 @@ import playerEntity.Square;
 import playerEntity.Tile;
 
 /**
+ * Bullpen View Class
  * 
+ * This class is responsible for displaying the Bullpen.
+ * @see Bullpen
+ * @see BullpenController
  * @author tuckerhaydon
+ * @author dgwalder
  *
  */
 public class BullpenView extends View {

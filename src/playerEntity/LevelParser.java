@@ -9,7 +9,7 @@ import playerEntity.Level;
 /**
  * This class parses a storage file containing level information
  * It is used to when loading a game to the player application
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class LevelParser {

@@ -13,7 +13,10 @@ import javax.swing.Timer;
  * Acceptable moves:
  * Bullpen -> board
  * 
- * @author tuckerhaydon, ndiwakar, dgwalder, kacper puczydlowski
+ * @author tuckerhaydon
+ * @author ndiwakar
+ * @author dgwalder
+ * @author kacper puczydlowski
  *
  */
 public class LightningLevel extends Level{

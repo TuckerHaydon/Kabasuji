@@ -10,6 +10,7 @@ import java.util.Scanner;
  * in Kabasuji game play
  * 
  * @author tuckerhaydon
+ * @author dgwalder
  *
  */
 public class TileParser {

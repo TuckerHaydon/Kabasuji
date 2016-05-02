@@ -17,6 +17,7 @@ package builderEntity;
  */
 public class Bank extends Bullpen {
 
+	/** Bank Constructor */
 	public Bank(){
 		super();
 		

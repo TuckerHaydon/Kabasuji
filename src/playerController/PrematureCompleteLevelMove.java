@@ -11,7 +11,7 @@ import playerEntity.LightningLevel;
 /***
  * Handles the logic of the complete level button
  * 
- * @author Damani
+ * @author dgwalder
  *
  */
 public class PrematureCompleteLevelMove implements ActionListener {

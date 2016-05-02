@@ -19,17 +19,23 @@ public abstract class BoardElt {
 	int row;
 	int col;
 
+	/**
+	 * BoardElt constructor
+	 * @param row
+	 * @param col
+	 */
 	public BoardElt(int row, int col){
 		this.row = row;
 		this.col = col;
 	}
 	
+	/** returns the row and col of the board element */
 	public int[] getRowCol() {
 		int[] ints = {row, col};
 		return ints;
 	}
 	
-	
+	/** sets the row and col of the board element */
 	public void setRowCol(int[] rowcol){
 		this.row = rowcol[0];
 		this.col = rowcol[1];
@@ -38,6 +44,7 @@ public abstract class BoardElt {
 	@Override
 	public abstract String toString();
 	
+	/** returns the type of board elt */
 	public String getType() {
 		return null;
 	}

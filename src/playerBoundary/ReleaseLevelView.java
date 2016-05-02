@@ -16,7 +16,7 @@ import playerEntity.ReleaseLevel;
 
 /**
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class ReleaseLevelView extends LevelView{

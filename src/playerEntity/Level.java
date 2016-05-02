@@ -3,7 +3,7 @@ package playerEntity;
 /**
  * Abstract class used to construct levels of a game.
  * There are 15 of these in a game.
- * @author tuckerhaydon, ndiwakar
+ * @author tuckerhaydon, ndiwakar, dgwalder
  * @see PuzzleLevel
  * @see LightningLevel
  * @see ReleaseLevel

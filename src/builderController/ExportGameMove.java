@@ -12,8 +12,9 @@ import builderEntity.BuilderModel;
 import builderEntity.Level;
 
 /**
- * 
+ * This class is responsible for exporting the game to a storage file
  * @author tuckerhaydon
+ * @author dgwalder
  *
  */
 public class ExportGameMove extends Move{
@@ -56,7 +57,6 @@ public class ExportGameMove extends Move{
 				file.createNewFile();
 			}
 			else{
-				// TODO maybe check to make sure they want to overwrite
 				file.delete();
 				file.createNewFile();
 			}
