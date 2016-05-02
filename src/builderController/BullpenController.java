@@ -22,6 +22,13 @@ public class BullpenController extends MouseAdapter {
 	BullpenView bullpenView;
 	BankView bankView;
 	
+	/**
+	 * Bullpen Controller Constructor
+	 * @param app
+	 * @param m
+	 * @param bullpenView
+	 * @param bankView
+	 */
 	public BullpenController(KabasujiBuilderApplication app, BuilderModel m, BullpenView bullpenView, BankView bankView) {
 		super();
 
@@ -41,6 +48,11 @@ public class BullpenController extends MouseAdapter {
 		processMouseClicked(x, y);
 	}
 	
+	/**
+	 * processes what happens on a mouse clicked event on the bullpen
+	 * @param x
+	 * @param y
+	 */
 	void processMouseClicked(int x, int y){
 		int cellNum = x/bullpenView.getCellWidth();
 		
