@@ -34,7 +34,7 @@ public class AddTileToBullpenMove extends Move {
 	 * and adding a Tile by reference number. 
 	 */
 	@Override
-	boolean doMove() {
+	public boolean doMove() {
 		
 		// Add the tile to the bullpen
 		Bullpen bullpen = bullpenView.getBullpen();

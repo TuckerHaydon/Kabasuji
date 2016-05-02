@@ -37,7 +37,7 @@ public class ChangeBoardEltMove extends Move {
 	}
 
 	@Override
-	boolean doMove() {
+	public boolean doMove() {
 		
 		BoardElt b = board.getBoardElts()[row][col];
 		if (b instanceof PlayableBoardElt) {

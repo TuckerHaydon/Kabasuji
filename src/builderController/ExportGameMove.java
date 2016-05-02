@@ -27,7 +27,7 @@ public class ExportGameMove extends Move{
 	}
 	
 	@Override
-	boolean doMove() {
+	public boolean doMove() {
 		this.writeToFile();
 		return true;
 	}
