@@ -76,7 +76,7 @@ public class TileToBullpenMove extends Move{
 
 	@Override
 	boolean isValid() {
-		if(m.getCurrentLevel() instanceof LightningLevel || app.getGameWindow().getDraggedTile()==null) {
+		if((m.getCurrentLevel() instanceof LightningLevel && tile.getLocation().equals("board")) || app.getGameWindow().getDraggedTile()==null) {
 			return false;
 		}
 		return true;
