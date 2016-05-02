@@ -16,7 +16,9 @@ import playerEntity.Tile;
 import playerEntity.UnplayableBoardElt;
 
 /**
- * The class is in charge of displayed the Board. It takes in as parameters a KabasujiPlayerApplication, a GameModel, and a Board. 
+ * The class is in charge of displaying the Board. 
+ * It takes in as parameters a KabasujiPlayerApplication, a GameModel, and a Board. 
+ * @see Board
  * @author tuckerhaydon
  */
 public class BoardView extends View{

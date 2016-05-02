@@ -19,9 +19,12 @@ public class NavigateInstructionsMenu implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		processAction();
+		m.getGAM().unlockWhatANerd();
+		m.getGAM().pop();
 	}
 	
 	void processAction(){
 		app.displayInstructionsPage();
+		
 	}
 }

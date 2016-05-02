@@ -6,8 +6,6 @@ import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
 import builderBoundary.KabasujiBuilderApplication;
 import playerEntity.GameModel;
 
@@ -25,6 +23,10 @@ public class KabasujiPlayerApplication {
 	GameModel m;
 	InstructionsPage instructionsPage;
 	
+	/**
+	 * Constructor. Must take in a game model. Ensures that all applications have models
+	 * @param m
+	 */
 	public KabasujiPlayerApplication(GameModel m){
 		this.m = m;
 		init();
@@ -41,7 +43,7 @@ public class KabasujiPlayerApplication {
 		initControllers();
 		
 //		displaySplashScreen();
-		playThemeSong();
+//		playThemeSong();
 
 		displayMainMenu();
 	}
@@ -57,7 +59,7 @@ public class KabasujiPlayerApplication {
 	}
 	
 	public void initModel(){
-		m.loadGame("src/resources/games/Game 1");
+		m.loadGame("src/resources/games/DefaultGame");
 		m.setCurrentLevel(0);
 		m.initModel();
 	}
@@ -108,6 +110,10 @@ public class KabasujiPlayerApplication {
 		levelSelectionMenu.setVisible(false);
 		achievementsMenu.setVisible(false);
 		instructionsPage.setVisible(false);
+		
+		// Bring to focus
+		gameWindow.toFront();
+		gameWindow.requestFocus();
 	}
 	
 	public void displayLevelSelectionMenu(){
@@ -149,12 +155,17 @@ public class KabasujiPlayerApplication {
 		return this.instructionsPage;
 	}
 	
+	public void repaintAll(){
+		this.getGameWindow().getLevelView().getScrollPane().repaint();
+		this.getGameWindow().getLevelView().getBoardView().repaint();
+	}
+	
 	void displaySplashScreen(){
 		
 		Clip clip = null;
 		try {
 			File f = new File("src/resources/audio/intro.wav");
-			//File f = new File("src/resources/audio/themesong.wav");
+//			File f = new File("src/resources/audio/themesong.wav");
 			clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(f));
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
@@ -189,7 +200,7 @@ public class KabasujiPlayerApplication {
 	void playThemeSong(){
 		try {
 			File f = new File("src/resources/audio/recorder.wav");
-			//File f = new File("src/resources/audio/themesong.wav");
+//			File f = new File("src/resources/audio/themesong.wav");
 			Clip clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(f));
 			clip.loop(Clip.LOOP_CONTINUOUSLY);

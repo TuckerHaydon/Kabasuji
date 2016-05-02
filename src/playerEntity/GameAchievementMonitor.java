@@ -7,7 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * 
+ * Achievement monitor for the whole game
+ * Keeps track of all achievements
  * @author dorothy
  *
  */
@@ -48,6 +49,14 @@ public class GameAchievementMonitor {
 			this.checkVictoryLap();
 	}
 	
+	public void unlockWhatANerd(){
+		if(!achievements.get("WhatANerd").getIsEarned()){
+			achievements.get("WhatANerd").setIsEarned(true);
+			popingUp.add("WHAT A NERDDDDDDDDD");
+		}
+	}
+	
+	
 	/**
 	 * Check K-komboBreaker achievement was just earned
 	 * @return true if K-komboBreaker achievement was earned 
@@ -72,7 +81,7 @@ public class GameAchievementMonitor {
 	private boolean checkVictoryLap(){
 		if(!achievements.get("VictoryLap").getIsEarned()){
 			for(int i=0;i<15;i++){
-				if(isWonlst[i] && doubleWonlst[i]){
+				if(doubleWonlst[i] && isWonlst[i]){
 					achievements.get("VictoryLap").setIsEarned(true);
 					popingUp.add("VictoryLap");
 					return true;

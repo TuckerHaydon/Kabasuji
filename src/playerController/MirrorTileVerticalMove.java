@@ -32,6 +32,7 @@ public class MirrorTileVerticalMove extends Move{
 	
 	@Override
 	public boolean undo() {
+		if(UndoManager.peekMove() == null) return false;
 		tile.flipVertical();
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;

@@ -2,6 +2,11 @@ package builderEntity;
 
 /**
  * 
+ * Playable Board Element Class
+ * This Board element is one that can be specified to be played on,
+ * and be a part of a hint. 
+ * @see BoardElt
+ * 
  * @author tuckerhaydon
  *
  */
@@ -12,13 +17,20 @@ public class PlayableBoardElt extends BoardElt{
 	public PlayableBoardElt(int row, int col, boolean isHint) {
 		super(row, col);
 		this.isHint = isHint;
-		// TODO Auto-generated constructor stub
 	}
 	
+	/***
+	 * sets the BoardElt as a hint
+	 * @param h
+	 */
 	void setIsHint(boolean h){
 		this.isHint = h;
 	}
 	
+	/**
+	 * returns whether the BoardElt is a hint
+	 * @return 
+	 */
 	public boolean isHint(){
 		return this.isHint;
 	}
@@ -33,6 +45,9 @@ public class PlayableBoardElt extends BoardElt{
 		}
 	}
 	
+	/**
+	 * returns the type of BoardElt as a string
+	 */
 	public String getType() {
 		return "playable";
 	}

@@ -7,11 +7,21 @@ import java.util.Scanner;
 
 /**
  * 
+ * LevelParser class
+ * 
+ * This class used to parse level information from a storage file.
+ * @see Level
+ * 
  * @author tuckerhaydon
+ * @author dgwalder
  *
  */
 public class LevelParser {
-	
+	/**
+	 * Parses a text file to find level information 
+	 * @param path - file path 
+	 * @return - level that has been parsed
+	 */
 	public static Level getLevel(String path){
 		
 		Level parsedLevel = null;
@@ -32,6 +42,11 @@ public class LevelParser {
 		return parsedLevel;
 	}
 	
+	/**
+	 * Parses a Kabasuji level text file
+	 * @param fileScanner - a filescanner
+	 * @return - level that has been parsed
+	 */
 	static Level parseFile(Scanner fileScanner){
 		
 		Level parsedLevel = null;

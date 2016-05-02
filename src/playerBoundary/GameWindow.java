@@ -1,6 +1,10 @@
 package playerBoundary;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.EmptyStackException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,6 +14,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import playerController.GameWindowNavigateMainMenu;
 import playerController.ResetLevelController;
 import playerController.TestLevelNavigateLevelEditorMove;
+import playerController.UndoManager;
 import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.LightningLevel;
@@ -21,7 +26,7 @@ import playerEntity.ReleaseLevel;
  * @author tuckerhaydon
  *
  */
-public class GameWindow extends JFrame {
+public class GameWindow extends JFrame implements KeyListener{
 	
 	LevelView currentLevelView;
 	TileView draggedTile;
@@ -30,12 +35,17 @@ public class GameWindow extends JFrame {
 	JButton menuButton;
 	JButton resetButton;
 	JPanel contentPane;
+	boolean isControlPressed = false;
 	
 	public GameWindow(KabasujiPlayerApplication app, GameModel m)
 	{
 		super();
 		this.app = app;
 		this.m = m;
+		
+		// Key listener stuff
+		this.setFocusable(true);
+		this.addKeyListener(this);
 
 		// Initialize the buttons
 		menuButton = new JButton("Main Menu");
@@ -103,6 +113,7 @@ public class GameWindow extends JFrame {
 	}
 	
 	public void releaseDraggedTile(){
+		if(draggedTile == null) return;
 		this.remove(draggedTile);
 		draggedTile = null;
 	}
@@ -169,6 +180,40 @@ public class GameWindow extends JFrame {
 		menuButton.addActionListener(new TestLevelNavigateLevelEditorMove(app,builderapp));
 		m.disableAchievement();
 		resetButton.setVisible(false);
+	}
+	
+	@Override
+	public void keyTyped(KeyEvent e) {} // NOOP
+	
+	/**
+	 * Ctrl+Z to undo 
+	 */
+	@Override
+	public void keyPressed(KeyEvent e) {
+		
+		// Can only undo if testing
+		if(m.IsTesting() == false){return;}
+				
+		if(e.isControlDown()){
+			isControlPressed = true;
+		}
+		
+		if(e.getKeyCode() == 90 && isControlPressed){
+			try{
+				UndoManager.popMove().executeUndo();
+				System.out.println("Undo");
+			}
+			catch(EmptyStackException ex){} // NOOP
+		}
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if(!e.isControlDown()){
+			isControlPressed = false;
+		}
+		
 	}
 	
 	

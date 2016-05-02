@@ -2,8 +2,6 @@ package playerEntity;
 
 import java.util.ArrayList;
 
-import builderController.UndoManager;
-
 /**
  * Board class used for scoring
  * Tiles are added to the board at specific BoardElts
@@ -162,6 +160,21 @@ public class Board {
 				catch(Exception e){}
 			}
 		}
+	}
+	
+	/**
+	 * Equips a Board with a pair of coveralls
+	 */
+	public void coverAll() {
+		// Make sure all of the elements are uncovered
+				for(int row = 0; row < YELTS; row++){
+					for(int col = 0; col < XELTS; col++){
+						BoardElt elt = ((BoardElt)elts[row][col]);
+						if(!(elt instanceof UnplayableBoardElt)) {
+							((PlayableBoardElt) elt).setCovered(true);
+						}
+					}
+				}
 	}
 	
 

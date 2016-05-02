@@ -1,14 +1,9 @@
 package playerController;
 
 import playerBoundary.KabasujiPlayerApplication;
-import playerBoundary.PuzzleLevelView;
 import playerBoundary.TileView;
-import playerEntity.Anchor;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
-import playerEntity.PuzzleLevel;
-import playerEntity.LightningLevel;
-
 import playerEntity.Tile;
 
 /**
@@ -56,7 +51,7 @@ public class PickUpTileBullpenMove extends Move{
 	
 	@Override
 	public boolean undo() {
-		return bullpen.addTile(tile.getReferenceNumber());
+		return bullpen.addTile(tile);
 	}
 
 }

@@ -2,20 +2,20 @@ BeginLevel
 release
 -1
 BeginHexomino
-5 6 18 
+5 6 18 2 27 26 23 22 18 19 15 16 11 10 12 34 33 32 27 26 20 19 15 14 8 9 
 EndHexomino
 BeginElts
-U U U U P P P N1R N1R N2R N4R P 
-U U U U P P P P P N2R N4R P 
-U U U U P P P P U N2R U P 
-P P P P P P P U N2R N2R N2R N2R 
-P P P P P P P P U N2R P P 
-P P U U N2R N2R N2R N4R N4R P P P 
-P P N3B P U P P P P P P P 
-P P N1B P P P P P P P P P 
-P P N1B N3B N3B P P P P P P P 
-P P P N3B P P P P P P P P 
-P P P P P P P P P P P P 
+U U U U P P P P P P P P 
+U U U U P P N1R P N6B P N5G P 
+U U U U P N4G P P U P U P 
+P P P P N5B P P U P N2R P P 
+P N6G P P P P P P U P P P 
+P P U U N4B P N3G P P P N3R P 
+P P P P U P P N4R P P P P 
+P P P P P P P P P N2G P P 
+P N1B P P N3B N5R P P P P P P 
+P P P P P P P P P P N2B P 
+P P N1G P P P P P N6R P P P 
 P P P P P P P P P P P P 
 EndElts
 EndLevel

@@ -8,10 +8,8 @@ import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
-import playerEntity.Board;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
-import playerEntity.PuzzleAchievementMonitor;
 import playerEntity.Tile;
 
 //ASSERT STATEMENTS KINDA JANKY, COME BACK TO THIS ONE
@@ -23,6 +21,7 @@ public class testPickupTileBullpenMove {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(0);
 		gm.selectCurrentAM(1);
 		
@@ -39,16 +38,21 @@ public class testPickupTileBullpenMove {
 		player.getGameWindow().setDraggedTile(tv);
 		
 		//before the move, there is 4 tiles in the bullpen
-		assertEquals(3, bp.getTiles().size());
+
+		//assertEquals(3, bp.getTiles().size());
+		assertEquals(35, bp.getTiles().size());
+
 		
 		//this is a valid move
 		assertTrue(putbm.isValid());
 		
 		//after the move, there is only three tiles in the bullpen
 		putbm.doMove();
+		assertEquals(34, bp.getTiles().size());
 
 		//after undo, there should be 4 tiles once again and no selected tile
 		putbm.undo();
+		assertEquals(35, bp.getTiles().size());
 		
 	}
 

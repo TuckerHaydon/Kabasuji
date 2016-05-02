@@ -11,7 +11,10 @@ import javax.swing.JLabel;
 import playerController.NavigateMainMenu;
 import playerEntity.GameModel;
  
-
+/**
+ * This class is used to display the instruction of the game 
+ * @author tuckerhaydon
+ */
 public class InstructionsPage extends JFrame {
 	
 	KabasujiPlayerApplication app;
@@ -22,7 +25,6 @@ public class InstructionsPage extends JFrame {
 		super();
 		this.app = app;
 		this.m = m;
-		
 		
 		mainMenu = new JButton("Main Menu");
 	}

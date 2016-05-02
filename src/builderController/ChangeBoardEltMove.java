@@ -37,7 +37,7 @@ public class ChangeBoardEltMove extends Move {
 	}
 
 	@Override
-	boolean doMove() {
+	public boolean doMove() {
 		
 		BoardElt b = board.getBoardElts()[row][col];
 		if (b instanceof PlayableBoardElt) {
@@ -78,6 +78,10 @@ public class ChangeBoardEltMove extends Move {
 
 	@Override
 	boolean isValid() {
+		
+		if(board.getBoardElts()[row][col] instanceof UnplayableBoardElt && selectedBoardEltType.equals("unplayable")) {return false;}
+		if(board.getBoardElts()[row][col] instanceof NumberedBoardElt && selectedBoardEltType.equals("numbered")) {return false;}
+		if(board.getBoardElts()[row][col] instanceof PlayableBoardElt && selectedBoardEltType.equals("playable")) {return false;}
 
 		// Make sure the row/col are within bounds.
 		if(row < 0 || row > 11 || col < 0 || col > 11){

@@ -7,13 +7,11 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import playerEntity.Board;
-import playerEntity.Bullpen;
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.GameModel;
 import playerEntity.LightningAchievementMonitor;
 import playerEntity.PuzzleAchievementMonitor;
-import playerEntity.PuzzleLevel;
 import playerEntity.Tile;
 
 public class testTileToBoardMove {
@@ -24,6 +22,7 @@ public class testTileToBoardMove {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(0);
 		
 		//get all the necessary elements for the move
@@ -32,13 +31,33 @@ public class testTileToBoardMove {
 		TileView tv = new TileView(player, gm, tiles.get(2));
 		PuzzleAchievementMonitor pam = new PuzzleAchievementMonitor(null);
 		gm.selectCurrentAM(1);
-		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(2), 2, 2);
+
+		//TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(2), 2, 2);
+
+		Tile t = tiles.get(3);
+		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(3), 2, 2);
+
 		ttbm.setAM(pam);
 		player.getGameWindow().setDraggedTile(tv);
 		
 		ttbm.isValid();
 		ttbm.execute();
+
 		ttbm.undo();	//put some assert statements back in here
+
+	//	assertEquals(gm.getCurrentLevel().getBoard().getTiles().size(), 1); 
+		
+//		//after the move is undone, the board should have zero tiles again
+//		ttbm.undo();
+//		assertEquals(gm.getCurrentLevel().getBoard().getTiles().size(), 0);
+//		
+//		ttbm.execute();
+//		TileToBullpenMove ttbpm = new TileToBullpenMove(player, gm, t, gm.getCurrentLevel().getBullpen());
+//		player.getGameWindow().setDraggedTile(new TileView(player,gm,t));
+//		assertTrue(ttbpm.execute());
+//		assertFalse(ttbpm.execute());
+//		assertTrue(ttbpm.undo());
+
 	}
 	
 	@Test
@@ -47,6 +66,7 @@ public class testTileToBoardMove {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(1);
 		
 		//get all the necessary elements for the move
@@ -56,7 +76,7 @@ public class testTileToBoardMove {
 		LightningAchievementMonitor lam = new LightningAchievementMonitor(null);
 		gm.selectCurrentAM(2);
 		
-		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(0), 2, 0);
+		TileToBoardMove ttbm = new TileToBoardMove(player, gm, board, tiles.get(0), 3, 1);
 		ttbm.setAM(lam);
 		player.getGameWindow().setDraggedTile(tv);
 		
@@ -79,6 +99,7 @@ public class testTileToBoardMove {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(1);
 		
 		//get all the necessary elements for the move
@@ -105,5 +126,4 @@ public class testTileToBoardMove {
 		ttbm.undo();
 		assertEquals(gm.getCurrentLevel().getBoard().getTiles().size(), 0);
 	}
-
 }

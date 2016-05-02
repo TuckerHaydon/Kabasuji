@@ -6,9 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * This class is in charge of monitor levels
+ * This abstract class is in charge of monitor levels
  * @author dorothy
- *
+ * @see LightningAchievementMonitor
+ * @see ReleaseAchievementMonitor
+ * @see PuzzleAchievementMonitor
  */
 public abstract class LevelAchievementMonitor {
 	int moveCounter;
@@ -59,7 +61,7 @@ public abstract class LevelAchievementMonitor {
 	 * @return true if "BabyStep" was just unlocked
 	 */
 	protected boolean checkBabySteps(){
-		if(this.moveCounter==10 && this.notEarnBabyStep()){
+		if(this.moveCounter>=10 && this.notEarnBabyStep()){
 			achievements.get("BabySteps").setIsEarned(true);
 			popingUp.push("BabySteps");
 			return true;
@@ -82,10 +84,10 @@ public abstract class LevelAchievementMonitor {
 	
 	/**
 	 * Check the earned status of BabyStep achievement
-	 * @return true if "BabyStep" was earned
+	 * @return true if "BabySteps" was earned
 	 */
 	protected boolean notEarnBabyStep() {
-		return !(achievements.get("SpeedyGonzales").getIsEarned());
+		return !(achievements.get("BabySteps").getIsEarned());
 	}
 	/**
 	 * Check the earned status of Rebel achievement
@@ -136,13 +138,7 @@ public abstract class LevelAchievementMonitor {
 	protected boolean notEarnRageQuit() {
 		return !(achievements.get("RageQuit").getIsEarned());
 	}
-	/**
-	 * Check the earned status of VictoryLap achievement 
-	 * @return true if "VictoryLap" was not earned
-	 */
-	protected boolean notEarnVictoryLap(){
-		return !(achievements.get("VictoryLap").getIsEarned());
-	}
+
 	
 	/**
 	 * pop up the achievements just earned

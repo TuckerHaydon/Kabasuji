@@ -12,7 +12,9 @@ import playerEntity.Tile;
 
 /**
  * Adds a Tile to the Bullpen 
- * @author tuckerhaydon, dgwalder, kacper puczydlowski
+ * @author tuckerhaydon
+ * @author dgwalder
+ * @author kacper puczydlowski
  *
  */
 public class TileToBullpenMove extends Move{
@@ -37,11 +39,26 @@ public class TileToBullpenMove extends Move{
 		return this.doMove();
 	}
 	
+	/**
+	 * Return a tile to the bullpen
+	 */
 	@Override
 	boolean doMove() {
 		
 		// Add the tile to the bullpen
 		boolean successful = bullpen.addTile(tile);
+		
+		if(!successful){
+			return false;
+		}
+		
+		//update puzzle level moves
+		if (m.getCurrentLevel() instanceof PuzzleLevel && tile.getLocation().equals("board")){
+			((PuzzleLevel) m.getCurrentLevel()).updateMoves(+1);
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
+		}
+		
+		tile.setLocation("bullpen");
 		
 		// Release the dragged tile
 		app.getGameWindow().releaseDraggedTile();
@@ -61,7 +78,7 @@ public class TileToBullpenMove extends Move{
 
 	@Override
 	boolean isValid() {
-		if(m.getCurrentLevel() instanceof LightningLevel && app.getGameWindow().getDraggedTile()==null) {
+		if((m.getCurrentLevel() instanceof LightningLevel && tile.getLocation().equals("board")) || app.getGameWindow().getDraggedTile()==null) {
 			return false;
 		}
 		return true;

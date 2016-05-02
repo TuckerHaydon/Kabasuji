@@ -7,12 +7,18 @@ import java.util.Scanner;
 import playerEntity.Level;
 
 /**
- * 
- * @author tuckerhaydon
+ * This class parses a storage file containing level information
+ * It is used to when loading a game to the player application
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class LevelParser {
 	
+	/**
+	 * Parses a text file to find level information 
+	 * @param path - file path 
+	 * @return - level that has been parsed
+	 */
 	public static Level getLevel(String path){
 		
 		Level parsedLevel = null;
@@ -27,6 +33,11 @@ public class LevelParser {
 		return parsedLevel;
 	}
 	
+	/**
+	 * Parses a Kabasuji level text file
+	 * @param fileScanner - a filescanner
+	 * @return - level that has been parsed
+	 */
 	static Level parseFile(Scanner fileScanner){
 		
 		Level parsedLevel = null;

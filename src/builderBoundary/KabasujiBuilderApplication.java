@@ -158,6 +158,7 @@ public class KabasujiBuilderApplication {
 	 */
 	public void refreshLevelEditor(){
 		this.levelEditor.refresh();
+		this.levelEditor.repaintLevelEditor();
 	}
 	
 	/**

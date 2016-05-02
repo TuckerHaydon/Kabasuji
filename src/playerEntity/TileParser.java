@@ -5,12 +5,20 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
+ * Parses a file containing information about the configuration of the hexominoes (tiles) used
+ * in Kabasuji game play
  * 
- * @author tuckerhaydon
+ * @author tuckerhaydon, dgwalder
  *
  */
 public class TileParser {
 
+	/**
+	 * Gets the squares that comprise the tiles available for game play.
+	 * @param referenceNumber - reference number of the tile
+	 * @param t - the corresponding tile
+	 * @return - an array of squares that make up a tile
+	 */
 	public static Square[] getSquares(int referenceNumber, Tile t){
 		
 		String path = "src/resources/tiles/tiles";
@@ -25,6 +33,17 @@ public class TileParser {
 		return squares;
 	}
 	
+	/**
+	 * Parses a file for the all of the tiles available for Kabasuji game play.
+	 * @param fileScanner - a scanner that parses a file
+	 * @param referenceNumber - reference number of tile
+	 * @param t - a tile
+	 * @return - the squares that make up a tile.
+	 * 
+	 * Each tile is composed of an anchor and five squares that branch from that anchor
+	 * in various configurations, each with a relative x and y location (declared with respect
+	 * to the anchor).
+	 */
 	static Square[] parseTile(Scanner fileScanner, int referenceNumber, Tile t){
 		
 		// Move the scanner ahead to the desired tile

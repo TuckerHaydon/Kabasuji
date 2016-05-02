@@ -17,6 +17,9 @@ public class RotateTileClockwiseMove extends Move{
 		this.tile=tile;
 	}
 	
+	/**
+	 * Rotate the tile in clockwise direction
+	 */
 	@Override
 	boolean doMove() {
 		tile.rotateRight();
@@ -32,6 +35,7 @@ public class RotateTileClockwiseMove extends Move{
 	
 	@Override
 	public boolean undo() {
+		if(UndoManager.peekMove() == null) return false;
 		tile.rotateLeft();
 		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;

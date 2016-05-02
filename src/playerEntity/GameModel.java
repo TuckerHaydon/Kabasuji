@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 
-import playerController.ResetAchievementMove;
 import playerEntity.LevelParser;
 
 /**
@@ -59,6 +58,8 @@ public class GameModel {
 		this.achievements.put("RageQuit", new Achievement("RageQuit"));
 		this.achievements.put("K-komboBreaker", new Achievement("K-komboBreaker"));
 		this.achievements.put("VictoryLap", new Achievement("VictoryLap"));
+		this.achievements.put("WhatANerd", new Achievement("WhatANerd"));
+		
 		this.lightningAM = new LightningAchievementMonitor(this.achievements);
 		this.puzzleAM = new PuzzleAchievementMonitor(this.achievements);
 		this.releaseAM = new ReleaseAchievementMonitor(this.achievements);

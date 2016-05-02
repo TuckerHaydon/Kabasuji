@@ -1,8 +1,6 @@
 package builderBoundary;
 
 import java.awt.Color;
-import java.util.ArrayList;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -16,7 +14,6 @@ import builderController.BoardController;
 import builderBoundary.BoardView;
 import builderController.BullpenController;
 import builderController.SetAllowedTimeHandler;
-import builderController.SetAllowedTimeMove;
 import builderController.SetBoardEltColorHandler;
 import builderController.SetBoardEltNumHandler;
 import builderController.SetBoardEltTypeHandler;
@@ -25,12 +22,10 @@ import builderController.SetLevelTypeHandler;
 import builderController.SetNumAllowedMovesHandler;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
-import builderEntity.Tile;
 import builderEntity.Bank;
-import playerController.LoadGame;
 
 /**
- * 
+ * The view object for a level in the builder application. It is responsible for drawing the level.
  * @author tuckerhaydon
  * @author jwilder
  *
@@ -53,6 +48,12 @@ public class LevelBuilderView extends JPanel{
 			regularBoardEltTypes[] = {"playable", "unplayable"},
 			boardEltColors[] = {"red", "blue", "green"};
 	
+	/**
+	 * LevelBuilderView constructor. Establishes all of the elements in a builder level.
+	 * @param lvl - Level to be drawn
+	 * @param app - Top-level Kabasuji builder application
+	 * @param m - Top-level builder model
+	 */
 	public LevelBuilderView(Level lvl, KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		this.lvl = lvl;
@@ -82,6 +83,9 @@ public class LevelBuilderView extends JPanel{
 		boardEltTypeBox.setSelectedItem(m.getSelectedBoardEltType().toLowerCase());
 	}
 	
+	/**
+	 * Sets window features and adds all view elements for the builder level.
+	 */
 	public void initView(){
 		
 		
@@ -152,6 +156,9 @@ public class LevelBuilderView extends JPanel{
 		
 	}
 	
+	/**
+	 * Registers controllers to each of the view elements in the level.
+	 */
 	public void initControllers(){
 		
 		// Allow mouse functionality for board, bullpen, and bank.
@@ -169,6 +176,13 @@ public class LevelBuilderView extends JPanel{
 		numField.addActionListener(new SetNumAllowedMovesHandler(app, m, numField));
 	}
 	
+	/**
+	 * Modifies the level view based on the type of level being built.
+	 * Puzzle requires a number of moves.
+	 * Lightning requires a time limit.
+	 * Release does not have any limits.
+	 * @param levelType - The type of level being built
+	 */
 	public void changeViewLevelType(String levelType){
 		switch(levelType.toLowerCase())
 		{
@@ -223,6 +237,11 @@ public class LevelBuilderView extends JPanel{
 		
 	}
 	
+	/**
+	 * Modifies the builder board element options based on the type of element the 
+	 * builder wants to add to the board
+	 * @param eltType - The type of element the builder wants to add
+	 */
 	public void changeViewEltType(String eltType){
 		switch(eltType){
 		case "playable":
@@ -249,6 +268,9 @@ public class LevelBuilderView extends JPanel{
 		this.refresh();
 	}
 	
+	/**
+	 * Refreshes the view and repaints the elements.
+	 */
 	public void refresh(){
 		bullpenView.repaint();
 		bankView.repaint();
@@ -267,34 +289,66 @@ public class LevelBuilderView extends JPanel{
 		
 	}
 
+	/**
+	 * Get the current level
+	 * @return - The current level
+	 */
 	public Level getLevel(){
 		return this.lvl;
 	}
 	
+	/**
+	 * Set the current level
+	 * @param lev - The desired current level 
+	 */
 	public void setLevel(Level lev){
 		this.lvl = lev;
 	}
 	
+	/**
+	 * Get the current BullpenView
+	 * @return - the current BullpenView
+	 */
 	public BullpenView getBullpenView(){
 		return this.bullpenView;
 	}
 	
+	/**
+	 * Set the desired BullpenView
+	 * @param bpv - the desired BullpenView
+	 */
 	public void setBullpenView(BullpenView bpv){
 		this.bullpenView = bpv;
 	}
 	
+	/**
+	 * Get the current BankView	
+	 * @return - the current BankView
+	 */
 	public BankView getBankView(){
 		return this.bankView;
 	}
 	
+	/**
+	 * Set the desired BankView
+	 * @param bkv - the desired BankView
+	 */
 	public void setBankView(BankView bkv){
 		this.bankView = bkv;
 	}
 
+	/**
+	 * Get the current BoardView
+	 * @return - the current BoardView
+	 */
 	public BoardView getBoardView() {
 		return this.boardView;
 	}
 	
+	/**
+	 * Set the desired BoardView
+	 * @param bv - the desired BoardView
+	 */
 	public void setBoardView(BoardView bv){
 		this.boardView = bv;
 	}

@@ -1,7 +1,6 @@
 package builderController;
 
 
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
@@ -17,12 +16,10 @@ import builderBoundary.LevelBuilderView;
 import builderBoundary.LevelEditor;
 import builderBoundary.LevelEditorMenu;
 import builderBoundary.MainMenu;
-import builderBoundary.View;
 import builderEntity.Board;
 import builderEntity.BuilderModel;
 import builderEntity.Bullpen;
 import builderEntity.Level;
-import builderEntity.Square;
 import builderEntity.Tile;
 
 
@@ -127,7 +124,7 @@ public class testLevelBuilder {
 		m.setSelectedBoardEltType("unplayable");
 		ChangeBoardEltMove cbem3 = new ChangeBoardEltMove(builder, m, board, 1, 3);
 		cbem3.execute();
-		cbem3.executeUndo();
+		//cbem3.executeUndo();
 		
 		//test toString method on builderModel and board
 		String bmstring = m.toString();

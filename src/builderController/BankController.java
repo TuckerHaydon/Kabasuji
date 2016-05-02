@@ -11,6 +11,9 @@ import builderEntity.BuilderModel;
 import builderEntity.Tile;
 
 /**
+ * This class is responsible for controlling how the Tile Bank
+ * responds to Builder's mouse events 
+ * @see Bank 
  * 
  * @author tuckerhaydon
  *
@@ -22,6 +25,13 @@ public class BankController extends MouseAdapter {
 	KabasujiBuilderApplication app;
 	BuilderModel m;
 	
+	/**
+	 * Bank Controller Constructor
+	 * @param app
+	 * @param m
+	 * @param bankView
+	 * @param bullpenView
+	 */
 	public BankController(KabasujiBuilderApplication app, BuilderModel m, BankView bankView, BullpenView bullpenView) {
 		super();
 		this.bankView = bankView;
@@ -40,6 +50,11 @@ public class BankController extends MouseAdapter {
 		
 	}
 	
+	/**
+	 * determines what happens on a mouse click on the tile Bank
+	 * @param x
+	 * @param y
+	 */
 	void processMouseClicked(int x, int y){
 		int cellNum = x / bankView.getCellWidth();
 		
