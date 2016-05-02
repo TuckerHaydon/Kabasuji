@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
-import playerEntity.PuzzleAchievementMonitor;
 
 public class testCompleteLevelMove {
 

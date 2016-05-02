@@ -3,12 +3,10 @@ package playerController;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import playerEntity.Anchor;
 import playerEntity.GameModel;
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.LevelView;
 import playerBoundary.TileView;
-import playerEntity.Square;
 import playerEntity.Tile;
 
 /**

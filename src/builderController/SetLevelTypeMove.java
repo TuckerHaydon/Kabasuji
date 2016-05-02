@@ -1,10 +1,7 @@
 package builderController;
 
 import builderBoundary.KabasujiBuilderApplication;
-import builderBoundary.LevelBuilderView;
-import builderEntity.Board;
 import builderEntity.BuilderModel;
-import builderEntity.Level;
 
 /**
  * This move is in charged of setting level type

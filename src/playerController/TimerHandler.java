@@ -2,8 +2,6 @@ package playerController;
 
 import playerEntity.GameModel;
 import playerEntity.LightningLevel;
-import javax.swing.Timer;
-
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.LightningLevelView;
 

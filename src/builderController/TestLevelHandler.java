@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
-import playerBoundary.KabasujiPlayerApplication;
 
 /**
  * The handler of testing level button

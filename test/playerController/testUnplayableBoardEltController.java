@@ -9,8 +9,6 @@ import org.junit.Test;
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
 import playerEntity.GameModel;
-import playerEntity.PuzzleAchievementMonitor;
-import playerEntity.UnplayableBoardElt;
 
 public class testUnplayableBoardEltController {
 

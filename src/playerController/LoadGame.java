@@ -1,6 +1,5 @@
 package playerController;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -12,16 +11,6 @@ import javax.swing.JOptionPane;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
-import playerEntity.Level;
-import playerEntity.LightningLevel;
-import playerEntity.NumberedBoardElt;
-import playerEntity.PlayableBoardElt;
-import playerEntity.PuzzleLevel;
-import playerEntity.ReleaseLevel;
-import playerEntity.UnplayableBoardElt;
-import playerEntity.Board;
-import playerEntity.BoardElt;
-import playerEntity.Bullpen;
 
 /**
  * 
