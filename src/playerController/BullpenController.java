@@ -4,7 +4,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import playerBoundary.KabasujiPlayerApplication;
-import playerBoundary.TileView;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
 import playerEntity.Tile;

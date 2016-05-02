@@ -12,7 +12,9 @@ import playerEntity.Tile;
 
 /**
  * Adds a Tile to the Bullpen 
- * @author tuckerhaydon, dgwalder, kacper puczydlowski
+ * @author tuckerhaydon
+ * @author dgwalder
+ * @author kacper puczydlowski
  *
  */
 public class TileToBullpenMove extends Move{

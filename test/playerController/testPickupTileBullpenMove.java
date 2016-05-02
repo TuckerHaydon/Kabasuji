@@ -8,10 +8,8 @@ import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerBoundary.TileView;
-import playerEntity.Board;
 import playerEntity.Bullpen;
 import playerEntity.GameModel;
-import playerEntity.PuzzleAchievementMonitor;
 import playerEntity.Tile;
 
 //ASSERT STATEMENTS KINDA JANKY, COME BACK TO THIS ONE

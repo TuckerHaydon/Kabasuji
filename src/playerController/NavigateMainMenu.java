@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
-import playerEntity.LightningLevel;
 
 /**
  * 

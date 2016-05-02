@@ -3,15 +3,12 @@ package playerBoundary;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 
-import builderController.NavigateMainMenu;
 import playerController.LevelController;
 import playerEntity.GameModel;
-import playerEntity.Level;
 import playerEntity.ReleaseLevel;
 
 /**

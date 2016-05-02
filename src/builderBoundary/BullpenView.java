@@ -5,8 +5,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
-
 import builderEntity.Bullpen;
 import builderEntity.Square;
 import builderEntity.Tile;

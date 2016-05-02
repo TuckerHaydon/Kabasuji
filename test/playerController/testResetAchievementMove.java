@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;
-import playerEntity.Achievement;
 import playerEntity.GameModel;
 
 public class testResetAchievementMove {

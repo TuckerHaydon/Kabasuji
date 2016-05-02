@@ -1,8 +1,6 @@
 package builderBoundary;
 
 import java.awt.Color;
-import java.util.ArrayList;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -16,7 +14,6 @@ import builderController.BoardController;
 import builderBoundary.BoardView;
 import builderController.BullpenController;
 import builderController.SetAllowedTimeHandler;
-import builderController.SetAllowedTimeMove;
 import builderController.SetBoardEltColorHandler;
 import builderController.SetBoardEltNumHandler;
 import builderController.SetBoardEltTypeHandler;
@@ -25,9 +22,7 @@ import builderController.SetLevelTypeHandler;
 import builderController.SetNumAllowedMovesHandler;
 import builderEntity.BuilderModel;
 import builderEntity.Level;
-import builderEntity.Tile;
 import builderEntity.Bank;
-import playerController.LoadGame;
 
 /**
  * The view object for a level in the builder application. It is responsible for drawing the level.

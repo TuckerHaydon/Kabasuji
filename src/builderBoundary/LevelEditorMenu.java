@@ -2,14 +2,8 @@ package builderBoundary;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GridLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-
-
 import builderController.CreateLevelHandler;
 import builderController.EditLevelHandler;
 import builderController.NavigateMainMenu;

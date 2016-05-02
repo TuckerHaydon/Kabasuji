@@ -6,9 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 
 import builderBoundary.KabasujiBuilderApplication;
-import builderBoundary.LevelBuilderView;
 import builderEntity.BuilderModel;
-import builderEntity.Level;
 
 /**
  * 
