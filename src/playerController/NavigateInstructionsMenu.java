@@ -19,13 +19,15 @@ public class NavigateInstructionsMenu implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		processAction();
+		m.getGAM().unlockWhatANerd();
+//		for(long i=1000000000;i>0;i--){
+//		}
+		//TODO need timers help
+		m.getGAM().pop();
 	}
 	
 	void processAction(){
 		app.displayInstructionsPage();
-		m.getGAM().unlockWhatANerd();
-		for(long i=1000000000;i>0;i--){
-		}
-		m.getGAM().pop();
+		
 	}
 }
