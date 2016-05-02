@@ -37,6 +37,9 @@ public class TileToBullpenMove extends Move{
 		return this.doMove();
 	}
 	
+	/**
+	 * Return a tile to the bullpen
+	 */
 	@Override
 	boolean doMove() {
 		

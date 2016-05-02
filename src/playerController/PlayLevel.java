@@ -16,7 +16,7 @@ import playerEntity.LightningLevel;
 import playerEntity.PuzzleLevel;
 
 /**
- * 
+ * Play the level
  * @author tuckerhaydon
  *
  */
@@ -37,6 +37,9 @@ public class PlayLevel implements ActionListener {
 		processAction();
 	}
 	
+	/**
+	 * Set current level to be the level that correspond with the level button Player clicked
+	 */
 	void processAction(){
 		// Check to make sure the level you clicked on is unlocked
 		if(m.getLevels()[levelNum].getIsUnlocked()){	

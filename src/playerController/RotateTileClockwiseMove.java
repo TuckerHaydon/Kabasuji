@@ -17,6 +17,9 @@ public class RotateTileClockwiseMove extends Move{
 		this.tile=tile;
 	}
 	
+	/**
+	 * Rotate the tile in clockwise direction
+	 */
 	@Override
 	boolean doMove() {
 		tile.rotateRight();

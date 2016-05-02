@@ -13,7 +13,10 @@ public class UpdateDraggedTileLocationMove extends Move {
 	public UpdateDraggedTileLocationMove(KabasujiPlayerApplication app, GameModel m) {
 		super(app, m);
 	}
-
+	
+	/**
+	 * Update the dragged tile view with the mouse 
+	 */
 	@Override
 	boolean doMove() {
 		if(app.getGameWindow().getMousePosition() == null) return false;
@@ -30,13 +33,11 @@ public class UpdateDraggedTileLocationMove extends Move {
 
 	@Override
 	boolean isValid() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean undo() {
-		// Not an undoable move
 		return false;
 	}
 

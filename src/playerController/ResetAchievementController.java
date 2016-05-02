@@ -7,7 +7,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
 /**
- * 
+ * The handler of Reset Achievement
  * @author dorothy
  *
  */
@@ -21,7 +21,9 @@ public class ResetAchievementController implements ActionListener{
 		this.app=app;
 	}
 	
-	/*Finished*/	
+	/**
+	 * Perform ResetAchievementMove	
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		ResetAchievementMove move = new ResetAchievementMove(app, m, m.getAchievements());
