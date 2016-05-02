@@ -7,7 +7,7 @@ import playerEntity.Achievement;
 import playerEntity.GameModel;
 
 /**
- * 
+ * Set all the achievement to the status of "Not earned"
  * @author dorothy
  *
  */
