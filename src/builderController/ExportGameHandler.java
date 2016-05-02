@@ -10,7 +10,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
  
 /**
- * 
+ * handles the exportGame action
  * @author tuckerhaydon
  *
  */
@@ -19,6 +19,11 @@ public class ExportGameHandler implements ActionListener{
 	BuilderModel bm;
 	KabasujiBuilderApplication app;
 
+	/**
+	 * ExportGameHandler constructor
+	 * @param app
+	 * @param bm
+	 */
 	public ExportGameHandler(KabasujiBuilderApplication app, BuilderModel bm){
 		this.app = app;
 		this.bm = bm;
