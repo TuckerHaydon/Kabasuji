@@ -43,6 +43,18 @@ public class TileToBullpenMove extends Move{
 		// Add the tile to the bullpen
 		boolean successful = bullpen.addTile(tile);
 		
+		if(!successful){
+			return false;
+		}
+		
+		//update puzzle level moves
+		if (m.getCurrentLevel() instanceof PuzzleLevel && tile.getLocation().equals("board")){
+			((PuzzleLevel) m.getCurrentLevel()).updateMoves(+1);
+			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
+		}
+		
+		tile.setLocation("bullpen");
+		
 		// Release the dragged tile
 		app.getGameWindow().releaseDraggedTile();
 		

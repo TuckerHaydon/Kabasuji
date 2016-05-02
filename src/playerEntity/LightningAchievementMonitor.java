@@ -17,7 +17,6 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	 * @param achievements - all of the achievements possible
 	 */
 	public LightningAchievementMonitor(Hashtable<String,Achievement> achievements){
-		super();
 		this.achievements=achievements;
 		this.moveCounter=0;
 		this.popingUp=new LinkedList<String>();
@@ -67,7 +66,7 @@ public class LightningAchievementMonitor extends LevelAchievementMonitor{
 	 */
 	@Override
 	public boolean updateAchievement_releaseonboard(){
-		this.moveCounter++;
+		this.moveCounter++;		
 		if(this.checkBabySteps()){
 			return true;
 		}

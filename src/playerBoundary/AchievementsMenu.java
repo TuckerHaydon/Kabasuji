@@ -103,7 +103,7 @@ public class AchievementsMenu extends JFrame {
 
 		
 		pics.put("WhatANerd", new JLabel("What a Nerd"));
-		pics.get("WhatANerd").setIcon(new ImageIcon("src/resources/pictures/nerd.jpg"));
+		pics.get("WhatANerd").setIcon(new ImageIcon("src/resources/pictures/whatanerd.gif"));
 		pics.get("WhatANerd").setBounds(415, 441, 200, 200);
 		contentPane.add(pics.get("WhatANerd"));
 		
@@ -136,7 +136,7 @@ public class AchievementsMenu extends JFrame {
 		
 		JLabel lblSpeedygonzales = new JLabel("???");
 		lblSpeedygonzales.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
-		lblSpeedygonzales.setBounds(800, 718, 140, 16);
+		lblSpeedygonzales.setBounds(800, 718, 140, 20);
 		contentPane.add(lblSpeedygonzales);
 		lbs.put("SpeedyGonzales", lblSpeedygonzales);
 		

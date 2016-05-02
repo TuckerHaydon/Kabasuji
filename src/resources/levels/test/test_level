@@ -1,21 +1,21 @@
 BeginLevel
-release
-30
+puzzle
+10
 BeginHexomino
-2 14 20 26 25 28 29 32 33 1 2 31 29 27 28 35 11 12 8 7 25 24 16 
+1 
 EndHexomino
 BeginElts
-P U P P P P P N6B P P P P 
-P P P P P P U P P P N6G P 
-N4R P N1G P P N5B P P P U P P 
-P P P P P P P N6R P P P P 
-P P U P N2R P P N2G P P U N1B 
-P N3R P P P P P P P P P P 
-P P P P U N3G P U P P P P 
-P U N4G P P P P P P P N5G P 
-P P P P P P U P P P P P 
-P P U P P P P P N4B P P P 
-P N2B P P N3B U P N5R P P U N1R 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
+P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 EndElts
 EndLevel

@@ -99,6 +99,8 @@ public class TileToBoardMove extends Move{
 			((PuzzleLevelView) app.getGameWindow().getLevelView()).refreshMoveLabel();
 		}
 		
+		tile.setLocation("board");
+		
 		if(AM.updateAchievement_releaseonboard()){
 			AM.popUpScreen();
 		}

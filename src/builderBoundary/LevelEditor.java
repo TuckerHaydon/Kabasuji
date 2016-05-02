@@ -14,6 +14,7 @@ import builderController.ExportLevelHandler;
 import builderController.TestLevelHandler;
 import builderController.UndoManager;
 import builderController.NavigateMainMenu;
+import builderController.RedoManager;
 import builderEntity.BuilderModel;
 
 /**
@@ -28,7 +29,7 @@ public class LevelEditor extends JFrame implements KeyListener {
 	JButton exportGameButton, goToMenuButton,testLevelButton;
 	LevelBuilderView levelBuilderView;
 	JPanel contentPane;	
-	boolean isControlPressed = false;
+	boolean isControlPressed = false, isShiftPressed = false;
 
 	/**
 	 * Constructor for the level editor. Initializes the various buttons.
@@ -122,10 +123,22 @@ public class LevelEditor extends JFrame implements KeyListener {
 			isControlPressed = true;
 		}
 		
+		if(e.isShiftDown()){
+			isShiftPressed = true;
+		}
+		
 		if(e.getKeyCode() == 90 && isControlPressed){
 			try{
 				UndoManager.popMove().executeUndo();
 				System.out.println("Undo");
+			}
+			catch(EmptyStackException ex){} // NOOP
+		}
+		
+		if(e.getKeyCode() == 90 && isShiftPressed){
+			try{
+				RedoManager.popMove().executeUndo();
+				System.out.println("Redo");
 			}
 			catch(EmptyStackException ex){} // NOOP
 		}
@@ -136,6 +149,10 @@ public class LevelEditor extends JFrame implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		if(!e.isControlDown()){
 			isControlPressed = false;
+		}
+		
+		if(!e.isShiftDown()){
+			isShiftPressed = false;
 		}
 		
 	}
