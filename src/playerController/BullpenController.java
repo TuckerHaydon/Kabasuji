@@ -10,7 +10,7 @@ import playerEntity.GameModel;
 import playerEntity.Tile;
 
 /**
- * 
+ * Controls all of the mouse events that occur over the player application bullpen
  * @author tuckerhaydon, ndiwakar
  *
  */
@@ -20,6 +20,13 @@ public class BullpenController extends MouseAdapter {
 	Bullpen bp;
 	int boxwidth;
 	
+	/**
+	 * Constructor for bullpen controller
+	 * @param app - The top-level Kabasuji player application
+	 * @param m- The top-level game model
+	 * @param bp - The bullpen being controlled
+	 * @param boxwidth - The width of each tile box in the bullpen (spacing and division)
+	 */
 	public BullpenController(KabasujiPlayerApplication app, GameModel m, Bullpen bp, int boxwidth){
 		super();
 		this.app = app;
@@ -28,6 +35,11 @@ public class BullpenController extends MouseAdapter {
 		this.boxwidth = boxwidth;
 	}
 	
+	/**
+	 * Handles mousePresses
+	 * Registers the x,y position of the press
+	 * as well as the ctrl and shift keys during mousePress (rotation/mirror)
+	 */
 	@Override
 	public void mousePressed(MouseEvent me){
 		
@@ -46,6 +58,18 @@ public class BullpenController extends MouseAdapter {
 		
 	}
 	
+	/**
+	 * Processes the mousePress event based on the input (mouse/ctrl/shift).
+	 * Finds the place where the mousePress has occurred and then 
+	 * rotates or flips the tile based on location
+	 * 
+	 * @param x - x coordinate of mousePress
+	 * @param y - y coordinate of mousePress
+	 * @param isControlDown - true if ctrl has been pressed
+	 * @param isShiftDown - true if shift has been pressed
+	 * @param isLeftClick - true if left click has been used
+	 * @param isRightClick - true if right click has been used
+	 */
 	void processMousePressed(int x, int y, boolean isControlDown, boolean isShiftDown, boolean isLeftClick, boolean isRightClick){
 			 
 		int cellNum = x/boxwidth;
@@ -113,11 +137,17 @@ public class BullpenController extends MouseAdapter {
 	
 	}
 	
+	/**
+	 * Handles the mouseMove events
+	 */
 	@Override
 	public void mouseMoved(MouseEvent me){
 		processMouseMoved();
 	}
 	
+	/**
+	 * Redraws the draggedTile using the coordinates of the mouseMove (x,y)
+	 */
 	void processMouseMoved(){
 		if(app.getGameWindow().getDraggedTile() == null){
 			return;

@@ -11,7 +11,7 @@ import playerEntity.GameModel;
 import playerEntity.Tile;
 
 /**
- * Controls all of the mouse events that occur over the Board
+ * Controls all of the mouse events that occur over the player application board
  * @author tuckerhaydon, ndiwakar
  */
 
@@ -21,6 +21,13 @@ public class BoardController extends MouseAdapter{
 	Board b;
 	int eltWidth;
 
+	/**
+	 * Constructor for a board controller
+	 * @param app - The top-level Kabasuji player application
+	 * @param m - The top-level game model
+	 * @param b - The board being controlled
+	 * @param eltWidth - The width of a board element (division and spacing of board)
+	 */
 	public BoardController(KabasujiPlayerApplication app, GameModel m, Board b, int eltWidth){
 		super();
 		this.app=app;
@@ -29,7 +36,9 @@ public class BoardController extends MouseAdapter{
 		this.eltWidth = eltWidth;
 	}
 
-	//activity here depends on what kind of level we have 
+	/**
+	 * Takes care of mousePresses
+	 */
 	@Override
 	public void mousePressed(MouseEvent me){
 				
@@ -41,6 +50,11 @@ public class BoardController extends MouseAdapter{
 		processMousePressed(x, y);	
 	}
 	
+	/**
+	 * Responds to mousePressed: either puts down the current draggedTile or picks up a tile from the board if legal
+	 * @param x - x coordinate of mousePress
+	 * @param y - y coordinate of mousePress
+	 */
 	void processMousePressed(int x, int y){
 		
 		GameWindow gw = app.getGameWindow();
@@ -82,21 +96,24 @@ public class BoardController extends MouseAdapter{
 				return;
 			}
 
-			
-			
 			TileToBoardMove move2 = new TileToBoardMove(app, m, b,selectedTile,row,col);
 			move2.execute();
-			
 			
 		}
 		
 	}
 	
+	/**
+	 * Handles the mouseMove events
+	 */
 	@Override
 	public void mouseMoved(MouseEvent me){
 		processMouseMoved();
 	}
 	
+	/**
+	 * Redraws the draggedTile using the coordinates of the mouseMove (x,y)
+	 */
 	void processMouseMoved(){
 		
 		// If there is not tile selected, do nothing
