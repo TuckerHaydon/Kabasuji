@@ -27,6 +27,9 @@ public class TimerHandler implements ActionListener{
 		this.m = m;
 	}
 	
+	/**
+	 * Make sure the timer performs
+	 */
 	public void actionPerformed(ActionEvent evt) {
     	processAction();
     }

@@ -23,6 +23,9 @@ public class PrematureCompleteLevelMove implements ActionListener {
 		this.m=m;
 	}
 	
+	/**
+	 * Perform the CompleteLevelMove
+	 */
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 

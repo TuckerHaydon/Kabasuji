@@ -56,12 +56,6 @@ public class TileToBoardMove extends Move{
 		
 		// Validate the move
 		if(!this.isValid()) {
-			if(m.getCurrentLevel() instanceof LightningLevel){
-				app.getGameWindow().releaseDraggedTile();
-				m.getCurrentLevel().getBullpen().addTile(tile);
-				System.out.println("Adding tile "+tile.getReferenceNumber()+" to bullpen.");
-
-			}
 			if(AM.updateAchievement_wheninvalidmove()){
 				AM.popUpScreen();
 			}
@@ -73,6 +67,13 @@ public class TileToBoardMove extends Move{
 		
 	}
 	
+	/**
+	 * Checks to see where the tile has been placed on the board and 
+	 * if it is a valid move for the level, the tile is placed.
+	 * If not, the tile is kept in possession (attached to the mouse) until the 
+	 * player makes a valid move.
+	 * 
+	 */
 	@Override
 	boolean doMove() {
 		
@@ -124,18 +125,12 @@ public class TileToBoardMove extends Move{
 		return true;
 	}
 
+	/**
+	 * Checks conditions of validity for move.
+	 */
 	@Override
 	boolean isValid() {
-		
-		
-		//times when this move is valid:
-		
-		//bullpen -> board: any level
-		//board -> board: puzzle
-		//board-> bullpen: puzzle, release
-		//TODO - check when there are moves left: puzzle
-		
-		
+
 		//check each board element and determine if it is playable
 		//if it is, determine if it is covered.
 		//return true if all elements are playable and uncovered

@@ -127,20 +127,20 @@ public class LevelEditor extends JFrame implements KeyListener {
 			isShiftPressed = true;
 		}
 		
-		if(e.getKeyCode() == 90 && isControlPressed){
+		if(e.getKeyCode() == 90 && isControlPressed && !isShiftPressed){
 			try{
 				UndoManager.popMove().executeUndo();
 				System.out.println("Undo");
 			}
-			catch(EmptyStackException ex){} // NOOP
+			catch(EmptyStackException ex){System.out.println("No moves to undo");} // NOOP
 		}
 		
-		if(e.getKeyCode() == 90 && isShiftPressed){
+		if(e.getKeyCode() == 90 && isShiftPressed && isControlPressed){
 			try{
-				RedoManager.popMove().executeUndo();
+				RedoManager.popMove().redoMove();
 				System.out.println("Redo");
 			}
-			catch(EmptyStackException ex){} // NOOP
+			catch(EmptyStackException ex){System.out.println("No moves to redo");} // NOOP
 		}
 		
 	}
