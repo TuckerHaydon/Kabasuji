@@ -25,6 +25,10 @@ public class KabasujiPlayerApplication {
 	GameModel m;
 	InstructionsPage instructionsPage;
 	
+	/**
+	 * Constructor. Must take in a game model. Ensures that all applications have models
+	 * @param m
+	 */
 	public KabasujiPlayerApplication(GameModel m){
 		this.m = m;
 		init();
