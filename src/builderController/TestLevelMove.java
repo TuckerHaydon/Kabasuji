@@ -28,7 +28,7 @@ public class TestLevelMove extends Move{
 		KabasujiPlayerApplication playerApp = new KabasujiPlayerApplication(gameModel, "src/resources/levels/test/test_level",app);
 		playerApp.getGameModel().setIsTesting(true);
 		app.getLevelEditor().setVisible(false);
-		return false;
+		return true;
 	}
 
 	@Override

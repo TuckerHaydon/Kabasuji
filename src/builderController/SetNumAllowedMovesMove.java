@@ -13,6 +13,7 @@ public class SetNumAllowedMovesMove extends Move{
 
 	@Override
 	boolean doMove() {
+		if(!isValid()) return false;
 		prev = m.getLevel().getlevelData();
 		m.getLevel().setLevelData(moves);
 		return true;

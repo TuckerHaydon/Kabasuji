@@ -93,6 +93,8 @@ public class ChangeBoardEltMove extends Move {
 
 	@Override
 	public boolean undoMove() {
+		final String type  = prevType;
+		if(type == null)return false;
 		switch(prevType){
 		case "playable":
 			board.getBoardElts()[row][col] = new PlayableBoardElt(row, col, prevHint);
