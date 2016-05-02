@@ -44,6 +44,9 @@ public class LoadGame implements ActionListener{
 		this.app = app;
 	}
 
+	/**
+	 * Handles the series of events for loading a game into the player
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 				
@@ -54,6 +57,10 @@ public class LoadGame implements ActionListener{
 		
 	}
 	
+	/**
+	 * Loads in an existing game using a file path 
+	 * @param chosenGameName - name of chosen game (must exist already)
+	 */
 	void processAction(String chosenGameName){
 
 		// if cancel was hit, do nothing. 
@@ -68,6 +75,10 @@ public class LoadGame implements ActionListener{
 		move.execute();
 	}
 	
+	/**
+	 * Parses game file for details on the levels and their attributes
+	 * @param path - file path
+	 */
 	void parseGame(String path){
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			m.parseFile(fileScanner);
@@ -76,6 +87,10 @@ public class LoadGame implements ActionListener{
 		}
 	}
 	
+	/**
+	 * Lists all of the available game names
+	 * @return - all of possible game names
+	 */
 	ArrayList<String> getGameNames(){
 		File folder = new File("src/resources/games/");
 		File[] listOfFiles = folder.listFiles();
