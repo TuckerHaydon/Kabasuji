@@ -27,7 +27,8 @@ import builderEntity.NumberedBoardElt;
 import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 /**
- * 
+ * EditGameHandler class
+ * handles the editing of a game in the builder
  * @author jwilder
  * @author tuckerhaydon
  */
@@ -35,6 +36,11 @@ public class EditGameHandler implements ActionListener {
 	KabasujiBuilderApplication app;
 	BuilderModel m;
 	
+	/**
+	 * EditGameHandler constructor
+	 * @param app
+	 * @param m
+	 */
 	public EditGameHandler(KabasujiBuilderApplication app, BuilderModel m) {
 		this.app = app;
 		this.m = m;
@@ -45,6 +51,9 @@ public class EditGameHandler implements ActionListener {
 		processAction();
 	}
 	
+	/**
+	 * processes the edit game action
+	 */
 	public void processAction(){
 		ArrayList<String> gameNames = addGames();
 		
@@ -56,6 +65,11 @@ public class EditGameHandler implements ActionListener {
 		attemptLoadGame(path, chosenLevelName);
 		}
 	
+	/**
+	 * attempts to load game from a storage file 
+	 * @param path
+	 * @param chosenLevelName
+	 */
 	private void attemptLoadGame(String path, String chosenLevelName) {
 		GameEditor ge = app.getGameEditor();
 		loadGame(path);
@@ -66,6 +80,10 @@ public class EditGameHandler implements ActionListener {
 		}
 	}
 
+	/**
+	 * adds game to the storage file
+	 * @return arraylist of game names 
+	 */
 	public ArrayList<String> addGames(){
 		File folder = new File("src/resources/games/");
 		File[] listOfFiles = folder.listFiles();
@@ -82,6 +100,10 @@ public class EditGameHandler implements ActionListener {
 		return gameNames;
 	}
 	
+	/**
+	 * loads game from storage file 
+	 * @param path
+	 */
 	public void loadGame(String path){
 		try (Scanner fileScanner = new Scanner(new File(path))){
 			parseFile(fileScanner);
@@ -90,6 +112,10 @@ public class EditGameHandler implements ActionListener {
 		}
 	}
 	
+	/**
+	 * parses the game file and adds the levels to the model 
+	 * @param fileScanner
+	 */
 	public void parseFile(Scanner fileScanner){
 		
 		Level lvls[] = new Level[15];
@@ -117,6 +143,13 @@ public class EditGameHandler implements ActionListener {
 		
 	}
 	
+	/**
+	 * parses a level from the storage file, creates a new level object and 
+	 * returns this level 
+	 * @param fileScanner
+	 * @param levelNum
+	 * @return level from the storage file
+	 */
 	Level parseLevel(Scanner fileScanner, int levelNum){
 		
 		String levelType = fileScanner.next();
@@ -143,6 +176,12 @@ public class EditGameHandler implements ActionListener {
 		}
 	}
 
+	/**
+	 * parses the board elements from a storage file, creates a boardelt array
+	 * and returns this 
+	 * @param fileScanner
+	 * @return boardElts from file
+	 */
 	BoardElt[][] parseBoardElts(Scanner fileScanner) {
 		BoardElt elts[][] = new BoardElt[12][12];
 		
@@ -199,6 +238,12 @@ public class EditGameHandler implements ActionListener {
 		return elts;
 	}
 
+	/**
+	 * parses tiles from a storage file, stores them in an arrayList 
+	 * and returns this arrayList 
+	 * @param fileScanner
+	 * @return arrayList of tile reference numbers 
+	 */
 	ArrayList<Integer> parseHexominoes(Scanner fileScanner) {
 		
 		ArrayList<Integer> hexominoes = new ArrayList<>();
@@ -215,7 +260,5 @@ public class EditGameHandler implements ActionListener {
 		
 		return hexominoes;
 	}
-	
-	
 
 }

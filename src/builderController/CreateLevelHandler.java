@@ -8,7 +8,7 @@ import builderEntity.BuilderModel;
 import builderEntity.Level;
 
 /**
- * 
+ * handles the creation of a level in the builder application
  * @author tuckerhaydon
  *
  */
@@ -26,9 +26,7 @@ public class CreateLevelHandler implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		m.setLevel(new Level());
 		app.refreshLevelEditor();
-		app.displayLevelEditor();
-
-		
+		app.displayLevelEditor();	
 	}
 
 }

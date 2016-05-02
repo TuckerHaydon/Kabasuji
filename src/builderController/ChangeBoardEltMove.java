@@ -11,7 +11,7 @@ import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 
 /**
- * 
+ * changes the type of boardElt in the builder application
  * @author tuckerhaydon
  *
  */
@@ -24,6 +24,14 @@ public class ChangeBoardEltMove extends Move {
 	Board board;
 	boolean isHint, prevHint;
 	
+	/**
+	 * ChangeBoardEltMove constructor
+	 * @param app
+	 * @param model
+	 * @param board
+	 * @param row
+	 * @param col
+	 */
 	public ChangeBoardEltMove(KabasujiBuilderApplication app, BuilderModel model, Board board, int row, int col) {
 		super(app, model);
 		
