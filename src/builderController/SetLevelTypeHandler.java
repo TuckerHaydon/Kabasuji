@@ -9,7 +9,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * The handler of the scroll bar in selecting level type in the level editor windor 
  * @author tuckerhaydon
  *
  */
@@ -25,6 +25,9 @@ public class SetLevelTypeHandler implements ActionListener {
 		this.box = box;
 	}
 	
+	/**
+	 * Perform SetLevelTypeMove
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		

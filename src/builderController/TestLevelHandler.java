@@ -5,6 +5,11 @@ import java.awt.event.ActionListener;
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
+/**
+ * The handler of testing level button
+ * @author Dorothy
+ *
+ */
 public class TestLevelHandler implements ActionListener{
 
 	BuilderModel m;
@@ -15,7 +20,9 @@ public class TestLevelHandler implements ActionListener{
 		this.app = app;
 	}
 
-
+	/**
+	 * Perform TestLevelMove
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		processAction();
