@@ -8,6 +8,11 @@ import javax.swing.JCheckBox;
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
+/**
+ * The handler of the scroll bar of setting hint boxes
+ * @author
+ *
+ */
 public class SetHintHandler implements ActionListener {
 
 	BuilderModel model;

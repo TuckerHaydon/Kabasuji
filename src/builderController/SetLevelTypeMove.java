@@ -4,7 +4,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * This move is in charged of setting level type
  * @author tuckerhaydon
  *
  */
@@ -16,7 +16,7 @@ public class SetLevelTypeMove extends Move {
 		super(app, m);
 		this.levelType = levelType;
 	}
-
+	
 	@Override
 	boolean doMove() {
 		prev = m.getLevel().getLevelType();

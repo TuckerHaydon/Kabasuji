@@ -7,7 +7,9 @@ import javax.swing.JTextField;
 
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
-
+/**
+ * The handle of Scroll bar for selecting number allowed in builder side 
+ */
 public class SetNumAllowedMovesHandler implements ActionListener {
 	
 	KabasujiBuilderApplication app;
@@ -19,7 +21,10 @@ public class SetNumAllowedMovesHandler implements ActionListener {
 		this.m = m;
 		this.field = field;
 	}
-
+	
+	/**
+	 * Perform the SetNumAllowedMovesMove
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		processAction();
