@@ -7,7 +7,6 @@ import playerEntity.GameModel;
 import playerEntity.Level;
 import playerEntity.LightningLevel;
 import playerEntity.PuzzleLevel;
-import playerEntity.ReleaseLevel;
 
 /**
  * 
@@ -27,13 +26,13 @@ public class ResetLevelMove extends Move{
 	 */
 	@Override
 	boolean doMove() {
-		
 		// Get the current level
 		if(!isValid()) return false;
 		Level l = m.getCurrentLevel();
 		
-		// Store the score in case of undo
-		//data[0] = l.getScore();
+		if(app.getGameWindow().getDraggedTile()!=null){
+			app.getGameWindow().releaseDraggedTile();
+		}
 		
 		// Store the level-specific data
 		data[1] = l.getLevelData();

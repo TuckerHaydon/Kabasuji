@@ -3,11 +3,8 @@ package playerController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JOptionPane;
-
 import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
-import playerEntity.LightningLevel;
 /***
  * Handles the logic of the complete level button
  * 

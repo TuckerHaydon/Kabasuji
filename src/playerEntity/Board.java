@@ -2,8 +2,6 @@ package playerEntity;
 
 import java.util.ArrayList;
 
-import builderController.UndoManager;
-
 /**
  * Board class used for scoring
  * Tiles are added to the board at specific BoardElts

@@ -6,8 +6,6 @@ import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
 import builderBoundary.KabasujiBuilderApplication;
 import playerEntity.GameModel;
 

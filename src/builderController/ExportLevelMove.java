@@ -7,10 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import builderBoundary.KabasujiBuilderApplication;
-import builderEntity.Board;
 import builderEntity.BoardElt;
 import builderEntity.BuilderModel;
-import builderEntity.Bullpen;
 import builderEntity.Level;
 
 /**

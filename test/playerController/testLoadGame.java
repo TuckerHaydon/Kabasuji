@@ -2,8 +2,6 @@ package playerController;
 
 import static org.junit.Assert.*;
 
-import java.awt.event.ActionEvent;
-
 import org.junit.Test;
 
 import playerBoundary.KabasujiPlayerApplication;

@@ -1,7 +1,5 @@
 package builderController;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import builderBoundary.BankView;

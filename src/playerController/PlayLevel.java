@@ -2,18 +2,8 @@ package playerController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
-import playerBoundary.GameWindow;
 import playerBoundary.KabasujiPlayerApplication;
-import playerBoundary.LightningLevelView;
-import playerBoundary.PuzzleLevelView;
-import playerBoundary.ReleaseLevelView;
 import playerEntity.GameModel;
-import playerEntity.Level;
-import playerEntity.LightningLevel;
-import playerEntity.PuzzleLevel;
 
 /**
  * Play the level
