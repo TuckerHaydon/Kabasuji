@@ -47,7 +47,7 @@ public class EditGameHandler implements ActionListener {
 	}
 	
 	/**
-	 * processes the edit game action
+	 * processes the editGame action
 	 */
 	public void processAction(){
 		ArrayList<String> gameNames = addGames();

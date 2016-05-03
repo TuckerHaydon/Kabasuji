@@ -16,6 +16,8 @@ import builderEntity.Level;
 import builderEntity.LevelParser;
 
 /**
+ * EditLevelHandler class
+ * This class is responsible for handling the editLevel action.
  * 
  * @author jwilder
  * @author tuckerhaydon
@@ -26,6 +28,11 @@ public class EditLevelHandler implements ActionListener {
 	KabasujiBuilderApplication app;
 	BuilderModel m;
 	
+	/**
+	 * EditLevelHandler constructor
+	 * @param app
+	 * @param m
+	 */
 	public EditLevelHandler(KabasujiBuilderApplication app, BuilderModel m) {
 		
 		if(app == null || m == null){
@@ -40,6 +47,9 @@ public class EditLevelHandler implements ActionListener {
 		processAction();
 	}
 	
+	/**
+	 * processes the editLevel action
+	 */
 	void processAction(){
 		ArrayList<String> levelNames = addLevels();
 		String chosenLevelName = (String) JOptionPane.showInputDialog(null, "Choose a level to load", "Level Loader",
@@ -48,6 +58,11 @@ public class EditLevelHandler implements ActionListener {
 
 	}
 	
+	/**
+	 * returns an array of all the levels currently in the resource
+	 * folder  
+	 * @return arrayList of levels
+	 */
 	public ArrayList<String> addLevels(){
 		ArrayList<String> levelNames = new ArrayList<>();
 		
@@ -84,6 +99,11 @@ public class EditLevelHandler implements ActionListener {
 		
 		return levelNames;
 	}
+	
+	/**
+	 * parses an individual level to determine what needs to be displayed
+	 * @param chosenLevelName
+	 */
 	void parseLevel(String chosenLevelName){
 
 		if(chosenLevelName == null){

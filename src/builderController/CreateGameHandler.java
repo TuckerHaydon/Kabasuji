@@ -8,6 +8,7 @@ import builderEntity.BuilderModel;
 import builderEntity.Game;
 
 /**
+ * CreateGameHandler class
  * handles the creation of a game in the builder application 
  * @author tuckerhaydon
  *

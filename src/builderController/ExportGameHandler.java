@@ -10,7 +10,9 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
  
 /**
- * handles the exportGame action
+ * ExportGameHandler class
+ * handles the exportGame action in the builder application
+ * 
  * @author tuckerhaydon
  *
  */

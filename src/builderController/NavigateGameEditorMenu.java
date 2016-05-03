@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import builderBoundary.KabasujiBuilderApplication;
 
 /**
- * 
+ * navigates to the game editor menu
  * @author tuckerhaydon
  *
  */
@@ -14,6 +14,10 @@ public class NavigateGameEditorMenu implements ActionListener {
 	
 	KabasujiBuilderApplication app;
 	
+	/**
+	 * NavigateGameEditorMenu constructor
+	 * @param app
+	 */
 	public NavigateGameEditorMenu(KabasujiBuilderApplication app) {
 		this.app = app;
 	}
