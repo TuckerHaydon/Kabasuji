@@ -11,8 +11,7 @@ import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 
 /**
- * ChangeBoardEltMove class
- * changes the type of boardElt in the builder application
+ * The move changing the board element properties
  * @author tuckerhaydon
  *
  */

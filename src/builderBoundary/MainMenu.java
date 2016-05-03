@@ -48,7 +48,7 @@ public class MainMenu extends JFrame {
 		this.setTitle("Main Menu");
 		
 		// Set the layout
-		getContentPane().setLayout(new GridLayout(2,1));
+		getContentPane().setLayout(new GridLayout(3,1));
 		this.setResizable(false);
 		this.getContentPane().setBackground(new Color(255, 228, 225));
 		

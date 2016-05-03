@@ -2,7 +2,6 @@ package builderController;
 
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
-
 /**
  * sets the allowed time for the lightning level in the builder application
  */

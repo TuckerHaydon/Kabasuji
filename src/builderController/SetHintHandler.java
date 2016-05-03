@@ -9,7 +9,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * The handler of the scroll bar of setting hint boxes
+ * The handler of the scroll bar in charge of setting hint boxes
  * @author
  *
  */
