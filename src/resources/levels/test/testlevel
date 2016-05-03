@@ -2,10 +2,10 @@ BeginLevel
 release
 60
 BeginHexomino
-1 1 1 15 11 1 2 2 1 17 16 8 13 34 30 1 1 2 
+1 1 15 11 1 2 2 1 17 16 8 13 34 30 1 1 1 2 
 EndHexomino
 BeginElts
-U U U U U U U U U U P U 
+P U U U U U U U U U P U 
 P N2G PH U U U U U U U P P 
 P P P P P P P P P P P P 
 P P P U U U U U U P P P 

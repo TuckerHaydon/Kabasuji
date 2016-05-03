@@ -84,6 +84,8 @@ public class testLevelBuilder {
 		//now add those tiles to the bullpen, then undo the second addition
 		AddTileToBullpenMove attbpm = new AddTileToBullpenMove(builder, m, tile1, bpv);
 		attbpm.execute();
+		attbpm.executeUndo();
+		attbpm.redoMove();
 		AddTileToBullpenMove attbpm2 = new AddTileToBullpenMove(builder, m, tile2, bpv);
 		attbpm2.execute();
 		attbpm2.executeUndo();
@@ -109,6 +111,10 @@ public class testLevelBuilder {
 		m.setSelectedColor("blue");
 		cbem.execute();
 		
+		// Undo the move and redo it
+		cbem.executeUndo();
+		cbem.redoMove();
+		
 		//get/set attributes of builderModel
 		m.setLevel(lvl);
 		m.getTileBank();
@@ -119,6 +125,10 @@ public class testLevelBuilder {
 		//change a new playable board elt as a hint
 		ChangeBoardEltMove cbem2 = new ChangeBoardEltMove(builder, m, board, 1, 2);
 		cbem2.execute();
+		
+		// Undo the move and then redo it
+		cbem2.executeUndo();
+		cbem2.redoMove();
 
 		//change a board elt to be unplayable, then undo
 		m.setSelectedBoardEltType("unplayable");
