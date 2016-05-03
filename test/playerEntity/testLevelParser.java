@@ -12,8 +12,10 @@ public class testLevelParser {
 		GameModel gm = GameModel.instance();
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
-		gm.loadLevel("src/resources/levels/release/dorothy1");
-		gm.loadLevel("src/resources/levels/release/testLevel");
+//		gm.loadLevel("src/resources/levels/release/dorothy1");
+		gm.loadLevel("src/resources/levels/release/Level 3"
+				+ ""
+				+ "");
 
 	}
 	
@@ -22,7 +24,7 @@ public class testLevelParser {
 		GameModel gm = GameModel.instance();
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
-		gm.loadLevel("src/resources/levels/puzzle/LegalPuzzle");
+		gm.loadLevel("src/resources/levels/puzzle/Level 1");
 
 	}
 	
@@ -31,7 +33,7 @@ public class testLevelParser {
 		GameModel gm = GameModel.instance();
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
-		gm.loadLevel("src/resources/levels/lightning/Lightning_Level");
+		gm.loadLevel("src/resources/levels/lightning/Level 2");
 	}
 
 }

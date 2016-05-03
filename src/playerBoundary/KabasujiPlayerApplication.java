@@ -32,11 +32,20 @@ public class KabasujiPlayerApplication {
 		init();
 	}
 	
+	/**
+	 * Constructor used for testing. Takes in a file path to the level to be tested and a builder so that windows can be properly shown
+	 * @param m GameModel
+	 * @param levelPath Path to the level to be tested
+	 * @param builderapp The builder applicaiton
+	 */
 	public KabasujiPlayerApplication(GameModel m, String levelPath, KabasujiBuilderApplication builderapp){
 		this.m = m;
 		init(levelPath, builderapp);
 	}
 	
+	/**
+	 * Initialized the application. Inits the model, view, and controllers. Displays the main menu.
+	 */
 	public void init(){
 		initModel();
 		initView();
@@ -48,6 +57,11 @@ public class KabasujiPlayerApplication {
 		displayMainMenu();
 	}
 	
+	/**
+	 * Initializes the application for testing. Takes in a path to the level to be tested and the builder application.
+	 * @param levelPath - Path to the level to be tested
+	 * @param builderapp - The builder application
+	 */
 	public void init(String levelPath, KabasujiBuilderApplication builderapp){
 		initModel(levelPath);
 		initView();
@@ -58,18 +72,28 @@ public class KabasujiPlayerApplication {
 		displayGameWindow();
 	}
 	
+	/**
+	 * Initializes the model. Sets the default game to be played and the current level to 0.
+	 */
 	public void initModel(){
 		m.loadGame("src/resources/games/DefaultGame");
 		m.setCurrentLevel(0);
 		m.initModel();
 	}
 	
+	/**
+	 * Initializes the model for testing. Takes in a path to a level to be tested. Loads that specific level.
+	 * @param levelPath
+	 */
 	void initModel(String levelPath){
 		m.loadLevel(levelPath);
 		m.setCurrentLevel(0);
 		m.initModel();
 	}
 	
+	/**
+	 * Instructs all of the various frames to initialize their own views.
+	 */
 	public void initView(){
 		
 		// Create the various frames
@@ -88,6 +112,9 @@ public class KabasujiPlayerApplication {
 		
 	}
 	
+	/**
+	 * Instructs all of the individual frames to initialize their own controllers
+	 */
 	public void initControllers(){
 		gameWindow.initControllers();
 		mainMenu.initControllers();
@@ -96,6 +123,9 @@ public class KabasujiPlayerApplication {
 		instructionsPage.initControllers();
 	}
 	
+	/**
+	 * Diaplays only the main menu
+	 */
 	public void displayMainMenu(){
 		mainMenu.setVisible(true);
 		gameWindow.setVisible(false);
@@ -104,6 +134,9 @@ public class KabasujiPlayerApplication {
 		instructionsPage.setVisible(false);
 	}
 	
+	/**
+	 * Displays only the game window
+	 */
 	public void displayGameWindow(){
 		mainMenu.setVisible(false);
 		gameWindow.setVisible(true);
@@ -116,6 +149,9 @@ public class KabasujiPlayerApplication {
 		gameWindow.requestFocus();
 	}
 	
+	/**
+	 * Displays only the level selection menu
+	 */
 	public void displayLevelSelectionMenu(){
 		mainMenu.setVisible(false);
 		gameWindow.setVisible(false);
@@ -125,6 +161,9 @@ public class KabasujiPlayerApplication {
 		levelSelectionMenu.refreshView();
 	}
 	
+	/**
+	 * Displays only the achievement menu
+	 */
 	public void displayAchievementsMenu(){
 		mainMenu.setVisible(false);
 		gameWindow.setVisible(false);
@@ -134,6 +173,9 @@ public class KabasujiPlayerApplication {
 		achievementsMenu.updateView();
 	}
 	
+	/**
+	 * Displays only the instructions page
+	 */
 	public void displayInstructionsPage(){
 		mainMenu.setVisible(false);
 		gameWindow.setVisible(false);
@@ -142,24 +184,42 @@ public class KabasujiPlayerApplication {
 		instructionsPage.setVisible(true);
 	}
 	
+	/**
+	 * Returns the game window
+	 * @return the game window
+	 */
 	public GameWindow getGameWindow(){
 		return gameWindow;
 
 	}
 	
+	/**
+	 * Returns the achievements menu
+	 * @return the achievements menu
+	 */
 	public AchievementsMenu getAchievementsMenu(){
 		return this.achievementsMenu;
 	}
 	
+	/**
+	 * Returns the instructions page
+	 * @return the instructions page
+	 */
 	public InstructionsPage getInstructionsPage(){
 		return this.instructionsPage;
 	}
 	
+	/**
+	 * Instructs the board and scrollpane in the game window to repaint 
+	 */
 	public void repaintAll(){
 		this.getGameWindow().getLevelView().getScrollPane().repaint();
 		this.getGameWindow().getLevelView().getBoardView().repaint();
 	}
 	
+	/**
+	 * Displays the splash screen. Plays the intro song and pauses for 21 seconds.
+	 */
 	void displaySplashScreen(){
 		
 		Clip clip = null;
@@ -197,6 +257,9 @@ public class KabasujiPlayerApplication {
 		splash.dispose();
 	}
 	
+	/**
+	 * Plays the theme song
+	 */
 	void playThemeSong(){
 		try {
 			File f = new File("src/resources/audio/recorder.wav");
@@ -211,6 +274,10 @@ public class KabasujiPlayerApplication {
 		}
 	}
 	
+	/**
+	 * Returns the game model
+	 * @return the game model for this application
+	 */
 	public GameModel getGameModel(){
 		return m;
 	}
