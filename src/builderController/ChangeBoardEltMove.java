@@ -89,8 +89,18 @@ public class ChangeBoardEltMove extends Move {
 	boolean isValid() {
 		
 		if(board.getBoardElts()[row][col] instanceof UnplayableBoardElt && selectedBoardEltType.equals("unplayable")) {return false;}
-		if(board.getBoardElts()[row][col] instanceof NumberedBoardElt && selectedBoardEltType.equals("numbered")) {return false;}
-		if(board.getBoardElts()[row][col] instanceof PlayableBoardElt && selectedBoardEltType.equals("playable")) {return false;}
+		if(board.getBoardElts()[row][col] instanceof NumberedBoardElt && selectedBoardEltType.equals("numbered")) {
+			
+			Color c = Color.BLACK;
+			if(selectedColor.equals("red")){c = Color.RED;}
+			else if(selectedColor.equals("blue")){c = Color.BLUE;}
+			else if(selectedColor.equals("green")){c = Color.GREEN;}
+			
+			return !((NumberedBoardElt)(board.getBoardElts()[row][col])).equals(new NumberedBoardElt(row, col, isHint, c, selectedNumber));
+			}
+		if(board.getBoardElts()[row][col] instanceof PlayableBoardElt && selectedBoardEltType.equals("playable")) {
+			return !((PlayableBoardElt)(board.getBoardElts()[row][col])).equals(new PlayableBoardElt(row, col, isHint));
+			}
 
 		// Make sure the row/col are within bounds.
 		if(row < 0 || row > 11 || col < 0 || col > 11){
