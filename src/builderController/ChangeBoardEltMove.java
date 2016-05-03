@@ -11,7 +11,7 @@ import builderEntity.PlayableBoardElt;
 import builderEntity.UnplayableBoardElt;
 
 /**
- * 
+ * The move changing the board element properties
  * @author tuckerhaydon
  *
  */

@@ -4,7 +4,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * This move is in charged of setting hint elements
+ * This move in charge of setting hint elements
  * @author 
  *
  */

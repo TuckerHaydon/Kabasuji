@@ -12,7 +12,7 @@ import builderEntity.BuilderModel;
 import builderEntity.Level;
 
 /**
- * 
+ * The move exporting a level to the reource file
  * @author tuckerhaydon
  *
  */

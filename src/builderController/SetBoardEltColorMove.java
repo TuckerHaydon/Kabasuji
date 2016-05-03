@@ -4,7 +4,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * The move in charge of setting the board element
  * @author tuckerhaydon
  *
  */

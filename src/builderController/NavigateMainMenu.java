@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import builderBoundary.KabasujiBuilderApplication;
 
 /**
- * 
+ * Navigate to the main menu in builder side
  * @author tuckerhaydon
  *
  */

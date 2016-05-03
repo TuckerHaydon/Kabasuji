@@ -7,7 +7,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * Super class of move classes
  * @author tuckerhaydon
  *
  */

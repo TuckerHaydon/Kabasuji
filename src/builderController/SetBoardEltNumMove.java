@@ -4,7 +4,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * The move setting the number on the board element
  * @author tuckerhaydon
  *
  */

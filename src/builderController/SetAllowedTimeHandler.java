@@ -8,6 +8,11 @@ import javax.swing.JTextField;
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
+/**
+ * The handler in charge of setting allowed time in builder window
+ * @author Dorothy
+ *
+ */
 public class SetAllowedTimeHandler implements ActionListener {
 
 	KabasujiBuilderApplication app;

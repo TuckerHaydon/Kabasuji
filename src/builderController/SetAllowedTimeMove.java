@@ -3,6 +3,11 @@ package builderController;
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
+/**
+ * The move of setting allowed time in level editor
+ * @author Dorothy
+ *
+ */
 public class SetAllowedTimeMove extends Move {
 	
 	int seconds;

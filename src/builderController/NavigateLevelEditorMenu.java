@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import builderBoundary.KabasujiBuilderApplication;
 
 /**
- * 
+ * Navigate to the level editor menu
  * @author tuckerhaydon
  *
  */
