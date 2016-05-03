@@ -10,9 +10,10 @@ The splash screen is commented out at the beginning of the player application. T
  
  A default game is loaded into the player automatically. It contains 15 playable levels, all of which are guaranteed to be winable to at least 2 stars. 
  
- **IMPORTANT**
  Make sure to press enter after added a move number or time constraint into the builder. Because of the way a JTextBox works, the information is only pushed to the controller class when the enter button is hit.
  
  When a tile is removed from the board, it is inserted into the back of the bullpen. Some people thought they disappeared, but this is not the case. 
+ 
+ When testing, a user must mash the Enter button a couple of times. The achievements pop open JOptionPanes that must have their OK buttons clicked. A shortcut is pressing enter. Didn't figure our a way to circumvent this. 
  
  GG WP
