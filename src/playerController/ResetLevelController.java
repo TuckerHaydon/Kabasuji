@@ -7,7 +7,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
 /**
- * 
+ * Allows the player to reset the level (handles the button)
  * @author tuckerhaydon
  *
  */

@@ -7,7 +7,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
 /**
- * The handler of Reset Achievement
+ * Handles the resetting achievements
  * @author dorothy
  *
  */

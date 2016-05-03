@@ -5,13 +5,19 @@ import playerEntity.GameModel;
 import playerEntity.Tile;
 
 /**
- * 
+ * Rotate a tile clockwise
  * @author tuckerhaydon
  *
  */
 public class RotateTileClockwiseMove extends Move{
 	Tile tile;
 	
+	/**
+	 * Constructor for a rotate tile clockwise move
+	 * @param app - top level Kabasuji player application
+	 * @param m - top level game model
+	 * @param tile - tile being rotated
+	 */
 	public RotateTileClockwiseMove(KabasujiPlayerApplication app, GameModel m, Tile tile){
 		super(app, m);
 		this.tile=tile;

@@ -7,7 +7,7 @@ import playerEntity.Achievement;
 import playerEntity.GameModel;
 
 /**
- * Set all the achievement to the status of "Not earned"
+ * Set all the achievements to the status of "Not earned"
  * @author dorothy
  *
  */
@@ -43,7 +43,7 @@ public class ResetAchievementMove extends Move{
 	}
 	
 	/**
-	 * Sorry you can undo ResetAchievementMove
+	 * You can undo ResetAchievementMove
 	 */
 	@Override
 	public boolean undo() {
