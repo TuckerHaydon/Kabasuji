@@ -22,6 +22,11 @@ public class InstructionsPage extends JFrame {
 	BuilderModel m;
 	JButton mainMenu;
 	
+	/**
+	 * Constructor for instructions page
+	 * @param app - top level Kabasuji player application
+	 * @param m - top level game model
+	 */
 	public InstructionsPage(KabasujiBuilderApplication app, BuilderModel m){
 		super();
 		this.app = app;
@@ -30,6 +35,9 @@ public class InstructionsPage extends JFrame {
 		mainMenu = new JButton("Main Menu");
 	}
 	
+	/**
+	 * Initialize the instructions page window
+	 */
 	public void initView(){
 		
 		this.setLayout(null);
@@ -80,6 +88,9 @@ public class InstructionsPage extends JFrame {
 		
 	}
 	
+	/**
+	 * initialize the controller to get back to the main menu
+	 */
 	public void initControllers(){
 		mainMenu.addActionListener(new NavigateMainMenu(app));
 	}
