@@ -70,6 +70,10 @@ public abstract class Move {
 	abstract boolean isValid();
 	abstract boolean undo();
 	
+	/**
+	 * Pulls a move off of the undo stack and reexecutes it.
+	 * @return whether or not the action was successful
+	 */
 	public boolean redoMove(){
 		boolean wasSuccessful = this.doMove();
 

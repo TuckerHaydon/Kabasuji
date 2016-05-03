@@ -171,10 +171,20 @@ public class TileToBoardMove extends Move{
 
 	@Override
 	boolean undo() {
-		if(m.getCurrentLevel() instanceof LightningLevel) {
-			return false;
+		
+		BoardElt elts[][] = board.getBoardElts();
+		
+		for(Square s: tile.getSquares()){
+			int row = tile.getAnchor().getRowCol()[0] - s.getRelY();
+			int col = tile.getAnchor().getRowCol()[1] + s.getRelX();
+			try{
+			((PlayableBoardElt)elts[row][col]).setCovered(false);
+			}
+			catch(Exception e){} // NOOP
 		}
-		board.removeTile(tile);
+		
+		System.out.println(board.removeTile(tile));
+		tile.setLocation("bullpen");
 		m.getCurrentLevel().getBullpen().addTile(tile);
 //		app.getGameWindow().getLevelView().getScrollPane().repaint();
 		return true;

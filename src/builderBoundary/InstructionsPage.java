@@ -75,6 +75,14 @@ public class InstructionsPage extends JFrame {
 		holdshift.setFont(new Font("Consolas", Font.PLAIN, 16));
 		instructions.add(holdshift);
 		
+		JLabel undo= new JLabel("To undo a move, press control-z");
+		undo.setFont(new Font("Consolas", Font.PLAIN, 16));
+		instructions.add(undo);
+		
+		JLabel redo= new JLabel("To redo a move, press shift-control-z");
+		redo.setFont(new Font("Consolas", Font.PLAIN, 16));
+		instructions.add(redo);
+		
 		
 		for(int i = 0; i < instructions.size(); i++){
 			instructions.get(i).setBounds(100, 100+100*i, 800, 100);
