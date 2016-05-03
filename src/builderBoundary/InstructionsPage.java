@@ -83,9 +83,29 @@ public class InstructionsPage extends JFrame {
 		redo.setFont(new Font("Consolas", Font.PLAIN, 16));
 		instructions.add(redo);
 		
+		JLabel buildLevel= new JLabel("To build a level, click on create/edit a level. Editting is straightforward.");
+		buildLevel.setFont(new Font("Consolas", Font.PLAIN, 16));
+		instructions.add(buildLevel);
+		
+		JLabel exportLevel= new JLabel("When the level is complete, click the export button to save it.");
+		exportLevel.setFont(new Font("Consolas", Font.PLAIN, 16));
+		instructions.add(exportLevel);
+		
+		JLabel buildGame= new JLabel("To build a level, click on create/edit a game. Add levels to the game w/ buttons.");
+		buildGame.setFont(new Font("Consolas", Font.PLAIN, 16));
+		instructions.add(buildGame);
+		
+		JLabel exportGame= new JLabel("When a game is complete, click the export button to save it");
+		exportGame.setFont(new Font("Consolas", Font.PLAIN, 16));
+		instructions.add(exportGame);
+		
+		JLabel playGame= new JLabel("It can now be loaded and played by the player");
+		playGame.setFont(new Font("Consolas", Font.PLAIN, 16));
+		instructions.add(playGame);
+		
 		
 		for(int i = 0; i < instructions.size(); i++){
-			instructions.get(i).setBounds(100, 100+100*i, 800, 100);
+			instructions.get(i).setBounds(100, 60+60*i, 800, 100);
 			this.add(instructions.get(i));
 		}
 		
