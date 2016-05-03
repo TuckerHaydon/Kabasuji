@@ -9,12 +9,8 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
-<<<<<<< HEAD
- * The handler of the export level button
-=======
  * ExportLevelHandler class
  * handles the exportLevel action
->>>>>>> 0b7486af1ba7e90d583f640414741910ff8180d6
  * @author tuckerhaydon
  *
  */
