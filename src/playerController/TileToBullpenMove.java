@@ -22,6 +22,13 @@ public class TileToBullpenMove extends Move{
 	Bullpen bullpen;
 	LevelAchievementMonitor AM;
 	
+	/**
+	 * Constructor for tile to bullpen move
+	 * @param app - top level Kabasuji player application
+	 * @param m - top level game model
+	 * @param tile - tile being moved
+	 * @param bullpen - bullpen of level
+	 */
 	public TileToBullpenMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Bullpen bullpen){
 		super(app, m);
 		this.tile=tile;

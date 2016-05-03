@@ -12,6 +12,12 @@ public class SetHintMove extends Move {
 	
 	boolean isHint;
 	
+	/**
+	 * constructor for setHintMove
+	 * @param app
+	 * @param model
+	 * @param isHint
+	 */
 	public SetHintMove(KabasujiBuilderApplication app, BuilderModel model, boolean isHint) {
 		super(app, model);
 		this.isHint = isHint;

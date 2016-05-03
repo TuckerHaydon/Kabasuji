@@ -44,6 +44,9 @@ public class ExportGameMove extends Move{
 		return true;
 	}
 	
+	/**
+	 * writes the game to a storage file
+	 */
 	void writeToFile(){
 		
 		// Extract the levels
@@ -97,6 +100,9 @@ public class ExportGameMove extends Move{
 		
 	}
 	
+	/**
+	 * writes the game to a storage file
+	 */
 	void writeFile (Level lvl, BufferedWriter bw) throws IOException{
 			
 		// Extract the data

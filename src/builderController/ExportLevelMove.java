@@ -12,7 +12,7 @@ import builderEntity.BuilderModel;
 import builderEntity.Level;
 
 /**
- * The move exporting a level to the reource file
+ * handles the exportLevelMove 
  * @author tuckerhaydon
  *
  */
@@ -51,6 +51,9 @@ public class ExportLevelMove extends Move {
 		return true;
 	}
 	
+	/**
+	 * writes the level to a storage file
+	 */
 	void writeFile(){
 		
 		// Extract the data that will be written
@@ -110,6 +113,11 @@ public class ExportLevelMove extends Move {
 		}
 	}
 
+	/**
+	 * determines which level type resource folder to export the level to
+	 * @param levelType
+	 * @return the correct file path
+	 */
 	String getFilePath(String levelType) {
 		
 		// If it is a test level, export to the test directory

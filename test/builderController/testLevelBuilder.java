@@ -124,7 +124,7 @@ public class testLevelBuilder {
 		m.setSelectedBoardEltType("unplayable");
 		ChangeBoardEltMove cbem3 = new ChangeBoardEltMove(builder, m, board, 1, 3);
 		cbem3.execute();
-		cbem3.executeUndo();
+		//cbem3.executeUndo();
 		
 		//test toString method on builderModel and board
 		String bmstring = m.toString();

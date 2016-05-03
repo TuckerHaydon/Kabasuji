@@ -2,17 +2,20 @@ package builderController;
 
 import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
-
 /**
- * The move of setting allowed time in level editor
- * @author Dorothy
- *
+ * sets the allowed time for the lightning level in the builder application
  */
 public class SetAllowedTimeMove extends Move {
 	
 	int seconds;
 	int prevSec;
 	
+	/**
+	 * constructor for setAllowedTimeMove
+	 * @param app
+	 * @param m
+	 * @param sec
+	 */
 	public SetAllowedTimeMove(KabasujiBuilderApplication app, BuilderModel m, int sec){
 		super(app, m);
 		this.seconds = sec;

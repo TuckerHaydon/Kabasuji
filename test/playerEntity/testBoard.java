@@ -15,6 +15,7 @@ public class testBoard {
 		KabasujiPlayerApplication player = new KabasujiPlayerApplication(gm);
 		
 		//setup release level
+		gm.loadGame("src/resources/games/ExampleGame1");
 		gm.setCurrentLevel(0);
 		
 		//get the board and bullpen
@@ -22,20 +23,20 @@ public class testBoard {
 		Bullpen bp = gm.getCurrentLevel().getBullpen();
 		
 		//now get a tile from the bullpen and place it on the board
-		Tile selectedTile = bp.getTiles().get(3);
+		Tile selectedTile = bp.getTiles().get(2);
 		TileView tv = new TileView(player, gm, selectedTile);
 		player.getGameWindow().setDraggedTile(tv);
-		b.addTile(selectedTile, 2, 2);
+		b.addTile(selectedTile, 1, 1);
 		
 		//now there should be exactly one tile on the board
 		assertEquals(1,b.getTiles().size());
 		
 		//check that the tile covers boardElts
 		BoardElt[][] bElts = b.getBoardElts();
-		assertTrue(((PlayableBoardElt) bElts[2][2]).getCovered());
+		assertTrue(((PlayableBoardElt) bElts[1][1]).getCovered());
 		
 		//get the tile that you just placed on the board
-		b.getTile(2, 2);
+		b.getTile(1, 1);
 
 		//test both ways to remove it
 		b.removeTile(selectedTile);
@@ -47,7 +48,9 @@ public class testBoard {
 		//now make sure reset works
 		b.reset();
 		b.toString();
-		
+		int[] c = b.getBoardElt(1, 1).getRowCol();
+		assertEquals(c[0],1);
+		assertEquals(c[1],1);
 	}
 
 }

@@ -9,7 +9,7 @@ import playerEntity.LightningLevel;
 import playerEntity.PuzzleLevel;
 
 /**
- * 
+ * Handles all of the level data activity during a level reset
  * @author 
  *
  */
@@ -22,7 +22,7 @@ public class ResetLevelMove extends Move{
 	}
 	
 	/**
-	 * Reset the level, every tiles goes back to where it was 
+	 * Reset the level, every tile goes back to where it was 
 	 */
 	@Override
 	boolean doMove() {

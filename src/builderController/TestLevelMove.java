@@ -6,7 +6,7 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
 /**
- * A controller object that permits that testing of a built level. The move greates a new GameModel
+ * A controller object that permits that testing of a built level. The move creates a new GameModel
  * @author tuckerhaydon
  *
  */
@@ -28,7 +28,7 @@ public class TestLevelMove extends Move{
 		KabasujiPlayerApplication playerApp = new KabasujiPlayerApplication(gameModel, "src/resources/levels/test/test_level",app);
 		playerApp.getGameModel().setIsTesting(true);
 		app.getLevelEditor().setVisible(false);
-		return false;
+		return true;
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class testPickupTileBullpenMove {
 		//get entities
 		Bullpen bp = gm.getCurrentLevel().getBullpen();
 		ArrayList<Tile> allTiles = gm.getCurrentLevel().getBullpen().getTiles();
-		Tile selectTile = allTiles.get(3);
+		Tile selectTile = allTiles.get(2);
 		
 		//get boundaries
 		TileView tv = new TileView(player, gm, selectTile);
@@ -38,7 +38,10 @@ public class testPickupTileBullpenMove {
 		player.getGameWindow().setDraggedTile(tv);
 		
 		//before the move, there is 4 tiles in the bullpen
+
+		//assertEquals(3, bp.getTiles().size());
 		assertEquals(35, bp.getTiles().size());
+
 		
 		//this is a valid move
 		assertTrue(putbm.isValid());

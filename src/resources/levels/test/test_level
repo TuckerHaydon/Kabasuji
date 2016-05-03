@@ -2,11 +2,11 @@ BeginLevel
 Release
 -1
 BeginHexomino
-1 
+
 EndHexomino
 BeginElts
 P P P P P P P P P P P P 
-P P P P P P P P P P P P 
+P N2G P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 
 P P P P P P P P P P P P 

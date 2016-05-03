@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import builderController.NavigateGameEditorMenu;
+import builderController.NavigateInstructionsPage;
 import builderController.NavigateLevelEditorMenu;
 
 /**
@@ -20,6 +21,7 @@ public class MainMenu extends JFrame {
 	KabasujiBuilderApplication app;
 	JButton levelEditorButton;
 	JButton gameEditorButton;
+	JButton instructionsButton;
 	
 	/**
 	 * Constructor for main menu. 	
@@ -32,6 +34,7 @@ public class MainMenu extends JFrame {
 		// Create the buttons
 		levelEditorButton = new JButton("Create or Edit a Level");
 		gameEditorButton = new JButton("Create or Edit a Game");
+		instructionsButton = new JButton("Instructions");
 
 	}
 	
@@ -53,10 +56,13 @@ public class MainMenu extends JFrame {
 		levelEditorButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
 		gameEditorButton.setBackground(new Color(128, 128, 128));
 		gameEditorButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
+		instructionsButton.setBackground(new Color(128, 128, 128));
+		instructionsButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 26));
 		
 		// Add the buttons
 		this.add(levelEditorButton);
 		this.add(gameEditorButton);
+		this.add(instructionsButton);
 		
 	}
 	
@@ -66,6 +72,7 @@ public class MainMenu extends JFrame {
 	public void initControllers(){
 		levelEditorButton.addActionListener(new NavigateLevelEditorMenu(app));
 		gameEditorButton.addActionListener(new NavigateGameEditorMenu(app));
+		instructionsButton.addActionListener(new NavigateInstructionsPage(app));
 	}
 
 }

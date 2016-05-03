@@ -9,7 +9,10 @@ import builderEntity.Board;
 import builderEntity.BuilderModel;
 
 /**
- * The object that controls how the board interacts with mouse events. Only two mouse events are handled: press and drag
+ * BoardController class
+ * This class is responsible for handling how the board interacts 
+ * with mouse events. Only two mouse events are handled: press and drag
+ * @see Board
  * @author tuckerhaydon
  */
 public class BoardController extends MouseAdapter {

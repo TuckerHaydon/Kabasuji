@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import builderBoundary.KabasujiBuilderApplication;
 
 /**
- * Navigate to the level editor menu
+ * navigates to level editor menu in the builder application
  * @author tuckerhaydon
  *
  */
@@ -14,6 +14,10 @@ public class NavigateLevelEditorMenu implements ActionListener {
 	
 	KabasujiBuilderApplication app;
 	
+	/**
+	 * NavigateLevelEditorMenu constructor
+	 * @param app
+	 */
 	public NavigateLevelEditorMenu(KabasujiBuilderApplication app) {
 		this.app = app;
 	}

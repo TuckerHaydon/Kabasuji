@@ -16,7 +16,7 @@ public class testBankController {
 	public void Test() {
 		BuilderModel m = BuilderModel.instance();
 		KabasujiBuilderApplication app = new KabasujiBuilderApplication(m);
-		app.displayLevelEditor();
+		//app.displayLevelEditor();
 	
 	}
 }

@@ -1,5 +1,7 @@
 package builderController;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import builderBoundary.BankView;
@@ -33,12 +35,12 @@ public class testChangeBoardEltMove {
 		m.setSelectedNumber(2);
 		ChangeBoardEltMove cbem = new ChangeBoardEltMove(builder, m, board, 1, 1);
 		cbem.execute();
-		cbem.executeUndo();
+	//	cbem.executeUndo();
 		
 		//change the color to red and repeat
 		m.setSelectedColor("red");
 		cbem.execute();
-		cbem.executeUndo();
+		//cbem.executeUndo();
 		
 		//finally try blue
 		m.setSelectedColor("blue");
@@ -54,12 +56,22 @@ public class testChangeBoardEltMove {
 		//change a new playable board elt as a hint
 		ChangeBoardEltMove cbem2 = new ChangeBoardEltMove(builder, m, board, 1, 2);
 		cbem2.execute();
-
+		assertEquals(board.getBoardElts()[1][3].getType(),m.getSelectedBoardEltType());
+		
 		//change a board elt to be unplayable, then undo
 		m.setSelectedBoardEltType("unplayable");
 		ChangeBoardEltMove cbem3 = new ChangeBoardEltMove(builder, m, board, 1, 3);
 		cbem3.execute();
+
+		assertEquals(board.getBoardElts()[1][3].getType(),m.getSelectedBoardEltType());
 		cbem3.executeUndo();
+		assertEquals(board.getBoardElts()[1][3].getType(),"playable");
+		//test getRowCol because we need coverage
+
+		int[] b = board.getBoardElts()[1][1].getRowCol();
+		assertEquals(b[0],1);
+		assertEquals(b[1],1);
+
 	}
 
 }

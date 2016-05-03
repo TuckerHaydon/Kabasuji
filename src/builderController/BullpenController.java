@@ -11,7 +11,7 @@ import builderEntity.Bullpen;
 import builderEntity.Tile;
 
 /**
- * 
+ * handles the mouse events relating to the bullpenView of the builder application 
  * @author tuckerhaydon
  *
  */
@@ -49,7 +49,7 @@ public class BullpenController extends MouseAdapter {
 	}
 	
 	/**
-	 * processes what happens on a mouse clicked event on the bullpen
+	 * processes what happens on a mouse clicked event on the bullpen view
 	 * @param x
 	 * @param y
 	 */

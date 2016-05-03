@@ -10,7 +10,7 @@ import playerBoundary.TileView;
 import playerEntity.Tile;
 
 /**
- * 
+ * Controller for a level 
  * @author tuckerhaydon, ndiwakar
  *
  */
@@ -20,6 +20,12 @@ public class LevelController extends MouseAdapter {
 	LevelView lv;
 	GameModel m;
 	
+	/**
+	 * Constructor for a level controller
+	 * @param app - top level Kabasuji application
+	 * @param m - top level game model
+	 * @param lv - level view for the level being controlled
+	 */
 	public LevelController(KabasujiPlayerApplication app, GameModel m, LevelView lv){
 		super();
 		this.app = app;
@@ -27,11 +33,18 @@ public class LevelController extends MouseAdapter {
 		this.m = m;
 	}	
 	
+	/**
+	 * Handles mouseEvents
+	 */
 	@Override
 	public void mousePressed(MouseEvent me){
 		processMousePressed();
 	}
 	
+	/**
+	 * When the mouse is pressed on the level (anywhere outside of the bullpen and board),
+	 * the tile is sent back to the bullpen
+	 */
 	void processMousePressed(){
 		
 		TileView draggedTileView = app.getGameWindow().getDraggedTile();
@@ -54,6 +67,9 @@ public class LevelController extends MouseAdapter {
 		processMouseMoved();
 	}
 	
+	/**
+	 * Updates the view of the dragged tile
+	 */
 	void processMouseMoved(){
 		
 		// If there is no tile selected, do nothing

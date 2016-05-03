@@ -14,6 +14,10 @@ public class NavigateGameEditorMenu implements ActionListener {
 	
 	KabasujiBuilderApplication app;
 	
+	/**
+	 * NavigateGameEditorMenu constructor
+	 * @param app
+	 */
 	public NavigateGameEditorMenu(KabasujiBuilderApplication app) {
 		this.app = app;
 	}
