@@ -4,12 +4,17 @@ import playerBoundary.KabasujiPlayerApplication;
 import playerEntity.GameModel;
 
 /**
- * 
+ * Updates the dragged tile's location as the mouse moves
  * @author tuckerhaydon
  *
  */
 public class UpdateDraggedTileLocationMove extends Move {
 	
+	/**
+	 * Constructor for the update dragged tile location move
+	 * @param app - top level Kabasuji player application
+	 * @param m - top level game model
+	 */
 	public UpdateDraggedTileLocationMove(KabasujiPlayerApplication app, GameModel m) {
 		super(app, m);
 	}
