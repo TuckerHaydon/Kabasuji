@@ -7,7 +7,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * Abstract class for all moves in the Kabasuji builder application
  * @author tuckerhaydon
  *
  */
@@ -16,11 +16,20 @@ public abstract class Move {
 	KabasujiBuilderApplication app;
 	BuilderModel m;
 	
+	/**
+	 * Constructor for move
+	 * @param app
+	 * @param m
+	 */
 	public Move(KabasujiBuilderApplication app, BuilderModel m){
 		this.app = app;
 		this.m = m;
 	}
 
+	/**
+	 * do the move, pushed to undo/redo
+	 * @return
+	 */
 	public boolean execute(){
 		
 		if(!this.isValid()){
@@ -37,6 +46,10 @@ public abstract class Move {
 		return false;
 	}
 	
+	/**
+	 * Handles undo/redo
+	 * @return
+	 */
 	public boolean executeUndo(){
 		boolean wasSuccessful = this.undoMove();
 

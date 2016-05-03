@@ -9,7 +9,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ *  Handler for setting the board element type. Creates/executes a SetBoardEltTypeMove
  * @author tuckerhaydon
  *
  */
@@ -19,6 +19,12 @@ public class SetBoardEltTypeHandler implements ActionListener {
 	BuilderModel m;
 	JComboBox<String> box;
 	
+	/**
+	 * constructor for setBoardEltTypeHandler
+	 * @param app
+	 * @param m
+	 * @param box
+	 */
 	public SetBoardEltTypeHandler(KabasujiBuilderApplication app, BuilderModel m, JComboBox<String> box) {
 		this.m = m;
 		this.box = box;

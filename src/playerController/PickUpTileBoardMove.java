@@ -28,10 +28,10 @@ public class PickUpTileBoardMove extends Move{
 	
 	/**
 	 * PickUp Tile Board Move Constructor
-	 * @param app application
-	 * @param m game model
-	 * @param tile tile being removed from the board
-	 * @param board 
+	 * @param app - top level application
+	 * @param m - top level game model
+	 * @param tile - tile being removed from the board
+	 * @param board - board of the level being controlled
 	 */
 	public PickUpTileBoardMove(KabasujiPlayerApplication app, GameModel m, Tile tile, Board board){
 		super(app, m);
@@ -39,6 +39,10 @@ public class PickUpTileBoardMove extends Move{
 		this.board=board;
 	}
 	
+	/**
+	 * Finds the tile on the board corresponding to the mouse events and picks it up
+	 * Sets those board elements to uncovered
+	 */
 	@Override
 	boolean doMove() {
 		
@@ -69,7 +73,7 @@ public class PickUpTileBoardMove extends Move{
 		
 		// Repaint the board
 		app.getGameWindow().getLevelView().getBoardView().repaint();
-		//hack, update the number of moves but dont repaint the window until you've placed the tile
+		//update the number of moves but don't repaint the window until you've placed the tile
 		//this works because the only actions you can do are reset the level, exit, or place the tile
 		//all of which will update to the correct number of moves
 		//((PuzzleLevel) m.getCurrentLevel()).updateMoves(-1);
@@ -84,6 +88,10 @@ public class PickUpTileBoardMove extends Move{
 		return board.addTile(tile, rowcol[0], rowcol[1]);
 	}
 
+	/**
+	 * Checks validity of move
+	 * Cannot pick up tiles from board during lightning level
+	 */
 	@Override
 	boolean isValid() {
 		if(m.getCurrentLevel() instanceof LightningLevel || m.getCurrentLevel() instanceof ReleaseLevel) {
