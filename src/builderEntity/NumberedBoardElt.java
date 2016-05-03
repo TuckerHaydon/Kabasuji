@@ -84,5 +84,21 @@ public class NumberedBoardElt extends PlayableBoardElt{
 			return "N"+num + "G";
 		}
 	}
+	
+	@Override
+	public boolean equals(Object other){
+		if(other == null){
+			return false;
+		}
+		
+		if(!(other instanceof NumberedBoardElt)){
+			return false;
+		}
+		
+		NumberedBoardElt elt = (NumberedBoardElt)other;
+		
+		return (this.row == elt.row) && (this.col == elt.col) && (this.c.equals(elt.c)) && (this.isHint == elt.isHint) && (this.num == elt.num);
+		
+	}
 
 }

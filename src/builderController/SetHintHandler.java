@@ -19,6 +19,12 @@ public class SetHintHandler implements ActionListener {
 	JCheckBox hintBox;
 	KabasujiBuilderApplication app;
 	
+	/**
+	 * constructor for setHintHandler
+	 * @param app
+	 * @param model
+	 * @param hintBox
+	 */
 	public SetHintHandler(KabasujiBuilderApplication app, BuilderModel model, JCheckBox hintBox) {
 		this.model = model;
 		this.hintBox = hintBox;

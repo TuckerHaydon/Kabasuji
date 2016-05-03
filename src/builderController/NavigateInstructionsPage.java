@@ -5,26 +5,23 @@ import java.awt.event.ActionListener;
 
 import builderBoundary.KabasujiBuilderApplication;
 
-/**
- * handles navigateMainMenu action
- * @author tuckerhaydon
- *
- */
-public class NavigateMainMenu implements ActionListener {
-	
+public class NavigateInstructionsPage implements ActionListener{
+
 	KabasujiBuilderApplication app;
 	
-	/**
-	 * NavigateMainMenu constructor
-	 * @param app
-	 */
-	public NavigateMainMenu(KabasujiBuilderApplication app){
+	public NavigateInstructionsPage(KabasujiBuilderApplication app) {
 		this.app = app;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		app.displayMainMenu();
+		processAction();
+		
 	}
-
+	
+	void processAction(){
+		app.displayInstructionsPage();
+	}
+	
+	
 }

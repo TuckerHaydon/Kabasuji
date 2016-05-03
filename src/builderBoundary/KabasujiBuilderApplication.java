@@ -17,6 +17,7 @@ public class KabasujiBuilderApplication {
 	LevelEditor levelEditor;
 	GameEditorMenu gameEditorMenu;
 	GameEditor gameEditor;
+	InstructionsPage instructionsPage;
 	BuilderModel m;
 	
 	/**
@@ -47,6 +48,7 @@ public class KabasujiBuilderApplication {
 		levelEditor = new LevelEditor(this, m);
 		gameEditorMenu = new GameEditorMenu(this, m);
 		gameEditor = new GameEditor(this, m);
+		instructionsPage = new InstructionsPage(this, m);
 		
 		// Have the frames create their various views
 		mainMenu.initView();
@@ -54,6 +56,7 @@ public class KabasujiBuilderApplication {
 		levelEditor.initView();
 		gameEditorMenu.initView();
 		gameEditor.initView();
+		instructionsPage.initView();
 		
 		// Display the main menu
 		displayMainMenu();
@@ -66,6 +69,7 @@ public class KabasujiBuilderApplication {
 		levelEditor.initControllers();
 		gameEditorMenu.initControllers();
 		gameEditor.initControllers();
+		instructionsPage.initControllers();
 	}
 	
 	/**
@@ -77,6 +81,7 @@ public class KabasujiBuilderApplication {
 		levelEditor.setVisible(false);
 		gameEditorMenu.setVisible(false);
 		gameEditor.setVisible(false);
+		instructionsPage.setVisible(false);
 	}
 	
 	/**
@@ -88,6 +93,7 @@ public class KabasujiBuilderApplication {
 		levelEditor.setVisible(false);
 		gameEditorMenu.setVisible(false);
 		gameEditor.setVisible(false);
+		instructionsPage.setVisible(false);
 	}
 	
 	/**
@@ -99,6 +105,7 @@ public class KabasujiBuilderApplication {
 		levelEditor.setVisible(false);
 		gameEditorMenu.setVisible(true);
 		gameEditor.setVisible(false);
+		instructionsPage.setVisible(false);
 	}
 	
 	/**
@@ -110,6 +117,7 @@ public class KabasujiBuilderApplication {
 		levelEditor.setVisible(true);
 		gameEditorMenu.setVisible(false);
 		gameEditor.setVisible(false);
+		instructionsPage.setVisible(false);
 		
 		// Bring to focus
 		levelEditor.toFront();
@@ -125,6 +133,19 @@ public class KabasujiBuilderApplication {
 		levelEditor.setVisible(false);
 		gameEditorMenu.setVisible(false);
 		gameEditor.setVisible(true);
+		instructionsPage.setVisible(false);
+	}
+	
+	/**
+	 * Sets only the instructions page to be visible
+	 */
+	public void displayInstructionsPage(){
+		mainMenu.setVisible(false);
+		levelEditorMenu.setVisible(false);
+		levelEditor.setVisible(false);
+		gameEditorMenu.setVisible(false);
+		gameEditor.setVisible(false);
+		instructionsPage.setVisible(true);
 	}
 	
 	/**

@@ -51,5 +51,20 @@ public class PlayableBoardElt extends BoardElt{
 	public String getType() {
 		return "playable";
 	}
+	
+	@Override
+	public boolean equals(Object other){
+		if(other == null){
+			return false;
+		}
+		
+		if(!(other instanceof PlayableBoardElt)){
+			return false;
+		}
+		
+		PlayableBoardElt elt = (PlayableBoardElt)other;
+		
+		return (this.row == elt.row) && (this.col == elt.col) && (this.isHint == elt.isHint);
+	}
 
 }

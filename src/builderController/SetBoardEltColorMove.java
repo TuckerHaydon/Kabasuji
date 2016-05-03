@@ -4,7 +4,7 @@ import builderBoundary.KabasujiBuilderApplication;
 import builderEntity.BuilderModel;
 
 /**
- * 
+ * sets the boardElt color in the builder application
  * @author tuckerhaydon
  *
  */
@@ -13,6 +13,12 @@ public class SetBoardEltColorMove extends Move {
 	String color;
 	String prev;
 	
+	/**
+	 * constructor for setBoardEltColorMove
+	 * @param app
+	 * @param m
+	 * @param color
+	 */
 	SetBoardEltColorMove(KabasujiBuilderApplication app, BuilderModel m, String color){
 		super(app, m);
 		this.color = color;

@@ -9,6 +9,7 @@ public class testAchievements {
 	@Test
 	public void test() {
 		assertTrue(true);
+
 	}
 
 }
