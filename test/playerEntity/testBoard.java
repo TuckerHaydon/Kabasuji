@@ -26,7 +26,7 @@ public class testBoard {
 		Tile selectedTile = bp.getTiles().get(2);
 		TileView tv = new TileView(player, gm, selectedTile);
 		player.getGameWindow().setDraggedTile(tv);
-		b.addTile(selectedTile, 1, 1);
+		b.addTile(selectedTile, 3, 1);
 		
 		//now there should be exactly one tile on the board
 		assertEquals(1,b.getTiles().size());
