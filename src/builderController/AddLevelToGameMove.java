@@ -25,6 +25,12 @@ public class AddLevelToGameMove extends Move {
 	String levelname;
 	String folderName;
 	
+	/**
+	 * The AddLevelToGameMove constructor.
+	 * @param app - top-level Kabasuji builder application
+	 * @param m - top-level BuilderModel
+	 * @param levelIndex - index of the level to add
+	 */
 	public AddLevelToGameMove(KabasujiBuilderApplication app, BuilderModel m, int levelIndex) {
 		super(app, m);
 		
@@ -64,6 +70,10 @@ public class AddLevelToGameMove extends Move {
 		
 	}
 	
+	/**
+	 * Checks to see if the move is valid,
+	 * in which case the move is done.
+	 */
 	@Override
 	public boolean execute(){
 		
@@ -75,6 +85,10 @@ public class AddLevelToGameMove extends Move {
 		return this.doMove();
 	}
 
+	/**
+	 * Creates the selected level object
+	 * and adds it to the game
+	 */
 	@Override
 	public boolean doMove() {
 
@@ -88,6 +102,10 @@ public class AddLevelToGameMove extends Move {
 		return true;
 	}
 	
+	/**
+	 * Prompts the builder to select a level to add
+	 * 
+	 */
 	public boolean requestName(){
 		levelname = (String) JOptionPane.showInputDialog(null, "Choose a level to add", "Level "+levelIndex,
 		        JOptionPane.QUESTION_MESSAGE, null, allnames.toArray(), allnames.get(0));
@@ -95,7 +113,10 @@ public class AddLevelToGameMove extends Move {
 		return true;
 	}
 	
-
+	/**
+	 * Determines if adding the level is valid
+	 * Which is always true
+	 */
 	@Override
 	public boolean isValid() {
 		return true;
@@ -109,6 +130,11 @@ public class AddLevelToGameMove extends Move {
 		return false;
 	}
 	
+	/**
+	 * Allows the player to set the name for the level
+	 * 
+	 * @param name
+	 */
 	public void setLevelName(String name){
 		this.levelname = name;
 	}
