@@ -2,4 +2,17 @@ READ ME
 ========================
 To run either the builder or the player applications, right click on the Kabasuji-Cebriones project and run as -> Java Application. Then select which launcher you would like to start. 
 
+Quick notes:
+
+The splash screen is commented out at the beginning of the player application. This is for testing purposes. Otherwise, the splash screen launches during every test and the tests take a long time. 
  
+ To activate the splash screen, comment lines 54 and 55 in the src/playerBoundary/KabasujiPlayerApplication.java file back in.
+ 
+ A default game is loaded into the player automatically. It contains 15 playable levels, all of which are guaranteed to be winable to at least 2 stars. 
+ 
+ **IMPORTANT**
+ Make sure to press enter after added a move number or time constraint into the builder. Because of the way a JTextBox works, the information is only pushed to the controller class when the enter button is hit.
+ 
+ When a tile is removed from the board, it is inserted into the back of the bullpen. Some people thought they disappeared, but this is not the case. 
+ 
+ GG WP
